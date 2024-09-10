@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-
+import { Layout, ConfigProvider } from "antd";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -26,9 +26,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ConfigProvider
+          theme={{
+            token: {
+              // Colors
+              colorBgLayout: "#fff7f4", // --body-background
+              colorPrimary: "#13a89e", // --primary-color
+              colorText: "#000000", // --text-color
+              // colorFillAccent: "#ffffff", // --accent-color
+              colorTextSecondary: "#ffffff", // --secondry-color
+              colorFill: "#ffffffb0", // --transparent-color
+              colorTextPlaceholder: "#00000080", // --transparent-secondry-color
+              colorBgContainer: "#13a89e", // --light-Background
+              colorFillSecondary: "#feefe9", // --light-accent-color
+              fontFamily: '"Figtree", sans-serif', // --default-font
+            },
+          }}>
+          <Layout>{children}</Layout>
+        </ConfigProvider>
       </body>
     </html>
   );
