@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import ReactCompareImage from "react-compare-image";
 import { Button, Spin } from "antd";
+import { RightOutlined, LeftOutlined } from "@ant-design/icons";
 
 export default function Comparison({
   buttonProps,
@@ -109,7 +110,9 @@ export default function Comparison({
           justifyContent: "space-between",
         }}>
         {/* Left Arrow */}
-        <Button onClick={handlePrevious}>{"<"}</Button>
+        <Button onClick={handlePrevious}>
+          <LeftOutlined />
+        </Button>
 
         {/* Scrollable Buttons */}
         <div
@@ -151,7 +154,9 @@ export default function Comparison({
         </div>
 
         {/* Right Arrow */}
-        <Button onClick={handleNext}>{">"}</Button>
+        <Button onClick={handleNext}>
+          <RightOutlined />
+        </Button>
       </div>
 
       <div
