@@ -134,10 +134,10 @@ const buttons = [
   },
 ];
 
-export default function Home() {
+export default function ComparisonPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] min-h-screen items-center justify-items-center">
-      <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="w-full max-w-3xl px-4">
         <Comparison buttonProps={buttons}></Comparison>
       </div>
     </div>

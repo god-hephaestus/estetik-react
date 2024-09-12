@@ -107,9 +107,8 @@ export default function Comparison({
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "center",
         }}>
-        {/* Left Arrow */}
         <Button onClick={handlePrevious}>
           <LeftOutlined />
         </Button>
@@ -124,6 +123,8 @@ export default function Comparison({
             whiteSpace: "nowrap",
             padding: "10px 0",
             position: "relative",
+            marginRight: "10px",
+            marginLeft: "10px",
             width: "400px", // Adjust the width to your preference
           }}>
           {buttonProps.map((button, index) => (
@@ -152,7 +153,6 @@ export default function Comparison({
           ))}
         </div>
 
-        {/* Right Arrow */}
         <Button onClick={handleNext}>
           <RightOutlined />
         </Button>
@@ -160,50 +160,56 @@ export default function Comparison({
 
       <div
         style={{
-          width: "800px",
-          height: "500px",
-          position: "relative",
-          background: "#f0f0f0", // This ensures the container always has a background
-          minHeight: "500px", // Prevents container collapse
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}>
-        {/* Show loader overlay while images are loading */}
-        {forceSpinVisible && (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              position: "absolute",
-              top: 0,
-              left: 0,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "rgba(240, 240, 240, 0.8)", // Slightly transparent overlay
-              zIndex: 1,
-            }}>
-            <Spin size="large" /> {/* Ant Design spinner as a loader */}
-          </div>
-        )}
-
-        {/* Always render the ReactCompareImage component */}
-        <div style={{ visibility: isImageLoaded ? "visible" : "hidden" }}>
-          <ReactCompareImage
-            leftImage={comparisonImage[0]}
-            rightImage={comparisonImage[1]}
-            sliderLineColor="#ffffff"
-            handleSize={30}
-          />
-        </div>
-        <Divider />
-        {/* FAQs Section */}
-        <div>
-          {faqText.map((faq, index) => (
-            <div key={index}>
-              <h3>{faq.question}</h3>
-              <p>{faq.answer}</p>
+        <div
+          style={{
+            display: "inline-block",
+            position: "relative",
+            width: "800px",
+            height: "500px",
+            backgroundColor: "#f0f0f0",
+          }}>
+          {forceSpinVisible && (
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "rgba(240, 240, 240, 0.8)", // Slightly transparent overlay
+                zIndex: 1,
+              }}>
+              <Spin size="large" />
             </div>
-          ))}
+          )}
+
+          {isImageLoaded && (
+            <ReactCompareImage
+              leftImage={comparisonImage[0]}
+              rightImage={comparisonImage[1]}
+              sliderLineColor="#ffffff"
+              handleSize={30}
+            />
+          )}
         </div>
+      </div>
+
+      <Divider />
+
+      <div>
+        {faqText.map((faq, index) => (
+          <div key={index}>
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
