@@ -13,8 +13,8 @@ export default function Testimonials({
 }) {
   return (
     <div
-      className="shadow-lg p-5 bg-white relative"
-      style={{ minHeight: "200px" }}>
+      className="shadow-lg p-5 bg-white relative w-[350px] rounded-xl"
+      style={{ height: "220px" }}>
       <div className="mb-10">
         <p>{textProps.message}</p>
       </div>
