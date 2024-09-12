@@ -34,41 +34,36 @@ export default function Comparison({
     setFaqText(newFaqs);
   };
 
-  useEffect(() => {
+  const scrollToActiveButton = (index: number) => {
     const container = scrollRef.current;
+    const buttons = container?.querySelectorAll("button");
+    if (container && buttons) {
+      const button = buttons[index];
+      const containerCenter =
+        container.getBoundingClientRect().left + container.offsetWidth / 2;
+      const buttonCenter =
+        button.getBoundingClientRect().left + button.offsetWidth / 2;
+      const offset = buttonCenter - containerCenter;
 
-    const handleScroll = () => {
-      if (container) {
-        const buttons = Array.from(container.querySelectorAll("button"));
-        const containerCenter =
-          container.getBoundingClientRect().left + container.offsetWidth / 2;
-
-        let closestIndex = 0;
-        let closestDistance = Infinity;
-
-        buttons.forEach((button, index) => {
-          const buttonCenter =
-            button.getBoundingClientRect().left + button.offsetWidth / 2;
-          const distance = Math.abs(buttonCenter - containerCenter);
-
-          if (distance < closestDistance) {
-            closestDistance = distance;
-            closestIndex = index;
-          }
-        });
-
-        setActiveIndex(closestIndex); // Set the closest button to active
-      }
-    };
-
-    if (container) {
-      container.addEventListener("scroll", handleScroll);
-
-      return () => {
-        container.removeEventListener("scroll", handleScroll);
-      };
+      container.scrollBy({
+        left: offset,
+        behavior: "smooth",
+      });
     }
-  }, []);
+  };
+
+  const handleNext = () => {
+    const nextIndex = (activeIndex + 1) % buttonProps.length;
+    setActiveIndex(nextIndex);
+    scrollToActiveButton(nextIndex);
+  };
+
+  const handlePrevious = () => {
+    const prevIndex =
+      (activeIndex - 1 + buttonProps.length) % buttonProps.length;
+    setActiveIndex(prevIndex);
+    scrollToActiveButton(prevIndex);
+  };
 
   useEffect(() => {
     // Automatically trigger the active button's action
@@ -84,64 +79,63 @@ export default function Comparison({
   return (
     <div className="container">
       <div
-        ref={scrollRef}
-        className="scroll-container"
         style={{
           display: "flex",
-          overflowX: "auto",
-          whiteSpace: "nowrap",
-          scrollSnapType: "x mandatory",
-          scrollBehavior: "smooth",
-          padding: "10px 0",
-          position: "relative",
+          alignItems: "center",
+          justifyContent: "space-between",
         }}>
-        <div style={{ width: 400 }}>
-          <div
-            className="center-indicator"
-            style={{
-              position: "fixed",
-              top: "10px", // Add some padding so the centerline stays within the scrollable area
-              bottom: "10px", // Make sure the centerline only spans the height of the scroll area
-              left: "50%",
-              width: "2px",
-              backgroundColor: "#1890ff",
-              transform: "translateX(-50%)",
-              zIndex: 1,
-            }}></div>
+        {/* Left Arrow */}
+        <Button onClick={handlePrevious}>{"<"}</Button>
+
+        {/* Scrollable Buttons */}
+        <div
+          ref={scrollRef}
+          className="scroll-container"
+          style={{
+            display: "flex",
+            overflowX: "hidden",
+            whiteSpace: "nowrap",
+            padding: "10px 0",
+            position: "relative",
+            width: "400px", // Adjust the width to your preference
+          }}>
           {buttonProps.map((button, index) => (
             <Button
               key={index}
               data-index={index}
               className={activeIndex === index ? "active" : ""}
               onClick={() => {
-                handleImageChange(button.image1, button.image2);
-                handleFaqChange(button.faqs);
+                setActiveIndex(index);
+                scrollToActiveButton(index);
               }}
               style={{
-                scrollSnapAlign: "center",
                 margin: "0 10px",
-                minWidth: "150px", // Adjust button size
-                transition: "transform 0.3s ease, box-shadow 0.3s ease", // Add smooth transition for animations
+                minWidth: "150px",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
                 padding: "10px",
-                transform: activeIndex === index ? "scale(1.2)" : "scale(1)", // Scale up the active button
+                transform: activeIndex === index ? "scale(1.2)" : "scale(1)",
                 boxShadow:
                   activeIndex === index
                     ? "0px 4px 12px rgba(0, 0, 0, 0.3)"
-                    : "none", // Add shadow to active button
-                backgroundColor: activeIndex === index ? "#1890ff" : "", // Change the background color of the active button
-                color: activeIndex === index ? "#fff" : "", // Ensure text color matches background
+                    : "none",
+                backgroundColor: activeIndex === index ? "#1890ff" : "",
+                color: activeIndex === index ? "#fff" : "",
               }}>
               {button.label}
             </Button>
           ))}
         </div>
+
+        {/* Right Arrow */}
+        <Button onClick={handleNext}>{">"}</Button>
       </div>
+
       <div style={{ width: "800px", height: "500px" }}>
         <ReactCompareImage
-          leftImage={comparisonImage[0]} // Dynamically set left image from state
-          rightImage={comparisonImage[1]} // Dynamically set right image from state
-          sliderLineColor="#ffffff" // Customize the slider color
-          handleSize={30} // Customize the handle size
+          leftImage={comparisonImage[0]}
+          rightImage={comparisonImage[1]}
+          sliderLineColor="#ffffff"
+          handleSize={30}
         />
         <div>
           {faqText.map((faq, index) => (

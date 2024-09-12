@@ -9,6 +9,22 @@ export const metadata: Metadata = {
 // Define the buttons data here
 const buttons = [
   {
+    label: "Hair Transplant",
+    image1: "/BeforeAfter/hair.webp",
+    image2: "/BeforeAfter/hair2.webp",
+    faqs: [
+      {
+        question: "What is Hair Transplant?",
+        answer:
+          "Hair Transplant is a condition involving enlarged breast tissue in men.",
+      },
+      {
+        question: "How long does recovery take?",
+        answer: "Recovery takes about 1-2 weeks.",
+      },
+    ],
+  },
+  {
     label: "Gynecomastia",
     image1: "/BeforeAfter/ginocomasti.webp",
     image2: "/BeforeAfter/ginocomasti2.webp",
