@@ -1,4 +1,5 @@
 import Comparison from "@/components/Comparison";
+import SideMenu from "@/components/SideMenu";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -136,9 +137,14 @@ const buttons = [
 
 export default function ComparisonPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <div className="w-full max-w-3xl px-4">
-        <Comparison buttonProps={buttons}></Comparison>
+    <div>
+      <div>
+        <SideMenu />
+      </div>
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="w-full max-w-3xl px-4">
+          <Comparison buttonProps={buttons}></Comparison>
+        </div>
       </div>
     </div>
   );
