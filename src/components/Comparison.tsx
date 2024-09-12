@@ -102,48 +102,24 @@ export default function Comparison({
 
   return (
     <div className="container">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}>
+      <div className="flex items-center justify-between"
+        >
         {/* Left Arrow */}
         <Button onClick={handlePrevious}>{"<"}</Button>
 
         {/* Scrollable Buttons */}
         <div
           ref={scrollRef}
-          className="scroll-container"
-          style={{
-            display: "flex",
-            overflowX: "hidden",
-            whiteSpace: "nowrap",
-            padding: "10px 0",
-            position: "relative",
-            width: "400px", // Adjust the width to your preference
-          }}>
+          className="scroll-container flex px-[10px] relative overflow-hidden whitespace-nowrap w-[400px]"
+          >
           {buttonProps.map((button, index) => (
             <Button
               key={index}
               data-index={index}
-              className={activeIndex === index ? "active" : ""}
+              className={(activeIndex === index ? "active" : "") + `mx-[10px] min-w-[150px] transform transition-transform ${activeIndex === index ? "mx-4 scale-125 shadow-lg bg-[#1890ff] text-white" : "scale-100"} ease-in-out shadow p-[10px]`}
               onClick={() => {
                 setActiveIndex(index);
                 scrollToActiveButton(index);
-              }}
-              style={{
-                margin: "0 10px",
-                minWidth: "150px",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                padding: "10px",
-                transform: activeIndex === index ? "scale(1.2)" : "scale(1)",
-                boxShadow:
-                  activeIndex === index
-                    ? "0px 4px 12px rgba(0, 0, 0, 0.3)"
-                    : "none",
-                backgroundColor: activeIndex === index ? "#1890ff" : "",
-                color: activeIndex === index ? "#fff" : "",
               }}>
               {button.label}
             </Button>
@@ -155,28 +131,12 @@ export default function Comparison({
       </div>
 
       <div
-        style={{
-          width: "800px",
-          height: "500px",
-          position: "relative",
-          background: "#f0f0f0", // This ensures the container always has a background
-          minHeight: "500px", // Prevents container collapse
-        }}>
+        className="w-[800px] h-[500px] relative bg-[#f0f0f0] min-h-[500px]"
+        >
         {/* Show loader overlay while images are loading */}
         {forceSpinVisible && (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              position: "absolute",
-              top: 0,
-              left: 0,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "rgba(240, 240, 240, 0.8)", // Slightly transparent overlay
-              zIndex: 1,
-            }}>
+          <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center bg-[#f0f0f0cc] z-[1]"
+            >
             <Spin size="large" /> {/* Ant Design spinner as a loader */}
           </div>
         )}
