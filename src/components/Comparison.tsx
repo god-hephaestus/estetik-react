@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import ReactCompareImage from "react-compare-image";
-import { Button, Spin } from "antd";
+import { Button, Spin, Divider } from "antd";
 import { RightOutlined, LeftOutlined } from "@ant-design/icons";
 
 export default function Comparison({
@@ -145,8 +145,7 @@ export default function Comparison({
                   activeIndex === index
                     ? "0px 4px 12px rgba(0, 0, 0, 0.3)"
                     : "none",
-                backgroundColor: activeIndex === index ? "#1890ff" : "",
-                color: activeIndex === index ? "#fff" : "",
+                backgroundColor: activeIndex === index ? "#13a89e" : "",
               }}>
               {button.label}
             </Button>
@@ -195,7 +194,7 @@ export default function Comparison({
             handleSize={30}
           />
         </div>
-
+        <Divider />
         {/* FAQs Section */}
         <div>
           {faqText.map((faq, index) => (

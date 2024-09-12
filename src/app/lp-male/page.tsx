@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   description: "LP Description",
 };
 
-// Define the buttons data here
 const buttons = [
   {
     label: "Hair Transplant",
@@ -137,10 +136,10 @@ const buttons = [
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="grid grid-rows-[20px_1fr_20px] min-h-screen items-center justify-items-center">
+      <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Comparison buttonProps={buttons}></Comparison>
-      </main>
+      </div>
     </div>
   );
 }

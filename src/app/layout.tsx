@@ -45,11 +45,14 @@ export default function RootLayout({
               colorBgContainer: "#13a89e", // --light-Background
               colorFillSecondary: "#feefe9", // --light-accent-color
               fontFamily: '"Figtree", sans-serif', // --default-font
+              borderRadius: 10,
+              colorInfo: "#13a89e",
             },
-          }}>
+          }}
+          divider={{ style: { backgroundColor: "black" } }}
+          button={{ style: { color: "white" } }}>
           <Layout>{children}</Layout>
         </ConfigProvider>
-        <Footer></Footer>
       </body>
     </html>
   );
