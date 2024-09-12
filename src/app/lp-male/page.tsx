@@ -139,12 +139,12 @@ export default function ComparisonPage() {
   return (
     <div>
       <div>
-        <SideMenu />
+        <SideMenu>
+          <Comparison buttonProps={buttons}></Comparison>
+        </SideMenu>
       </div>
       <div className="flex min-h-screen items-center justify-center">
-        <div className="w-full max-w-3xl px-4">
-          <Comparison buttonProps={buttons}></Comparison>
-        </div>
+        <div className="w-full max-w-3xl px-4"></div>
       </div>
     </div>
   );

@@ -33,6 +33,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ConfigProvider
           theme={{
+            components: {
+              Divider: {
+                colorSplit: "black",
+              },
+            },
             token: {
               // Colors
               colorBgLayout: "#fff7f4", // --body-background
@@ -49,7 +54,6 @@ export default function RootLayout({
               colorInfo: "#13a89e",
             },
           }}
-          divider={{ style: { backgroundColor: "black" } }}
           button={{ style: { color: "white" } }}>
           <Layout>{children}</Layout>
         </ConfigProvider>

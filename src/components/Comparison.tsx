@@ -169,7 +169,7 @@ export default function Comparison({
             display: "inline-block",
             position: "relative",
             width: "800px",
-            height: "500px",
+            height: "300px",
             backgroundColor: "#f0f0f0",
           }}>
           {forceSpinVisible && (
@@ -206,8 +206,8 @@ export default function Comparison({
       <div>
         {faqText.map((faq, index) => (
           <div key={index}>
-            <h3>{faq.question}</h3>
-            <p>{faq.answer}</p>
+            <h3 className="text-black font-bold">{faq.question}</h3>
+            <p className="text-black">{faq.answer}</p>
           </div>
         ))}
       </div>
