@@ -1,4 +1,5 @@
 import Comparison from "@/components/Comparison";
+import Location from "@/components/Location";
 import SideMenu from "@/components/SideMenu";
 import Testimonials from "@/components/Testimonials";
 import { Divider } from "antd";
@@ -178,6 +179,8 @@ export default function ComparisonPage() {
           <Comparison buttonProps={buttons}></Comparison>
           <Divider />
           <Testimonials testimonialsData={testimonialsData}></Testimonials>
+          <Divider />
+          <Location></Location>
           <Divider />
         </SideMenu>
       </div>
