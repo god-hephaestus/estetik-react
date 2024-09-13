@@ -1,4 +1,5 @@
 import Comparison from "@/components/Comparison";
+import Contact from "@/components/Contact";
 import Location from "@/components/Location";
 import SideMenu from "@/components/SideMenu";
 import Testimonials from "@/components/Testimonials";
@@ -182,6 +183,7 @@ export default function ComparisonPage() {
           <Divider />
           <Location></Location>
           <Divider />
+          <Contact></Contact>
         </SideMenu>
       </div>
       <div className="flex min-h-screen items-center justify-center">
