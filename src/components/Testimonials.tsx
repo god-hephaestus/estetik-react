@@ -1,5 +1,6 @@
 "use client";
 
+import { CommentOutlined } from "@ant-design/icons";
 import { Avatar, Typography } from "antd";
 import React, { useRef, useState } from "react";
 
@@ -78,6 +79,7 @@ export default function Testimonials({
             className="shadow-lg p-5 bg-white relative rounded-xl w-full sm:w-64 md:w-72 lg:w-80"
             style={{ height: "220px" }}>
             <div className="mb-10 text-black">
+              <CommentOutlined className="bottom-[5px] right-[5px] absolute text-xl text-[#13a89e]" />
               <p>{testimonial.textProps.message}</p>
             </div>
 

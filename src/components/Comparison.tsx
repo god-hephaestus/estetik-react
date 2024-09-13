@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import ReactCompareImage from "react-compare-image";
 import { Button, Spin, Divider } from "antd";
-import { RightOutlined, LeftOutlined } from "@ant-design/icons";
+import { RightOutlined, LeftOutlined, MinusOutlined } from "@ant-design/icons";
 
 export default function Comparison({
   buttonProps,
@@ -203,12 +203,14 @@ export default function Comparison({
         </div>
       </div>
 
-      <Divider />
+      <Divider>Frequently Asked Questions</Divider>
 
-      <div>
+      <div className="px-5">
         {faqText.map((faq, index) => (
           <div key={index}>
-            <h3 className="text-black font-bold">{faq.question}</h3>
+            <h3 className="text-black font-bold py-1">
+              <MinusOutlined /> {faq.question}
+            </h3>
             <p className="text-black">{faq.answer}</p>
           </div>
         ))}

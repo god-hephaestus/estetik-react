@@ -178,11 +178,11 @@ export default function ComparisonPage() {
       <div>
         <SideMenu>
           <Comparison buttonProps={buttons}></Comparison>
-          <Divider />
+          <Divider>Testimonials</Divider>
           <Testimonials testimonialsData={testimonialsData}></Testimonials>
-          <Divider />
+          <Divider>Location</Divider>
           <Location></Location>
-          <Divider />
+          <Divider>Get in Contact</Divider>
           <Contact></Contact>
         </SideMenu>
       </div>
