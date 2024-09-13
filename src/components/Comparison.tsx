@@ -113,7 +113,6 @@ export default function Comparison({
           <LeftOutlined />
         </Button>
 
-        {/* Scrollable Buttons */}
         <div
           ref={scrollRef}
           className="scroll-container"
@@ -125,7 +124,7 @@ export default function Comparison({
             position: "relative",
             marginRight: "10px",
             marginLeft: "10px",
-            width: "400px", // Adjust the width to your preference
+            width: "400px",
           }}>
           {buttonProps.map((button, index) => (
             <Button
@@ -165,12 +164,13 @@ export default function Comparison({
           justifyContent: "center",
         }}>
         <div
-          className="xl:h-[300px] lg:h-[300px] md:h-[400px] sm:h-[200px]"
+          className="relative w-full"
           style={{
-            display: "inline-block",
-            position: "relative",
-            width: "800px",
+            width: "100%",
+            maxWidth: "800px",
+            aspectRatio: "16/9",
             backgroundColor: "#f0f0f0",
+            overflow: "hidden",
           }}>
           {forceSpinVisible && (
             <div
@@ -183,7 +183,7 @@ export default function Comparison({
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                background: "rgba(240, 240, 240, 0.8)", // Slightly transparent overlay
+                background: "rgba(240, 240, 240, 0.8)",
                 zIndex: 1,
               }}>
               <Spin size="large" />
@@ -191,12 +191,14 @@ export default function Comparison({
           )}
 
           {isImageLoaded && (
-            <ReactCompareImage
-              leftImage={comparisonImage[0]}
-              rightImage={comparisonImage[1]}
-              sliderLineColor="#ffffff"
-              handleSize={30}
-            />
+            <div className="w-full h-full">
+              <ReactCompareImage
+                leftImage={comparisonImage[0]}
+                rightImage={comparisonImage[1]}
+                sliderLineColor="#ffffff"
+                handleSize={30}
+              />
+            </div>
           )}
         </div>
       </div>
