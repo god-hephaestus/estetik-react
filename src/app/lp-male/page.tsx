@@ -1,5 +1,7 @@
 import Comparison from "@/components/Comparison";
 import SideMenu from "@/components/SideMenu";
+import Testimonials from "@/components/Testimonials";
+import { Divider } from "antd";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -134,13 +136,49 @@ const buttons = [
     ],
   },
 ];
-
+const testimonialsData = [
+  {
+    imageSrc: "rhino.webp",
+    textProps: {
+      name: "John Doe",
+      operation: "Hair Transplant",
+      message: "Great experience with Estetik International!",
+    },
+  },
+  {
+    imageSrc: "hair.webp",
+    textProps: {
+      name: "John Doe",
+      operation: "Hair Transplant",
+      message: "Great experience with Estetik International!",
+    },
+  },
+  {
+    imageSrc: "hair2.webp",
+    textProps: {
+      name: "John Doe",
+      operation: "Hair Transplant",
+      message: "Great experience with Estetik International!",
+    },
+  },
+  {
+    imageSrc: "dental2.webp",
+    textProps: {
+      name: "John Doe",
+      operation: "Hair Transplant",
+      message: "Great experience with Estetik International!",
+    },
+  },
+];
 export default function ComparisonPage() {
   return (
     <div>
       <div>
         <SideMenu>
           <Comparison buttonProps={buttons}></Comparison>
+          <Divider />
+          <Testimonials testimonialsData={testimonialsData}></Testimonials>
+          <Divider />
         </SideMenu>
       </div>
       <div className="flex min-h-screen items-center justify-center">

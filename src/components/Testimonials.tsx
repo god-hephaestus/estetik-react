@@ -31,7 +31,7 @@ export default function Testimonials({
     if (!isDragging || !containerRef.current) return;
     e.preventDefault();
     const x = e.clientX - (containerRef.current.offsetLeft || 0);
-    const walk = (x - startX) * 1.5;
+    const walk = x - startX;
     containerRef.current.scrollLeft = scrollLeft - walk;
   };
 
@@ -47,7 +47,7 @@ export default function Testimonials({
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging || !containerRef.current) return;
     const x = e.touches[0].clientX - (containerRef.current.offsetLeft || 0);
-    const walk = (x - startX) * 0.8;
+    const walk = (x - startX) * 1.6;
     containerRef.current.scrollLeft = scrollLeft - walk;
   };
 
@@ -77,15 +77,15 @@ export default function Testimonials({
           <div
             className="shadow-lg p-5 bg-white relative w-[350px] rounded-xl"
             style={{ height: "220px" }}>
-            <div className="mb-10">
+            <div className="mb-10 text-black">
               <p>{testimonial.textProps.message}</p>
             </div>
 
             <div className="absolute bottom-0 left-0 flex items-center p-5">
               <Avatar
                 size={50}
-                src={testimonial.imageSrc}
-                alt={"text"}
+                src={"/BeforeAfter/" + testimonial.imageSrc}
+                alt={"customer testimonial"}
                 draggable={false}
                 shape="circle"
                 className="mr-3"
@@ -94,7 +94,7 @@ export default function Testimonials({
                 <Title level={4} className="m-0">
                   {testimonial.textProps.name}
                 </Title>
-                <p className="text-gray-500">
+                <p className="text-gray-600">
                   {testimonial.textProps.operation}
                 </p>
               </div>
