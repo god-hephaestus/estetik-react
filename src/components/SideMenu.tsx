@@ -12,7 +12,7 @@ export default function SideMenu({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className="relative z-50 border-orange-600">
+    <div className="relative z-50 ">
       <div
         className={`h-screen xl:w-1/3 lg:w-2/5 md:w-3/4 sm:w-5/6 bg-[#f0f0f0]  fixed right-0 top-0 transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"

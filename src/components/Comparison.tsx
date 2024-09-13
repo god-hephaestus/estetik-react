@@ -165,11 +165,11 @@ export default function Comparison({
           justifyContent: "center",
         }}>
         <div
+          className="xl:h-[300px] lg:h-[300px] md:h-[400px] sm:h-[200px]"
           style={{
             display: "inline-block",
             position: "relative",
             width: "800px",
-            height: "auto",
             backgroundColor: "#f0f0f0",
           }}>
           {forceSpinVisible && (
