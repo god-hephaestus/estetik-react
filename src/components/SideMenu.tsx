@@ -14,7 +14,7 @@ export default function SideMenu({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative z-50 h-screen">
       <div
-        className={`h-full fixed right-0 top-0 xl:w-1/3 lg:w-2/5 md:w-3/4 sm:w-5/6 bg-[#f0f0f0] transition-transform duration-300 ease-in-out ${
+        className={`h-full fixed right-0 top-0 xl:w-1/3 lg:w-2/5 md:w-1/2 sm:w-2/3 w-full bg-[#f0f0f0] transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}>
         <Button

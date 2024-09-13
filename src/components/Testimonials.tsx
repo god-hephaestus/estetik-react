@@ -61,7 +61,7 @@ export default function Testimonials({
   return (
     <div
       ref={containerRef}
-      className={`flex overflow-hidden cursor-${
+      className={`flex overflow-x-hidden cursor-${
         isDragging ? "grabbing" : "grab"
       } no-select`}
       onMouseDown={handleMouseDown}
@@ -75,7 +75,7 @@ export default function Testimonials({
       {testimonialsData.map((testimonial, index) => (
         <div key={index} className="flex-shrink-0 mr-4">
           <div
-            className="shadow-lg p-5 bg-white relative w-[350px] rounded-xl"
+            className="shadow-lg p-5 bg-white relative rounded-xl w-full sm:w-64 md:w-72 lg:w-80"
             style={{ height: "220px" }}>
             <div className="mb-10 text-black">
               <p>{testimonial.textProps.message}</p>
