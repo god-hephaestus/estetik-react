@@ -7,7 +7,7 @@ import { Button } from "antd";
 
 export default function Contact() {
   return (
-    <div className="flex  lg:justify-between">
+    <div className="flex lg:space-x-3 lg:justify-center">
       <Button
         className="h-auto px-2 py-0"
         target="_blank"

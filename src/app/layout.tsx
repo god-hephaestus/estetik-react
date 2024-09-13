@@ -39,19 +39,20 @@ export default function RootLayout({
               },
             },
             token: {
-              // Colors
-              colorBgLayout: "#fff7f4", // --body-background
-              colorPrimary: "#13a89e", // --primary-color
-              colorText: "#000000", // --text-color
-              // colorFillAccent: "#ffffff", // --accent-color
-              colorTextSecondary: "#ffffff", // --secondry-color
-              colorFill: "#ffffffb0", // --transparent-color
-              colorTextPlaceholder: "#00000080", // --transparent-secondry-color
-              colorBgContainer: "#13a89e", // --light-Background
-              colorFillSecondary: "#feefe9", // --light-accent-color
-              fontFamily: '"Figtree", sans-serif', // --default-font
+              colorPrimary: "#13a89e",
+              colorPrimaryHover: "#13a89e",
+              colorPrimaryActive: "#13a89e",
+              colorPrimaryText: "#13a89e",
+              colorText: "#000000",
+              colorTextSecondary: "#ffffff",
+              colorFill: "#ffffffb0",
+              colorTextPlaceholder: "#00000080",
+              colorBgLayout: "#fff7f4",
+              colorBgContainer: "#13a89e",
+              colorFillSecondary: "#feefe9",
               borderRadius: 10,
-              colorInfo: "#13a89e",
+              controlOutline: "none",
+              fontFamily: '"Figtree", sans-serif',
             },
           }}
           button={{ style: { color: "white" } }}>
