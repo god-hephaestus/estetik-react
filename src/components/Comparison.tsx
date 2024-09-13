@@ -169,7 +169,7 @@ export default function Comparison({
             display: "inline-block",
             position: "relative",
             width: "800px",
-            height: "300px",
+            height: "auto",
             backgroundColor: "#f0f0f0",
           }}>
           {forceSpinVisible && (
