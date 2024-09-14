@@ -120,7 +120,7 @@ export default function Comparison({
             display: "flex",
             overflowX: "hidden",
             whiteSpace: "nowrap",
-            padding: "10px 0",
+            padding: "10px 10px",
             position: "relative",
             marginRight: "10px",
             marginLeft: "10px",

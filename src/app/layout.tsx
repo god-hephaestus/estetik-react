@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { ConfigProvider } from "antd";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "./globals.css";
-import { Layout, ConfigProvider } from "antd";
-import Footer from "@/components/Footer";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -35,7 +36,7 @@ export default function RootLayout({
           theme={{
             components: {
               Divider: {
-                colorSplit: "black",
+                colorSplit: "#13a89e",
               },
             },
             token: {
@@ -56,7 +57,7 @@ export default function RootLayout({
             },
           }}
           button={{ style: { color: "white" } }}>
-          <Layout>{children}</Layout>
+          <AntdRegistry>{children}</AntdRegistry>
         </ConfigProvider>
       </body>
     </html>
