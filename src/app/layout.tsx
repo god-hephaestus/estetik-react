@@ -38,6 +38,9 @@ export default function RootLayout({
               Divider: {
                 colorSplit: "#13a89e",
               },
+              Carousel: {
+                arrowSize: 24,
+              },
             },
             token: {
               colorPrimary: "#13a89e",

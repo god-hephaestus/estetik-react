@@ -1,5 +1,6 @@
 import Comparison from "@/components/Comparison";
 import Contact from "@/components/Contact";
+import Doctors from "@/components/Doctors";
 import Location from "@/components/Location";
 import SideMenu from "@/components/SideMenu";
 import Testimonials from "@/components/Testimonials";
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   description: "LP Description",
 };
 
-const buttons = [
+const buttonsData = [
   {
     label: "Hair Transplant",
     image1: "/BeforeAfter/hair.webp",
@@ -172,14 +173,48 @@ const testimonialsData = [
     },
   },
 ];
+const doctorsData = [
+  {
+    imageSrc: "/img/doctors/2.webp",
+    doctorName: "Dr. John Doe",
+    doctorText:
+      "Dr. John Doe is an experienced surgeon with over 20 years of practice.",
+  },
+  {
+    imageSrc: "/img/doctors/3.webp",
+    doctorName: "Dr. Jane Smith",
+    doctorText:
+      "Dr. Jane Smith specializes in facial aesthetics and reconstructive surgery.",
+  },
+  {
+    imageSrc: "/img/doctors/4.webp",
+    doctorName: "Dr. Jane Smith",
+    doctorText:
+      "Dr. Jane Smith specializes in facial aesthetics and reconstructive surgery.",
+  },
+  {
+    imageSrc: "/img/doctors/5.webp",
+    doctorName: "Dr. Jane Smith",
+    doctorText:
+      "Dr. Jane Smith specializes in facial aesthetics and reconstructive surgery.",
+  },
+  {
+    imageSrc: "/img/doctors/6.webp",
+    doctorName: "Dr. Jane Smith",
+    doctorText:
+      "Dr. Jane Smith specializes in facial aesthetics and reconstructive surgery.",
+  },
+];
 export default function ComparisonPage() {
   return (
     <div>
       <div>
         <SideMenu>
-          <Comparison buttonProps={buttons}></Comparison>
+          <Comparison buttonProps={buttonsData}></Comparison>
           <Divider>Testimonials</Divider>
           <Testimonials testimonialsData={testimonialsData}></Testimonials>
+          <Divider>Doctors</Divider>
+          <Doctors doctorDescription={doctorsData}></Doctors>
           <Divider>Location</Divider>
           <Location></Location>
           <Divider>Get in Contact</Divider>
