@@ -1,30 +1,38 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import ReactCompareImage from "react-compare-image";
 import { Button, Spin, Divider } from "antd";
 import { RightOutlined, LeftOutlined, MinusOutlined } from "@ant-design/icons";
 
 export default function Comparison({
   buttonProps,
+  comparisonData,
+  onButtonClick,
 }: {
   buttonProps: Array<{
     label: string;
     image1: string;
     image2: string;
     faqs: Array<{ question: string; answer: string }>;
+    galleryKey: string; // Include galleryKey here as well
   }>;
+  comparisonData: {
+    label: string;
+    image1: string;
+    image2: string;
+    faqs: Array<{ question: string; answer: string }>;
+    galleryKey: string; // Include galleryKey here as well
+  };
+  onButtonClick: (newComparisonData: {
+    label: string;
+    image1: string;
+    image2: string;
+    faqs: Array<{ question: string; answer: string }>;
+    galleryKey: string;
+  }) => void;
 }) {
-  const [comparisonImage, setComparisonImage] = useState<string[]>([
-    buttonProps[0]?.image1 || "",
-    buttonProps[0]?.image2 || "",
-  ]);
-  const [faqText, setFaqText] = useState<
-    Array<{ question: string; answer: string }>
-  >(buttonProps[0]?.faqs || []);
-  const [activeIndex, setActiveIndex] = useState(0); // Track the active button index
   const [isImageLoaded, setIsImageLoaded] = useState(false); // Track if the new image is loaded
-
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Preload images and show the spinner while loading
@@ -37,18 +45,11 @@ export default function Comparison({
     // Once both images are loaded, update state and hide the spinner
     img1.onload = () => {
       img2.onload = () => {
-        setComparisonImage([image1, image2]);
         setIsImageLoaded(true); // Hide the spinner after images load
       };
       img2.src = image2;
     };
     img1.src = image1;
-  };
-
-  const handleFaqChange = (
-    newFaqs: Array<{ question: string; answer: string }>
-  ) => {
-    setFaqText(newFaqs);
   };
 
   const scrollToActiveButton = (index: number) => {
@@ -70,27 +71,27 @@ export default function Comparison({
   };
 
   const handleNext = () => {
-    const nextIndex = (activeIndex + 1) % buttonProps.length;
-    setActiveIndex(nextIndex);
+    const nextIndex =
+      (buttonProps.findIndex((b) => b.label === comparisonData.label) + 1) %
+      buttonProps.length;
+    onButtonClick(buttonProps[nextIndex]);
     scrollToActiveButton(nextIndex);
   };
 
   const handlePrevious = () => {
     const prevIndex =
-      (activeIndex - 1 + buttonProps.length) % buttonProps.length;
-    setActiveIndex(prevIndex);
+      (buttonProps.findIndex((b) => b.label === comparisonData.label) -
+        1 +
+        buttonProps.length) %
+      buttonProps.length;
+    onButtonClick(buttonProps[prevIndex]);
     scrollToActiveButton(prevIndex);
   };
 
-  useEffect(() => {
-    if (buttonProps[activeIndex]) {
-      handleImageChange(
-        buttonProps[activeIndex].image1,
-        buttonProps[activeIndex].image2
-      );
-      handleFaqChange(buttonProps[activeIndex].faqs);
-    }
-  }, [activeIndex, buttonProps]);
+  // Preload new images when comparisonData changes
+  React.useEffect(() => {
+    handleImageChange(comparisonData.image1, comparisonData.image2);
+  }, [comparisonData]);
 
   return (
     <div className="container">
@@ -121,9 +122,9 @@ export default function Comparison({
             <Button
               key={index}
               data-index={index}
-              className={activeIndex === index ? "active" : ""}
+              className={comparisonData.label === button.label ? "active" : ""}
               onClick={() => {
-                setActiveIndex(index);
+                onButtonClick(button); // Update state when button is clicked
                 scrollToActiveButton(index);
               }}
               style={{
@@ -131,12 +132,16 @@ export default function Comparison({
                 minWidth: "150px",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
                 padding: "10px",
-                transform: activeIndex === index ? "scale(1.2)" : "scale(1)",
+                transform:
+                  comparisonData.label === button.label
+                    ? "scale(1.2)"
+                    : "scale(1)",
                 boxShadow:
-                  activeIndex === index
+                  comparisonData.label === button.label
                     ? "0px 4px 12px rgba(0, 0, 0, 0.3)"
                     : "none",
-                backgroundColor: activeIndex === index ? "#13a89e" : "",
+                backgroundColor:
+                  comparisonData.label === button.label ? "#13a89e" : "",
               }}>
               {button.label}
             </Button>
@@ -148,11 +153,13 @@ export default function Comparison({
         </Button>
       </div>
 
+      {/* Render comparison images */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          marginTop: "20px",
         }}>
         <div
           className="relative w-full"
@@ -184,8 +191,8 @@ export default function Comparison({
           {isImageLoaded && (
             <div className="w-full h-full">
               <ReactCompareImage
-                leftImage={comparisonImage[0]}
-                rightImage={comparisonImage[1]}
+                leftImage={comparisonData.image1}
+                rightImage={comparisonData.image2}
                 sliderLineColor="#ffffff"
                 handleSize={30}
               />
@@ -197,7 +204,7 @@ export default function Comparison({
       <Divider>Frequently Asked Questions</Divider>
 
       <div className="px-5">
-        {faqText.map((faq, index) => (
+        {comparisonData.faqs.map((faq, index) => (
           <div key={index}>
             <h3 className="text-black font-bold py-1">
               <MinusOutlined /> {faq.question}
