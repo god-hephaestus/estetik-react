@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Image } from "antd";
+import { Divider, Image } from "antd";
 
 export default function Gallery({
   activeGalleryKey,
@@ -17,7 +17,8 @@ export default function Gallery({
   }));
 
   return (
-    <div>
+    <>
+      <Divider> Gallery</Divider>
       {currentGallery.length > 0 ? (
         <Image.PreviewGroup items={previewItems}>
           <Image
@@ -29,6 +30,6 @@ export default function Gallery({
       ) : (
         <p>No images available for this gallery.</p>
       )}
-    </div>
+    </>
   );
 }

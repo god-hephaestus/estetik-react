@@ -1,4 +1,3 @@
-import Comparison from "@/components/Comparison";
 import Contact from "@/components/Contact";
 import Doctors from "@/components/Doctors";
 import Location from "@/components/Location";
@@ -254,7 +253,7 @@ export default function ComparisonPage() {
         <h1 className="text-white text-4xl text-center">
           Estetik International <br /> Blending Art and Plastic Surgery
         </h1>
-        <p className="text-white text-lg">
+        <p className="text-white text-lg text-center">
           Estetik International Istanbul - Leading Aesthetic Surgery Health
           Group of Turkey
         </p>

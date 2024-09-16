@@ -26,14 +26,13 @@ export default function ParentState({
   };
 
   return (
-    <div>
-      <h2>Parent Component</h2>
+    <>
       <Comparison
         buttonProps={buttonsData}
         comparisonData={comparisonData}
         onButtonClick={handleButtonClick}
       />
       <Gallery activeGalleryKey={galleryKey} GallerySrcArr={GallerySrcArr} />
-    </div>
+    </>
   );
 }
