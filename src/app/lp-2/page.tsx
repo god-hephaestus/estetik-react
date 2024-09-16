@@ -1,5 +1,6 @@
 import Contact from "@/components/Contact";
 import Doctors from "@/components/Doctors";
+import OperationForm from "@/components/OperationForm";
 import Location from "@/components/Location";
 import ParentState from "@/components/ParentState";
 import Testimonials from "@/components/Testimonials";
@@ -248,6 +249,7 @@ const doctorsData = [
 export default function Page() {
   return (
     <>
+      <OperationForm></OperationForm>
       <ParentState
         buttonsData={buttonsData}
         GalleryImgsData={GalleryImgsData}
