@@ -2,6 +2,7 @@ import Comparison from "@/components/Comparison";
 import Contact from "@/components/Contact";
 import Doctors from "@/components/Doctors";
 import Location from "@/components/Location";
+import ParentState from "@/components/ParentState";
 import SideMenu from "@/components/SideMenu";
 import Testimonials from "@/components/Testimonials";
 import { Divider } from "antd";
@@ -20,14 +21,14 @@ const buttonsData = [
     faqs: [
       {
         question: "What is Hair Transplant?",
-        answer:
-          "Hair Transplant is a condition involving enlarged breast tissue in men.",
+        answer: "Hair Transplant is a procedure to restore hair growth.",
       },
       {
         question: "How long does recovery take?",
         answer: "Recovery takes about 1-2 weeks.",
       },
     ],
+    galleryKey: "gallery1",
   },
   {
     label: "Gynecomastia",
@@ -44,6 +45,7 @@ const buttonsData = [
         answer: "Recovery takes about 1-2 weeks.",
       },
     ],
+    galleryKey: "gallery2",
   },
   {
     label: "360 Body Lifting",
@@ -60,6 +62,7 @@ const buttonsData = [
         answer: "Recovery takes about 2-3 weeks.",
       },
     ],
+    galleryKey: "gallery3",
   },
   {
     label: "Six Pack",
@@ -75,6 +78,7 @@ const buttonsData = [
         answer: "Recovery can take 4 to 6 weeks.",
       },
     ],
+    galleryKey: "gallery4",
   },
   {
     label: "Rhinoplasty",
@@ -90,6 +94,7 @@ const buttonsData = [
         answer: "Recovery takes 2 to 3 weeks.",
       },
     ],
+    galleryKey: "gallery5",
   },
   {
     label: "Dental Aesthetics",
@@ -106,6 +111,7 @@ const buttonsData = [
         answer: "Recovery takes about 1-2 weeks.",
       },
     ],
+    galleryKey: "gallery6",
   },
   {
     label: "Otoplasty",
@@ -121,6 +127,7 @@ const buttonsData = [
         answer: "Recovery can take 4 to 6 weeks.",
       },
     ],
+    galleryKey: "gallery7",
   },
   {
     label: "Penile Surgeries",
@@ -137,8 +144,43 @@ const buttonsData = [
         answer: "Recovery takes 2 to 3 weeks.",
       },
     ],
+    galleryKey: "gallery8",
   },
 ];
+const GallerySrcArr = {
+  gallery1: [
+    { src: "/BeforeAfter/hair.webp", alt: "Hair Transplant" },
+    { src: "/BeforeAfter/hair2.webp", alt: "Hair Transplant" },
+  ],
+  gallery2: [
+    { src: "/BeforeAfter/ginocomasti.webp", alt: "Gynecomastia" },
+    { src: "/BeforeAfter/ginocomasti2.webp", alt: "Gynecomastia" },
+  ],
+  gallery3: [
+    { src: "/BeforeAfter/360.webp", alt: "360 Body Lifting" },
+    { src: "/BeforeAfter/3602.webp", alt: "360 Body Lifting" },
+  ],
+  gallery4: [
+    { src: "/BeforeAfter/360.webp", alt: "360 Body Lifting" },
+    { src: "/BeforeAfter/3602.webp", alt: "360 Body Lifting" },
+  ],
+  gallery5: [
+    { src: "/BeforeAfter/360.webp", alt: "360 Body Lifting" },
+    { src: "/BeforeAfter/3602.webp", alt: "360 Body Lifting" },
+  ],
+  gallery6: [
+    { src: "/BeforeAfter/360.webp", alt: "360 Body Lifting" },
+    { src: "/BeforeAfter/3602.webp", alt: "360 Body Lifting" },
+  ],
+  gallery7: [
+    { src: "/BeforeAfter/360.webp", alt: "360 Body Lifting" },
+    { src: "/BeforeAfter/3602.webp", alt: "360 Body Lifting" },
+  ],
+  gallery8: [
+    { src: "/BeforeAfter/360.webp", alt: "360 Body Lifting" },
+    { src: "/BeforeAfter/3602.webp", alt: "360 Body Lifting" },
+  ],
+};
 const testimonialsData = [
   {
     imageSrc: "rhino.webp",
@@ -225,7 +267,9 @@ export default function ComparisonPage() {
         loop></video>
       <div className="relative z-10">
         <SideMenu>
-          <Comparison buttonProps={buttonsData}></Comparison>
+          <ParentState
+            buttonsData={buttonsData}
+            GallerySrcArr={GallerySrcArr}></ParentState>
           <Divider>Testimonials</Divider>
           <Testimonials testimonialsData={testimonialsData}></Testimonials>
           <Divider>Doctors</Divider>

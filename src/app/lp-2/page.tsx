@@ -145,14 +145,13 @@ const buttonsData = [
     galleryKey: "gallery8",
   },
 ];
-
 const GallerySrcArr = {
   gallery1: [
-    { src: "/BeforeAfter/hair1.webp", alt: "Hair Transplant" },
+    { src: "/BeforeAfter/hair.webp", alt: "Hair Transplant" },
     { src: "/BeforeAfter/hair2.webp", alt: "Hair Transplant" },
   ],
   gallery2: [
-    { src: "/BeforeAfter/ginocomasti1.webp", alt: "Gynecomastia" },
+    { src: "/BeforeAfter/ginocomasti.webp", alt: "Gynecomastia" },
     { src: "/BeforeAfter/ginocomasti2.webp", alt: "Gynecomastia" },
   ],
   gallery3: [

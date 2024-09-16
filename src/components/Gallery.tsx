@@ -11,14 +11,23 @@ export default function Gallery({
 }) {
   const currentGallery = GallerySrcArr[activeGalleryKey] || [];
 
+  const previewItems = currentGallery.map((image) => ({
+    src: image.src,
+    alt: image.alt,
+  }));
+
   return (
     <div>
       {currentGallery.length > 0 ? (
-        currentGallery.map((image, index) => (
-          <Image key={index} width={200} src={image.src} alt={image.alt} />
-        ))
+        <Image.PreviewGroup items={previewItems}>
+          <Image
+            width={200}
+            src={currentGallery[0].src}
+            alt={currentGallery[0].alt}
+          />
+        </Image.PreviewGroup>
       ) : (
-        <p>No images available for this gallery.</p> // Fallback for empty or incorrect gallery keys
+        <p>No images available for this gallery.</p>
       )}
     </div>
   );
