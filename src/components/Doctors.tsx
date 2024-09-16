@@ -25,8 +25,8 @@ export default function Doctors({ doctorDescription }: DoctorsProps) {
             <Image
               src={doctor.imageSrc}
               alt={doctor.doctorName}
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
             />
           </div>
           <div className="flex-1">

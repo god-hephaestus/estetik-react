@@ -207,8 +207,19 @@ const doctorsData = [
 ];
 export default function ComparisonPage() {
   return (
-    <div>
-      <div>
+    <div className="relative">
+      <div className="z-10 items-center justify-center relative">
+        <div className="px-4 text-center w-screen">
+          <h1 className="text-white text-7xl ">ESTETIK INTERNATINONAL</h1>
+        </div>
+      </div>
+      <video
+        className="absolute top-0 left-0 w-screen h-screen object-cover"
+        src="/video/slider.mp4"
+        autoPlay
+        muted
+        loop></video>
+      <div className="relative z-10">
         <SideMenu>
           <Comparison buttonProps={buttonsData}></Comparison>
           <Divider>Testimonials</Divider>
@@ -221,7 +232,8 @@ export default function ComparisonPage() {
           <Contact></Contact>
         </SideMenu>
       </div>
-      <div className="flex min-h-screen items-center justify-center">
+
+      <div className="relative z-10 flex min-h-screen items-center justify-center">
         <div className="w-full max-w-3xl px-4"></div>
       </div>
     </div>
