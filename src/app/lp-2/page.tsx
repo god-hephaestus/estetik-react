@@ -1,6 +1,7 @@
 import Comparison from "@/components/Comparison";
 import Contact from "@/components/Contact";
 import Doctors from "@/components/Doctors";
+import Gallery from "@/components/Gallery";
 import Location from "@/components/Location";
 import Testimonials from "@/components/Testimonials";
 import { Divider } from "antd";
@@ -207,6 +208,7 @@ const doctorsData = [
 export default function Page() {
   return (
     <>
+      <Gallery></Gallery>
       <Comparison buttonProps={buttonsData}></Comparison>
       <Divider>Testimonials</Divider>
       <Testimonials testimonialsData={testimonialsData}></Testimonials>

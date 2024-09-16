@@ -46,6 +46,22 @@ const buttonsData = [
     ],
   },
   {
+    label: "360 Body Lifting",
+    image1: "/BeforeAfter/360.webp",
+    image2: "/BeforeAfter/3602.webp",
+    faqs: [
+      {
+        question: "What is 360 Body Lifting?",
+        answer:
+          "360 Body Lifting helps to remove excess skin and fat after major weight loss.",
+      },
+      {
+        question: "How long does recovery take?",
+        answer: "Recovery takes about 2-3 weeks.",
+      },
+    ],
+  },
+  {
     label: "Six Pack",
     image1: "/BeforeAfter/sixpack.webp",
     image2: "/BeforeAfter/sixpack2.webp",
@@ -119,22 +135,6 @@ const buttonsData = [
       {
         question: "How long does recovery take?",
         answer: "Recovery takes 2 to 3 weeks.",
-      },
-    ],
-  },
-  {
-    label: "360 Body Lifting",
-    image1: "/BeforeAfter/360.webp",
-    image2: "/BeforeAfter/3602.webp",
-    faqs: [
-      {
-        question: "What is 360 Body Lifting?",
-        answer:
-          "360 Body Lifting helps to remove excess skin and fat after major weight loss.",
-      },
-      {
-        question: "How long does recovery take?",
-        answer: "Recovery takes about 2-3 weeks.",
       },
     ],
   },
