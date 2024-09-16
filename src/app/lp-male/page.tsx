@@ -208,10 +208,14 @@ const doctorsData = [
 export default function ComparisonPage() {
   return (
     <div className="relative">
-      <div className="z-10 items-center justify-center relative">
-        <div className="px-4 text-center w-screen">
-          <h1 className="text-white text-7xl ">ESTETIK INTERNATINONAL</h1>
-        </div>
+      <div className="absolute top-0 left-0 w-3/5 h-screen flex flex-col justify-center items-center font-sans px-32 z-10 space-y-4">
+        <h1 className="text-white text-4xl text-center">
+          Estetik International <br /> Blending Art and Plastic Surgery
+        </h1>
+        <p className="text-white text-lg">
+          Estetik International Istanbul - Leading Aesthetic Surgery Health
+          Group of Turkey
+        </p>
       </div>
       <video
         className="absolute top-0 left-0 w-screen h-screen object-cover"
