@@ -5,7 +5,7 @@ import Gallery from "./Gallery";
 
 export default function ParentState({
   buttonsData,
-  GallerySrcArr,
+  GalleryImgsData,
 }: {
   buttonsData: Array<{
     label: string;
@@ -14,7 +14,7 @@ export default function ParentState({
     faqs: Array<{ question: string; answer: string }>;
     galleryKey: string;
   }>;
-  GallerySrcArr: { [key: string]: Array<{ src: string; alt: string }> };
+  GalleryImgsData: { [key: string]: Array<{ src: string; alt: string }> };
 }) {
   const [comparisonData, setComparisonData] = useState(buttonsData[0]);
   const [galleryKey, setGalleryKey] = useState(comparisonData.galleryKey);
@@ -32,7 +32,10 @@ export default function ParentState({
         comparisonData={comparisonData}
         onButtonClick={handleButtonClick}
       />
-      <Gallery activeGalleryKey={galleryKey} GallerySrcArr={GallerySrcArr} />
+      <Gallery
+        activeGalleryKey={galleryKey}
+        GalleryImgsData={GalleryImgsData}
+      />
     </>
   );
 }

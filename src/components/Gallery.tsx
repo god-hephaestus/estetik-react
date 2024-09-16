@@ -4,12 +4,12 @@ import { Divider, Image } from "antd";
 
 export default function Gallery({
   activeGalleryKey,
-  GallerySrcArr,
+  GalleryImgsData,
 }: {
   activeGalleryKey: string;
-  GallerySrcArr: { [key: string]: Array<{ src: string; alt: string }> };
+  GalleryImgsData: { [key: string]: Array<{ src: string; alt: string }> };
 }) {
-  const currentGallery = GallerySrcArr[activeGalleryKey] || [];
+  const currentGallery = GalleryImgsData[activeGalleryKey] || [];
 
   const previewItems = currentGallery.map((image) => ({
     src: image.src,

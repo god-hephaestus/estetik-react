@@ -145,7 +145,7 @@ const buttonsData = [
     galleryKey: "gallery8",
   },
 ];
-const GallerySrcArr = {
+const GalleryImgsData = {
   gallery1: [
     { src: "/BeforeAfter/hair.webp", alt: "Hair Transplant" },
     { src: "/BeforeAfter/hair2.webp", alt: "Hair Transplant" },
@@ -248,7 +248,10 @@ const doctorsData = [
 export default function Page() {
   return (
     <>
-      <ParentState buttonsData={buttonsData} GallerySrcArr={GallerySrcArr} />
+      <ParentState
+        buttonsData={buttonsData}
+        GalleryImgsData={GalleryImgsData}
+      />
       <Divider>Testimonials</Divider>
       <Testimonials testimonialsData={testimonialsData}></Testimonials>
       <Divider>Doctors</Divider>

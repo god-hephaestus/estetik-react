@@ -146,38 +146,140 @@ const buttonsData = [
     galleryKey: "gallery8",
   },
 ];
-const GallerySrcArr = {
+const GalleryImgsData = {
   gallery1: [
-    { src: "/BeforeAfter/hair.webp", alt: "Hair Transplant" },
-    { src: "/BeforeAfter/hair2.webp", alt: "Hair Transplant" },
+    {
+      src: "/BeforeAfter/gallery/hair/Hair transplant.webp",
+      alt: "Hair Transplant",
+    },
+    {
+      src: "/BeforeAfter/gallery/hair/Hair transplant 2.webp",
+      alt: "Hair Transplant",
+    },
+    {
+      src: "/BeforeAfter/gallery/hair/Hair transplant 3.webp",
+      alt: "Hair Transplant",
+    },
+    {
+      src: "/BeforeAfter/gallery/hair/Hair transplant 4.webp",
+      alt: "Hair Transplant",
+    },
+    {
+      src: "/BeforeAfter/gallery/hair/Hair transplant 5.webp",
+      alt: "Hair Transplant",
+    },
+    {
+      src: "/BeforeAfter/gallery/hair/Hair transplant 6.webp",
+      alt: "Hair Transplant",
+    },
+    {
+      src: "/BeforeAfter/gallery/hair/Hair transplant 7.webp",
+      alt: "Hair Transplant",
+    },
   ],
   gallery2: [
-    { src: "/BeforeAfter/ginocomasti.webp", alt: "Gynecomastia" },
-    { src: "/BeforeAfter/ginocomasti2.webp", alt: "Gynecomastia" },
+    {
+      src: "/BeforeAfter/gallery/gynecomastia/Gynecomastia.webp",
+      alt: "Gynecomastia",
+    },
+    {
+      src: "/BeforeAfter/gallery/gynecomastia/Gynecomastia 2.webp",
+      alt: "Gynecomastia",
+    },
+    {
+      src: "/BeforeAfter/gallery/gynecomastia/Gynecomastia 4.webp",
+      alt: "Gynecomastia",
+    },
+    {
+      src: "/BeforeAfter/gallery/gynecomastia/Gynecomastia 5.webp",
+      alt: "Gynecomastia",
+    },
+    {
+      src: "/BeforeAfter/gallery/gynecomastia/Gynecomastia 6.webp",
+      alt: "Gynecomastia",
+    },
   ],
   gallery3: [
-    { src: "/BeforeAfter/360.webp", alt: "360 Body Lifting" },
-    { src: "/BeforeAfter/3602.webp", alt: "360 Body Lifting" },
+    {
+      src: "/BeforeAfter/gallery/360/360 body lifting 1.webp",
+      alt: "360 Body Lifting",
+    },
+    {
+      src: "/BeforeAfter/gallery/360/360 body lifting 2.webp",
+      alt: "360 Body Lifting",
+    },
   ],
   gallery4: [
-    { src: "/BeforeAfter/360.webp", alt: "360 Body Lifting" },
-    { src: "/BeforeAfter/3602.webp", alt: "360 Body Lifting" },
+    { src: "/BeforeAfter/gallery/sixpack/Six Pack 1.webp", alt: "Six Pack" },
+    { src: "/BeforeAfter/gallery/sixpack/Six Pack 2.webp", alt: "Six Pack" },
+    { src: "/BeforeAfter/gallery/sixpack/Six Pack 3.webp", alt: "Six Pack" },
+    { src: "/BeforeAfter/gallery/sixpack/Six Pack 4.webp", alt: "Six Pack" },
   ],
   gallery5: [
-    { src: "/BeforeAfter/360.webp", alt: "360 Body Lifting" },
-    { src: "/BeforeAfter/3602.webp", alt: "360 Body Lifting" },
+    {
+      src: "/BeforeAfter/gallery/rhinoplasty/Rhinoplasty 1.webp",
+      alt: "Rhinoplasty",
+    },
+    {
+      src: "/BeforeAfter/gallery/rhinoplasty/Rhinoplasty 2.webp",
+      alt: "Rhinoplasty",
+    },
+    {
+      src: "/BeforeAfter/gallery/rhinoplasty/Rhinoplasty 3.webp",
+      alt: "Rhinoplasty",
+    },
+    {
+      src: "/BeforeAfter/gallery/rhinoplasty/Rhinoplasty 5.webp",
+      alt: "Rhinoplasty",
+    },
   ],
   gallery6: [
-    { src: "/BeforeAfter/360.webp", alt: "360 Body Lifting" },
-    { src: "/BeforeAfter/3602.webp", alt: "360 Body Lifting" },
+    {
+      src: "/BeforeAfter/gallery/dental/Dental 1.webp",
+      alt: "Dental Aesthetics",
+    },
+    {
+      src: "/BeforeAfter/gallery/dental/Dental 2.webp",
+      alt: "Dental Aesthetics",
+    },
+    {
+      src: "/BeforeAfter/gallery/dental/Dental 3.webp",
+      alt: "Dental Aesthetics",
+    },
+    {
+      src: "/BeforeAfter/gallery/dental/Dental 4.webp",
+      alt: "Dental Aesthetics",
+    },
   ],
   gallery7: [
-    { src: "/BeforeAfter/360.webp", alt: "360 Body Lifting" },
-    { src: "/BeforeAfter/3602.webp", alt: "360 Body Lifting" },
+    { src: "/BeforeAfter/gallery/otoplasty/Otoplasty.webp", alt: "Otoplasty" },
+    {
+      src: "/BeforeAfter/gallery/otoplasty/Otoplasty 2.webp",
+      alt: "Otoplasty",
+    },
+    {
+      src: "/BeforeAfter/gallery/otoplasty/Otoplasty 3.webp",
+      alt: "Otoplasty",
+    },
+    {
+      src: "/BeforeAfter/gallery/otoplasty/Otoplasty 4.webp",
+      alt: "Otoplasty",
+    },
+    {
+      src: "/BeforeAfter/gallery/otoplasty/Otoplasty 5.webp",
+      alt: "Otoplasty",
+    },
+    {
+      src: "/BeforeAfter/gallery/otoplasty/Otoplasty 6.webp",
+      alt: "Otoplasty",
+    },
+    {
+      src: "/BeforeAfter/gallery/otoplasty/Otoplasty 7.webp",
+      alt: "Otoplasty",
+    },
   ],
   gallery8: [
-    { src: "/BeforeAfter/360.webp", alt: "360 Body Lifting" },
-    { src: "/BeforeAfter/3602.webp", alt: "360 Body Lifting" },
+    { src: "/BeforeAfter/gallery/penile/Penile.webp", alt: "Penile Surgeries" },
   ],
 };
 const testimonialsData = [
@@ -268,7 +370,7 @@ export default function ComparisonPage() {
         <SideMenu>
           <ParentState
             buttonsData={buttonsData}
-            GallerySrcArr={GallerySrcArr}></ParentState>
+            GalleryImgsData={GalleryImgsData}></ParentState>
           <Divider>Testimonials</Divider>
           <Testimonials testimonialsData={testimonialsData}></Testimonials>
           <Divider>Doctors</Divider>
