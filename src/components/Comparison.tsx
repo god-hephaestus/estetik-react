@@ -24,30 +24,21 @@ export default function Comparison({
   >(buttonProps[0]?.faqs || []);
   const [activeIndex, setActiveIndex] = useState(0); // Track the active button index
   const [isImageLoaded, setIsImageLoaded] = useState(false); // Track if the new image is loaded
-  const [forceSpinVisible, setForceSpinVisible] = useState(true); // Keep spin visible until both images are fully loaded
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Function to introduce a small delay for image loading
-  const delay = (ms: number) =>
-    new Promise((resolve) => setTimeout(resolve, ms));
-
-  // Preload images and force a delay to show skeleton loader
-  const handleImageChange = async (image1: string, image2: string) => {
-    setIsImageLoaded(false); // Show skeleton while loading new images
-    setForceSpinVisible(true); // Keep the spin visible while images are loading
+  // Preload images and show the spinner while loading
+  const handleImageChange = (image1: string, image2: string) => {
+    setIsImageLoaded(false); // Show spinner while loading new images
 
     const img1 = new Image();
     const img2 = new Image();
 
-    // Once both images are loaded, update state and hide the skeleton loader
+    // Once both images are loaded, update state and hide the spinner
     img1.onload = () => {
-      img2.onload = async () => {
+      img2.onload = () => {
         setComparisonImage([image1, image2]);
-
-        await delay(100); // Ensure images are in place before hiding spin
-        setIsImageLoaded(true);
-        setForceSpinVisible(false); // Hide the spin only after images are rendered
+        setIsImageLoaded(true); // Hide the spinner after images load
       };
       img2.src = image2;
     };
@@ -172,7 +163,7 @@ export default function Comparison({
             backgroundColor: "#f0f0f0",
             overflow: "hidden",
           }}>
-          {forceSpinVisible && (
+          {!isImageLoaded && (
             <div
               style={{
                 width: "100%",
