@@ -308,6 +308,46 @@ const testimonialsData = [
     },
   },
   {
+    imageSrc: "hair2.webp",
+    textProps: {
+      name: "John Doe",
+      operation: "Hair Transplant",
+      message: "Great experience with Estetik International!",
+    },
+  },
+  {
+    imageSrc: "hair2.webp",
+    textProps: {
+      name: "John Doe",
+      operation: "Hair Transplant",
+      message: "Great experience with Estetik International!",
+    },
+  },
+  {
+    imageSrc: "hair2.webp",
+    textProps: {
+      name: "John Doe",
+      operation: "Hair Transplant",
+      message: "Great experience with Estetik International!",
+    },
+  },
+  {
+    imageSrc: "hair2.webp",
+    textProps: {
+      name: "John Doe",
+      operation: "Hair Transplant",
+      message: "Great experience with Estetik International!",
+    },
+  },
+  {
+    imageSrc: "hair2.webp",
+    textProps: {
+      name: "John Doe",
+      operation: "Hair Transplant",
+      message: "Great experience with Estetik International!",
+    },
+  },
+  {
     imageSrc: "dental2.webp",
     textProps: {
       name: "John Doe",
@@ -317,6 +357,18 @@ const testimonialsData = [
   },
 ];
 const doctorsData = [
+  {
+    imageSrc: "/img/doctors/5.webp",
+    doctorName: "Dr. Jane Smith",
+    doctorText:
+      "Dr. Jane Smith specializes in facial aesthetics and reconstructive surgery.",
+  },
+  {
+    imageSrc: "/img/doctors/5.webp",
+    doctorName: "Dr. Jane Smith",
+    doctorText:
+      "Dr. Jane Smith specializes in facial aesthetics and reconstructive surgery.",
+  },
   {
     imageSrc: "/img/doctors/2.webp",
     doctorName: "Dr. John Doe",
@@ -351,14 +403,14 @@ const doctorsData = [
 export default function ComparisonPage() {
   return (
     <div className="relative">
-      <div className="absolute top-0 left-0 w-3/5 h-screen flex flex-col justify-center items-center font-sans px-32 z-10 space-y-4">
-        <h1 className="text-white text-4xl text-center">
+      <div className="absolute top-0 left-0 w-3/5 h-screen sm:hidden lg:flex flex-col justify-center items-center font-sans px-32 z-10 space-y-4">
+        {/* <h1 className="text-white text-4xl text-center ">
           Estetik International <br /> Blending Art and Plastic Surgery
         </h1>
         <p className="text-white text-lg text-center">
           Estetik International Istanbul - Leading Aesthetic Surgery Health
           Group of Turkey
-        </p>
+        </p> */}
       </div>
       <video
         className="absolute top-0 left-0 w-screen h-screen object-cover"

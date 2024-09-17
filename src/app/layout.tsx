@@ -35,6 +35,8 @@ export default function RootLayout({
         <ConfigProvider
           theme={{
             components: {
+              Input: { colorBgContainer: "#ffffff" },
+              Select: { colorBgContainer: "#ffffff" },
               Divider: {
                 colorSplit: "#13a89e",
               },

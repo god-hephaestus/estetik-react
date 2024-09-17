@@ -18,7 +18,7 @@ export default function SideMenu({ children }: { children: React.ReactNode }) {
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}>
         <Button
-          className="z-50 absolute left-[-35px] top-1/2 transform -translate-y-1/2  text-white py-6 px-3 rounded-l-3xl rounded-r-none"
+          className="z-50 absolute sm:left-[-25px] left-[-35px] top-1/2 transform -translate-y-1/2  text-white py-6 px-3 rounded-l-3xl md:rounded-r-none"
           onClick={toggleSidebar}>
           {isOpen ? (
             <DoubleRightOutlined className="text-xl" />
