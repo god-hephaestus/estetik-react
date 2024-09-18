@@ -1,39 +1,110 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { Form, Input, Button, Select } from "antd";
+import {
+  CountryCode,
+  getCountries,
+  getCountryCallingCode,
+  isValidPhoneNumber,
+} from "libphonenumber-js";
 
 const { TextArea } = Input;
 const { Option } = Select;
 
+interface Country {
+  code: CountryCode;
+  name: string;
+  phoneCode: string;
+}
+
 export default function OperationForm() {
   const [form] = Form.useForm();
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
+  const [phone, setPhone] = useState<string>("");
+  const [countryCode, setCountryCode] = useState<CountryCode>("US");
+  const [countries, setCountries] = useState<Country[]>([]);
+  const [submitting, setSubmitting] = useState(false);
 
-    const newUtmValues = {
-      utm_term: params.get("utm_term") || "",
-      utm_source: params.get("utm_source") || "",
-      utm_ad: params.get("utm_ad") || "",
-      utm_campaign: params.get("utm_campaign") || "",
-      utm_content: params.get("utm_content") || "",
+  useEffect(() => {
+    const allCountries = getCountries().map((code) => {
+      const countryName =
+        new Intl.DisplayNames(["en"], { type: "region" }).of(code) || "Unknown";
+      return {
+        code,
+        name: countryName,
+        phoneCode: getCountryCallingCode(code),
+      };
+    });
+
+    setCountries(allCountries);
+
+    const detectUserCountry = async () => {
+      try {
+        const position = await new Promise<GeolocationPosition>(
+          (resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(resolve, reject);
+          }
+        );
+
+        const { latitude, longitude } = position.coords;
+        const response = await fetch(
+          `https://geocode.xyz/${latitude},${longitude}?geoit=json`
+        );
+        const data = await response.json();
+
+        const detectedCountryCode = data.prov?.toUpperCase();
+
+        if (
+          detectedCountryCode &&
+          getCountries().includes(detectedCountryCode as CountryCode)
+        ) {
+          setCountryCode(detectedCountryCode as CountryCode);
+        } else {
+          setCountryCode("US");
+        }
+      } catch (error) {
+        console.warn("Geolocation failed, defaulting to US.");
+        setCountryCode("US");
+      }
     };
 
-    form.setFieldsValue(newUtmValues);
-  }, [form]);
+    detectUserCountry();
+  }, []);
 
-  const handleSubmit = (values: any) => {
-    console.log("Form submitted:", values);
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPhone(e.target.value);
+  };
+
+  const handleCountryChange = (value: CountryCode) => {
+    setCountryCode(value);
+  };
+
+  const handleSubmit = async (values: any) => {
+    setSubmitting(true);
+    try {
+      console.log("Form submitted:", values);
+      console.log("Selected country code:", countryCode);
+      console.log("Phone number:", phone);
+
+      if (isValidPhoneNumber(phone, countryCode)) {
+        console.log("Phone number is valid");
+      } else {
+        console.log("Phone number is invalid");
+      }
+
+      // Add form submission logic here
+    } catch (error) {
+      console.error("Submission error:", error);
+    } finally {
+      setSubmitting(false);
+      form.resetFields();
+    }
   };
 
   return (
-    <div className="w-[350px] p-6 m-6 shadow-2xl rounded-2xl ">
+    <div className="max-w-md p-6 m-6 shadow-2xl rounded-2xl">
       <Form
         name="operationForm"
-        variant="outlined"
-        size="middle"
-        scrollToFirstError
         form={form}
         layout="vertical"
         onFinish={handleSubmit}>
@@ -45,12 +116,49 @@ export default function OperationForm() {
         </Form.Item>
 
         <Form.Item
+          label="Country Code"
+          name="countryCode"
+          rules={[
+            { required: true, message: "Please select a country code!" },
+          ]}>
+          <Select
+            showSearch
+            value={countryCode}
+            onChange={handleCountryChange}
+            placeholder="Select a country"
+            optionFilterProp="children"
+            filterOption={(input, option) =>
+              (option?.children as unknown as string)
+                .toLowerCase()
+                .includes(input.toLowerCase())
+            }>
+            {countries.map((country) => (
+              <Option key={country.code} value={country.code}>
+                {country.name} (+{country.phoneCode})
+              </Option>
+            ))}
+          </Select>
+        </Form.Item>
+
+        <Form.Item
           label="Phone"
           name="phone"
           rules={[
-            { required: true, message: "Please input your phone number!" },
+            { required: true, message: "Please input a valid phone number!" },
+            () => ({
+              validator(_, value) {
+                if (isValidPhoneNumber(value, countryCode)) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(new Error("Invalid phone number."));
+              },
+            }),
           ]}>
-          <Input placeholder="Enter your phone number" />
+          <Input
+            value={phone}
+            onChange={handlePhoneChange}
+            placeholder="Enter your phone number"
+          />
         </Form.Item>
 
         <Form.Item
@@ -68,25 +176,13 @@ export default function OperationForm() {
           <TextArea rows={4} placeholder="Enter your message" />
         </Form.Item>
 
-        <Form.Item name="utm_term" hidden>
-          <Input />
-        </Form.Item>
-        <Form.Item name="utm_source" hidden>
-          <Input />
-        </Form.Item>
-        <Form.Item name="utm_ad" hidden>
-          <Input />
-        </Form.Item>
-        <Form.Item name="utm_campaign" hidden>
-          <Input />
-        </Form.Item>
-        <Form.Item name="utm_content" hidden>
-          <Input />
-        </Form.Item>
-
-        <Form.Item className="text-right ">
-          <Button type="primary" htmlType="submit" className="px-6">
-            Submit
+        <Form.Item className="text-right">
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="px-6"
+            disabled={submitting}>
+            {submitting ? "Submitting..." : "Submit"}
           </Button>
         </Form.Item>
       </Form>

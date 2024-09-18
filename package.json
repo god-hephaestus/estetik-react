@@ -12,7 +12,8 @@
     "@ant-design/icons": "^5.4.0",
     "@ant-design/nextjs-registry": "^1.0.1",
     "antd": "^5.20.6",
-    "next": "14.2.9",
+    "libphonenumber-js": "^1.11.8",
+    "next": "^14.2.12",
     "react": "^18",
     "react-compare-image": "^3.4.0",
     "react-dom": "^18"

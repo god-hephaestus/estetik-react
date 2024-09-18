@@ -3,7 +3,6 @@ import Doctors from "@/components/Doctors";
 import Location from "@/components/Location";
 import ParentState from "@/components/ParentState";
 import SideMenu from "@/components/SideMenu";
-import Testimonials from "@/components/Testimonials";
 import { Divider } from "antd";
 import { Metadata } from "next";
 
