@@ -2,27 +2,37 @@
 import React, { useState } from "react";
 import Comparison from "./Comparison";
 import Gallery from "./Gallery";
+import Testimonials from "./Testimonials";
 
 export default function ParentState({
+  testimonialsData,
   buttonsData,
   GalleryImgsData,
 }: {
+  testimonialsData: {
+    [key: string]: Array<{
+      name: string;
+      operation: string;
+      message: string;
+      imageSrc: string;
+    }>;
+  };
   buttonsData: Array<{
     label: string;
     image1: string;
     image2: string;
     faqs: Array<{ question: string; answer: string }>;
-    galleryKey: string;
+    stateKey: string;
   }>;
   GalleryImgsData: { [key: string]: Array<{ src: string; alt: string }> };
 }) {
   const [comparisonData, setComparisonData] = useState(buttonsData[0]);
-  const [galleryKey, setGalleryKey] = useState(comparisonData.galleryKey);
+  const [stateKey, setstateKey] = useState(comparisonData.stateKey);
 
-  // Function to update both comparison and gallery data
+  // Function to update comparison, gallery, and testimonials based on stateKey
   const handleButtonClick = (newComparisonData: (typeof buttonsData)[0]) => {
     setComparisonData(newComparisonData); // Update comparison data
-    setGalleryKey(newComparisonData.galleryKey); // Update gallery key
+    setstateKey(newComparisonData.stateKey); // Update gallery key for both Gallery and Testimonials
   };
 
   return (
@@ -32,10 +42,8 @@ export default function ParentState({
         comparisonData={comparisonData}
         onButtonClick={handleButtonClick}
       />
-      <Gallery
-        activeGalleryKey={galleryKey}
-        GalleryImgsData={GalleryImgsData}
-      />
+      <Gallery activestateKey={stateKey} GalleryImgsData={GalleryImgsData} />
+      <Testimonials stateKey={stateKey} testimonialsData={testimonialsData} />
     </>
   );
 }

@@ -27,7 +27,7 @@ const buttonsData = [
         answer: "Recovery takes about 1-2 weeks.",
       },
     ],
-    galleryKey: "gallery1",
+    stateKey: "gallery1",
   },
   {
     label: "Gynecomastia",
@@ -44,7 +44,7 @@ const buttonsData = [
         answer: "Recovery takes about 1-2 weeks.",
       },
     ],
-    galleryKey: "gallery2",
+    stateKey: "gallery2",
   },
   {
     label: "360 Body Lifting",
@@ -61,7 +61,7 @@ const buttonsData = [
         answer: "Recovery takes about 2-3 weeks.",
       },
     ],
-    galleryKey: "gallery3",
+    stateKey: "gallery3",
   },
   {
     label: "Six Pack",
@@ -77,7 +77,7 @@ const buttonsData = [
         answer: "Recovery can take 4 to 6 weeks.",
       },
     ],
-    galleryKey: "gallery4",
+    stateKey: "gallery4",
   },
   {
     label: "Rhinoplasty",
@@ -93,7 +93,7 @@ const buttonsData = [
         answer: "Recovery takes 2 to 3 weeks.",
       },
     ],
-    galleryKey: "gallery5",
+    stateKey: "gallery5",
   },
   {
     label: "Dental Aesthetics",
@@ -110,7 +110,7 @@ const buttonsData = [
         answer: "Recovery takes about 1-2 weeks.",
       },
     ],
-    galleryKey: "gallery6",
+    stateKey: "gallery6",
   },
   {
     label: "Otoplasty",
@@ -126,7 +126,7 @@ const buttonsData = [
         answer: "Recovery can take 4 to 6 weeks.",
       },
     ],
-    galleryKey: "gallery7",
+    stateKey: "gallery7",
   },
   {
     label: "Penile Surgeries",
@@ -143,7 +143,7 @@ const buttonsData = [
         answer: "Recovery takes 2 to 3 weeks.",
       },
     ],
-    galleryKey: "gallery8",
+    stateKey: "gallery8",
   },
 ];
 const GalleryImgsData = {

@@ -15,21 +15,21 @@ export default function Comparison({
     image1: string;
     image2: string;
     faqs: Array<{ question: string; answer: string }>;
-    galleryKey: string; // Include galleryKey here as well
+    stateKey: string; // Include stateKey here as well
   }>;
   comparisonData: {
     label: string;
     image1: string;
     image2: string;
     faqs: Array<{ question: string; answer: string }>;
-    galleryKey: string; // Include galleryKey here as well
+    stateKey: string; // Include stateKey here as well
   };
   onButtonClick: (newComparisonData: {
     label: string;
     image1: string;
     image2: string;
     faqs: Array<{ question: string; answer: string }>;
-    galleryKey: string;
+    stateKey: string;
   }) => void;
 }) {
   const [isImageLoaded, setIsImageLoaded] = useState(false); // Track if the new image is loaded

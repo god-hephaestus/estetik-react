@@ -8,18 +8,20 @@ const { Title } = Typography;
 
 interface Testimonial {
   imageSrc: string;
-  textProps: {
-    name: string;
-    operation: string;
-    message: string;
-  };
+  name: string;
+  operation: string;
+  message: string;
 }
 
 interface TestimonialsProps {
-  testimonialsData: Testimonial[];
+  stateKey: string;
+  testimonialsData: { [key: string]: Testimonial[] };
 }
 
-export default function Testimonials({ testimonialsData }: TestimonialsProps) {
+export default function Testimonials({
+  stateKey,
+  testimonialsData,
+}: TestimonialsProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -65,6 +67,9 @@ export default function Testimonials({ testimonialsData }: TestimonialsProps) {
     }
   };
 
+  // Filter testimonials by stateKey
+  const testimonials = testimonialsData[stateKey] || [];
+
   return (
     <div>
       <div
@@ -80,37 +85,39 @@ export default function Testimonials({ testimonialsData }: TestimonialsProps) {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleEnd}
         style={{ userSelect: "none" }}>
-        {testimonialsData.map((testimonial, index) => (
-          <div key={index} className="flex-shrink-0 mr-4">
-            <div
-              className="shadow-lg p-5 bg-white relative rounded-xl w-full sm:w-64 md:w-72 lg:w-80"
-              style={{ height: "220px" }}>
-              <div className="mb-10 text-black">
-                <CommentOutlined className="bottom-[5px] right-[5px] absolute text-xl text-[#13a89e]" />
-                <p>{testimonial.textProps.message}</p>
-              </div>
+        {testimonials.length > 0 ? (
+          testimonials.map((testimonial, index) => (
+            <div key={index} className="flex-shrink-0 mr-4">
+              <div
+                className="shadow-lg p-5 bg-white relative rounded-xl w-full sm:w-64 md:w-72 lg:w-80"
+                style={{ height: "220px" }}>
+                <div className="mb-10 text-black">
+                  <CommentOutlined className="bottom-[5px] right-[5px] absolute text-xl text-[#13a89e]" />
+                  <p>{testimonial.message}</p>
+                </div>
 
-              <div className="absolute bottom-0 left-0 flex items-center p-5">
-                <Avatar
-                  size={50}
-                  src={"/BeforeAfter/" + testimonial.imageSrc}
-                  alt={"customer testimonial"}
-                  draggable={false}
-                  shape="circle"
-                  className="mr-3"
-                />
-                <div>
-                  <Title level={4} className="m-0">
-                    {testimonial.textProps.name}
-                  </Title>
-                  <p className="text-gray-600">
-                    {testimonial.textProps.operation}
-                  </p>
+                <div className="absolute bottom-0 left-0 flex items-center p-5">
+                  <Avatar
+                    size={50}
+                    src={"/BeforeAfter/" + testimonial.imageSrc}
+                    alt={"customer testimonial"}
+                    draggable={false}
+                    shape="circle"
+                    className="mr-3"
+                  />
+                  <div>
+                    <Title level={4} className="m-0">
+                      {testimonial.name}
+                    </Title>
+                    <p className="text-gray-600">{testimonial.operation}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>No testimonials available for this selection.</p>
+        )}
       </div>
     </div>
   );

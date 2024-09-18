@@ -27,7 +27,7 @@ const buttonsData = [
         answer: "Recovery takes about 1-2 weeks.",
       },
     ],
-    galleryKey: "gallery1",
+    stateKey: "gallery1",
   },
   {
     label: "Gynecomastia",
@@ -44,7 +44,7 @@ const buttonsData = [
         answer: "Recovery takes about 1-2 weeks.",
       },
     ],
-    galleryKey: "gallery2",
+    stateKey: "gallery2",
   },
   {
     label: "360 Body Lifting",
@@ -61,7 +61,7 @@ const buttonsData = [
         answer: "Recovery takes about 2-3 weeks.",
       },
     ],
-    galleryKey: "gallery3",
+    stateKey: "gallery3",
   },
   {
     label: "Six Pack",
@@ -77,7 +77,7 @@ const buttonsData = [
         answer: "Recovery can take 4 to 6 weeks.",
       },
     ],
-    galleryKey: "gallery4",
+    stateKey: "gallery4",
   },
   {
     label: "Rhinoplasty",
@@ -93,7 +93,7 @@ const buttonsData = [
         answer: "Recovery takes 2 to 3 weeks.",
       },
     ],
-    galleryKey: "gallery5",
+    stateKey: "gallery5",
   },
   {
     label: "Dental Aesthetics",
@@ -110,7 +110,7 @@ const buttonsData = [
         answer: "Recovery takes about 1-2 weeks.",
       },
     ],
-    galleryKey: "gallery6",
+    stateKey: "gallery6",
   },
   {
     label: "Otoplasty",
@@ -126,7 +126,7 @@ const buttonsData = [
         answer: "Recovery can take 4 to 6 weeks.",
       },
     ],
-    galleryKey: "gallery7",
+    stateKey: "gallery7",
   },
   {
     label: "Penile Surgeries",
@@ -143,7 +143,7 @@ const buttonsData = [
         answer: "Recovery takes 2 to 3 weeks.",
       },
     ],
-    galleryKey: "gallery8",
+    stateKey: "gallery8",
   },
 ];
 const GalleryImgsData = {
@@ -282,80 +282,108 @@ const GalleryImgsData = {
     { src: "/BeforeAfter/gallery/penile/Penile.webp", alt: "Penile Surgeries" },
   ],
 };
-const testimonialsData = [
-  {
-    imageSrc: "rhino.webp",
-    textProps: {
+const testimonialsData = {
+  gallery1: [
+    {
       name: "John Doe",
       operation: "Hair Transplant",
-      message: "Great experience with Estetik International!",
+      message: "Amazing results, highly recommend!",
+      imageSrc: "hairTestimonial.webp",
     },
-  },
-  {
-    imageSrc: "hair.webp",
-    textProps: {
+    {
+      name: "Jane Smith",
+      operation: "Hair Transplant",
+      message: "Very professional and caring staff.",
+      imageSrc: "hairTestimonial2.webp",
+    },
+  ],
+  gallery2: [
+    {
+      name: "Mark Lee",
+      operation: "Gynecomastia",
+      message: "The surgery was life-changing.",
+      imageSrc: "gynoTestimonial.webp",
+    },
+  ],
+  gallery3: [
+    {
+      name: "Sarah Johnson",
+      operation: "360 Body Lifting",
+      message: "Fantastic experience!",
+      imageSrc: "360Testimonial.webp",
+    },
+  ],
+  gallery4: [
+    {
       name: "John Doe",
       operation: "Hair Transplant",
-      message: "Great experience with Estetik International!",
+      message: "Amazing results, highly recommend!",
+      imageSrc: "hairTestimonial.webp",
     },
-  },
-  {
-    imageSrc: "hair2.webp",
-    textProps: {
+    {
+      name: "Jane Smith",
+      operation: "Hair Transplant",
+      message: "Very professional and caring staff.",
+      imageSrc: "hairTestimonial2.webp",
+    },
+  ],
+  gallery5: [
+    {
       name: "John Doe",
       operation: "Hair Transplant",
-      message: "Great experience with Estetik International!",
+      message: "Amazing results, highly recommend!",
+      imageSrc: "hairTestimonial.webp",
     },
-  },
-  {
-    imageSrc: "hair2.webp",
-    textProps: {
+    {
+      name: "Jane Smith",
+      operation: "Hair Transplant",
+      message: "Very professional and caring staff.",
+      imageSrc: "hairTestimonial2.webp",
+    },
+  ],
+  gallery6: [
+    {
       name: "John Doe",
       operation: "Hair Transplant",
-      message: "Great experience with Estetik International!",
+      message: "Amazing results, highly recommend!",
+      imageSrc: "hairTestimonial.webp",
     },
-  },
-  {
-    imageSrc: "hair2.webp",
-    textProps: {
+    {
+      name: "Jane Smith",
+      operation: "Hair Transplant",
+      message: "Very professional and caring staff.",
+      imageSrc: "hairTestimonial2.webp",
+    },
+  ],
+  gallery7: [
+    {
       name: "John Doe",
       operation: "Hair Transplant",
-      message: "Great experience with Estetik International!",
+      message: "Amazing results, highly recommend!",
+      imageSrc: "hairTestimonial.webp",
     },
-  },
-  {
-    imageSrc: "hair2.webp",
-    textProps: {
+    {
+      name: "Jane Smith",
+      operation: "Hair Transplant",
+      message: "Very professional and caring staff.",
+      imageSrc: "hairTestimonial2.webp",
+    },
+  ],
+  gallery8: [
+    {
       name: "John Doe",
       operation: "Hair Transplant",
-      message: "Great experience with Estetik International!",
+      message: "Amazing results, highly recommend!",
+      imageSrc: "hairTestimonial.webp",
     },
-  },
-  {
-    imageSrc: "hair2.webp",
-    textProps: {
-      name: "John Doe",
+    {
+      name: "Jane Smith",
       operation: "Hair Transplant",
-      message: "Great experience with Estetik International!",
+      message: "Very professional and caring staff.",
+      imageSrc: "hairTestimonial2.webp",
     },
-  },
-  {
-    imageSrc: "hair2.webp",
-    textProps: {
-      name: "John Doe",
-      operation: "Hair Transplant",
-      message: "Great experience with Estetik International!",
-    },
-  },
-  {
-    imageSrc: "dental2.webp",
-    textProps: {
-      name: "John Doe",
-      operation: "Hair Transplant",
-      message: "Great experience with Estetik International!",
-    },
-  },
-];
+  ],
+};
 const doctorsData = [
   {
     imageSrc: "/img/doctors/5.webp",
@@ -422,9 +450,9 @@ export default function ComparisonPage() {
         <SideMenu>
           <ParentState
             buttonsData={buttonsData}
-            GalleryImgsData={GalleryImgsData}></ParentState>
+            GalleryImgsData={GalleryImgsData}
+            testimonialsData={testimonialsData}></ParentState>
           <Divider>Testimonials</Divider>
-          <Testimonials testimonialsData={testimonialsData}></Testimonials>
           <Divider>Doctors</Divider>
           <Doctors doctorDescription={doctorsData}></Doctors>
           <Divider>Location</Divider>

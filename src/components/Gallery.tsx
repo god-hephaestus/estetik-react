@@ -3,13 +3,13 @@ import React from "react";
 import { Divider, Image } from "antd";
 
 export default function Gallery({
-  activeGalleryKey,
+  activestateKey,
   GalleryImgsData,
 }: {
-  activeGalleryKey: string;
+  activestateKey: string;
   GalleryImgsData: { [key: string]: Array<{ src: string; alt: string }> };
 }) {
-  const currentGallery = GalleryImgsData[activeGalleryKey] || [];
+  const currentGallery = GalleryImgsData[activestateKey] || [];
 
   const previewItems = currentGallery.map((image) => ({
     src: image.src,
