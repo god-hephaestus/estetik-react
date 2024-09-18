@@ -5,6 +5,7 @@ import ParentState from "@/components/ParentState";
 import SideMenu from "@/components/SideMenu";
 import { Divider } from "antd";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "LP Title",
@@ -447,16 +448,24 @@ export default function ComparisonPage() {
         loop></video>
       <div className="relative z-10">
         <SideMenu>
+          <div className="flex justify-center mb-6">
+            <Image
+              width={300}
+              height={200}
+              alt={"logo"}
+              src={"/img/estintlogo25.webp"}
+              title="Estetik International"></Image>
+          </div>
+
           <ParentState
             buttonsData={buttonsData}
             GalleryImgsData={GalleryImgsData}
             testimonialsData={testimonialsData}></ParentState>
-          <Divider>Testimonials</Divider>
-          <Divider>Doctors</Divider>
+          <Divider style={{ fontWeight: "bold" }}>Doctors</Divider>
           <Doctors doctorDescription={doctorsData}></Doctors>
-          <Divider>Location</Divider>
+          <Divider style={{ fontWeight: "bold" }}>Location</Divider>
           <Location></Location>
-          <Divider>Get in Contact</Divider>
+          <Divider style={{ fontWeight: "bold" }}>Get in Contact</Divider>
           <Contact></Contact>
         </SideMenu>
       </div>

@@ -208,7 +208,9 @@ export default function Comparison({
         </div>
       </div>
 
-      <Divider>Frequently Asked Questions</Divider>
+      <Divider style={{ fontWeight: "bold" }}>
+        Frequently Asked Questions
+      </Divider>
 
       <div className="px-5">
         {comparisonData.faqs.map((faq, index) => (

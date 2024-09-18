@@ -39,6 +39,7 @@ export default function RootLayout({
               Select: { colorBgContainer: "#ffffff" },
               Divider: {
                 colorSplit: "#13a89e",
+                lineWidth: 2,
               },
               Carousel: {
                 arrowSize: 24,

@@ -18,7 +18,7 @@ export default function Gallery({
 
   return (
     <>
-      <Divider>Gallery</Divider>
+      <Divider style={{ fontWeight: "bold" }}>Before & After</Divider>
       <div className="p-4 text-center">
         {currentGallery.length > 0 ? (
           <Image.PreviewGroup items={previewItems}>

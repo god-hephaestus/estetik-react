@@ -1,7 +1,7 @@
 "use client";
 
 import { CommentOutlined } from "@ant-design/icons";
-import { Avatar, Typography } from "antd";
+import { Avatar, Divider, Typography } from "antd";
 import React, { useRef, useState } from "react";
 
 const { Title } = Typography;
@@ -72,6 +72,7 @@ export default function Testimonials({
 
   return (
     <div>
+      <Divider style={{ fontWeight: "bold" }}>Testimonials</Divider>
       <div
         ref={containerRef}
         className={`flex overflow-x-auto cursor-${
