@@ -26,7 +26,7 @@ export default function ParentState({
   }>;
   GalleryImgsData: { [key: string]: Array<{ src: string; alt: string }> };
 }) {
-  const [comparisonData, setComparisonData] = useState(buttonsData[0]);
+  const [comparisonData, setComparisonData] = useState(buttonsData[0]); // this is what we're gonna change based on the url
   const [stateKey, setstateKey] = useState(comparisonData.stateKey);
 
   // Function to update comparison, gallery, and testimonials based on stateKey

@@ -55,6 +55,7 @@ export default function Comparison({
   const scrollToActiveButton = (index: number) => {
     const container = scrollRef.current;
     const buttons = container?.querySelectorAll("button");
+
     if (container && buttons) {
       const button = buttons[index];
       const containerCenter =
@@ -93,6 +94,12 @@ export default function Comparison({
     handleImageChange(comparisonData.image1, comparisonData.image2);
   }, [comparisonData]);
 
+  React.useEffect(() => {
+    const initialIndex = buttonProps.findIndex(
+      (b) => b.label === comparisonData.label
+    );
+    scrollToActiveButton(initialIndex);
+  }, []);
   return (
     <div className="container">
       <div
@@ -112,7 +119,7 @@ export default function Comparison({
             display: "flex",
             overflowX: "hidden",
             whiteSpace: "nowrap",
-            padding: "10px 10px",
+            padding: "10px 150px",
             position: "relative",
             marginRight: "10px",
             marginLeft: "10px",
