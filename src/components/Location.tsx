@@ -11,9 +11,9 @@ export default function Location() {
     <div>
       <div className="w-full flex">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96261.059544503!2d28.856770992279056!3d41.065536419891714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac64c07925733%3A0x96ea14ba8be2cdb6!2sEstetik%20International!5e0!3m2!1sen!2str!4v1718963674578!5m2!1sen!2str"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10133147.836277347!2d29.356114206454567!3d42.49165901949489!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac64c07925733%3A0x96ea14ba8be2cdb6!2sEstetik%20International!5e0!3m2!1sen!2str!4v1726670444497!5m2!1sen!2str"
           loading="lazy"
-          className="w-[90%] h-auto px-5 rounded-[2rem]"></iframe>
+          className="w-[90%] h-[250px] px-5"></iframe>
         <div className="flex flex-col lg:justify-center w-[10%]">
           <a
             target="_blank"
