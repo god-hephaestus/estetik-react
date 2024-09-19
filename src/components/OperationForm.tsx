@@ -42,7 +42,6 @@ export default function OperationForm() {
       try {
         const response = await fetch("https://ipapi.co/json/");
         const data = await response.json();
-
         const detectedCountryCode = data.country_code;
 
         if (
@@ -93,19 +92,19 @@ export default function OperationForm() {
   };
 
   return (
-    <div className="max-w-md p-6 m-6 shadow-2xl rounded-2xl flex">
+    <div className="flex justify-center items-center bg-gray-100 my-6">
       <Form
         name="operationForm"
         form={form}
         layout="vertical"
-        onFinish={handleSubmit}>
+        onFinish={handleSubmit}
+        className="sm:w-full md:w-[400px] max-w-lg p-6 bg-white rounded-lg shadow-md">
         <Form.Item
           label="Name"
           name="name"
           rules={[{ required: true, message: "Please input your name!" }]}>
           <Input placeholder="Enter your name" />
         </Form.Item>
-
         <Form.Item
           label="Phone"
           rules={[
@@ -119,7 +118,7 @@ export default function OperationForm() {
               },
             }),
           ]}>
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div className="flex items-center space-x-2">
             <Select
               showSearch
               value={countryCode}
@@ -130,7 +129,7 @@ export default function OperationForm() {
                 const searchText = `${option.label}`.toLowerCase();
                 return searchText.includes(input.toLowerCase());
               }}
-              style={{ width: "30%" }}>
+              className="w-1/3">
               {countries.map((country) => (
                 <Option
                   key={country.code}
@@ -145,11 +144,10 @@ export default function OperationForm() {
               value={phone}
               onChange={handlePhoneChange}
               placeholder="Enter your phone number"
-              style={{ width: "70%", marginLeft: "10px" }}
+              className="w-2/3"
             />
           </div>
         </Form.Item>
-
         <Form.Item
           label="Operation"
           name="operation"
@@ -160,17 +158,11 @@ export default function OperationForm() {
             <Option value="operation3">Operation 3</Option>
           </Select>
         </Form.Item>
-
         <Form.Item label="Message" name="message" rules={[{ required: false }]}>
           <TextArea rows={4} placeholder="Enter your message" />
         </Form.Item>
-
         <Form.Item className="text-right">
-          <Button
-            type="primary"
-            htmlType="submit"
-            className="px-6"
-            disabled={submitting}>
+          <Button type="primary" htmlType="submit" disabled={submitting}>
             {submitting ? "Submitting..." : "Submit"}
           </Button>
         </Form.Item>
