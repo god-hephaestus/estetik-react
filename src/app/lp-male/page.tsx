@@ -1,6 +1,7 @@
 import Contact from "@/components/Contact";
 import Doctors from "@/components/Doctors";
 import Location from "@/components/Location";
+import OperationForm from "@/components/OperationForm";
 import ParentState from "@/components/ParentState";
 import SideMenu from "@/components/SideMenu";
 import { Divider } from "antd";
@@ -470,6 +471,7 @@ export default function ComparisonPage() {
           <Location></Location>
           <Divider style={{ fontWeight: "bold" }}>Get in Contact</Divider>
           <Contact></Contact>
+          <OperationForm></OperationForm>
         </SideMenu>
       </div>
 

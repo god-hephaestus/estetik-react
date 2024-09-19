@@ -40,19 +40,10 @@ export default function OperationForm() {
 
     const detectUserCountry = async () => {
       try {
-        const position = await new Promise<GeolocationPosition>(
-          (resolve, reject) => {
-            navigator.geolocation.getCurrentPosition(resolve, reject);
-          }
-        );
-
-        const { latitude, longitude } = position.coords;
-        const response = await fetch(
-          `https://geocode.xyz/${latitude},${longitude}?geoit=json`
-        );
+        const response = await fetch("https://ipapi.co/json/");
         const data = await response.json();
 
-        const detectedCountryCode = data.prov?.toUpperCase();
+        const detectedCountryCode = data.country_code;
 
         if (
           detectedCountryCode &&
@@ -63,7 +54,7 @@ export default function OperationForm() {
           setCountryCode("US");
         }
       } catch (error) {
-        console.warn("Geolocation failed, defaulting to US.");
+        console.warn("IP detection failed, defaulting to US.");
         setCountryCode("US");
       }
     };
@@ -102,7 +93,7 @@ export default function OperationForm() {
   };
 
   return (
-    <div className="max-w-md p-6 m-6 shadow-2xl rounded-2xl">
+    <div className="max-w-md p-6 m-6 shadow-2xl rounded-2xl flex">
       <Form
         name="operationForm"
         form={form}
