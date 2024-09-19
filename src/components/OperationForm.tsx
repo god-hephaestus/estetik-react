@@ -116,37 +116,11 @@ export default function OperationForm() {
         </Form.Item>
 
         <Form.Item
-          label="Country Code"
-          name="countryCode"
-          rules={[
-            { required: true, message: "Please select a country code!" },
-          ]}>
-          <Select
-            showSearch
-            value={countryCode}
-            onChange={handleCountryChange}
-            placeholder="Select a country"
-            optionFilterProp="children"
-            filterOption={(input, option) =>
-              (option?.children as unknown as string)
-                .toLowerCase()
-                .includes(input.toLowerCase())
-            }>
-            {countries.map((country) => (
-              <Option key={country.code} value={country.code}>
-                {country.name} (+{country.phoneCode})
-              </Option>
-            ))}
-          </Select>
-        </Form.Item>
-
-        <Form.Item
           label="Phone"
-          name="phone"
           rules={[
             { required: true, message: "Please input a valid phone number!" },
             () => ({
-              validator(_, value) {
+              validator(_: any, value: string) {
                 if (isValidPhoneNumber(value, countryCode)) {
                   return Promise.resolve();
                 }
@@ -154,11 +128,35 @@ export default function OperationForm() {
               },
             }),
           ]}>
-          <Input
-            value={phone}
-            onChange={handlePhoneChange}
-            placeholder="Enter your phone number"
-          />
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <Select
+              showSearch
+              value={countryCode}
+              onChange={handleCountryChange}
+              placeholder="Country Code"
+              optionFilterProp="label"
+              filterOption={(input: string, option: any) => {
+                const searchText = `${option.label}`.toLowerCase();
+                return searchText.includes(input.toLowerCase());
+              }}
+              style={{ width: "30%" }}>
+              {countries.map((country) => (
+                <Option
+                  key={country.code}
+                  value={country.code}
+                  label={`${country.name} (+${country.phoneCode}) ${country.code}`}>
+                  {country.code} (+{country.phoneCode})
+                </Option>
+              ))}
+            </Select>
+
+            <Input
+              value={phone}
+              onChange={handlePhoneChange}
+              placeholder="Enter your phone number"
+              style={{ width: "70%", marginLeft: "10px" }}
+            />
+          </div>
         </Form.Item>
 
         <Form.Item
