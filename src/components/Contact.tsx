@@ -8,7 +8,7 @@ import { Button } from "antd";
 export default function Contact() {
   return (
     <>
-      <div className="flex lg:space-x-3 lg:justify-center">
+      <div className="flex md:space-x-1 lg:space-x-3 justify-center">
         <Button
           className="h-auto bg-green-500 px-2 py-0"
           target="_blank"
