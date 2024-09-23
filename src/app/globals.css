@@ -18,7 +18,13 @@
 .ant-menu-submenu-selected > .ant-menu-submenu-title {
   color: white !important;
 }
+.ant-menu-item-selected,
 .ant-menu-item:hover,
-.ant-menu-submenu-title:hover {
+.ant-menu-submenu-title:hover,
+.ant-menu-light:not(.ant-menu-horizontal)
+  .ant-menu-item:not(.ant-menu-item-selected):active,
+.ant-menu-light
+  > .ant-menu:not(.ant-menu-horizontal)
+  .ant-menu-item:not(.ant-menu-item-selected):active {
   background-color: #0a5b56 !important;
 }
