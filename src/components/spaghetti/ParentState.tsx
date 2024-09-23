@@ -58,12 +58,6 @@ export default function ParentState({
             src={"/img/estintlogo25.webp"}
             title="Estetik International"
           />
-          <video
-            className="lg:p-16 sm:p-4 "
-            src={"/video/" + heroBgData[stateKey]?.src || heroBgData.hero1.src}
-            autoPlay
-            muted
-            loop></video>
         </div>
 
         <div className="w-full md:w-1/3">
