@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Comparison from "./Comparison";
 import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
+import HeroDynamic from "./HeroDynamic";
 import { Divider } from "antd";
 import { MinusOutlined } from "@ant-design/icons";
 import Image from "next/image";
@@ -11,6 +12,7 @@ export default function ParentState({
   testimonialsData,
   buttonsData,
   GalleryImgsData,
+  heroBgData,
 }: {
   testimonialsData: {
     [key: string]: Array<{
@@ -28,18 +30,35 @@ export default function ParentState({
     stateKey: string;
   }>;
   GalleryImgsData: { [key: string]: Array<{ src: string; alt: string }> };
+  heroBgData: { [key: string]: { src: string; alt: string } };
 }) {
   const [comparisonData, setComparisonData] = useState(buttonsData[0]); // this is what we're gonna change based on the url
   const [stateKey, setstateKey] = useState(comparisonData.stateKey);
+  const [heroBg, setHeroBg] = useState(heroBgData.hero1.src);
 
-  // Function to update comparison, gallery, and testimonials based on stateKey
+  // Function to update comparison, gallery, testimonials, and hero background based on stateKey
   const handleButtonClick = (newComparisonData: (typeof buttonsData)[0]) => {
-    setComparisonData(newComparisonData); // Update comparison data
-    setstateKey(newComparisonData.stateKey); // Update gallery key for both Gallery and Testimonials
+    setComparisonData(newComparisonData);
+    setstateKey(newComparisonData.stateKey);
+    switch (newComparisonData.stateKey) {
+      case "gallery1":
+        setHeroBg(heroBgData.hero1.src);
+        break;
+      case "gallery2":
+        setHeroBg(heroBgData.hero2.src);
+        break;
+      case "gallery3":
+        setHeroBg(heroBgData.hero3.src);
+        break;
+      default:
+        setHeroBg(heroBgData.hero1.src);
+        break;
+    }
   };
 
   return (
     <div>
+      <HeroDynamic heroBg={heroBg} />
       <div className="flex flex-col md:flex-row md:justify-between">
         <div className="w-full md:w-2/3 flex flex-col items-center">
           <Image

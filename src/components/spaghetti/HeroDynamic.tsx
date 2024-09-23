@@ -1,8 +1,6 @@
 "use client";
-import { useState } from "react";
 
-export default function HeroDynamic() {
-  const [heroBg, setHeroBg] = useState("slider.mp4");
+export default function HeroDynamic({ heroBg }: { heroBg: string }) {
   return (
     <div
       className="relative w-screen h-screen"

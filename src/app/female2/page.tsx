@@ -283,14 +283,29 @@ const doctorsData = [
       "Dr. Jane Smith specializes in facial aesthetics and reconstructive surgery.",
   },
 ];
+const HeroBgData = {
+  hero1: {
+    src: "Breast.mp4",
+    alt: "Main Video",
+  },
+  hero2: {
+    src: "slider.mp4",
+    alt: "BBL Video",
+  },
+  hero3: {
+    src: "Total Body.mp4",
+    alt: "Total Body Video",
+  },
+};
+
 export default function ComparisonPage() {
   return (
     <div className="container mx-auto">
-      <HeroDynamic></HeroDynamic>
       <ParentState
         buttonsData={buttonsData}
         GalleryImgsData={GalleryImgsData}
-        testimonialsData={testimonialsData}></ParentState>
+        testimonialsData={testimonialsData}
+        heroBgData={HeroBgData}></ParentState>
       <Divider
         style={{
           fontWeight: "bold",
