@@ -51,13 +51,6 @@ export default function ParentState({
             comparisonData={comparisonData}
             onButtonClick={handleButtonClick}
           />
-          <Image
-            width={300}
-            height={200}
-            alt={"logo"}
-            src={"/img/estintlogo25.webp"}
-            title="Estetik International"
-          />
         </div>
 
         <div className="w-full md:w-1/3">

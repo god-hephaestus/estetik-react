@@ -6,6 +6,7 @@ import ParentState from "@/components/ParentState";
 import Testimonials from "@/components/Testimonials";
 import { Divider } from "antd";
 import { Metadata } from "next";
+import VideoLibrary from "@/components/spaghetti/VideoLibrary";
 
 export const metadata: Metadata = {
   title: "LP 2",
@@ -15,8 +16,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <OperationForm></OperationForm>
-      <Contact></Contact>
+      <VideoLibrary></VideoLibrary>
     </>
   );
 }
