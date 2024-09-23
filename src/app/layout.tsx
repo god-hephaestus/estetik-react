@@ -35,6 +35,11 @@ export default function RootLayout({
         <ConfigProvider
           theme={{
             components: {
+              Menu: {
+                colorText: "#ffffff", // Default text color for unselected items
+                colorPrimary: "#13a89e", // Primary color for selected menu items (background and border)
+                colorTextLightSolid: "#ffffff", // Text color for selected menu items (on primary background)
+              },
               Input: { colorBgContainer: "#ffffff" },
               Select: { colorBgContainer: "#ffffff" },
               Divider: {
@@ -56,7 +61,7 @@ export default function RootLayout({
               colorTextPlaceholder: "#00000080",
               colorBgLayout: "#fff7f4",
               colorBgContainer: "#13a89e",
-              colorFillSecondary: "#feefe9",
+              colorFillSecondary: "#0a5b56",
               borderRadius: 10,
               controlOutline: "none",
               fontFamily: '"Figtree", sans-serif',
