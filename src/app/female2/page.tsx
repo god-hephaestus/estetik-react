@@ -284,16 +284,16 @@ const doctorsData = [
   },
 ];
 const HeroBgData = {
-  hero1: {
+  gallery1: {
     src: "Breast.mp4",
     alt: "Main Video",
   },
-  hero2: {
+  gallery2: {
     src: "slider.mp4",
     alt: "BBL Video",
   },
-  hero3: {
-    src: "Total Body.mp4",
+  gallery3: {
+    src: "total Body.mp4",
     alt: "Total Body Video",
   },
 };
