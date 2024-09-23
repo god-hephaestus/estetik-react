@@ -1,6 +1,7 @@
 import Contact from "@/components/spaghetti/Contact";
 import Doctors from "@/components/spaghetti/Doctors";
 import Hero from "@/components/spaghetti/Hero";
+import HeroDynamic from "@/components/spaghetti/HeroDynamic";
 import Location from "@/components/spaghetti/Location";
 import OperationForm from "@/components/spaghetti/OperationForm";
 import ParentState from "@/components/spaghetti/ParentState";
@@ -285,7 +286,7 @@ const doctorsData = [
 export default function ComparisonPage() {
   return (
     <div className="container mx-auto">
-      <Hero></Hero>
+      <HeroDynamic></HeroDynamic>
       <ParentState
         buttonsData={buttonsData}
         GalleryImgsData={GalleryImgsData}
