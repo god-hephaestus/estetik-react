@@ -5,6 +5,7 @@ import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
 import { Divider } from "antd";
 import { MinusOutlined } from "@ant-design/icons";
+import Image from "next/image";
 
 export default function ParentState({
   testimonialsData,
@@ -38,50 +39,53 @@ export default function ParentState({
   };
 
   return (
-    <>
-      <div>
-        <div className="flex justify-center">
-          <div className="">
-            <Comparison
-              buttonProps={buttonsData}
-              comparisonData={comparisonData}
-              onButtonClick={handleButtonClick}
-            />
-          </div>
-          <div className=""></div>
-
-          <div className="">
-            <Divider
-              style={{ fontWeight: "bold", paddingLeft: "20px" }}
-              orientation="right"
-              orientationMargin={30}>
-              Frequently Asked Questions
-            </Divider>
-
-            <div className="px-5">
-              {comparisonData.faqs.map((faq, index) => (
-                <div key={index}>
-                  <h3 className="text-black font-bold py-1">
-                    <MinusOutlined /> {faq.question}
-                  </h3>
-                  <p className="text-black">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
-            <Gallery
-              activestateKey={stateKey}
-              GalleryImgsData={GalleryImgsData}
-            />
-          </div>
-        </div>
-        <div className="">
-          <Testimonials
-            stateKey={stateKey}
-            testimonialsData={testimonialsData}
+    <div className="">
+      <div className="flex justify-between">
+        <div className="w-2/3 justify-center">
+          <Image
+            width={300}
+            height={200}
+            alt={"logo"}
+            src={"/img/estintlogo25.webp"}
+            title="Estetik International"
+            className=""
+          />
+          <Comparison
+            buttonProps={buttonsData}
+            comparisonData={comparisonData}
+            onButtonClick={handleButtonClick}
           />
         </div>
-        <div></div>
+
+        <div className="w-1/3">
+          <Divider
+            style={{ fontWeight: "bold", paddingLeft: "20px" }}
+            orientation="right"
+            orientationMargin={30}>
+            Frequently Asked Questions
+          </Divider>
+
+          <div className="px-5">
+            {comparisonData.faqs.map((faq, index) => (
+              <div key={index}>
+                <h3 className="text-black font-bold py-1">
+                  <MinusOutlined /> {faq.question}
+                </h3>
+                <p className="text-black">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+
+          <Gallery
+            activestateKey={stateKey}
+            GalleryImgsData={GalleryImgsData}
+          />
+        </div>
       </div>
-    </>
+
+      <div className="mt-8">
+        <Testimonials stateKey={stateKey} testimonialsData={testimonialsData} />
+      </div>
+    </div>
   );
 }

@@ -1,5 +1,6 @@
 import Contact from "@/components/spaghetti/Contact";
 import Doctors from "@/components/spaghetti/Doctors";
+import Hero from "@/components/spaghetti/Hero";
 import Location from "@/components/spaghetti/Location";
 import OperationForm from "@/components/spaghetti/OperationForm";
 import ParentState from "@/components/spaghetti/ParentState";
@@ -283,54 +284,19 @@ const doctorsData = [
 ];
 export default function ComparisonPage() {
   return (
-    <div className="relative">
-      <div className="w-full h-screen relative">
-        <video
-          className="w-full h-full object-cover"
-          src="/video/slider.mp4"
-          autoPlay
-          muted
-          loop></video>
-        <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center space-y-4 px-32">
-          <h1
-            className="text-white text-4xl text-center lg:block decoration-double"
-            style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
-            Estetik International <br /> Blending Art and Plastic Surgery
-          </h1>
-          <p
-            className="text-white text-lg text-center lg:block decoration-double"
-            style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
-            Discover The New You!
-          </p>
-        </div>
-      </div>
-
-      <div className="relative">
-        <div className="top-0">
-          <Image
-            width={300}
-            height={200}
-            alt={"logo"}
-            src={"/img/estintlogo25.webp"}
-            title="Estetik International"></Image>
-        </div>
-
-        <ParentState
-          buttonsData={buttonsData}
-          GalleryImgsData={GalleryImgsData}
-          testimonialsData={testimonialsData}></ParentState>
-        <Divider style={{ fontWeight: "bold" }}>Doctors</Divider>
-        <Doctors doctorDescription={doctorsData}></Doctors>
-        <Divider style={{ fontWeight: "bold" }}>Location</Divider>
-        <Location></Location>
-        <Divider style={{ fontWeight: "bold" }}>Get in Contact</Divider>
-        <Contact></Contact>
-        <OperationForm></OperationForm>
-      </div>
-
-      <div className="relative flex min-h-screen items-center justify-center">
-        <div className="w-full max-w-3xl px-4"></div>
-      </div>
+    <div className="container mx-auto">
+      <Hero></Hero>
+      <ParentState
+        buttonsData={buttonsData}
+        GalleryImgsData={GalleryImgsData}
+        testimonialsData={testimonialsData}></ParentState>
+      <Divider style={{ fontWeight: "bold" }}>Doctors</Divider>
+      <Doctors doctorDescription={doctorsData}></Doctors>
+      <Divider style={{ fontWeight: "bold" }}>Location</Divider>
+      <Location></Location>
+      <Divider style={{ fontWeight: "bold" }}>Get in Contact</Divider>
+      <Contact></Contact>
+      <OperationForm></OperationForm>
     </div>
   );
 }
