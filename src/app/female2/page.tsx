@@ -290,11 +290,32 @@ export default function ComparisonPage() {
         buttonsData={buttonsData}
         GalleryImgsData={GalleryImgsData}
         testimonialsData={testimonialsData}></ParentState>
-      <Divider style={{ fontWeight: "bold" }}>Doctors</Divider>
+      <Divider
+        style={{
+          fontWeight: "bold",
+          paddingLeft: "20px",
+          paddingRight: "20px",
+        }}>
+        Doctors
+      </Divider>
       <Doctors doctorDescription={doctorsData}></Doctors>
-      <Divider style={{ fontWeight: "bold" }}>Location</Divider>
+      <Divider
+        style={{
+          fontWeight: "bold",
+          paddingLeft: "20px",
+          paddingRight: "20px",
+        }}>
+        Location
+      </Divider>
       <Location></Location>
-      <Divider style={{ fontWeight: "bold" }}>Get in Contact</Divider>
+      <Divider
+        style={{
+          fontWeight: "bold",
+          paddingLeft: "20px",
+          paddingRight: "20px",
+        }}>
+        Get in Contact
+      </Divider>
       <Contact></Contact>
       <OperationForm></OperationForm>
     </div>

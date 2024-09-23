@@ -40,8 +40,8 @@ export default function ParentState({
 
   return (
     <div>
-      <div className="flex justify-between">
-        <div className="w-2/3 flex flex-col items-center">
+      <div className="flex flex-col md:flex-row md:justify-between">
+        <div className="w-full md:w-2/3 flex flex-col items-center">
           <Image
             width={300}
             height={200}
@@ -56,7 +56,7 @@ export default function ParentState({
           />
         </div>
 
-        <div className="w-1/3">
+        <div className="w-full md:w-1/3">
           <Divider
             style={{ fontWeight: "bold", paddingLeft: "20px" }}
             orientation="right"

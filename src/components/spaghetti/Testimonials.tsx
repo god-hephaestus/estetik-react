@@ -72,7 +72,14 @@ export default function Testimonials({
 
   return (
     <div>
-      <Divider style={{ fontWeight: "bold" }}>Testimonials</Divider>
+      <Divider
+        style={{
+          fontWeight: "bold",
+          paddingLeft: "20px",
+          paddingRight: "20px",
+        }}>
+        Testimonials
+      </Divider>
       <div
         ref={containerRef}
         className={`flex overflow-x-auto cursor-${
@@ -90,7 +97,7 @@ export default function Testimonials({
           testimonials.map((testimonial, index) => (
             <div key={index} className="flex-shrink-0 mr-4">
               <div
-                className="shadow-lg p-5 bg-white relative rounded-xl w-full sm:w-64 md:w-72 lg:w-80"
+                className="shadow-lg p-5 my-2 bg-white relative rounded-xl w-full sm:w-64 md:w-72 lg:w-80"
                 style={{ height: "220px" }}>
                 <div className="mb-10 text-black">
                   <CommentOutlined className="bottom-[5px] right-[5px] absolute text-xl text-[#13a89e]" />
