@@ -114,12 +114,11 @@ export default function Comparison({
 
         <div
           ref={scrollRef}
-          className="scroll-container"
+          className="scroll-container py-3 px-20 md:px-40 lg:px-60"
           style={{
             display: "flex",
             overflowX: "hidden",
             whiteSpace: "nowrap",
-            padding: "10px 150px",
             position: "relative",
             marginRight: "10px",
             marginLeft: "10px",
