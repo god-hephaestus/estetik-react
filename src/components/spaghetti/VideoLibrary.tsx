@@ -75,8 +75,20 @@ const getLevelKeys = (items1: LevelKeysProps[]) => {
 
 const levelKeys = getLevelKeys(items as LevelKeysProps[]);
 
+const videoSrcMap: Record<string, string> = {
+  "231": "/video/animations/breast/Breast Lift.mp4",
+  "232": "/video/animations/breast/Breast Lift with Implants.mp4",
+  "21": "/video/animations/breast/Breast Implant Options.mp4",
+  "22": "/video/animations/breast/Breast Reconstruction.mp4",
+  "24": "/video/animations/breast/Breast Reduction.mp4",
+  default: "/video/animations/breast/Breast Lift.mp4",
+};
+
 export default function VideoLibrary() {
-  const [stateOpenKeys, setStateOpenKeys] = useState(["2", "23"]);
+  const [stateOpenKeys, setStateOpenKeys] = useState<string[]>(["2", "23"]);
+  const [videoSrc, setVideoSrc] = useState<string>(
+    videoSrcMap["231"] || videoSrcMap.default
+  );
 
   const onOpenChange: MenuProps["onOpenChange"] = (openKeys) => {
     const currentOpenKey = openKeys.find(
@@ -101,6 +113,12 @@ export default function VideoLibrary() {
     }
   };
 
+  const handleMenuClick: MenuProps["onClick"] = (e) => {
+    // Use the dictionary lookup for video src
+    const newVideoSrc = videoSrcMap[e.key] || videoSrcMap.default;
+    setVideoSrc(newVideoSrc);
+  };
+
   return (
     <div className="flex flex-row">
       <Menu
@@ -108,14 +126,17 @@ export default function VideoLibrary() {
         defaultSelectedKeys={["231"]}
         openKeys={stateOpenKeys}
         onOpenChange={onOpenChange}
+        onClick={handleMenuClick}
         style={{ width: "100%", maxWidth: "256px" }}
         items={items}
       />
       <div className="flex flex-col justify-end">
         <video
           className="z-50"
-          src="/video/animations/breast/Breast Lift.mp4"
+          src={videoSrc}
           controls
+          autoPlay
+          muted
           style={{ width: "100%", maxWidth: "500px", height: "auto" }}></video>
       </div>
     </div>
