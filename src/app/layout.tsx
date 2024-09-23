@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { ConfigProvider } from "antd";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "./globals.css";
+import { Montserrat } from "next/font/google";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const montserrat = Montserrat({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  variable: "--font-montserrat",
 });
 
 export const metadata: Metadata = {
@@ -30,15 +25,14 @@ export default function RootLayout({
       <head>
         <link rel="apple-touch-icon" href="/favicon.png"></link>
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${montserrat.variable} antialiased`}>
         <ConfigProvider
           theme={{
             components: {
               Menu: {
-                colorText: "#ffffff", // Default text color for unselected items
-                colorPrimary: "#13a89e", // Primary color for selected menu items (background and border)
-                colorTextLightSolid: "#ffffff", // Text color for selected menu items (on primary background)
+                colorText: "#ffffff",
+                colorPrimary: "#13a89e",
+                colorTextLightSolid: "#ffffff",
               },
               Input: { colorBgContainer: "#ffffff" },
               Select: { colorBgContainer: "#ffffff" },
@@ -64,7 +58,7 @@ export default function RootLayout({
               colorFillSecondary: "#0a5b56",
               borderRadius: 10,
               controlOutline: "none",
-              fontFamily: '"Figtree", sans-serif',
+              fontFamily: "var(--font-montserrat)",
             },
           }}
           button={{ style: { color: "white" } }}>

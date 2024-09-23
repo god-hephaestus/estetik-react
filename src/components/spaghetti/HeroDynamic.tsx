@@ -16,15 +16,17 @@ export default function HeroDynamic({ heroBg }: { heroBg: string }) {
         loop></video>
       <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center space-y-4 px-32">
         <h1
-          className="text-white text-4xl text-center lg:block decoration-double"
-          style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
-          Estetik International <br /> Blending Art and Plastic Surgery
+          className="text-white text-center lg:block decoration-double"
+          style={{
+            textShadow: "5px 5px 10px rgba(0, 0, 0, 0.5)",
+            fontSize: "50px",
+            lineHeight: "42px",
+          }}>
+          <b>Estetik International</b> <br /> <i>Discover The New You!</i>
         </h1>
         <p
           className="text-white text-lg text-center lg:block decoration-double"
-          style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
-          Discover The New You!
-        </p>
+          style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}></p>
       </div>
     </div>
   );
