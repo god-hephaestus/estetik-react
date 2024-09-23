@@ -46,6 +46,11 @@ export default function ParentState({
       <HeroDynamic heroBg={heroBgData[stateKey]?.src || heroBgData.hero1.src} />
       <div className="flex flex-col md:flex-row md:justify-between">
         <div className="w-full md:w-2/3 flex flex-col items-center">
+          <Comparison
+            buttonProps={buttonsData}
+            comparisonData={comparisonData}
+            onButtonClick={handleButtonClick}
+          />
           <Image
             width={300}
             height={200}
@@ -53,11 +58,12 @@ export default function ParentState({
             src={"/img/estintlogo25.webp"}
             title="Estetik International"
           />
-          <Comparison
-            buttonProps={buttonsData}
-            comparisonData={comparisonData}
-            onButtonClick={handleButtonClick}
-          />
+          <video
+            className="lg:p-16 sm:p-4 "
+            src={"/video/" + heroBgData[stateKey]?.src || heroBgData.hero1.src}
+            autoPlay
+            muted
+            loop></video>
         </div>
 
         <div className="w-full md:w-1/3">

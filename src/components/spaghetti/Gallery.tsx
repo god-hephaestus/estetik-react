@@ -23,7 +23,7 @@ export default function Gallery({
           style={{ fontWeight: "bold", paddingLeft: "20px" }}
           orientation="right"
           orientationMargin={30}>
-          Before & After
+          Before & After Gallery
         </Divider>
       </div>
 
