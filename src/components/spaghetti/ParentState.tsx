@@ -39,16 +39,15 @@ export default function ParentState({
   };
 
   return (
-    <div className="">
+    <div>
       <div className="flex justify-between">
-        <div className="w-2/3 justify-center">
+        <div className="w-2/3 flex flex-col items-center">
           <Image
             width={300}
             height={200}
             alt={"logo"}
             src={"/img/estintlogo25.webp"}
             title="Estetik International"
-            className=""
           />
           <Comparison
             buttonProps={buttonsData}
