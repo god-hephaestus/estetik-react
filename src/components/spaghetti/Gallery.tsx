@@ -18,7 +18,15 @@ export default function Gallery({
 
   return (
     <>
-      <Divider style={{ fontWeight: "bold" }}>Before & After</Divider>
+      <div>
+        <Divider
+          style={{ fontWeight: "bold", paddingLeft: "20px" }}
+          orientation="right"
+          orientationMargin={30}>
+          Before & After
+        </Divider>
+      </div>
+
       <div className="p-4 text-center">
         {currentGallery.length > 0 ? (
           <Image.PreviewGroup items={previewItems}>
@@ -29,7 +37,7 @@ export default function Gallery({
             />
           </Image.PreviewGroup>
         ) : (
-          <p>No images available for this gallery.</p>
+          <p className="text-black">No images available for this gallery.</p>
         )}
       </div>
     </>

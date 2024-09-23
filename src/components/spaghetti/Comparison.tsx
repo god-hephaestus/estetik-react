@@ -207,21 +207,6 @@ export default function Comparison({
           )}
         </div>
       </div>
-
-      <Divider style={{ fontWeight: "bold" }}>
-        Frequently Asked Questions
-      </Divider>
-
-      <div className="px-5">
-        {comparisonData.faqs.map((faq, index) => (
-          <div key={index}>
-            <h3 className="text-black font-bold py-1">
-              <MinusOutlined /> {faq.question}
-            </h3>
-            <p className="text-black">{faq.answer}</p>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }

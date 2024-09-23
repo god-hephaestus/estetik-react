@@ -20,7 +20,8 @@ const buttonsData = [
     faqs: [
       {
         question: "What is Hair Transplant?",
-        answer: "Hair Transplant is a procedure to restore hair growth.",
+        answer:
+          "Hair Transplant is a procedure to restore hair growth. Hair Transplant is a procedure to restore hair growth.",
       },
       {
         question: "How long does recovery take?",
@@ -30,7 +31,7 @@ const buttonsData = [
     stateKey: "gallery1",
   },
   {
-    label: "bbl",
+    label: "BBL",
     image1: "/BeforeAfter/bbl.webp",
     image2: "/BeforeAfter/bbl2.webp",
     faqs: [
@@ -283,26 +284,29 @@ const doctorsData = [
 export default function ComparisonPage() {
   return (
     <div className="relative">
-      <div className="absolute top-0 left-0 w-3/5 h-screen flex flex-col justify-center items-center font-sans px-32 z-10 space-y-4">
-        <h1
-          className="text-white text-4xl text-center md:hidden lg:block decoration-double"
-          style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
-          Estetik International <br /> Blending Art and Plastic Surgery
-        </h1>
-        <p
-          className="text-white text-lg text-center md:hidden lg:block decoration-double"
-          style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
-          Discover The New You!
-        </p>
+      <div className="w-full h-screen relative">
+        <video
+          className="w-full h-full object-cover"
+          src="/video/slider.mp4"
+          autoPlay
+          muted
+          loop></video>
+        <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center space-y-4 px-32">
+          <h1
+            className="text-white text-4xl text-center lg:block decoration-double"
+            style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+            Estetik International <br /> Blending Art and Plastic Surgery
+          </h1>
+          <p
+            className="text-white text-lg text-center lg:block decoration-double"
+            style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+            Discover The New You!
+          </p>
+        </div>
       </div>
-      <video
-        className="absolute top-0 left-0 w-screen h-screen object-cover pointer-events-none z-0"
-        src="/video/slider.mp4"
-        autoPlay
-        muted
-        loop></video>
-      <div className="relative z-10">
-        <div className="flex justify-center mb-6">
+
+      <div className="relative">
+        <div className="top-0">
           <Image
             width={300}
             height={200}
@@ -324,7 +328,7 @@ export default function ComparisonPage() {
         <OperationForm></OperationForm>
       </div>
 
-      <div className="relative z-0 flex min-h-screen items-center justify-center">
+      <div className="relative flex min-h-screen items-center justify-center">
         <div className="w-full max-w-3xl px-4"></div>
       </div>
     </div>
