@@ -1,12 +1,5 @@
-import Contact from "@/components/Contact";
-import Doctors from "@/components/Doctors";
-import OperationForm from "@/components/OperationForm";
-import Location from "@/components/Location";
-import ParentState from "@/components/ParentState";
-import Testimonials from "@/components/Testimonials";
-import { Divider } from "antd";
 import { Metadata } from "next";
-import VideoLibrary from "@/components/spaghetti/VideoLibrary";
+import StepsComp from "@/components/spaghetti/StepsComp";
 
 export const metadata: Metadata = {
   title: "LP 2",
@@ -16,7 +9,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <VideoLibrary></VideoLibrary>
+      <StepsComp></StepsComp>
     </>
   );
 }
