@@ -99,7 +99,7 @@ export default function Comparison({
       (b) => b.label === comparisonData.label
     );
     scrollToActiveButton(initialIndex);
-  }, []);
+  }, [buttonProps, comparisonData.label]);
   return (
     <div className="container">
       <div

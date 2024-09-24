@@ -1,6 +1,3 @@
-import Comparison from "@/components/Comparison";
-import Testimonials from "@/components/Testimonials";
-import { Button } from "antd";
 import Image from "next/image";
 
 export default function Home() {

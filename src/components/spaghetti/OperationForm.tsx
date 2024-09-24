@@ -69,7 +69,7 @@ export default function OperationForm() {
     setCountryCode(value);
   };
 
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async (values: unknown) => {
     setSubmitting(true);
     try {
       console.log("Form submitted:", values);
@@ -110,7 +110,7 @@ export default function OperationForm() {
           rules={[
             { required: true, message: "Please input a valid phone number!" },
             () => ({
-              validator(_: any, value: string) {
+              validator(_: unknown, value: string) {
                 if (isValidPhoneNumber(value, countryCode)) {
                   return Promise.resolve();
                 }
@@ -125,6 +125,7 @@ export default function OperationForm() {
               onChange={handleCountryChange}
               placeholder="Country Code"
               optionFilterProp="label"
+              /* eslint-disable @typescript-eslint/no-explicit-any */
               filterOption={(input: string, option: any) => {
                 const searchText = `${option.label}`.toLowerCase();
                 return searchText.includes(input.toLowerCase());

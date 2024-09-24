@@ -1,12 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  MenuUnfoldOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { MenuUnfoldOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Menu } from "antd";
 
