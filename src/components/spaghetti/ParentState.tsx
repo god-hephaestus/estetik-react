@@ -6,7 +6,6 @@ import Testimonials from "./Testimonials";
 import HeroDynamic from "./HeroDynamic";
 import { Divider } from "antd";
 import { MinusOutlined } from "@ant-design/icons";
-import Image from "next/image";
 
 export default function ParentState({
   testimonialsData,

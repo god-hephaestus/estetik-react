@@ -2,8 +2,8 @@
 
 import React, { useState, useRef } from "react";
 import ReactCompareImage from "react-compare-image";
-import { Button, Spin, Divider } from "antd";
-import { RightOutlined, LeftOutlined, MinusOutlined } from "@ant-design/icons";
+import { Button, Spin } from "antd";
+import { RightOutlined, LeftOutlined } from "@ant-design/icons";
 
 export default function Comparison({
   buttonProps,
@@ -194,7 +194,7 @@ export default function Comparison({
           )}
 
           {isImageLoaded && (
-            <div className="w-full h-full">
+            <div className="w-full h-full border-[#13a89e] border-2">
               <ReactCompareImage
                 leftImage={comparisonData.image1}
                 rightImage={comparisonData.image2}
