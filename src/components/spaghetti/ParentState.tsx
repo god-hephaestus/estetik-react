@@ -58,6 +58,12 @@ export default function ParentState({
       </div>
 
       <div className="flex flex-col md:flex-row md:justify-between">
+        <div className="w-full md:w-1/2">
+          <Gallery
+            activestateKey={stateKey}
+            GalleryImgsData={GalleryImgsData}
+          />
+        </div>
         <div className="w-full md:w-1/2 ">
           <Divider
             style={{ fontWeight: "bold", paddingLeft: "20px" }}
@@ -76,13 +82,6 @@ export default function ParentState({
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="w-full md:w-1/2">
-          <Gallery
-            activestateKey={stateKey}
-            GalleryImgsData={GalleryImgsData}
-          />
         </div>
       </div>
 

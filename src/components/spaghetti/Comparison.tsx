@@ -114,7 +114,7 @@ export default function Comparison({
 
         <div
           ref={scrollRef}
-          className="scroll-container py-3 px-20 md:px-40 lg:px-60"
+          className="scroll-container py-3 px-20 "
           style={{
             display: "flex",
             overflowX: "hidden",
@@ -122,7 +122,7 @@ export default function Comparison({
             position: "relative",
             marginRight: "10px",
             marginLeft: "10px",
-            width: "400px",
+            width: "180px",
           }}>
           {buttonProps.map((button, index) => (
             <Button
@@ -165,6 +165,8 @@ export default function Comparison({
           alignItems: "center",
           justifyContent: "center",
           marginTop: "20px",
+          paddingRight: "20px",
+          paddingLeft: "20px",
         }}>
         <div
           className="relative w-full"

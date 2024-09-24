@@ -27,11 +27,11 @@ export default function Gallery({
         </Divider>
       </div>
 
-      <div className="p-4 text-center">
+      <div className="p-2 text-center">
         {currentGallery.length > 0 ? (
           <Image.PreviewGroup items={previewItems}>
             <Image
-              width={280}
+              width={320}
               src={currentGallery[0].src}
               alt={currentGallery[0].alt}
             />

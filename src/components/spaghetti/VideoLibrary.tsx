@@ -120,7 +120,7 @@ export default function VideoLibrary() {
   };
 
   return (
-    <div className="flex flex-col w-full max-w-lg">
+    <div className="flex flex-col w-full max-w-lg mt-8 mb-4">
       <Menu
         mode="inline"
         defaultSelectedKeys={["231"]}
