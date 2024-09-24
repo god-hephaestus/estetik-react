@@ -10,7 +10,7 @@ export default function StepsComp() {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex items-center justify-center h-[500px]">
       <Steps
         current={current}
         onChange={onChange}

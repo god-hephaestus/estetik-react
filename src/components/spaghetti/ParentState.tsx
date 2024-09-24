@@ -6,7 +6,7 @@ import Testimonials from "./Testimonials";
 import HeroDynamic from "./HeroDynamic";
 import { Divider } from "antd";
 import { MinusOutlined } from "@ant-design/icons";
-import VideoLibrary from "./VideoLibrary";
+import StepsComp from "./StepsComp";
 
 export default function ParentState({
   testimonialsData,
@@ -53,7 +53,7 @@ export default function ParentState({
           />
         </div>
         <div className="w-full md:w-1/2 flex flex-col items-center">
-          <VideoLibrary />
+          <StepsComp />
         </div>
       </div>
 
