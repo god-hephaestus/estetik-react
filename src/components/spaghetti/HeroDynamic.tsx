@@ -1,5 +1,7 @@
 "use client";
 
+import { ArrowDownOutlined } from "@ant-design/icons";
+
 export default function HeroDynamic({ heroBg }: { heroBg: string }) {
   return (
     <div
@@ -14,6 +16,10 @@ export default function HeroDynamic({ heroBg }: { heroBg: string }) {
         autoPlay
         muted
         loop></video>
+      <a className="absolute left-[50%] bottom-16 z-50" href="#compare">
+        <ArrowDownOutlined
+          style={{ color: "white", fontSize: "40px" }}></ArrowDownOutlined>
+      </a>
       <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center space-y-4 px-32">
         <h1
           className="text-white text-center lg:block decoration-double"

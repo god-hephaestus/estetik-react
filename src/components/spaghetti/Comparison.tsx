@@ -101,7 +101,7 @@ export default function Comparison({
     scrollToActiveButton(initialIndex);
   }, []);
   return (
-    <div className="container">
+    <div className="container" id="compare">
       <div
         style={{
           display: "flex",
@@ -159,7 +159,6 @@ export default function Comparison({
         </Button>
       </div>
 
-      {/* Render comparison images */}
       <div
         style={{
           display: "flex",

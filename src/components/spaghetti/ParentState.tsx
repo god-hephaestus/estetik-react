@@ -61,13 +61,13 @@ export default function ParentState({
             Frequently Asked Questions
           </Divider>
 
-          <div className="px-5">
+          <div className="px-5 h-[350px] overflow-y-auto">
             {comparisonData.faqs.map((faq, index) => (
               <div key={index}>
-                <h3 className="text-black font-bold py-1">
+                <h3 className="text-black font-bold py-1 ">
                   <MinusOutlined /> {faq.question}
                 </h3>
-                <p className="text-black">{faq.answer}</p>
+                <p className="text-black ">{faq.answer}</p>
               </div>
             ))}
           </div>
