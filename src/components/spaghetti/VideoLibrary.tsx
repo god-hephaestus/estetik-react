@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import {
   AppstoreOutlined,
   MailOutlined,
+  MenuUnfoldOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
@@ -14,7 +15,7 @@ type MenuItem = Required<MenuProps>["items"][number];
 const items: MenuItem[] = [
   {
     key: "1",
-    icon: <MailOutlined />,
+    icon: <MenuUnfoldOutlined />,
     label: "BBL",
     children: [
       { key: "11", label: "Option 1" },
@@ -23,7 +24,7 @@ const items: MenuItem[] = [
   },
   {
     key: "2",
-    icon: <AppstoreOutlined />,
+    icon: <MenuUnfoldOutlined />,
     label: "Breast",
     children: [
       { key: "21", label: "Breast Implant" },
@@ -41,7 +42,7 @@ const items: MenuItem[] = [
   },
   {
     key: "3",
-    icon: <SettingOutlined />,
+    icon: <MenuUnfoldOutlined />,
     label: "Total Body",
     children: [
       { key: "31", label: "Option 1" },
@@ -51,7 +52,6 @@ const items: MenuItem[] = [
     ],
   },
 ];
-
 interface LevelKeysProps {
   key?: string;
   children?: LevelKeysProps[];
@@ -120,7 +120,7 @@ export default function VideoLibrary() {
   };
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row w-full max-w-2xl">
       <Menu
         mode="inline"
         defaultSelectedKeys={["231"]}

@@ -6,6 +6,7 @@ import Testimonials from "./Testimonials";
 import HeroDynamic from "./HeroDynamic";
 import { Divider } from "antd";
 import { MinusOutlined } from "@ant-design/icons";
+import VideoLibrary from "./VideoLibrary";
 
 export default function ParentState({
   testimonialsData,
@@ -44,15 +45,20 @@ export default function ParentState({
     <div>
       <HeroDynamic heroBg={heroBgData[stateKey]?.src || heroBgData.hero1.src} />
       <div className="flex flex-col md:flex-row md:justify-between">
-        <div className="w-full md:w-2/3 flex flex-col items-center">
+        <div className="w-full md:w-1/2 flex flex-col items-center">
           <Comparison
             buttonProps={buttonsData}
             comparisonData={comparisonData}
             onButtonClick={handleButtonClick}
           />
         </div>
+        <div className="w-full md:w-1/2 flex flex-col items-center">
+          <VideoLibrary />
+        </div>
+      </div>
 
-        <div className="w-full md:w-1/3">
+      <div className="flex flex-col md:flex-row md:justify-between">
+        <div className="w-full md:w-1/2 ">
           <Divider
             style={{ fontWeight: "bold", paddingLeft: "20px" }}
             orientation="right"
@@ -70,7 +76,9 @@ export default function ParentState({
               </div>
             ))}
           </div>
+        </div>
 
+        <div className="w-full md:w-1/2">
           <Gallery
             activestateKey={stateKey}
             GalleryImgsData={GalleryImgsData}
