@@ -375,15 +375,32 @@ export default function ComparisonPage() {
         GalleryImgsData={GalleryImgsData}
         testimonialsData={testimonialsData}
         heroBgData={HeroBgData}></ParentState>
-      <Divider
-        style={{
-          fontWeight: "bold",
-          paddingLeft: "20px",
-          paddingRight: "20px",
-        }}>
-        Doctors
-      </Divider>
-      <Doctors doctorDescription={doctorsData}></Doctors>
+      <div className="flex md:flex-row flex-col">
+        <div className="w-full md:w-1/2">
+          <Divider
+            style={{
+              fontWeight: "bold",
+              paddingLeft: "20px",
+              paddingRight: "20px",
+            }}>
+            Doctors
+          </Divider>
+          <Doctors doctorDescription={doctorsData}></Doctors>
+        </div>
+        <div className="w-full md:w-1/2 ">
+          <Divider
+            style={{
+              fontWeight: "bold",
+              paddingLeft: "20px",
+              paddingRight: "20px",
+            }}>
+            Get in Contact
+          </Divider>
+          <Contact></Contact>
+          <OperationForm></OperationForm>
+        </div>
+      </div>
+
       <Divider
         style={{
           fontWeight: "bold",
@@ -393,16 +410,6 @@ export default function ComparisonPage() {
         Location
       </Divider>
       <Location></Location>
-      <Divider
-        style={{
-          fontWeight: "bold",
-          paddingLeft: "20px",
-          paddingRight: "20px",
-        }}>
-        Get in Contact
-      </Divider>
-      <Contact></Contact>
-      <OperationForm></OperationForm>
     </div>
   );
 }
