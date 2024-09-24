@@ -3,6 +3,7 @@ import Doctors from "@/components/spaghetti/Doctors";
 import Location from "@/components/spaghetti/Location";
 import OperationForm from "@/components/spaghetti/OperationForm";
 import ParentState from "@/components/spaghetti/ParentState";
+import VideoLibrary from "@/components/spaghetti/VideoLibrary";
 import { Divider } from "antd";
 import { Metadata } from "next";
 
@@ -400,7 +401,7 @@ export default function ComparisonPage() {
           <OperationForm></OperationForm>
         </div>
       </div>
-
+      <VideoLibrary></VideoLibrary>
       <Divider
         style={{
           fontWeight: "bold",
