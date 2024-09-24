@@ -120,24 +120,23 @@ export default function VideoLibrary() {
   };
 
   return (
-    <div className="flex flex-row w-full max-w-2xl">
+    <div className="flex flex-col w-full max-w-lg">
       <Menu
         mode="inline"
         defaultSelectedKeys={["231"]}
         openKeys={stateOpenKeys}
         onOpenChange={onOpenChange}
         onClick={handleMenuClick}
-        style={{ width: "100%", maxWidth: "256px" }}
         items={items}
+        className="border-[#13a89e] overflow-y-auto max-h-[250px]"
       />
-      <div className="flex flex-col justify-end">
+      <div className="flex flex-col justify-end bg-[#13a89e] p-2">
         <video
-          className="z-50"
+          className="z-50 w-full max-w-lg h-auto rounded-lg"
           src={videoSrc}
           controls
           autoPlay
-          muted
-          style={{ width: "100%", maxWidth: "500px", height: "auto" }}></video>
+          muted></video>
       </div>
     </div>
   );
