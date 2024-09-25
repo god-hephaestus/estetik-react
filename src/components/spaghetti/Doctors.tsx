@@ -37,7 +37,7 @@ export default function Doctors({ doctorDescription }: DoctorsProps) {
             <Title level={3}>{doctor.doctorName}</Title>
             <div className="flex">
               <MedicineBoxOutlined className="text-[#13a89e] text-2xl mr-2" />
-              <p className="text-[#0a5b56]">{doctor.doctorArea}</p>
+              <p className="text-[#0a5b56] font-bold">{doctor.doctorArea}</p>
             </div>
             <p>{doctor.doctorText}</p>
           </div>
