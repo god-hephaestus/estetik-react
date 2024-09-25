@@ -42,7 +42,7 @@ export default function ParentState({
   };
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <HeroDynamic heroBg={heroBgData[stateKey]?.src || heroBgData.hero1.src} />
       <div className="flex flex-col md:flex-row md:justify-between">
         <div className="w-full md:w-1/2 flex flex-col items-center">

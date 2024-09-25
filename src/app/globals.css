@@ -70,3 +70,16 @@ scrollbar-track-color: #f1f1f1 !important;
 * {
   scrollbar-width: thin !important; /* Applies thin scrollbar width to all elements */
 }
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.arrow-bounce {
+  animation: bounce 2s infinite;
+}

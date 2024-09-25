@@ -16,11 +16,14 @@ export default function HeroDynamic({ heroBg }: { heroBg: string }) {
         autoPlay
         muted
         loop></video>
-      <a className="absolute left-[50%] bottom-16 z-50" href="#compare">
+      <a
+        className="absolute left-[50%] bottom-4 md:bottom-16 z-50"
+        href="#compare">
         <ArrowDownOutlined
+          className="arrow-bounce"
           style={{ color: "white", fontSize: "40px" }}></ArrowDownOutlined>
       </a>
-      <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center space-y-4 px-32">
+      <div className="absolute top-1/2 left-0 w-full h-1/2 flex flex-col justify-center items-center space-y-4 px-32">
         <h1
           className="text-white text-center lg:block decoration-double"
           style={{
