@@ -28,3 +28,45 @@
   .ant-menu-item:not(.ant-menu-item-selected):active {
   background-color: #0a5b56 !important;
 }
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888 !important; /* Customize thumb color */
+  border-radius: 5px !important; /* Rounded thumb edges */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1 !important; /* Customize track (scroll bed) color */
+  border-radius: 5px !important; /* Rounded track edges */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555 !important; /* Darker thumb on hover */
+}
+
+/* Hide scrollbar arrows (directional buttons) */
+::-webkit-scrollbar-button {
+  display: none !important;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: thin !important;
+  scrollbar-color: #888 #f1f1f1 !important; /* thumb color, track color */
+}
+
+html:hover {
+  scrollbar-color: #555 #f1f1f1 !important; /* thumb on hover */
+}
+
+/* For Edge */
+scrollbar-face-color: #888 !important;
+scrollbar-track-color: #f1f1f1 !important;
+
+* {
+  scrollbar-width: thin !important; /* Applies thin scrollbar width to all elements */
+}
