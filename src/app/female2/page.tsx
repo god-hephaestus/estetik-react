@@ -143,16 +143,64 @@ const GalleryImgsData = {
       src: "/BeforeAfter/gallery/breast/Meme - 1.webp",
       alt: "Breast Surgery",
     },
+    {
+      src: "/BeforeAfter/gallery/breast/Meme - 2.webp",
+      alt: "Breast Surgery",
+    },
+    {
+      src: "/BeforeAfter/gallery/breast/Meme - 3.webp",
+      alt: "Breast Surgery",
+    },
+    {
+      src: "/BeforeAfter/gallery/breast/Meme - 4.webp",
+      alt: "Breast Surgery",
+    },
+    {
+      src: "/BeforeAfter/gallery/breast/Meme - 5.webp",
+      alt: "Breast Surgery",
+    },
   ],
   gallery2: [
     {
-      src: "/BeforeAfter/gallery/bbl/bbl - 1.webp",
+      src: "/BeforeAfter/gallery/bbl/Bbl - 1.webp",
+      alt: "BBL",
+    },
+    {
+      src: "/BeforeAfter/gallery/bbl/Bbl - 2.webp",
+      alt: "BBL",
+    },
+    {
+      src: "/BeforeAfter/gallery/bbl/Bbl - 3.webp",
+      alt: "BBL",
+    },
+    {
+      src: "/BeforeAfter/gallery/bbl/Bbl - 4.webp",
+      alt: "BBL",
+    },
+    {
+      src: "/BeforeAfter/gallery/bbl/Bbl - 6.webp",
+      alt: "BBL",
+    },
+    {
+      src: "/BeforeAfter/gallery/bbl/Bbl - 7.webp",
+      alt: "BBL",
+    },
+    {
+      src: "/BeforeAfter/gallery/bbl/Bbl - 8.webp",
+      alt: "BBL",
+    },
+    {
+      src: "/BeforeAfter/gallery/bbl/Bbl - 9.webp",
+      alt: "BBL",
+    },
+    {
+      src: "/BeforeAfter/gallery/bbl/Bbl - 10.webp",
       alt: "BBL",
     },
   ],
   gallery3: [
     {
-      src: "/BeforeAfter/gallery/total/total - 1.webp",
+      src: "/BeforeAfter/gallery/total/Total - 1.webp",
       alt: "Total Body",
     },
   ],
