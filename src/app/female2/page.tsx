@@ -181,26 +181,30 @@ const GalleryImgsData = {
       src: "/BeforeAfter/gallery/bbl/Bbl - 6.webp",
       alt: "BBL",
     },
-    {
-      src: "/BeforeAfter/gallery/bbl/Bbl - 7.webp",
-      alt: "BBL",
-    },
-    {
-      src: "/BeforeAfter/gallery/bbl/Bbl - 8.webp",
-      alt: "BBL",
-    },
-    {
-      src: "/BeforeAfter/gallery/bbl/Bbl - 9.webp",
-      alt: "BBL",
-    },
-    {
-      src: "/BeforeAfter/gallery/bbl/Bbl - 10.webp",
-      alt: "BBL",
-    },
   ],
   gallery3: [
     {
       src: "/BeforeAfter/gallery/total/Total - 1.webp",
+      alt: "Total Body",
+    },
+    {
+      src: "/BeforeAfter/gallery/total/Total - 2.webp",
+      alt: "Total Body",
+    },
+    {
+      src: "/BeforeAfter/gallery/total/Total - 3.webp",
+      alt: "Total Body",
+    },
+    {
+      src: "/BeforeAfter/gallery/total/Total - 4.webp",
+      alt: "Total Body",
+    },
+    {
+      src: "/BeforeAfter/gallery/total/Total - 5.webp",
+      alt: "Total Body",
+    },
+    {
+      src: "/BeforeAfter/gallery/total/Total - 6.webp",
       alt: "Total Body",
     },
   ],
