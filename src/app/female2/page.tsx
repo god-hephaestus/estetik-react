@@ -212,151 +212,217 @@ const GalleryImgsData = {
 const testimonialsData = {
   gallery1: [
     {
-      name: "John Doe",
-      operation: "Hair Transplant",
-      message: "Amazing results, highly recommend!",
+      name: "Yekaterina K.",
+      operation: "Breast Augmentation",
+      message:
+        "My breast augmentation went perfectly! The staff were incredibly professional and friendly, making the whole experience comfortable from start to finish.",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Jane Smith",
-      operation: "Hair Transplant",
-      message: "Very professional and caring staff.",
+      name: "Olha B.",
+      operation: "Mammoplasty",
+      message:
+        "I had mammoplasty and couldn’t be happier with the results. The care I received was top-notch!",
       imageSrc: "hair2.webp",
     },
     {
-      name: "John Doe",
-      operation: "Hair Transplant",
-      message: "Amazing results, highly recommend!",
+      name: "Irina S.",
+      operation: "Breast Lift",
+      message:
+        "I did a breast lift, and the entire process was smooth. The care was amazing, and I felt well supported.",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Jane Smith",
-      operation: "Hair Transplant",
-      message: "Very professional and caring staff.",
+      name: "Maria J.",
+      operation: "Breast Reduction",
+      message:
+        "I had a breast reduction, and the results were beyond my expectations. The doctors were exceptionally skilled.",
       imageSrc: "hair2.webp",
     },
     {
-      name: "John Doe",
-      operation: "Hair Transplant",
-      message: "Amazing results, highly recommend!",
+      name: "Begüm K.",
+      operation: "Breast Augmentation",
+      message:
+        "I had breast augmentation and am thrilled with the results. The staff was caring and professional. Special thanks to Tahir and Sabir for their support.",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Jane Smith",
-      operation: "Hair Transplant",
-      message: "Very professional and caring staff.",
+      name: "Katrina S.",
+      operation: "Breast Augmentation",
+      message:
+        "I had breast augmentation and the surgery was quick with a smooth recovery. After 10 days, the pain was almost gone, and now, three months later, I love the results!",
+      imageSrc: "hair2.webp",
+    },
+    {
+      name: "Elena J.",
+      operation: "Breast Augmentation",
+      message:
+        "My breast augmentation was a great value for the service I received. The process from consultation to recovery was smooth, and the room and food services were excellent!",
+      imageSrc: "hair2.webp",
+    },
+    {
+      name: "Natasha D.",
+      operation: "Breast Augmentation",
+      message:
+        "After my breast augmentation, I felt well cared for, especially during the consultation and aftercare. Great experience!",
+      imageSrc: "hair2.webp",
+    },
+    {
+      name: "Cathy K.",
+      operation: "Breast Lift and Thread Lift",
+      message:
+        "I had a breast lift and facial thread lift. The results are great, with smooth healing and minimal scarring. The staff was supportive and professional. Highly recommend Estetik International.",
+      imageSrc: "hair2.webp",
+    },
+    {
+      name: "Sena U.",
+      operation: "Breast Implants",
+      message:
+        "The best doctors in Turkey are here. The surgery was very simple, and the recovery time was shorter than expected. Thank you so much!",
       imageSrc: "hair2.webp",
     },
   ],
   gallery2: [
     {
-      name: "Mark Lee",
-      operation: "Gynecomastia",
-      message: "The surgery was life-changing.",
+      name: "Gabriella T.",
+      operation: "BBL",
+      message:
+        "I had a Brazilian Butt Lift (BBL) and am very happy with the results. The team, especially Dr. Bülent, and Tahir made the entire process smooth and comfortable.",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Mark Lee",
-      operation: "Gynecomastia",
-      message: "The surgery was life-changing.",
+      name: "Victoria L.",
+      operation: "BBL",
+      message:
+        "Despite my concerns, Estetik International provided the best care for my BBL. The team was positive and professional.",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Mark Lee",
-      operation: "Gynecomastia",
-      message: "The surgery was life-changing.",
+      name: "Kvitalina R.",
+      operation: "BBL",
+      message:
+        "I had a BBL and breast augmentation with Dr. Omer, and the results are beyond my expectations! I love my new shape.",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Mark Lee",
-      operation: "Gynecomastia",
-      message: "The surgery was life-changing.",
+      name: "Nurgül Z.",
+      operation: "BBL and Liposuction",
+      message:
+        "BBL and liposuction with Dr. Kunter gave me my dream body! The results look so natural, and the clinic’s team was supportive from start to finish. Highly recommend!",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Mark Lee",
-      operation: "Gynecomastia",
-      message: "The surgery was life-changing.",
+      name: "Ariana P.",
+      operation: "BBL and Breast Augmentation",
+      message:
+        "Dr. B performed my BBL and breast surgery, and I couldn’t be more thrilled! Entire experience was smooth and professional!",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Mark Lee",
-      operation: "Gynecomastia",
-      message: "The surgery was life-changing.",
+      name: "Natalya A.",
+      operation: "BBL",
+      message:
+        "I had a full body lift at Estetik International. Dr. Yavuz and the team were incredibly professional, and the results are stunning. Special thanks to Sabir for his amazing support!",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Mark Lee",
-      operation: "Gynecomastia",
-      message: "The surgery was life-changing.",
+      name: "Jennifer T.",
+      operation: "BBL",
+      message:
+        "I had a BBL two months ago and am thrilled with the results. Big thanks to Estetik International team for their work and to Berk for organizing everything. I highly recommend this clinic and can’t wait for my tummy tuck next year!",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Mark Lee",
-      operation: "Gynecomastia",
-      message: "The surgery was life-changing.",
+      name: "Elif D.",
+      operation: "BBL and Liposuction",
+      message:
+        "The clinic you want to return to! Everything is at the highest level. An attentive doctors with a sincere kind smile, professionals in their field.",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Mark Lee",
-      operation: "Gynecomastia",
-      message: "The surgery was life-changing.",
+      name: "Yevgeniya S.",
+      operation: "BBL and Breast Augmentation",
+      message:
+        "I had a BBL and breast augmentation with Dr. Omer, and the results are amazing! Tahir ensured everything was smooth and professional.",
+      imageSrc: "hair2.webp",
+    },
+    {
+      name: "Anastasia P.",
+      operation: "BBL and Liposuction",
+      message:
+        "BBL and liposuction with Dr. Kunter gave me natural results. Tahir and Sabir provided great support throughout the process.",
       imageSrc: "hair2.webp",
     },
   ],
   gallery3: [
     {
-      name: "Sarah Johnson",
-      operation: "360 Body Lifting",
-      message: "Fantastic experience!",
+      name: "Daniela A.",
+      operation: "Total Body Reshaping and Spider Web Aesthetic",
+      message:
+        "Thanks to Dr. B and team for transforming my body! The Spider Web & Total Body results are stunning. Amazing clinic and staff. Highly recommend to my friends!",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Sarah Johnson",
-      operation: "360 Body Lifting",
-      message: "Fantastic experience!",
+      name: "Dilek S.",
+      operation: "Total Body Reshaping",
+      message:
+        "I had an incredible experience with Dr. Bülent and his team. The surgery was smooth, the staff was supportive, and the hospital felt like a five-star hotel. I’m beyond happy with the results!",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Sarah Johnson",
-      operation: "360 Body Lifting",
-      message: "Fantastic experience!",
+      name: "Emily S.",
+      operation: "Total Body Reshaping",
+      message:
+        "I had a full body contouring, and the results were amazing! The team was supportive, and my recovery was faster than expected.",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Sarah Johnson",
-      operation: "360 Body Lifting",
-      message: "Fantastic experience!",
+      name: "Esther D.",
+      operation: "Total Body Reshaping",
+      message:
+        "Everything was done 100%. I felt save and the nurses and team were wonderful. Dr. Bulent was my Chirurg, he did an amazing job. I am very glad and happy.",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Sarah Johnson",
-      operation: "360 Body Lifting",
-      message: "Fantastic experience!",
+      name: "Hilal Ş.",
+      operation: "Total Body Reshaping",
+      message:
+        "Thank you Dr. B, I'm very satisfied about my surgry, you are not only great Doctor but also great human",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Sarah Johnson",
-      operation: "360 Body Lifting",
-      message: "Fantastic experience!",
+      name: "Sophia R.",
+      operation: "Total Body Reshaping",
+      message:
+        "I’m beyond happy with my Total Body Reshaping treatment! Hospital's team is exceptional, and the results are flawless.",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Sarah Johnson",
-      operation: "360 Body Lifting",
-      message: "Fantastic experience!",
+      name: "Zeynep D.",
+      operation: "Total Body Reshaping",
+      message:
+        "Top professionalism in here. Every single player from the Staff is with great heart. Rooms are single and equiped with best tools to deliver the job. Recommend to whoever not decided yet",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Sarah Johnson",
-      operation: "360 Body Lifting",
-      message: "Fantastic experience!",
+      name: "Maria T.",
+      operation: "Total Body Reshaping",
+      message:
+        "I did body contouring, and the results are stunning. The staff made me feel at ease, and everything went smoothly.",
       imageSrc: "hair2.webp",
     },
     {
-      name: "Sarah Johnson",
-      operation: "360 Body Lifting",
-      message: "Fantastic experience!",
+      name: "Francesca J.",
+      operation: "Total Body Reshaping",
+      message:
+        "I’m very happy with the service at Estetik International. The clinic is excellent, and all my aesthetic procedures were successful. Thank you!",
+      imageSrc: "hair2.webp",
+    },
+    {
+      name: "Isabel R.",
+      operation: "Total Body Reshaping",
+      message:
+        "I was very happy with my surgery at Estetik. The doctor and staff were great, and Tahir and Eyub provided excellent support throughout. The nurses were also very attentive. Thank you to the whole team!",
       imageSrc: "hair2.webp",
     },
   ],

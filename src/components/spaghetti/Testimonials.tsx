@@ -97,8 +97,8 @@ export default function Testimonials({
           testimonials.map((testimonial, index) => (
             <div key={index} className="flex-shrink-0 mr-4">
               <div
-                className="shadow-lg p-5 my-2 bg-white relative rounded-xl w-full sm:w-64 md:w-72 lg:w-80"
-                style={{ height: "220px" }}>
+                className="shadow-lg p-5 my-2 bg-white relative rounded-xl w-80 md:w-96"
+                style={{ height: "260px" }}>
                 <div className="mb-10 text-black">
                   <CommentOutlined className="bottom-[5px] right-[5px] absolute text-xl text-[#13a89e]" />
                   <p>{testimonial.message}</p>
