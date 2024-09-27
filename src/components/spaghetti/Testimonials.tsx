@@ -107,7 +107,7 @@ export default function Testimonials({
                 <div className="absolute bottom-0 left-0 flex items-center p-5">
                   <Avatar
                     size={50}
-                    src={"/BeforeAfter/" + testimonial.imageSrc}
+                    src={"/img/testimonials/" + testimonial.imageSrc}
                     alt={"customer testimonial"}
                     draggable={false}
                     shape="circle"
