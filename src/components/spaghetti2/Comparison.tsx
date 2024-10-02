@@ -15,14 +15,14 @@ export default function Comparison({
     image1: string;
     image2: string;
     faqs: Array<{ question: string; answer: string }>;
-    stateKey: string; // Include stateKey here as well
+    stateKey: string;
   }>;
   comparisonData: {
     label: string;
     image1: string;
     image2: string;
     faqs: Array<{ question: string; answer: string }>;
-    stateKey: string; // Include stateKey here as well
+    stateKey: string;
   };
   onButtonClick: (newComparisonData: {
     label: string;
@@ -42,7 +42,6 @@ export default function Comparison({
     const img1 = new Image();
     const img2 = new Image();
 
-    // Once both images are loaded, update state and hide the spinner
     img1.onload = () => {
       img2.onload = () => {
         setIsImageLoaded(true); // Hide the spinner after images load
@@ -89,7 +88,6 @@ export default function Comparison({
     scrollToActiveButton(prevIndex);
   };
 
-  // Preload new images when comparisonData changes
   React.useEffect(() => {
     handleImageChange(comparisonData.image1, comparisonData.image2);
   }, [comparisonData]);
@@ -100,62 +98,70 @@ export default function Comparison({
     );
     scrollToActiveButton(initialIndex);
   }, [buttonProps, comparisonData.label]);
-  return (
-    <div className="container" id="compare">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}>
-        <Button onClick={handlePrevious}>
-          <LeftOutlined />
-        </Button>
 
+  return (
+    <div className="container relative rounded-lg bg-[#ababab]" id="compare">
+      <div className="relative flex items-center justify-center">
         <div
           ref={scrollRef}
-          className="scroll-container py-3 px-20 "
+          className="scroll-container relative flex overflow-hidden"
           style={{
-            display: "flex",
-            overflowX: "hidden",
             whiteSpace: "nowrap",
+            margin: "25px 10px 0 10px",
+            width: "500px",
             position: "relative",
-            marginRight: "10px",
-            marginLeft: "10px",
-            width: "180px",
           }}>
-          {buttonProps.map((button, index) => (
-            <Button
-              key={index}
-              data-index={index}
-              className={comparisonData.label === button.label ? "active" : ""}
-              onClick={() => {
-                onButtonClick(button); // Update state when button is clicked
-                scrollToActiveButton(index);
-              }}
-              style={{
-                margin: "0 10px",
-                minWidth: "150px",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                padding: "10px",
-                transform:
-                  comparisonData.label === button.label
-                    ? "scale(1.2)"
-                    : "scale(1)",
-                boxShadow:
-                  comparisonData.label === button.label
-                    ? "0px 4px 12px rgba(0, 0, 0, 0.3)"
-                    : "none",
-                backgroundColor:
-                  comparisonData.label === button.label ? "#13a89e" : "",
-              }}>
-              {button.label}
-            </Button>
-          ))}
+          <div className="flex justify-center items-center w-full bg-white rounded-lg overflow-hidden">
+            {buttonProps.map((button, index) => (
+              <Button
+                key={index}
+                data-index={index}
+                className={`${
+                  comparisonData.label === button.label ? "active" : ""
+                }`}
+                onClick={() => {
+                  onButtonClick(button); // Update state when button is clicked
+                  scrollToActiveButton(index); // This will make sure the button is scrolled to the center
+                }}
+                style={{
+                  margin: "0 10px",
+                  minWidth: "200px",
+                  transition: "transform 0.3s ease",
+                  padding: "10px",
+                  transform:
+                    comparisonData.label === button.label
+                      ? "scale(1)"
+                      : "scale(0.9)", // Reduced scale for non-active buttons
+                  zIndex: 10, // Buttons are beneath the arrows
+                }}>
+                {button.label}
+              </Button>
+            ))}
+          </div>
         </div>
 
-        <Button onClick={handleNext}>
-          <RightOutlined />
+        <Button
+          onClick={handlePrevious}
+          className="absolute left-[15%] z-20"
+          style={{
+            top: "25px",
+            borderRadius: "50px",
+            backgroundColor: "rgba(202, 202, 202, 1)",
+            padding: "10px",
+          }}>
+          <LeftOutlined style={{ color: "#13a89e" }} />
+        </Button>
+
+        <Button
+          onClick={handleNext}
+          className="absolute right-[15%] z-20"
+          style={{
+            top: "25px",
+            borderRadius: "50px",
+            backgroundColor: "rgba(202, 202, 202, 1)",
+            padding: "10px",
+          }}>
+          <RightOutlined style={{ color: "#13a89e" }} />
         </Button>
       </div>
 
@@ -165,8 +171,7 @@ export default function Comparison({
           alignItems: "center",
           justifyContent: "center",
           marginTop: "20px",
-          paddingRight: "20px",
-          paddingLeft: "20px",
+          padding: "20px",
         }}>
         <div
           className="relative w-full"
@@ -196,7 +201,7 @@ export default function Comparison({
           )}
 
           {isImageLoaded && (
-            <div className="w-full h-full border-[#13a89e] border-2">
+            <div className="w-full h-full border-[#13a89e] border-2 ">
               <ReactCompareImage
                 leftImage={comparisonData.image1}
                 rightImage={comparisonData.image2}
