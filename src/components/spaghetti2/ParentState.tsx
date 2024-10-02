@@ -6,7 +6,6 @@ import Testimonials from "./Testimonials";
 import HeroDynamic from "./HeroDynamic";
 import { Divider } from "antd";
 import { MinusOutlined } from "@ant-design/icons";
-import StepsComp from "./StepsComp";
 
 export default function ParentState({
   testimonialsData,
@@ -44,14 +43,14 @@ export default function ParentState({
   return (
     <div className="">
       <div className="flex flex-col md:flex-row md:justify-between">
-        <div className="w-full md:w-1/2 flex flex-col items-center">
+        <div className="w-full md:w-2/5 flex flex-col items-center">
           <Comparison
             buttonProps={buttonsData}
             comparisonData={comparisonData}
             onButtonClick={handleButtonClick}
           />
         </div>
-        <div className="w-full md:w-1/2 flex flex-col items-center">
+        <div className="w-full md:w-3/5 flex flex-col items-center">
           <HeroDynamic
             heroBg={heroBgData[stateKey]?.src || heroBgData.hero1.src}
           />
