@@ -206,7 +206,18 @@ export default function Comparison({
                 leftImage={comparisonData.image1}
                 rightImage={comparisonData.image2}
                 sliderLineColor="#ffffff"
-                handleSize={30}
+                skeleton={<Spin size="large" />}
+                hover={false}
+                handle={
+                  <div className="flex z-0">
+                    <div className="bg-[rgba(255,255,255,0.5)] rounded-3xl w-[40px] h-[40px] flex justify-center items-center">
+                      <LeftOutlined className="text-white " />
+                    </div>
+                    <div className="bg-[rgba(255,255,255,0.5)] rounded-3xl w-[40px] h-[40px] flex justify-center items-center">
+                      <RightOutlined className="text-white" />
+                    </div>
+                  </div>
+                }
               />
             </div>
           )}
