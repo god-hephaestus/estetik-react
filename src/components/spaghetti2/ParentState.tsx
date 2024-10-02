@@ -43,7 +43,6 @@ export default function ParentState({
 
   return (
     <div className="">
-      <HeroDynamic heroBg={heroBgData[stateKey]?.src || heroBgData.hero1.src} />
       <div className="flex flex-col md:flex-row md:justify-between">
         <div className="w-full md:w-1/2 flex flex-col items-center">
           <Comparison
@@ -53,7 +52,9 @@ export default function ParentState({
           />
         </div>
         <div className="w-full md:w-1/2 flex flex-col items-center">
-          <StepsComp />
+          <HeroDynamic
+            heroBg={heroBgData[stateKey]?.src || heroBgData.hero1.src}
+          />
         </div>
       </div>
 
