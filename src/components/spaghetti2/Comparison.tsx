@@ -100,7 +100,7 @@ export default function Comparison({
   }, [buttonProps, comparisonData.label]);
 
   return (
-    <div className="container relative rounded-lg bg-[#ababab]" id="compare">
+    <div className="container relative rounded-3xl bg-[#ababab]" id="compare">
       <div className="relative flex items-center justify-center">
         <div
           ref={scrollRef}
@@ -108,10 +108,11 @@ export default function Comparison({
           style={{
             whiteSpace: "nowrap",
             margin: "25px 10px 0 10px",
+            height: "50px",
             width: "500px",
             position: "relative",
           }}>
-          <div className="flex justify-center items-center w-full bg-white rounded-lg overflow-hidden">
+          <div className="flex justify-center items-center w-full bg-white rounded-xl overflow-hidden">
             {buttonProps.map((button, index) => (
               <Button
                 key={index}
@@ -124,6 +125,8 @@ export default function Comparison({
                   scrollToActiveButton(index); // This will make sure the button is scrolled to the center
                 }}
                 style={{
+                  borderRadius: "50px",
+                  height: "40px",
                   margin: "0 10px",
                   minWidth: "200px",
                   transition: "transform 0.3s ease",
@@ -132,7 +135,7 @@ export default function Comparison({
                     comparisonData.label === button.label
                       ? "scale(1)"
                       : "scale(0.9)", // Reduced scale for non-active buttons
-                  zIndex: 10, // Buttons are beneath the arrows
+                  zIndex: 10,
                 }}>
                 {button.label}
               </Button>
@@ -142,9 +145,9 @@ export default function Comparison({
 
         <Button
           onClick={handlePrevious}
-          className="absolute left-[15%] z-20"
+          className="absolute left-[5%] z-20"
           style={{
-            top: "25px",
+            top: "32.5px",
             borderRadius: "50px",
             backgroundColor: "rgba(202, 202, 202, 1)",
             padding: "10px",
@@ -154,9 +157,9 @@ export default function Comparison({
 
         <Button
           onClick={handleNext}
-          className="absolute right-[15%] z-20"
+          className="absolute right-[5%] z-20"
           style={{
-            top: "25px",
+            top: "32.5px",
             borderRadius: "50px",
             backgroundColor: "rgba(202, 202, 202, 1)",
             padding: "10px",
