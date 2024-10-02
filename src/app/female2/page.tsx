@@ -1,9 +1,9 @@
-import Contact from "@/components/spaghetti/Contact";
-import Doctors from "@/components/spaghetti/Doctors";
-import Location from "@/components/spaghetti/Location";
-import OperationForm from "@/components/spaghetti/OperationForm";
-import ParentState from "@/components/spaghetti/ParentState";
-import VideoLibrary from "@/components/spaghetti/VideoLibrary";
+import Contact from "@/components/spaghetti2/Contact";
+import Doctors from "@/components/spaghetti2/Doctors";
+import Location from "@/components/spaghetti2/Location";
+import OperationForm from "@/components/spaghetti2/OperationForm";
+import ParentState from "@/components/spaghetti2/ParentState";
+import VideoLibrary from "@/components/spaghetti2/VideoLibrary";
 import { Divider } from "antd";
 import { Metadata } from "next";
 
