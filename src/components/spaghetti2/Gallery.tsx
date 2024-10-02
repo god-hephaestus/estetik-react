@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Divider, Image } from "antd";
+import { Image } from "antd";
 
 export default function Gallery({
   activestateKey,
@@ -18,15 +18,6 @@ export default function Gallery({
 
   return (
     <>
-      <div>
-        <Divider
-          style={{ fontWeight: "bold", paddingLeft: "20px" }}
-          orientation="right"
-          orientationMargin={30}>
-          Before & After Gallery
-        </Divider>
-      </div>
-
       <div className="p-2 text-center">
         {currentGallery.length > 0 ? (
           <Image.PreviewGroup items={previewItems}>

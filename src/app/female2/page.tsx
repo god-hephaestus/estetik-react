@@ -580,7 +580,6 @@ export default function ComparisonPage() {
               Get in Contact
             </Divider>
             <Contact></Contact>
-            <OperationForm></OperationForm>
           </div>
         </div>
         <VideoLibrary></VideoLibrary>

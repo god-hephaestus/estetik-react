@@ -4,8 +4,9 @@ import Comparison from "./Comparison";
 import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
 import HeroDynamic from "./HeroDynamic";
-import { Divider } from "antd";
+import { Collapse, CollapseProps, Divider } from "antd";
 import { MinusOutlined } from "@ant-design/icons";
+import OperationForm from "../OperationForm";
 
 export default function ParentState({
   testimonialsData,
@@ -39,6 +40,28 @@ export default function ParentState({
     setComparisonData(newComparisonData); // Update comparison data
     setstateKey(newComparisonData.stateKey); // Update state key
   };
+  const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
+  const items: CollapseProps["items"] = [
+    {
+      key: "1",
+      label: "This is panel header 1",
+      children: <p>{text}</p>,
+    },
+    {
+      key: "2",
+      label: "This is panel header 2",
+      children: <p>{text}</p>,
+    },
+    {
+      key: "3",
+      label: "This is panel header 3",
+      children: <p>{text}</p>,
+    },
+  ];
 
   return (
     <div className="">
@@ -57,34 +80,41 @@ export default function ParentState({
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row md:justify-between">
-        <div className="w-full md:w-1/2">
-          <Gallery
-            activestateKey={stateKey}
-            GalleryImgsData={GalleryImgsData}
-          />
-        </div>
-        <div className="w-full md:w-1/2 ">
-          <Divider
-            style={{ fontWeight: "bold", paddingLeft: "20px" }}
-            orientation="right"
-            orientationMargin={30}>
-            Frequently Asked Questions
-          </Divider>
-
-          <div className="px-5 h-[350px] overflow-y-auto">
-            {comparisonData.faqs.map((faq, index) => (
-              <div key={index}>
-                <h3 className="text-black font-bold py-1 ">
-                  <MinusOutlined /> {faq.question}
-                </h3>
-                <p className="text-black ">{faq.answer}</p>
-              </div>
-            ))}
+      <div className="flex flex-col md:flex-row md:justify-between mt-5">
+        <div className="w-full md:w-3/5 flex">
+          <div className="md:w-2/3">
+            <Gallery
+              activestateKey={stateKey}
+              GalleryImgsData={GalleryImgsData}
+            />
+          </div>
+          <div className="md:w-1/3">
+            <Collapse accordion items={items}></Collapse>
           </div>
         </div>
+        <div className="w-full md:w-2/5 ">
+          <OperationForm></OperationForm>
+        </div>
       </div>
+      <div className="w-full md:w-2/5 ">
+        <Divider
+          style={{ fontWeight: "bold", paddingLeft: "20px" }}
+          orientation="right"
+          orientationMargin={30}>
+          Frequently Asked Questions
+        </Divider>
 
+        <div className="px-5 h-[350px] overflow-y-auto">
+          {comparisonData.faqs.map((faq, index) => (
+            <div key={index}>
+              <h3 className="text-black font-bold py-1 ">
+                <MinusOutlined /> {faq.question}
+              </h3>
+              <p className="text-black ">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="mt-8">
         <Testimonials stateKey={stateKey} testimonialsData={testimonialsData} />
       </div>
