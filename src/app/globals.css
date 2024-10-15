@@ -63,10 +63,6 @@ html:hover {
   scrollbar-color: #555 #f1f1f1 !important; /* thumb on hover */
 }
 
-/* For Edge */
-scrollbar-face-color: #888 !important;
-scrollbar-track-color: #f1f1f1 !important;
-
 * {
   scrollbar-width: thin !important; /* Applies thin scrollbar width to all elements */
 }
@@ -85,5 +81,11 @@ scrollbar-track-color: #f1f1f1 !important;
 }
 .ant-collapse-header {
   background-color: #abd7d4 !important;
-  border-radius: 10px !important;
+  border-radius: 15px !important;
+}
+.ant-collapse-item {
+  border-color: transparent !important;
+}
+.ant-select-arrow {
+  color: #13a89e !important;
 }

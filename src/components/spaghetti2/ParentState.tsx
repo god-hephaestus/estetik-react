@@ -80,37 +80,41 @@ export default function ParentState({
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row md:justify-between mt-10  ">
-        <div className="w-full md:w-[70%] flex rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec]">
-          <div className="md:w-[57%]  rounded-l-[25px] border-2 border-[#d0eeec]">
-            <Gallery
-              activestateKey={stateKey}
-              GalleryImgsData={GalleryImgsData}
-            />
-          </div>
-          <div className="md:w-[43%] pt-[20px] bg-[#d0eeec] rounded-r-[25px] border-2 border-[#d0eeec] ">
-            <Collapse
-              expandIcon={({ isActive }) => (
-                <DownCircleOutlined
-                  style={{
-                    color: "#13a89e",
-                    fontSize: "25px",
-                    border: 0,
-                  }}
-                  rotate={isActive ? 180 : 0}
-                />
-              )}
-              expandIconPosition="end"
-              bordered={false}
-              accordion
-              items={items}
-              className="rounded-[25px] bg-[#d0eeec]"></Collapse>
-          </div>
-        </div>
-        <div className="w-full md:w-[30%] ">
-          <OperationForm></OperationForm>
-        </div>
+      <div className="flex flex-col md:flex-row md:justify-between mt-10 items-stretch">
+  <div className="w-full md:w-[70%] flex flex-col rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec]">
+    <div className="flex flex-1">
+      <div className="md:w-[57%] rounded-l-[25px] border-2 border-[#d0eeec]">
+        <Gallery
+          activestateKey={stateKey}
+          GalleryImgsData={GalleryImgsData}
+        />
       </div>
+      <div className="md:w-[43%] pt-[20px] bg-[#d0eeec] rounded-r-[25px] border-2 border-[#d0eeec]">
+        <Collapse
+          expandIcon={({ isActive }) => (
+            <DownCircleOutlined
+              style={{
+                color: "#13a89e",
+                fontSize: "25px",
+                border: 0,
+              }}
+              rotate={isActive ? 180 : 0}
+            />
+          )}
+          expandIconPosition="end"
+          bordered={false}
+          accordion
+          items={items}
+          className="rounded-[25px] border-2 border-[#abd7d4] bg-[#d0eeec]"
+        />
+      </div>
+    </div>
+  </div>
+  <div className="w-full md:w-[30%] flex flex-col">
+    <OperationForm  />
+  </div>
+</div>
+
       <div className="w-full md:w-2/5 ">
         <Divider
           style={{ fontWeight: "bold", paddingLeft: "20px" }}
