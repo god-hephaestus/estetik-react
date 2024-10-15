@@ -43,6 +43,7 @@ export default function RootLayout({
               Carousel: {
                 arrowSize: 24,
               },
+              Collapse: {},
             },
             token: {
               colorPrimary: "#13a89e",

@@ -92,18 +92,21 @@ export default function OperationForm() {
   };
 
   return (
-    <div className="flex justify-center items-center bg-gray-100 my-6">
+    <div className="flex justify-center items-center mx-4">
       <Form
         name="operationForm"
         form={form}
         layout="vertical"
         onFinish={handleSubmit}
-        className="sm:w-full md:w-[400px] max-w-lg p-6 bg-white rounded-lg shadow-md">
+        className="w-full max-w-lg px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] shadow-md">
         <Form.Item
           label="Name"
           name="name"
           rules={[{ required: true, message: "Please input your name!" }]}>
-          <Input placeholder="Enter your name" />
+          <Input
+            className="border-2 border-[#13a89e]"
+            placeholder="Enter your name"
+          />
         </Form.Item>
         <Form.Item
           label="Phone"
@@ -130,7 +133,7 @@ export default function OperationForm() {
                 const searchText = `${option.label}`.toLowerCase();
                 return searchText.includes(input.toLowerCase());
               }}
-              className="w-1/3">
+              className="w-1/3 border border-2 border-[#13a89e]">
               {countries.map((country) => (
                 <Option
                   key={country.code}
@@ -145,7 +148,7 @@ export default function OperationForm() {
               value={phone}
               onChange={handlePhoneChange}
               placeholder="Enter your phone number"
-              className="w-2/3"
+              className="w-2/3 border-2 border-[#13a89e]"
             />
           </div>
         </Form.Item>

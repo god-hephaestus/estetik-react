@@ -5,7 +5,7 @@ import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
 import HeroDynamic from "./HeroDynamic";
 import { Collapse, CollapseProps, Divider } from "antd";
-import { MinusOutlined } from "@ant-design/icons";
+import { DownCircleOutlined, MinusOutlined } from "@ant-design/icons";
 import OperationForm from "../OperationForm";
 
 export default function ParentState({
@@ -49,24 +49,24 @@ export default function ParentState({
     {
       key: "1",
       label: "This is panel header 1",
-      children: <p>{text}</p>,
+      children: <p className="bg-[#d0eeec]">{text}</p>,
     },
     {
       key: "2",
       label: "This is panel header 2",
-      children: <p>{text}</p>,
+      children: <p className="bg-[#d0eeec]">{text}</p>,
     },
     {
       key: "3",
       label: "This is panel header 3",
-      children: <p>{text}</p>,
+      children: <p className="bg-[#d0eeec]">{text}</p>,
     },
   ];
 
   return (
-    <div className="">
-      <div className="flex flex-col md:flex-row md:justify-between">
-        <div className="w-full md:w-2/5 flex flex-col items-center">
+    <div>
+      <div className="flex flex-col md:flex-row md:justify-between ">
+        <div className="w-full md:w-2/5  flex flex-col items-center">
           <Comparison
             buttonProps={buttonsData}
             comparisonData={comparisonData}
@@ -80,19 +80,34 @@ export default function ParentState({
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row md:justify-between mt-5">
-        <div className="w-full md:w-3/5 flex">
-          <div className="md:w-2/3">
+      <div className="flex flex-col md:flex-row md:justify-between mt-10  ">
+        <div className="w-full md:w-[70%] flex rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec]">
+          <div className="md:w-[57%]  rounded-l-[25px] border-2 border-[#d0eeec]">
             <Gallery
               activestateKey={stateKey}
               GalleryImgsData={GalleryImgsData}
             />
           </div>
-          <div className="md:w-1/3">
-            <Collapse accordion items={items}></Collapse>
+          <div className="md:w-[43%] pt-[20px] bg-[#d0eeec] rounded-r-[25px] border-2 border-[#d0eeec] ">
+            <Collapse
+              expandIcon={({ isActive }) => (
+                <DownCircleOutlined
+                  style={{
+                    color: "#13a89e",
+                    fontSize: "25px",
+                    border: 0,
+                  }}
+                  rotate={isActive ? 180 : 0}
+                />
+              )}
+              expandIconPosition="end"
+              bordered={false}
+              accordion
+              items={items}
+              className="rounded-[25px] bg-[#d0eeec]"></Collapse>
           </div>
         </div>
-        <div className="w-full md:w-2/5 ">
+        <div className="w-full md:w-[30%] ">
           <OperationForm></OperationForm>
         </div>
       </div>
