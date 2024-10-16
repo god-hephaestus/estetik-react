@@ -71,15 +71,7 @@ export default function Testimonials({
   const testimonials = testimonialsData[stateKey] || [];
 
   return (
-    <div>
-      <Divider
-        style={{
-          fontWeight: "bold",
-          paddingLeft: "20px",
-          paddingRight: "20px",
-        }}>
-        Testimonials
-      </Divider>
+
       <div
         ref={containerRef}
         className={`flex overflow-x-auto cursor-${
@@ -127,6 +119,5 @@ export default function Testimonials({
           <p>No testimonials available for this selection.</p>
         )}
       </div>
-    </div>
   );
 }
