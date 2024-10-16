@@ -215,13 +215,15 @@ export default function ParentState({
         <div className="w-full md:w-2/5 ">
           <Doctors doctorDescription={doctorsData}></Doctors>
         </div>
-        <div className="w-full md:w-2/5 ">
+        <div className="w-full md:w-2/5 flex-grow flex">
           <Testimonials stateKey={stateKey} testimonialsData={testimonialsData} />
         </div>
         <div className="w-1/5">
         <Location/>
         </div>
       </div>
+
+
     </div>
   );
 }
