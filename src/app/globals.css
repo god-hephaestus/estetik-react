@@ -56,15 +56,15 @@
 /* For Firefox */
 html {
   scrollbar-width: thin !important;
-  scrollbar-color: #888 #f1f1f1 !important; /* thumb color, track color */
+  scrollbar-color: #888 #f1f1f1 !important;
 }
 
 html:hover {
-  scrollbar-color: #555 #f1f1f1 !important; /* thumb on hover */
+  scrollbar-color: #555 #f1f1f1 !important;
 }
 
 * {
-  scrollbar-width: thin !important; /* Applies thin scrollbar width to all elements */
+  scrollbar-width: thin !important;
 }
 @keyframes bounce {
   0%,

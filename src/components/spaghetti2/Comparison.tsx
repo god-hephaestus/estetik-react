@@ -100,7 +100,7 @@ export default function Comparison({
   }, [buttonProps, comparisonData.label]);
 
   return (
-    <div className="container relative rounded-3xl bg-[#ababab]" id="compare">
+    <div className="container relative rounded-3xl bg-[#d0eeec]" id="compare">
       <div className="relative flex items-center justify-center">
         <div
           ref={scrollRef}
@@ -112,7 +112,7 @@ export default function Comparison({
             width: "500px",
             position: "relative",
           }}>
-          <div className="flex justify-center items-center w-full bg-white rounded-xl overflow-hidden">
+          <div className="flex justify-center items-center w-full bg-[#dcfffb] rounded-xl overflow-hidden">
             {buttonProps.map((button, index) => (
               <Button
                 key={index}
@@ -149,7 +149,7 @@ export default function Comparison({
           style={{
             top: "32.5px",
             borderRadius: "50px",
-            backgroundColor: "rgba(202, 202, 202, 1)",
+            backgroundColor: "white",
             padding: "10px",
           }}>
           <LeftOutlined style={{ color: "#13a89e" }} />
@@ -161,7 +161,7 @@ export default function Comparison({
           style={{
             top: "32.5px",
             borderRadius: "50px",
-            backgroundColor: "rgba(202, 202, 202, 1)",
+            backgroundColor: "white",
             padding: "10px",
           }}>
           <RightOutlined style={{ color: "#13a89e" }} />
