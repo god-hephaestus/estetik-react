@@ -9,6 +9,7 @@ import { DownCircleOutlined, MinusOutlined } from "@ant-design/icons";
 import OperationForm from "../OperationForm";
 import Doctors from "./Doctors";
 import Contact from "./Contact";
+import Location from "./Location";
 
 export default function ParentState({
   testimonialsData,
@@ -210,7 +211,7 @@ export default function ParentState({
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row md:justify-between mt-10 ">
+      <div className="flex flex-col md:flex-row md:justify-between mt-10 gap-[20px]">
         <div className="w-full md:w-2/5 ">
           <Doctors doctorDescription={doctorsData}></Doctors>
         </div>
@@ -218,7 +219,7 @@ export default function ParentState({
           <Testimonials stateKey={stateKey} testimonialsData={testimonialsData} />
         </div>
         <div className="w-1/5">
-        <Contact/>
+        <Location/>
         </div>
       </div>
     </div>

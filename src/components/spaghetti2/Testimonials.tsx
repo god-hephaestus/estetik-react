@@ -74,7 +74,7 @@ export default function Testimonials({
 
       <div
         ref={containerRef}
-        className={`flex overflow-x-auto cursor-${
+        className={` flex overflow-x-auto cursor-${
           isDragging ? "grabbing" : "grab"
         } no-select`}
         onMouseDown={handleMouseDown}
