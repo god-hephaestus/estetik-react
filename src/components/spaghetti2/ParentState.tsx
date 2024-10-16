@@ -15,7 +15,7 @@ export default function ParentState({
   buttonsData,
   GalleryImgsData,
   heroBgData,
-  doctorsData, 
+  doctorsData,
 }: {
   testimonialsData: {
     [key: string]: Array<{
@@ -33,7 +33,7 @@ export default function ParentState({
     stateKey: string;
   }>;
   GalleryImgsData: { [key: string]: Array<{ src: string; alt: string }> };
-  heroBgData: { [key: string]: { src: string; alt: string } };
+  heroBgData: { [key: string]: { src: string[]; alt?: string } };
   doctorsData: Array<{
     imageSrc: string;
     doctorName: string;
@@ -43,6 +43,8 @@ export default function ParentState({
 }) {
   const [comparisonData, setComparisonData] = useState(buttonsData[0]); // Set initial comparison data
   const [stateKey, setstateKey] = useState(comparisonData.stateKey); // Set initial state key
+
+  const videoDescription: string[] = heroBgData[stateKey]?.src ?? [];
 
   // Function to update comparison, gallery, testimonials, and hero background based on stateKey
   const handleButtonClick = (newComparisonData: (typeof buttonsData)[0]) => {
@@ -58,32 +60,26 @@ export default function ParentState({
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row md:justify-between ">
-        <div className="w-full md:w-2/5  flex flex-col items-center">
+      <div className="flex flex-col md:flex-row md:justify-between items-stretch ">
+        <div className="w-full md:w-2/5 flex flex-col items-center h-full">
           <Comparison
             buttonProps={buttonsData}
             comparisonData={comparisonData}
             onButtonClick={handleButtonClick}
           />
         </div>
-        <div className="w-full md:w-3/5 flex flex-col items-center">
-          <HeroDynamic
-            heroBg={heroBgData[stateKey]?.src || heroBgData.hero1.src}
-          />
+        <div className="w-full md:w-3/5 flex-grow flex flex-col h-full">
+          <HeroDynamic videoDescription={videoDescription} />
         </div>
       </div>
-
+  
       <div className="flex flex-col md:flex-row md:justify-between mt-10 items-stretch">
         <div className="w-full md:w-[70%] flex flex-col rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec]">
           <div className="flex flex-1">
             <div className="md:w-[57%] rounded-l-[25px] border-2 border-[#d0eeec]">
-              <Gallery
-                activestateKey={stateKey}
-                GalleryImgsData={GalleryImgsData}
-              />
+              <Gallery activestateKey={stateKey} GalleryImgsData={GalleryImgsData} />
             </div>
             <div className="md:w-[43%] pt-[20px] bg-[#d0eeec] rounded-r-[25px] border-2 border-[#d0eeec]">
-              {/* Pass dynamic FAQ items to Collapse */}
               <Collapse
                 expandIcon={({ isActive }) => (
                   <DownCircleOutlined
@@ -109,9 +105,9 @@ export default function ParentState({
           <OperationForm />
         </div>
       </div>
-
+  
       <div className="flex flex-col md:flex-row md:justify-between mt-10 gap-[20px]">
-        <div className="w-full md:w-2/5 ">
+        <div className="w-full md:w-2/5">
           <Doctors doctorDescription={doctorsData} />
         </div>
         <div className="w-full md:w-2/5 flex-grow flex">
@@ -123,4 +119,6 @@ export default function ParentState({
       </div>
     </div>
   );
+  
+  
 }
