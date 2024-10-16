@@ -218,7 +218,7 @@ export default function ParentState({
         <div className="w-full md:w-2/5 flex-grow flex">
           <Testimonials stateKey={stateKey} testimonialsData={testimonialsData} />
         </div>
-        <div className="w-1/5">
+        <div className="w-1/5 overflow-x-hidden" >
         <Location/>
         </div>
       </div>

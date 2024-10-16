@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { Carousel, Typography } from "antd";
 import Image from "next/image";

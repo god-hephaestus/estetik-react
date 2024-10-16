@@ -1,6 +1,7 @@
 import Contact from "@/components/spaghetti2/Contact";
 import Doctors from "@/components/spaghetti2/Doctors";
 import Location from "@/components/spaghetti2/Location";
+import Navbar from "@/components/spaghetti2/Navbar";
 import OperationForm from "@/components/spaghetti2/OperationForm";
 import ParentState from "@/components/spaghetti2/ParentState";
 import VideoLibrary from "@/components/spaghetti2/VideoLibrary";
@@ -551,26 +552,16 @@ const HeroBgData = {
 
 export default function ComparisonPage() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="">
+        <Navbar />
       <div className="container mx-auto">
         <ParentState
           buttonsData={buttonsData}
           GalleryImgsData={GalleryImgsData}
           testimonialsData={testimonialsData}
           heroBgData={HeroBgData}></ParentState>
-        <div className="flex md:flex-row flex-col">
-
-        </div>
         <VideoLibrary></VideoLibrary>
-        <Divider
-          style={{
-            fontWeight: "bold",
-            paddingLeft: "20px",
-            paddingRight: "20px",
-          }}>
-          Location
-        </Divider>
-        <Location></Location>
+
       </div>
     </div>
   );
