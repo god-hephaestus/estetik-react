@@ -559,7 +559,8 @@ export default function ComparisonPage() {
           buttonsData={buttonsData}
           GalleryImgsData={GalleryImgsData}
           testimonialsData={testimonialsData}
-          heroBgData={HeroBgData}></ParentState>
+          heroBgData={HeroBgData}
+          doctorsData={doctorsData}></ParentState>
         <VideoLibrary></VideoLibrary>
 
       </div>

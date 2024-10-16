@@ -3,7 +3,7 @@
 import React, { useState, useRef } from "react";
 import ReactCompareImage from "react-compare-image";
 import { Button, Spin } from "antd";
-import { RightOutlined, LeftOutlined } from "@ant-design/icons";
+import { RightOutlined, LeftOutlined} from "@ant-design/icons";
 
 export default function Comparison({
   buttonProps,
@@ -211,16 +211,6 @@ export default function Comparison({
                 sliderLineColor="#ffffff"
                 skeleton={<Spin size="large" />}
                 hover={false}
-                handle={
-                  <div className="flex z-0">
-                    <div className="bg-[rgba(255,255,255,0.5)] rounded-3xl w-[40px] h-[40px] flex justify-center items-center">
-                      <LeftOutlined className="text-white " />
-                    </div>
-                    <div className="bg-[rgba(255,255,255,0.5)] rounded-3xl w-[40px] h-[40px] flex justify-center items-center">
-                      <RightOutlined className="text-white" />
-                    </div>
-                  </div>
-                }
               />
             </div>
           )}

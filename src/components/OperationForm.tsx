@@ -92,7 +92,7 @@ export default function OperationForm() {
   };
 
   return (
-    <div className="flex justify-center items-center mx-4 h-full">
+    <div className="flex justify-center items-center ml-6 h-full">
       <Form
         name="operationForm"
         form={form}
