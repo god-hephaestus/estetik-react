@@ -3,19 +3,19 @@ import React, { useState } from "react";
 import Comparison from "./Comparison";
 import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
-import HeroDynamic from "./HeroDynamic";
 import { Collapse } from "antd";
 import { DownCircleOutlined } from "@ant-design/icons";
 import OperationForm from "../OperationForm";
 import Doctors from "./Doctors";
 import Location from "./Location";
+import VideoSlider from "./VideoSlider";
 
 export default function ParentState({
   testimonialsData,
   buttonsData,
   GalleryImgsData,
   heroBgData,
-  doctorsData, 
+  doctorsData,
 }: {
   testimonialsData: {
     [key: string]: Array<{
@@ -33,7 +33,7 @@ export default function ParentState({
     stateKey: string;
   }>;
   GalleryImgsData: { [key: string]: Array<{ src: string; alt: string }> };
-  heroBgData: { [key: string]: { src: string; alt: string } };
+  heroBgData: { [key: string]: { src: string[]; alt?: string } };
   doctorsData: Array<{
     imageSrc: string;
     doctorName: string;
@@ -43,6 +43,8 @@ export default function ParentState({
 }) {
   const [comparisonData, setComparisonData] = useState(buttonsData[0]); // Set initial comparison data
   const [stateKey, setstateKey] = useState(comparisonData.stateKey); // Set initial state key
+
+  const videoDescription: string[] = heroBgData[stateKey]?.src ?? [];
 
   // Function to update comparison, gallery, testimonials, and hero background based on stateKey
   const handleButtonClick = (newComparisonData: (typeof buttonsData)[0]) => {
@@ -58,18 +60,16 @@ export default function ParentState({
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row md:justify-between ">
-        <div className="w-full md:w-2/5  flex flex-col items-center">
+      <div className="flex flex-col md:flex-row md:justify-between items-stretch ">
+        <div className="w-full md:w-2/5 flex flex-col items-center h-full">
           <Comparison
             buttonProps={buttonsData}
             comparisonData={comparisonData}
             onButtonClick={handleButtonClick}
           />
         </div>
-        <div className="w-full md:w-3/5 flex flex-col items-center">
-          <HeroDynamic
-            heroBg={heroBgData[stateKey]?.src || heroBgData.hero1.src}
-          />
+        <div className="w-full md:w-3/5 flex-grow flex flex-col h-full my-auto">
+          <VideoSlider videoDescription={videoDescription} />
         </div>
       </div>
 
@@ -83,7 +83,6 @@ export default function ParentState({
               />
             </div>
             <div className="md:w-[43%] pt-[20px] bg-[#d0eeec] rounded-r-[25px] border-2 border-[#d0eeec]">
-              {/* Pass dynamic FAQ items to Collapse */}
               <Collapse
                 expandIcon={({ isActive }) => (
                   <DownCircleOutlined
@@ -111,11 +110,14 @@ export default function ParentState({
       </div>
 
       <div className="flex flex-col md:flex-row md:justify-between mt-10 gap-[20px]">
-        <div className="w-full md:w-2/5 ">
+        <div className="w-full md:w-2/5">
           <Doctors doctorDescription={doctorsData} />
         </div>
         <div className="w-full md:w-2/5 flex-grow flex">
-          <Testimonials stateKey={stateKey} testimonialsData={testimonialsData} />
+          <Testimonials
+            stateKey={stateKey}
+            testimonialsData={testimonialsData}
+          />
         </div>
         <div className="w-1/5 overflow-x-hidden">
           <Location />

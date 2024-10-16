@@ -537,32 +537,29 @@ const doctorsData = [
 ];
 const HeroBgData = {
   gallery1: {
-    src: "Breast.mp4",
-    alt: "Main Video",
+    src: ["Breast.mp4", "Breast2.mp4"],
   },
   gallery2: {
-    src: "slider.mp4",
-    alt: "BBL Video",
+    src: ["slider.mp4", "slider2.mp4"],
   },
   gallery3: {
-    src: "total Body.mp4",
-    alt: "Total Body Video",
+    src: ["totalBody.mp4", "totalBody2.mp4"],
   },
 };
 
 export default function ComparisonPage() {
   return (
     <div className="">
-        <Navbar />
+      <Navbar />
       <div className="container mx-auto">
         <ParentState
           buttonsData={buttonsData}
           GalleryImgsData={GalleryImgsData}
           testimonialsData={testimonialsData}
           heroBgData={HeroBgData}
-          doctorsData={doctorsData}></ParentState>
+          doctorsData={doctorsData}
+        ></ParentState>
         <VideoLibrary></VideoLibrary>
-
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel, Typography } from "antd";
 import Image from "next/image";
-import { LeftCircleFilled, MedicineBoxOutlined, RightCircleFilled } from "@ant-design/icons";
+import { MedicineBoxOutlined} from "@ant-design/icons";
 
 const { Title } = Typography;
 
