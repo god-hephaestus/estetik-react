@@ -9,6 +9,7 @@ import OperationForm from "../OperationForm";
 import Doctors from "./Doctors";
 import Location from "./Location";
 import VideoSlider from "./VideoSlider";
+import VideoLibrary from "./VideoLibrary";
 
 export default function ParentState({
   testimonialsData,
@@ -68,8 +69,11 @@ export default function ParentState({
             onButtonClick={handleButtonClick}
           />
         </div>
-        <div className="w-full md:w-3/5 flex-grow flex flex-col h-full my-auto">
+        <div className="w-full md:w-2/5 flex-grow flex flex-col h-full my-auto">
           <VideoSlider videoDescription={videoDescription} />
+        </div>
+        <div className=" w-full md:w-1/5">
+          <VideoLibrary />
         </div>
       </div>
 

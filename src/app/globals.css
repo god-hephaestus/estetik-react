@@ -89,3 +89,10 @@ html:hover {
 .ant-select-arrow {
   color: #13a89e !important;
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none !important; /* Hide scrollbar for Firefox */
+}

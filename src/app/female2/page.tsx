@@ -1,6 +1,5 @@
 import Navbar from "@/components/spaghetti2/Navbar";
 import ParentState from "@/components/spaghetti2/ParentState";
-import VideoLibrary from "@/components/spaghetti2/VideoLibrary";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -554,7 +553,6 @@ export default function ComparisonPage() {
           heroBgData={HeroBgData}
           doctorsData={doctorsData}
         ></ParentState>
-        <VideoLibrary></VideoLibrary>
       </div>
     </div>
   );

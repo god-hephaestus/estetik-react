@@ -43,7 +43,6 @@ export default function RootLayout({
               Carousel: {
                 arrowSize: 24,
               },
-              Collapse: {},
             },
             token: {
               colorPrimary: "#13a89e",
@@ -62,7 +61,8 @@ export default function RootLayout({
               fontFamily: "var(--font-montserrat)",
             },
           }}
-          button={{ style: { color: "white" } }}>
+          button={{ style: { color: "white" } }}
+        >
           <AntdRegistry>{children}</AntdRegistry>
         </ConfigProvider>
       </body>
