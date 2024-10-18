@@ -8,11 +8,11 @@ export default function VideoSlider({
   videoDescription: string[];
 }) {
   return (
-    <Carousel arrows={true} infinite={true} className="ml-[20px] ">
+    <Carousel arrows={true} infinite={true} className="mx-[25px] ">
       {videoDescription.map((videoSrc, index) => (
         <div
           key={index}
-          className="flex items-center justify-center w-full md:h-[285px] lg:h-[340px] xl:h-[400px] 2xl:h-[450px] pb-5 bg-[#d0eeec] border-2 border-[#d0eeec] rounded-[25px]"
+          className="flex items-center justify-center w-full md:h-[285px] lg:h-[340px] xl:h-[420px] 2xl:h-[530px] pb-5 bg-[#d0eeec] border-2 border-[#d0eeec] rounded-[25px]"
         >
           {videoSrc ? (
             <video

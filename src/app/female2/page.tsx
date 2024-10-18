@@ -1,11 +1,6 @@
-import Contact from "@/components/spaghetti2/Contact";
-import Doctors from "@/components/spaghetti2/Doctors";
-import Location from "@/components/spaghetti2/Location";
 import Navbar from "@/components/spaghetti2/Navbar";
-import OperationForm from "@/components/spaghetti2/OperationForm";
 import ParentState from "@/components/spaghetti2/ParentState";
 import VideoLibrary from "@/components/spaghetti2/VideoLibrary";
-import { Divider } from "antd";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -551,7 +546,7 @@ export default function ComparisonPage() {
   return (
     <div className="">
       <Navbar />
-      <div className="container mx-auto">
+      <div className="w-full px-4 mx-auto">
         <ParentState
           buttonsData={buttonsData}
           GalleryImgsData={GalleryImgsData}
