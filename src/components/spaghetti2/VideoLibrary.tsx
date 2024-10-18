@@ -227,7 +227,7 @@ export default function VideoLibrary() {
   };
 
   return (
-    <div className="flex flex-col  h-auto w-full md:h-[285px] lg:h-[340px] xl:h-[420px] 2xl:h-[530px] border-2 rounded-[25px]">
+    <div className="flex flex-col border-[#dcfffb] h-auto w-full md:h-[285px] lg:h-[340px] xl:h-[420px] 2xl:h-[530px] border-2 rounded-[25px]">
       <Menu
         mode="inline"
         defaultSelectedKeys={["231"]}
@@ -235,12 +235,12 @@ export default function VideoLibrary() {
         onOpenChange={onOpenChange}
         onClick={handleMenuClick}
         items={items}
-        className="border-[#d0eeec]  overflow-y-auto rounded-t-[25px] no-scrollbar w-full  md:h-full"
+        className="border-[#dcfffb] custom-menu overflow-y-auto rounded-t-[25px] no-scrollbar w-full  md:h-full"
       />
 
-      <div className="flex flex-col w-full bg-[#d0eeec] rounded-b-[25px] ">
+      <div className="flex flex-col w-full bg-[#dcfffb] rounded-b-[25px] ">
         <video
-          className="w-full h-full rounded-b-[25px]"
+          className="w-auto h-[200px] rounded-b-[25px] "
           src={videoSrc}
           controls
           autoPlay

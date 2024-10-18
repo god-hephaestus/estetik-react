@@ -545,7 +545,7 @@ export default function ComparisonPage() {
   return (
     <div className="">
       <Navbar />
-      <div className="w-full px-4 mx-auto">
+      <div className="w-full px-4 mx-auto mb-24">
         <ParentState
           buttonsData={buttonsData}
           GalleryImgsData={GalleryImgsData}
