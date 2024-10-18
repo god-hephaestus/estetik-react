@@ -62,14 +62,14 @@ export default function ParentState({
   return (
     <div>
       <div className="flex flex-col md:flex-row md:justify-between items-stretch ">
-        <div className="w-full md:w-2/5 flex flex-col items-center h-full">
+        <div className="w-full md:w-2/5 flex flex-col items-center mb-8 mt-4 md:mb-0 md:mt-0  h-full">
           <Comparison
             buttonProps={buttonsData}
             comparisonData={comparisonData}
             onButtonClick={handleButtonClick}
           />
         </div>
-        <div className="w-full md:w-2/5 flex-grow flex flex-col h-full my-auto">
+        <div className="w-full md:w-2/5 flex-grow flex flex-col mb-8 md:mb-0 h-full my-auto">
           <VideoSlider videoDescription={videoDescription} />
         </div>
         <div className=" w-full md:w-1/5">
@@ -77,16 +77,16 @@ export default function ParentState({
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row md:justify-between mt-10 items-stretch">
-        <div className="w-full md:w-[70%] flex flex-col rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec]">
-          <div className="flex flex-1">
-            <div className="md:w-[57%] rounded-l-[25px] border-2 border-[#d0eeec]">
+      <div className="flex flex-col md:flex-row md:justify-between mt-10 items-stretch ">
+        <div className="w-full md:w-[70%] flex flex-col rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec] mb-12 md:mb-0">
+          <div className="flex flex-1 flex-col md:flex-row ">
+            <div className="md:w-[57%] rounded-l-[25px] rounded-r-[25px] md:rounded-r-none border-2 border-[#d0eeec]">
               <Gallery
                 activestateKey={stateKey}
                 GalleryImgsData={GalleryImgsData}
               />
             </div>
-            <div className="md:w-[43%] pt-[20px] bg-[#d0eeec] rounded-r-[25px] border-2 border-[#d0eeec]">
+            <div className="md:w-[43%] pt-[20px] bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] md:rounded-l-none border-2 border-[#d0eeec] ">
               <Collapse
                 expandIcon={({ isActive }) => (
                   <DownCircleOutlined

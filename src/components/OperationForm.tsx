@@ -92,17 +92,19 @@ export default function OperationForm() {
   };
 
   return (
-    <div className="flex justify-center items-center ml-6 h-full">
+    <div className="flex justify-center items-center mr-3 ml-3 md:mr-0 md:ml-6 h-full">
       <Form
         name="operationForm"
         form={form}
         layout="vertical"
         onFinish={handleSubmit}
-        className="w-full h-full flex-1 max-w-lg px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] shadow-md">
+        className="w-full h-full flex-1 max-w-lg px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] shadow-md"
+      >
         <Form.Item
           label="Name"
           name="name"
-          rules={[{ required: true, message: "Please input your name!" }]}>
+          rules={[{ required: true, message: "Please input your name!" }]}
+        >
           <Input
             className="border-2 border-[#13a89e]"
             placeholder="Enter your name"
@@ -121,7 +123,8 @@ export default function OperationForm() {
                 return Promise.reject(new Error("Invalid phone number."));
               },
             }),
-          ]}>
+          ]}
+        >
           <div className="flex items-center space-x-2">
             <Select
               showSearch
@@ -134,12 +137,14 @@ export default function OperationForm() {
                 const searchText = `${option.label}`.toLowerCase();
                 return searchText.includes(input.toLowerCase());
               }}
-              className="w-1/3 border-2 border-[#13a89e] rounded-xl">
+              className="w-1/3 border-2 border-[#13a89e] rounded-xl"
+            >
               {countries.map((country) => (
                 <Option
                   key={country.code}
                   value={country.code}
-                  label={`${country.name} (+${country.phoneCode}) ${country.code}`}>
+                  label={`${country.name} (+${country.phoneCode}) ${country.code}`}
+                >
                   {country.code} (+{country.phoneCode})
                 </Option>
               ))}
@@ -156,15 +161,23 @@ export default function OperationForm() {
         <Form.Item
           label="Operation"
           name="operation"
-          rules={[{ required: true, message: "Please select an operation!" }]}>
-          <Select placeholder="Select an operation" className="border-2 border-[#13a89e] rounded-xl h-full">
+          rules={[{ required: true, message: "Please select an operation!" }]}
+        >
+          <Select
+            placeholder="Select an operation"
+            className="border-2 border-[#13a89e] rounded-xl h-full"
+          >
             <Option value="operation1">Operation 1</Option>
             <Option value="operation2">Operation 2</Option>
             <Option value="operation3">Operation 3</Option>
           </Select>
         </Form.Item>
         <Form.Item label="Message" name="message" rules={[{ required: false }]}>
-          <TextArea rows={4} placeholder="Enter your message" className="border-2 border-[#13a89e] rounded-xl"/>
+          <TextArea
+            rows={4}
+            placeholder="Enter your message"
+            className="border-2 border-[#13a89e] rounded-xl"
+          />
         </Form.Item>
         <Form.Item className="text-right">
           <Button type="primary" htmlType="submit" disabled={submitting}>

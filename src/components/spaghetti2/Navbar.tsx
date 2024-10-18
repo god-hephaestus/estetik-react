@@ -8,20 +8,20 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <div className="w-full h-[10%] bg-white flex flex-row sticky top-0 z-50">
+    <div className="w-full h-[10%] bg-white flex flex-row sticky top-0 z-50 mb-2 lg:mb-0">
       <div className="hidden md:flex justify-start">
         <Image
           src="/img/estintlogo25.webp"
           alt="Logo"
           width={160}
           height={80}
-          className="h-auto ml-4 sm:ml-8 md:ml-32"
+          className="h-auto ml-4 md:ml-8 lg:ml-32"
         />
       </div>
 
       <div className="flex-grow"></div>
 
-      <div className="flex flex-row justify-end items-center gap-4 sm:gap-6 md:gap-8 mr-4 sm:mr-8 md:mr-32">
+      <div className="flex flex-row justify-end items-center gap-6 lg:gap-8 mr-4 lg:mr-32">
         <Button
           className="h-[90%] sm:h-[70%] bg-[#25D366] px-2 py-1 sm:py-0 rounded-[25px]"
           target="_blank"
