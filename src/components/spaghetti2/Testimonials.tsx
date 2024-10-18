@@ -73,7 +73,7 @@ export default function Testimonials({
   return (
     <div
       ref={containerRef}
-      className={`bg-[#d0eeec] rounded-[25px] p-2 flex flex-grow overflow-x-auto cursor-${
+      className={`bg-[#d0eeec] rounded-[25px] my-8 md:my-0 p-2 flex flex-grow overflow-x-auto cursor-${
         isDragging ? "grabbing" : "grab"
       } no-select`}
       onMouseDown={handleMouseDown}
@@ -88,8 +88,8 @@ export default function Testimonials({
       {testimonials.length > 0 ? (
         testimonials.map((testimonial, index) => (
           <div key={index} className="ml-4 flex-grow flex ">
-            <div className="shadow-xl p-5 my-2 bg-[#13a89e] relative rounded-xl w-80 md:w-96 flex-grow">
-              <div className="mb-10 text-black">
+            <div className="shadow-xl p-5 my-2 bg-[#13a89e] relative rounded-xl w-80 lg:w-96 flex-grow">
+              <div className="mb-16 md:mb-10 text-black">
                 <CommentOutlined className="bottom-[5px] right-[5px] absolute text-xl text-white" />
                 <p className="text-white">{testimonial.message}</p>
               </div>
