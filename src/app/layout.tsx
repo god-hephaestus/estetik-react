@@ -61,7 +61,8 @@ export default function RootLayout({
               fontFamily: "var(--font-montserrat)",
             },
           }}
-          button={{ style: { color: "white" } }}>
+          button={{ style: { color: "white" } }}
+        >
           <AntdRegistry>{children}</AntdRegistry>
         </ConfigProvider>
       </body>

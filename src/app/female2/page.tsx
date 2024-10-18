@@ -1,10 +1,5 @@
-import Contact from "@/components/spaghetti/Contact";
-import Doctors from "@/components/spaghetti/Doctors";
-import Location from "@/components/spaghetti/Location";
-import OperationForm from "@/components/spaghetti/OperationForm";
-import ParentState from "@/components/spaghetti/ParentState";
-import VideoLibrary from "@/components/spaghetti/VideoLibrary";
-import { Divider } from "antd";
+import Navbar from "@/components/spaghetti2/Navbar";
+import ParentState from "@/components/spaghetti2/ParentState";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -536,63 +531,28 @@ const doctorsData = [
 ];
 const HeroBgData = {
   gallery1: {
-    src: "Breast.mp4",
-    alt: "Main Video",
+    src: ["Breast.mp4", "Breast2.mp4"],
   },
   gallery2: {
-    src: "slider.mp4",
-    alt: "BBL Video",
+    src: ["slider.mp4", "slider2.mp4"],
   },
   gallery3: {
-    src: "total Body.mp4",
-    alt: "Total Body Video",
+    src: ["totalBody.mp4", "totalBody2.mp4"],
   },
 };
 
 export default function ComparisonPage() {
   return (
-    <div className="overflow-x-hidden">
-      <div className="container mx-auto">
+    <div className="">
+      <Navbar />
+      <div className="w-full px-4 mx-auto">
         <ParentState
           buttonsData={buttonsData}
           GalleryImgsData={GalleryImgsData}
           testimonialsData={testimonialsData}
-          heroBgData={HeroBgData}></ParentState>
-        <div className="flex md:flex-row flex-col">
-          <div className="w-full md:w-1/2">
-            <Divider
-              style={{
-                fontWeight: "bold",
-                paddingLeft: "20px",
-                paddingRight: "20px",
-              }}>
-              Doctors
-            </Divider>
-            <Doctors doctorDescription={doctorsData}></Doctors>
-          </div>
-          <div className="w-full md:w-1/2 ">
-            <Divider
-              style={{
-                fontWeight: "bold",
-                paddingLeft: "20px",
-                paddingRight: "20px",
-              }}>
-              Get in Contact
-            </Divider>
-            <Contact></Contact>
-            <OperationForm></OperationForm>
-          </div>
-        </div>
-        <VideoLibrary></VideoLibrary>
-        <Divider
-          style={{
-            fontWeight: "bold",
-            paddingLeft: "20px",
-            paddingRight: "20px",
-          }}>
-          Location
-        </Divider>
-        <Location></Location>
+          heroBgData={HeroBgData}
+          doctorsData={doctorsData}
+        ></ParentState>
       </div>
     </div>
   );
