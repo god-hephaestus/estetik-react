@@ -145,9 +145,9 @@ const videoSrcMap: Record<string, string> = {
   "16": "/video/animations/body/Laser Hair Removal.mp4",
   "17": "/video/animations/body/Liposuction.mp4",
   "18": "/video/animations/body/Mommy Makeover.mp4",
-  "19": "/video/animations/body/.mp4",
+  // "19": "/video/animations/body/.mp4",
   "111": "/video/animations/body/Tummy Tuck - Full.mp4",
-  "112": "/video/animations/.mp4",
+  // "112": "/video/animations/.mp4",
   "231": "/video/animations/breast/Breast Lift.mp4",
   "232": "/video/animations/breast/Breast Lift with Implants.mp4",
   "21": "/video/animations/breast/Breast Implant Options.mp4",
@@ -168,7 +168,7 @@ const videoSrcMap: Record<string, string> = {
   "314": "/video/animations/face/Laser Hair Removal.mp4",
   "315": "/video/animations/face/Laser Skin Resurfacing.mp4",
   "316": "/video/animations/face/Lip Augmentation.mp4",
-  "317": "/video/animations/Nose Reshaping (Rhinoplasty).mp4",
+  "317": "/video/animations/face/Nose Reshaping (Rhinoplasty).mp4",
   "41": "/video/animations/hair/Hair Transplants.mp4",
   "42": "/video/animations/hair/Laser Hair Removal.mp4",
   "43": "/video/animations/hair/Male Pattern Baldness.mp4",
@@ -188,13 +188,13 @@ const videoSrcMap: Record<string, string> = {
   "78": "/video/animations/skintreatments/Lip Augmentation.mp4",
   "79": "/video/animations/skintreatments/Microdermabrasion.mp4",
   "711": "/video/animations/skintreatments/Microneedling.mp4",
-  default: "/video/animations/breast/Breast Lift.mp4",
+  default: "/video/animations/body/Body Contouring Implants - Buttocks.mp4",
 };
 
 export default function VideoLibrary() {
-  const [stateOpenKeys, setStateOpenKeys] = useState<string[]>(["2", "23"]);
+  const [stateOpenKeys, setStateOpenKeys] = useState<string[]>(["1", "1"]);
   const [videoSrc, setVideoSrc] = useState<string>(
-    videoSrcMap["231"] || videoSrcMap.default
+    videoSrcMap["1"] || videoSrcMap.default
   );
 
   const onOpenChange: MenuProps["onOpenChange"] = (openKeys) => {
@@ -227,23 +227,22 @@ export default function VideoLibrary() {
   };
 
   return (
-    <div className="flex flex-col border-[#dcfffb] h-auto w-full md:h-[285px] lg:h-[340px] xl:h-[420px] 2xl:h-[530px] border-2 rounded-[25px]">
+    <div className="flex flex-col border-[#d0eeec] h-auto w-full md:h-[285px] lg:h-[340px] xl:h-[420px] 2xl:h-[530px] border-2 rounded-[25px]">
       <Menu
         mode="inline"
-        defaultSelectedKeys={["231"]}
+        defaultSelectedKeys={["11"]}
         openKeys={stateOpenKeys}
         onOpenChange={onOpenChange}
         onClick={handleMenuClick}
         items={items}
-        className="border-[#dcfffb] custom-menu overflow-y-auto rounded-t-[25px] no-scrollbar w-full  md:h-full"
+        className="border-[#d0eeec] custom-menu overflow-y-auto rounded-t-[25px] no-scrollbar w-full  md:h-full"
       />
 
-      <div className="flex flex-col w-full bg-[#dcfffb] rounded-b-[25px] ">
+      <div className="flex flex-col w-full bg-[#d0eeec] rounded-b-[25px] ">
         <video
-          className="w-auto h-[200px] rounded-b-[25px] "
+          className="w-auto h-[120px] xl:h-[200px] 2xl:h-[310px] rounded-b-[25px] "
           src={videoSrc}
           controls
-          autoPlay
           muted
         />
       </div>

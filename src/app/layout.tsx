@@ -30,8 +30,8 @@ export default function RootLayout({
           theme={{
             components: {
               Menu: {
-                colorPrimary: "#0a5b56", // Primary color for selected menu item
-                colorItemText: "#000000", // Normal item text color (though we will handle this further in CSS)
+                colorPrimary: "#0a5b56",
+                itemColor: "#000000",
               },
               Input: { colorBgContainer: "#ffffff" },
               Select: { colorBgContainer: "#ffffff" },

@@ -3,7 +3,7 @@
 import React, { useState, useRef } from "react";
 import ReactCompareImage from "react-compare-image";
 import { Button, Spin } from "antd";
-import { RightOutlined, LeftOutlined} from "@ant-design/icons";
+import { RightOutlined, LeftOutlined } from "@ant-design/icons";
 
 export default function Comparison({
   buttonProps,
@@ -100,7 +100,10 @@ export default function Comparison({
   }, [buttonProps, comparisonData.label]);
 
   return (
-    <div className="container relative rounded-3xl bg-[#d0eeec]" id="compare">
+    <div
+      className="container relative rounded-3xl  md:h-[285px] lg:h-[340px] xl:h-[420px] 2xl:h-[530px] bg-[#d0eeec]"
+      id="compare"
+    >
       <div className="relative flex items-center justify-center">
         <div
           ref={scrollRef}
@@ -111,7 +114,8 @@ export default function Comparison({
             height: "50px",
             width: "500px",
             position: "relative",
-          }}>
+          }}
+        >
           <div className="flex justify-center items-center w-full bg-[#dcfffb] rounded-xl overflow-hidden">
             {buttonProps.map((button, index) => (
               <Button
@@ -136,7 +140,8 @@ export default function Comparison({
                       ? "scale(1)"
                       : "scale(0.9)", // Reduced scale for non-active buttons
                   zIndex: 10,
-                }}>
+                }}
+              >
                 {button.label}
               </Button>
             ))}
@@ -151,7 +156,8 @@ export default function Comparison({
             borderRadius: "50px",
             backgroundColor: "white",
             padding: "10px",
-          }}>
+          }}
+        >
           <LeftOutlined style={{ color: "#13a89e" }} />
         </Button>
 
@@ -163,7 +169,8 @@ export default function Comparison({
             borderRadius: "50px",
             backgroundColor: "white",
             padding: "10px",
-          }}>
+          }}
+        >
           <RightOutlined style={{ color: "#13a89e" }} />
         </Button>
       </div>
@@ -175,7 +182,8 @@ export default function Comparison({
           justifyContent: "center",
           marginTop: "20px",
           padding: "20px",
-        }}>
+        }}
+      >
         <div
           className="relative w-full"
           style={{
@@ -184,7 +192,8 @@ export default function Comparison({
             aspectRatio: "16/9",
             backgroundColor: "#f0f0f0",
             overflow: "hidden",
-          }}>
+          }}
+        >
           {!isImageLoaded && (
             <div
               style={{
@@ -198,7 +207,8 @@ export default function Comparison({
                 justifyContent: "center",
                 background: "rgba(240, 240, 240, 0.8)",
                 zIndex: 1,
-              }}>
+              }}
+            >
               <Spin size="large" />
             </div>
           )}

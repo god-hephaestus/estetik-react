@@ -82,41 +82,37 @@ html:hover {
   scrollbar-width: none !important; /* Hide scrollbar for Firefox */
 }
 
-/* Normal Menu Item Text and Background */
 .custom-menu .ant-menu-item,
 .custom-menu .ant-menu-submenu-title {
-  color: #000000 !important; /* Normal state text color */
-  background-color: #dcfffb !important; /* Normal state background color */
+  color: #000000 !important;
+  background-color: #d0eeec !important;
 }
 
-/* Selected and Hover Menu Item Background and Text */
 .custom-menu .ant-menu-item-selected,
 .custom-menu .ant-menu-item:hover,
 .custom-menu .ant-menu-submenu-title:hover,
 .custom-menu .ant-menu-submenu-selected > .ant-menu-submenu-title {
-  background-color: #0a5b56 !important; /* Selected and hover background color */
-  color: #ffffff !important; /* Selected and hover text color */
+  background-color: #13a89e !important;
+  color: #ffffff !important;
 }
 
-/* Icons should also follow the same color rules */
 .custom-menu .ant-menu-item .ant-menu-item-icon,
 .custom-menu .ant-menu-item-selected .ant-menu-item-icon {
-  color: #ffffff !important; /* Icon color for selected and hover state */
+  color: #ffffff !important;
 }
 
 .custom-menu .ant-menu-item .ant-menu-item-icon {
-  color: #000000 !important; /* Icon color for normal state */
+  color: #000000 !important;
 }
 
 .custom-menu .ant-menu-item {
-  border-color: #dcfffb !important; /* Normal item border */
+  border-color: #d0eeec !important;
 }
 
 .custom-menu .ant-menu-item-selected {
-  border-color: #0a5b56 !important; /* Selected item border */
+  border-color: #13a89e !important;
 }
 .custom-menu {
-  background-color: #dcfffb !important; /* Set the outermost background color */
-  border-color: #dcfffb !important; /* Optional: set the border color */
-  border: 1px solid #dcfffb !important;
+  background-color: #d0eeec !important;
+  border-color: #d0eeec !important;
 }
