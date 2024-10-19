@@ -5,7 +5,7 @@ import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
 import { Collapse } from "antd";
 import { DownCircleOutlined } from "@ant-design/icons";
-import OperationForm from "../OperationForm";
+import OperationForm from "./OperationForm";
 import Doctors from "./Doctors";
 import Location from "./Location";
 import VideoLibrary from "./VideoLibrary";
@@ -60,7 +60,7 @@ export default function ParentState({
 
   return (
     <div>
-      <div className="flex flex-col lg:flex-row lg:justify-between items-stretch gap-6">
+      <div className="flex flex-col lg:flex-row lg:justify-between items-stretch lg:gap-6">
         <div className="w-full lg:w-2/5 flex flex-col items-center mb-8 mt-4 lg:mb-0 lg:mt-0  h-full">
           <Comparison
             buttonProps={buttonsData}
@@ -68,7 +68,7 @@ export default function ParentState({
             onButtonClick={handleButtonClick}
           />
         </div>
-        <div className="w-full lg:w-2/5 flex-grow flex flex-col mb-8 lg:mb-0 h-full my-auto">
+        <div className="w-full lg:w-2/5 flex-grow flex flex-col mb-0 lg:mb-0 h-full my-auto">
           <VideoLibrary />
         </div>
       </div>
