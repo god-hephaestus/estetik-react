@@ -101,7 +101,7 @@ export default function Comparison({
 
   return (
     <div
-      className="container relative rounded-3xl  md:h-[285px] lg:h-[340px] xl:h-[420px] 2xl:h-[530px] bg-[#d0eeec]"
+      className="container relative rounded-3xl  md:h-[550px] lg:h-[340px] xl:h-[420px] 2xl:h-[530px] bg-[#d0eeec]"
       id="compare"
     >
       <div className="relative flex items-center justify-center">

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Image } from "antd";
+import { InfoCircleOutlined } from "@ant-design/icons";
 
 export default function Gallery({
   activestateKey,
@@ -26,6 +27,10 @@ export default function Gallery({
         ) : (
           <p className="text-black">No images available for this gallery.</p>
         )}
+        <p>
+          <InfoCircleOutlined /> You can click on this image to view the full
+          gallery of images.
+        </p>
       </div>
     </div>
   );

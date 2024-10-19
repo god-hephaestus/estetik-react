@@ -227,7 +227,7 @@ export default function VideoLibrary() {
   };
 
   return (
-    <div className="flex flex-col border-[#d0eeec] h-auto w-full md:h-[285px] lg:h-[340px] xl:h-[420px] 2xl:h-[530px] border-2 rounded-[25px]">
+    <div className=" flex flex-col lg:flex-row border-none h-auto w-full md:h-[500px] lg:h-[340px] xl:h-[420px] 2xl:h-[530px] ">
       <Menu
         mode="inline"
         defaultSelectedKeys={["11"]}
@@ -235,12 +235,12 @@ export default function VideoLibrary() {
         onOpenChange={onOpenChange}
         onClick={handleMenuClick}
         items={items}
-        className="border-[#d0eeec] custom-menu overflow-y-auto rounded-t-[25px] no-scrollbar w-full  md:h-full"
+        className="border-[#d0eeec] custom-menu overflow-y-auto rounded-t-[25px] lg:rounded-tr-none lg:rounded-l-[25px] no-scrollbar w-full  h-full"
       />
 
-      <div className="flex flex-col w-full bg-[#d0eeec] rounded-b-[25px] ">
+      <div className="flex flex-col w-full justify-center bg-[#d0eeec] lg:rounded-bl-none  rounded-b-[25px] lg:rounded-r-[25px] ">
         <video
-          className="w-auto h-[120px] xl:h-[200px] 2xl:h-[310px] rounded-b-[25px] "
+          className="w-auto h-[280px]  lg:h-[90%] rounded-[25px] "
           src={videoSrc}
           controls
           muted
