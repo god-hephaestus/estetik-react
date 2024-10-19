@@ -113,17 +113,17 @@ export default function ParentState({
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row md:justify-between mt-10 gap-[20px]">
-        <div className="w-full md:w-2/5">
+      <div className="flex flex-col lg:flex-row md:justify-between mt-10 gap-[20px]">
+        <div className="w-full lg:w-2/5">
           <Doctors doctorDescription={doctorsData} />
         </div>
-        <div className="w-full md:w-2/5 flex-grow flex">
+        <div className="w-full lg:w-2/5 flex-grow flex">
           <Testimonials
             stateKey={stateKey}
             testimonialsData={testimonialsData}
           />
         </div>
-        <div className="w-1/5 overflow-x-hidden">
+        <div className=" mx-12 lg:mx-0 lg:w-1/5 overflow-x-hidden">
           <Location />
         </div>
       </div>
