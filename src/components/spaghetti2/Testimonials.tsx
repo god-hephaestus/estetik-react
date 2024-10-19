@@ -73,9 +73,8 @@ export default function Testimonials({
   return (
     <div
       ref={containerRef}
-      className={`bg-[#d0eeec] rounded-[25px] my-8 md:my-0 p-2 flex flex-grow overflow-x-auto cursor-${
-        isDragging ? "grabbing" : "grab"
-      } no-select`}
+      className={`bg-[#d0eeec] shadow-md rounded-[25px] my-8 md:my-0 p-2 flex flex-grow overflow-x-auto 
+        cursor-${isDragging ? "grabbing" : "grab"} no-select`}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleEnd}

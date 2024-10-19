@@ -74,9 +74,9 @@ export default function ParentState({
       </div>
 
       <div className="flex flex-col md:flex-row md:justify-between mt-10 items-stretch ">
-        <div className="w-full lg:w-[70%] flex flex-col rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec] mb-12 md:mb-0">
+        <div className="w-full lg:w-[70%] flex flex-col rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec] shadow-md mb-12 md:mb-0">
           <div className="flex flex-1 flex-col md:flex-row ">
-            <div className="lg:w-[57%] rounded-l-[25px] rounded-r-[25px] md:rounded-r-none border-2 border-[#d0eeec]">
+            <div className="lg:w-[57%] rounded-l-[25px] rounded-r-[25px] md:rounded-r-none border-2 border-[#d0eeec] ">
               <Gallery
                 activestateKey={stateKey}
                 GalleryImgsData={GalleryImgsData}
