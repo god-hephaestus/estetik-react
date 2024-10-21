@@ -37,21 +37,18 @@ export default function Comparison({
   }, [comparisonData]);
 
   return (
-    <div className="container relative rounded-3xl shadow-md bg-[#d0eeec]">
+    <div className="container relative rounded-3xl shadow-md bg-[#d0eeec]  h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[380px] ">
       <div
         style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          marginTop: "20px",
           padding: "20px",
         }}
       >
         <div
-          className="relative w-full"
+          className="relative w-full  lg:w-[390px] xl:w-[520px] 2xl:w-[640px]"
           style={{
-            width: "100%",
-            maxWidth: "800px",
             aspectRatio: "16/9",
             backgroundColor: "#f0f0f0",
             overflow: "hidden",
@@ -77,13 +74,19 @@ export default function Comparison({
           )}
 
           {isImageLoaded && (
-            <div className="w-full h-full border-[#13a89e] border-2 ">
+            <div className="w-full h-full border-[#13a89e] border-2">
               <ReactCompareImage
                 leftImage={comparisonData.image1}
                 rightImage={comparisonData.image2}
                 sliderLineColor="#ffffff"
                 skeleton={<Spin size="large" />}
                 hover={false}
+                leftImageCss={{
+                  objectFit: "contain", // This ensures the image fits perfectly within the container
+                }}
+                rightImageCss={{
+                  objectFit: "contain", // This ensures the image fits perfectly within the container
+                }}
               />
             </div>
           )}

@@ -227,7 +227,7 @@ export default function VideoLibrary() {
   };
 
   return (
-    <div className="flex flex-col shadow-md rounded-[25px] lg:flex-row border-none h-auto w-full md:h-[500px] lg:h-[340px] xl:h-[420px] 2xl:h-[530px]">
+    <div className="flex flex-col shadow-md rounded-[25px] lg:flex-row border-none w-full h-[500px] lg:h-[260px] xl:h-[355px] 2xl:h-[380px]">
       <Menu
         mode="inline"
         defaultSelectedKeys={["11"]}
