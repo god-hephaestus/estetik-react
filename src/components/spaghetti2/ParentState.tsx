@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Comparison from "./Comparison";
+import ComparisonButtons from "./ComparisonButtons";
 import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
 import { Collapse } from "antd";
@@ -9,6 +10,7 @@ import OperationForm from "./OperationForm";
 import Doctors from "./Doctors";
 import Location from "./Location";
 import VideoLibrary from "./VideoLibrary";
+import Navbar from "./Navbar";
 
 export default function ParentState({
   testimonialsData,
@@ -46,7 +48,6 @@ export default function ParentState({
 
   const videoDescription: string[] = heroBgData[stateKey]?.src ?? [];
 
-  // Function to update comparison, gallery, testimonials, and hero background based on stateKey
   const handleButtonClick = (newComparisonData: (typeof buttonsData)[0]) => {
     setComparisonData(newComparisonData); // Update comparison data
     setstateKey(newComparisonData.stateKey); // Update state key
@@ -60,13 +61,14 @@ export default function ParentState({
 
   return (
     <div>
+      <Navbar
+        buttonProps={buttonsData}
+        comparisonData={comparisonData}
+        onButtonClick={handleButtonClick}
+      />
       <div className="flex flex-col lg:flex-row lg:justify-between items-stretch lg:gap-6">
         <div className="w-full lg:w-2/5 flex flex-col items-center mb-8 mt-4 lg:mb-0 lg:mt-0  h-full">
-          <Comparison
-            buttonProps={buttonsData}
-            comparisonData={comparisonData}
-            onButtonClick={handleButtonClick}
-          />
+          <Comparison comparisonData={comparisonData} />
         </div>
         <div className="w-full lg:w-2/5 flex-grow flex flex-col mb-0 lg:mb-0 h-full my-auto">
           <VideoLibrary />

@@ -1,22 +1,12 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import ReactCompareImage from "react-compare-image";
-import { Button, Spin } from "antd";
-import { RightOutlined, LeftOutlined } from "@ant-design/icons";
+import { Spin } from "antd";
 
 export default function Comparison({
-  buttonProps,
   comparisonData,
-  onButtonClick,
 }: {
-  buttonProps: Array<{
-    label: string;
-    image1: string;
-    image2: string;
-    faqs: Array<{ question: string; answer: string }>;
-    stateKey: string;
-  }>;
   comparisonData: {
     label: string;
     image1: string;
@@ -24,157 +14,30 @@ export default function Comparison({
     faqs: Array<{ question: string; answer: string }>;
     stateKey: string;
   };
-  onButtonClick: (newComparisonData: {
-    label: string;
-    image1: string;
-    image2: string;
-    faqs: Array<{ question: string; answer: string }>;
-    stateKey: string;
-  }) => void;
 }) {
-  const [isImageLoaded, setIsImageLoaded] = useState(false); // Track if the new image is loaded
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
-  // Preload images and show the spinner while loading
   const handleImageChange = (image1: string, image2: string) => {
-    setIsImageLoaded(false); // Show spinner while loading new images
+    setIsImageLoaded(false);
 
     const img1 = new Image();
     const img2 = new Image();
 
     img1.onload = () => {
       img2.onload = () => {
-        setIsImageLoaded(true); // Hide the spinner after images load
+        setIsImageLoaded(true);
       };
       img2.src = image2;
     };
     img1.src = image1;
   };
 
-  const scrollToActiveButton = (index: number) => {
-    const container = scrollRef.current;
-    const buttons = container?.querySelectorAll("button");
-
-    if (container && buttons) {
-      const button = buttons[index];
-      const containerCenter =
-        container.getBoundingClientRect().left + container.offsetWidth / 2;
-      const buttonCenter =
-        button.getBoundingClientRect().left + button.offsetWidth / 2;
-      const offset = buttonCenter - containerCenter;
-
-      container.scrollBy({
-        left: offset,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handleNext = () => {
-    const nextIndex =
-      (buttonProps.findIndex((b) => b.label === comparisonData.label) + 1) %
-      buttonProps.length;
-    onButtonClick(buttonProps[nextIndex]);
-    scrollToActiveButton(nextIndex);
-  };
-
-  const handlePrevious = () => {
-    const prevIndex =
-      (buttonProps.findIndex((b) => b.label === comparisonData.label) -
-        1 +
-        buttonProps.length) %
-      buttonProps.length;
-    onButtonClick(buttonProps[prevIndex]);
-    scrollToActiveButton(prevIndex);
-  };
-
-  React.useEffect(() => {
+  useEffect(() => {
     handleImageChange(comparisonData.image1, comparisonData.image2);
   }, [comparisonData]);
 
-  React.useEffect(() => {
-    const initialIndex = buttonProps.findIndex(
-      (b) => b.label === comparisonData.label
-    );
-    scrollToActiveButton(initialIndex);
-  }, [buttonProps, comparisonData.label]);
-
   return (
-    <div
-      className="container relative rounded-3xl shadow-md md:h-[550px] lg:h-[340px] xl:h-[420px] 2xl:h-[530px] bg-[#d0eeec]"
-      id="compare"
-    >
-      <div className="relative flex items-center justify-center">
-        <div
-          ref={scrollRef}
-          className="scroll-container relative flex overflow-hidden"
-          style={{
-            whiteSpace: "nowrap",
-            margin: "25px 10px 0 10px",
-            height: "50px",
-            width: "500px",
-            position: "relative",
-          }}
-        >
-          <div className="flex justify-center items-center w-full bg-[#dcfffb] rounded-xl overflow-hidden">
-            {buttonProps.map((button, index) => (
-              <Button
-                key={index}
-                data-index={index}
-                className={`${
-                  comparisonData.label === button.label ? "active" : ""
-                }`}
-                onClick={() => {
-                  onButtonClick(button); // Update state when button is clicked
-                  scrollToActiveButton(index); // This will make sure the button is scrolled to the center
-                }}
-                style={{
-                  borderRadius: "50px",
-                  height: "40px",
-                  margin: "0 10px",
-                  minWidth: "200px",
-                  transition: "transform 0.3s ease",
-                  padding: "10px",
-                  transform:
-                    comparisonData.label === button.label
-                      ? "scale(1)"
-                      : "scale(0.9)", // Reduced scale for non-active buttons
-                  zIndex: 10,
-                }}
-              >
-                {button.label}
-              </Button>
-            ))}
-          </div>
-        </div>
-
-        <Button
-          onClick={handlePrevious}
-          className="absolute left-[5%] z-20"
-          style={{
-            top: "32.5px",
-            borderRadius: "50px",
-            backgroundColor: "white",
-            padding: "10px",
-          }}
-        >
-          <LeftOutlined style={{ color: "#13a89e" }} />
-        </Button>
-
-        <Button
-          onClick={handleNext}
-          className="absolute right-[5%] z-20"
-          style={{
-            top: "32.5px",
-            borderRadius: "50px",
-            backgroundColor: "white",
-            padding: "10px",
-          }}
-        >
-          <RightOutlined style={{ color: "#13a89e" }} />
-        </Button>
-      </div>
-
+    <div className="container relative rounded-3xl shadow-md bg-[#d0eeec]">
       <div
         style={{
           display: "flex",

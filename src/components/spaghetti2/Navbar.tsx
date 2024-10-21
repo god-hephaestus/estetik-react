@@ -5,8 +5,35 @@ import {
 } from "@ant-design/icons";
 import { Button } from "antd";
 import Image from "next/image";
+import ComparisonButtons from "./ComparisonButtons"; // Import the ComparisonButtons component
 
-export default function Navbar() {
+export default function Navbar({
+  buttonProps,
+  comparisonData,
+  onButtonClick,
+}: {
+  buttonProps: Array<{
+    label: string;
+    image1: string;
+    image2: string;
+    faqs: Array<{ question: string; answer: string }>;
+    stateKey: string;
+  }>;
+  comparisonData: {
+    label: string;
+    image1: string;
+    image2: string;
+    faqs: Array<{ question: string; answer: string }>;
+    stateKey: string;
+  };
+  onButtonClick: (newComparisonData: {
+    label: string;
+    image1: string;
+    image2: string;
+    faqs: Array<{ question: string; answer: string }>;
+    stateKey: string;
+  }) => void;
+}) {
   return (
     <div className="w-full h-[10%] bg-white flex flex-row sticky top-0 z-50 mb-2 lg:mb-0">
       <div className="hidden md:flex justify-start">
@@ -19,7 +46,13 @@ export default function Navbar() {
         />
       </div>
 
-      <div className="flex-grow"></div>
+      <div className="flex-grow">
+        <ComparisonButtons
+          buttonProps={buttonProps}
+          comparisonData={comparisonData}
+          onButtonClick={onButtonClick}
+        />
+      </div>
 
       <div className="flex flex-row justify-end items-center gap-6 lg:gap-8 mr-4 lg:mr-32">
         <Button
