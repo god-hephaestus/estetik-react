@@ -69,16 +69,12 @@ export default function ComparisonButtons({
   };
 
   return (
-    <div className="relative flex items-center justify-center">
+    <div className="relative flex items-center justify-center w-full h-full">
       <div
         ref={scrollRef}
-        className="scroll-container relative flex overflow-hidden"
+        className="scroll-container flex items-center justify-center overflow-hidden h-full"
         style={{
           whiteSpace: "nowrap",
-          margin: "25px 10px 0 10px",
-          height: "50px",
-          width: "500px",
-          position: "relative",
         }}
       >
         <div className="flex justify-center items-center w-full bg-[#dcfffb] rounded-xl overflow-hidden">
@@ -95,15 +91,14 @@ export default function ComparisonButtons({
               }}
               style={{
                 borderRadius: "50px",
-                height: "40px",
+                height: "100%",
                 margin: "0 10px",
-                minWidth: "200px",
-                transition: "transform 0.3s ease",
-                padding: "10px",
+                padding: "0.5rem 3rem 0.5rem",
                 transform:
                   comparisonData.label === button.label
                     ? "scale(1)"
                     : "scale(0.9)",
+                transition: "transform 0.3s ease",
                 zIndex: 10,
               }}
             >
@@ -115,9 +110,10 @@ export default function ComparisonButtons({
 
       <Button
         onClick={handlePrevious}
-        className="absolute left-[5%] z-20"
+        className="absolute left-[30%] z-20"
         style={{
-          top: "32.5px",
+          top: "50%",
+          transform: "translateY(-50%)",
           borderRadius: "50px",
           backgroundColor: "white",
           padding: "10px",
@@ -128,9 +124,10 @@ export default function ComparisonButtons({
 
       <Button
         onClick={handleNext}
-        className="absolute right-[5%] z-20"
+        className="absolute right-[30%] z-20"
         style={{
-          top: "32.5px",
+          top: "50%", // Center the navigation buttons vertically
+          transform: "translateY(-50%)", // Ensure proper centering
           borderRadius: "50px",
           backgroundColor: "white",
           padding: "10px",
