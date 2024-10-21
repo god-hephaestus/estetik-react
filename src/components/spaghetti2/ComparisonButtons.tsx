@@ -70,21 +70,15 @@ export default function ComparisonButtons({
 
   return (
     <div className="relative flex items-center justify-center w-full h-full">
-      <div
-        ref={scrollRef}
-        className="scroll-container flex items-center justify-center overflow-hidden h-full"
-        style={{
-          whiteSpace: "nowrap",
-        }}
-      >
-        <div className="flex justify-center items-center w-full bg-[#dcfffb] rounded-xl overflow-hidden">
+      <div ref={scrollRef} className=" flex items-center justify-center h-full">
+        <div className="flex justify-center items-center w-screen lg:w-full  rounded-xl overflow-hidden">
           {buttonProps.map((button, index) => (
             <Button
               key={index}
               data-index={index}
               className={`${
                 comparisonData.label === button.label ? "active" : ""
-              }`}
+              } lg:mx-[10px] mx-2 py-2 px-8 lg:px-18`}
               onClick={() => {
                 onButtonClick(button);
                 scrollToActiveButton(index);
@@ -92,8 +86,6 @@ export default function ComparisonButtons({
               style={{
                 borderRadius: "50px",
                 height: "100%",
-                margin: "0 10px",
-                padding: "0.5rem 3rem 0.5rem",
                 transform:
                   comparisonData.label === button.label
                     ? "scale(1)"

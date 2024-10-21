@@ -35,8 +35,8 @@ export default function Navbar({
   }) => void;
 }) {
   return (
-    <div className="w-full h-[10%] bg-white flex items-center   flex-col lg:flex-row sticky top-0 z-50 mb-2 lg:mb-4">
-      <div className=" flex py-1 flex-grow bg-[#dcfffb] lg:bg-transparent">
+    <div className="w-full bg-white flex items-center py-4 flex-col lg:flex-row sticky top-0 z-50">
+      <div className=" flex py-1 flex-grow ">
         <ComparisonButtons
           buttonProps={buttonProps}
           comparisonData={comparisonData}
@@ -44,7 +44,7 @@ export default function Navbar({
         />
       </div>
 
-      <div className="flex flex-row justify-center lg:justify-end items-center gap-6 lg:gap-1 mr-0 lg:mr-0">
+      <div className="flex flex-row justify-center lg:justify-end items-center gap-6 lg:gap-1 ">
         <Button
           className="h-[90%] sm:h-[70%] bg-[#25D366] px-2 py-1  rounded-[25px] flex items-center justify-center"
           target="_blank"

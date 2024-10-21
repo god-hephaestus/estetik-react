@@ -66,16 +66,8 @@ export default function ParentState({
         comparisonData={comparisonData}
         onButtonClick={handleButtonClick}
       />
-      <div className="flex flex-col lg:flex-row lg:justify-between items-stretch lg:gap-6">
-        <div className="w-full lg:w-2/5 flex flex-col items-center mb-8 mt-4 lg:mb-0 lg:mt-0  h-full">
-          <Comparison comparisonData={comparisonData} />
-        </div>
-        <div className="w-full lg:w-2/5 flex-grow flex flex-col mb-0 lg:mb-0 h-full my-auto">
-          <VideoLibrary />
-        </div>
-      </div>
 
-      <div className="flex flex-col md:flex-row md:justify-between mt-10 items-stretch ">
+      <div className="flex flex-col md:flex-row md:justify-between mt-2 items-stretch ">
         <div className="w-full lg:w-[70%] flex flex-col rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec] shadow-md mb-12 md:mb-0">
           <div className="flex flex-1 flex-col md:flex-row ">
             <div className="lg:w-[57%] rounded-l-[25px] rounded-r-[25px] md:rounded-r-none border-2 border-[#d0eeec] ">
@@ -111,6 +103,15 @@ export default function ParentState({
         </div>
       </div>
 
+      <div className="flex flex-col lg:flex-row lg:justify-between items-stretch lg:gap-6 mt-10">
+        <div className="w-full lg:w-2/5 flex flex-col items-center mb-8 mt-4 lg:mb-0 lg:mt-0  h-full">
+          <Comparison comparisonData={comparisonData} />
+        </div>
+        <div className="w-full lg:w-2/5 flex-grow flex flex-col mb-0 lg:mb-0 h-full my-auto">
+          <VideoLibrary />
+        </div>
+      </div>
+
       <div className="flex flex-col lg:flex-row md:justify-between mt-10 gap-4 lg:gap-6">
         <div className="w-full lg:w-2/5">
           <Doctors doctorDescription={doctorsData} />
@@ -121,9 +122,6 @@ export default function ParentState({
             testimonialsData={testimonialsData}
           />
         </div>
-      </div>
-      <div className=" mx-12 lg:mx-auto lg:w-1/5 overflow-x-hidden">
-        <Location />
       </div>
     </div>
   );
