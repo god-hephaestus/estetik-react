@@ -807,12 +807,14 @@ export default function ComparisonPage() {
       <div className="absolute top-0 left-0 w-3/5 h-screen flex flex-col justify-center items-center font-sans px-32 z-10 space-y-4">
         <h1
           className="text-white text-4xl text-center md:hidden lg:block decoration-double"
-          style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+          style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
+        >
           Estetik International <br /> Blending Art and Plastic Surgery
         </h1>
         <p
           className="text-white text-lg text-center md:hidden lg:block decoration-double"
-          style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+          style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
+        >
           Discover The New You!
         </p>
       </div>
@@ -821,7 +823,8 @@ export default function ComparisonPage() {
         src="/video/slider.mp4"
         autoPlay
         muted
-        loop></video>
+        loop
+      ></video>
       <div className="relative z-10">
         <SideMenu>
           <div className="flex justify-center mb-6">
@@ -830,13 +833,15 @@ export default function ComparisonPage() {
               height={200}
               alt={"logo"}
               src={"/img/estintlogo25.webp"}
-              title="Estetik International"></Image>
+              title="Estetik International"
+            ></Image>
           </div>
 
           <ParentState
             buttonsData={buttonsData}
             GalleryImgsData={GalleryImgsData}
-            testimonialsData={testimonialsData}></ParentState>
+            testimonialsData={testimonialsData}
+          ></ParentState>
           <Divider style={{ fontWeight: "bold" }}>Doctors</Divider>
           <Doctors doctorDescription={doctorsData}></Doctors>
           <Divider style={{ fontWeight: "bold" }}>Location</Divider>
