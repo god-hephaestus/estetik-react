@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Comparison from "./Comparison";
 import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
-import { Collapse } from "antd";
+import { Collapse, Divider } from "antd";
 import { DownCircleOutlined } from "@ant-design/icons";
 import OperationForm from "./OperationForm";
 import Doctors from "./Doctors";
@@ -75,6 +75,7 @@ export default function ParentState({
               />
             </div>
             <div className="lg:w-[43%] pt-[20px] bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] md:rounded-l-none  border-2 border-[#d0eeec] ">
+              <Divider>Frequently Asked Questions</Divider>
               <Collapse
                 expandIcon={({ isActive }) => (
                   <DownCircleOutlined
@@ -93,6 +94,8 @@ export default function ParentState({
                 items={faqItems}
                 className="rounded-[25px] border-2 border-[#abd7d4] bg-[#d0eeec]"
               />
+              <Divider>Our Doctors</Divider>
+              <Doctors doctorDescription={doctorsData} />
             </div>
           </div>
         </div>
@@ -111,10 +114,8 @@ export default function ParentState({
       </div>
 
       <div className="flex flex-col lg:flex-row md:justify-between mt-10 gap-4 lg:gap-6">
-        <div className="w-full lg:w-2/5">
-          <Doctors doctorDescription={doctorsData} />
-        </div>
-        <div className="w-full lg:w-2/5 flex-grow flex">
+        <div className="w-full lg:w-2/5 flex-grow flex-col">
+          <Divider>Testimonials </Divider>
           <Testimonials
             stateKey={stateKey}
             testimonialsData={testimonialsData}

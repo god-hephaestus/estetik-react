@@ -8,23 +8,17 @@ export default function VideoSlider({
   videoDescription: string[];
 }) {
   return (
-    <Carousel arrows={true} infinite={true} className="mx-[25px] ">
+    <Carousel arrows={true} infinite={true} className="w-full mx-auto">
       {videoDescription.map((videoSrc, index) => (
         <div
           key={index}
-          className="flex items-center justify-center w-full md:h-[285px] lg:h-[340px] xl:h-[420px] 2xl:h-[530px] pb-5 bg-[#d0eeec] border-2 border-[#d0eeec] rounded-[25px]"
+          className="flex items-center justify-center w-full h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[380px] bg-[#d0eeec] border-2 border-[#d0eeec] rounded-[25px]"
         >
-          {videoSrc ? (
-            <video
-              src={"/video/" + videoSrc}
-              className="object-contain w-auto h-[95%]"
-              controls
-            ></video>
-          ) : (
-            <div className="w-[90%] h-[90%] flex items-center justify-center">
-              <p>No video available</p>
-            </div>
-          )}
+          <video
+            src={"/video/" + videoSrc}
+            className="object-contain w-full h-[100%] max-h-full"
+            controls
+          ></video>
         </div>
       ))}
     </Carousel>
