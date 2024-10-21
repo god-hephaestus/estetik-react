@@ -1,3 +1,4 @@
+import Hero from "@/components/file1/Hero";
 import ParentState from "@/components/file1/ParentState";
 import { Metadata } from "next";
 
@@ -543,6 +544,7 @@ const HeroBgData = {
 export default function ComparisonPage() {
   return (
     <div className="">
+      <Hero />
       <div className="w-full px-4 mx-auto mb-24">
         <ParentState
           buttonsData={buttonsData}
