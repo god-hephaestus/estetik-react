@@ -1,4 +1,3 @@
-import Navbar from "@/components/spaghetti2/Navbar";
 import ParentState from "@/components/spaghetti2/ParentState";
 import { Metadata } from "next";
 

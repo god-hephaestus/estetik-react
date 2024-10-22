@@ -6,7 +6,6 @@ import {
   getCountryCallingCode,
   isValidPhoneNumber,
 } from "libphonenumber-js";
-import Location from "./Location";
 
 const { TextArea } = Input;
 const { Option } = Select;

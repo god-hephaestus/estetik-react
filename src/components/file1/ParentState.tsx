@@ -14,7 +14,6 @@ export default function ParentState({
   testimonialsData,
   buttonsData,
   GalleryImgsData,
-  heroBgData,
   doctorsData,
 }: {
   testimonialsData: {
@@ -43,8 +42,6 @@ export default function ParentState({
 }) {
   const [comparisonData, setComparisonData] = useState(buttonsData[0]); // Set initial comparison data
   const [stateKey, setstateKey] = useState(comparisonData.stateKey); // Set initial state key
-
-  const videoDescription: string[] = heroBgData[stateKey]?.src ?? [];
 
   const handleButtonClick = (newComparisonData: (typeof buttonsData)[0]) => {
     setComparisonData(newComparisonData); // Update comparison data

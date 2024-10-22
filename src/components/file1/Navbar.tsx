@@ -4,7 +4,6 @@ import {
   WhatsAppOutlined,
 } from "@ant-design/icons";
 import { Button } from "antd";
-import Image from "next/image";
 import ComparisonButtons from "./ComparisonButtons"; // Import the ComparisonButtons component
 
 export default function Navbar({
