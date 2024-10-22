@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
 import { Form, Input, Button, Select } from "antd";
 import {
@@ -92,21 +90,32 @@ export default function OperationForm() {
   };
 
   return (
-    <div className="flex justify-center items-center bg-gray-100 my-6">
+    <div className="flex justify-center items-center h-full">
       <Form
         name="operationForm"
         form={form}
         layout="vertical"
         onFinish={handleSubmit}
-        className="sm:w-full md:w-[400px] max-w-lg p-6 bg-white rounded-lg shadow-md">
+        className="w-full h-full flex-1 max-w-lg px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] shadow-md"
+      >
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10133147.836277347!2d29.356114206454567!3d42.49165901949489!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac64c07925733%3A0x96ea14ba8be2cdb6!2sEstetik%20International!5e0!3m2!1sen!2str!4v1726670444497!5m2!1sen!2str"
+          loading="lazy"
+          className="w-full my-4 h-56"
+        ></iframe>
         <Form.Item
           label="Name"
           name="name"
-          rules={[{ required: true, message: "Please input your name!" }]}>
-          <Input placeholder="Enter your name" />
+          rules={[{ required: true, message: "Please input your name!" }]}
+        >
+          <Input
+            className="border-2 border-[#13a89e]"
+            placeholder="Enter your name"
+          />
         </Form.Item>
         <Form.Item
           label="Phone"
+          required
           rules={[
             { required: true, message: "Please input a valid phone number!" },
             () => ({
@@ -117,7 +126,8 @@ export default function OperationForm() {
                 return Promise.reject(new Error("Invalid phone number."));
               },
             }),
-          ]}>
+          ]}
+        >
           <div className="flex items-center space-x-2">
             <Select
               showSearch
@@ -130,12 +140,14 @@ export default function OperationForm() {
                 const searchText = `${option.label}`.toLowerCase();
                 return searchText.includes(input.toLowerCase());
               }}
-              className="w-1/3">
+              className="w-1/3 border-2 border-[#13a89e] rounded-xl"
+            >
               {countries.map((country) => (
                 <Option
                   key={country.code}
                   value={country.code}
-                  label={`${country.name} (+${country.phoneCode}) ${country.code}`}>
+                  label={`${country.name} (+${country.phoneCode}) ${country.code}`}
+                >
                   {country.code} (+{country.phoneCode})
                 </Option>
               ))}
@@ -145,22 +157,30 @@ export default function OperationForm() {
               value={phone}
               onChange={handlePhoneChange}
               placeholder="Enter your phone number"
-              className="w-2/3"
+              className="w-2/3 border-2 border-[#13a89e]"
             />
           </div>
         </Form.Item>
         <Form.Item
           label="Operation"
           name="operation"
-          rules={[{ required: true, message: "Please select an operation!" }]}>
-          <Select placeholder="Select an operation">
-            <Option value="operation1">Operation 1</Option>
-            <Option value="operation2">Operation 2</Option>
-            <Option value="operation3">Operation 3</Option>
+          rules={[{ required: true, message: "Please select an operation!" }]}
+        >
+          <Select
+            placeholder="Select an operation"
+            className="border-2 border-[#13a89e] rounded-xl h-full"
+          >
+            <Option value="bbl">BBL</Option>
+            <Option value="breast">Breast Surgeries</Option>
+            <Option value="total">Total Body</Option>
           </Select>
         </Form.Item>
         <Form.Item label="Message" name="message" rules={[{ required: false }]}>
-          <TextArea rows={4} placeholder="Enter your message" />
+          <TextArea
+            rows={4}
+            placeholder="Enter your message"
+            className="border-2 border-[#13a89e] rounded-xl"
+          />
         </Form.Item>
         <Form.Item className="text-right">
           <Button type="primary" htmlType="submit" disabled={submitting}>

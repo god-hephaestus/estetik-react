@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel, Typography } from "antd";
 import Image from "next/image";
-import { MedicineBoxOutlined} from "@ant-design/icons";
+import { MedicineBoxOutlined } from "@ant-design/icons";
 
 const { Title } = Typography;
 
@@ -12,33 +12,36 @@ interface Doctor {
   doctorText: string;
 }
 
-interface DoctorsProps {
+export default function Doctors({
+  doctorDescription,
+}: {
   doctorDescription: Doctor[];
-}
-
-export default function Doctors({ doctorDescription }: DoctorsProps) {
+}) {
   return (
-    <Carousel arrows={true} infinite={true} draggable >
+    <Carousel arrows={true} infinite={true} draggable>
       {doctorDescription.map((doctor, index) => (
         <div
           key={index}
-          className="flex items-center h-[300px] gap-[20px] mx-0 pr-10 bg-[#d0eeec] border-2 border-[#d0eeec] rounded-[25px]">
-          <div className="flex-1 h-full relative">
+          className="flex flex-col md:flex-col lg:flex-row items-center h-[474px] md:h-[446px] lg:h-[300px] 
+          gap-4 lg:gap-0 mx-0 pr-4 lg:pr-10 bg-[#d0eeec] border-2 border-[#d0eeec] rounded-[25px] shadow-md"
+        >
+          <div className="relative w-full h-[250px]  lg:h-full lg:w-[50%] flex-shrink-0">
             <Image
               src={doctor.imageSrc}
               alt={doctor.doctorName}
-              sizes=""
+              sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 30vw"
               fill
-              style={{ objectFit: "contain" }}
+              className="object-contain"
             />
           </div>
-          <div className="flex-1 p-4 mr-2 ">
-            <Title className="" level={3}>{doctor.doctorName}</Title>
-            <div className="flex py-2">
-              <MedicineBoxOutlined className="text-[#13a89e] text-2xl mr-4 " />
+
+          <div className="flex-1 p-4 lg:p-0 flex flex-col justify-center text-center lg:text-left lg:w-[50%]">
+            <Title level={3}>{doctor.doctorName}</Title>
+            <div className="flex justify-center lg:justify-start md:py-2">
+              <MedicineBoxOutlined className="text-[#0a5b56] text-2xl md:mr-4 mr-2" />
               <p className="text-[#0a5b56] font-bold">{doctor.doctorArea}</p>
             </div>
-            <p className="my-2 ">{doctor.doctorText}</p>
+            <p className="my-2">{doctor.doctorText}</p>
           </div>
         </div>
       ))}

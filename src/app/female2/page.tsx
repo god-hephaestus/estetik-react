@@ -1,4 +1,3 @@
-import Navbar from "@/components/spaghetti2/Navbar";
 import ParentState from "@/components/spaghetti2/ParentState";
 import { Metadata } from "next";
 
@@ -531,21 +530,20 @@ const doctorsData = [
 ];
 const HeroBgData = {
   gallery1: {
-    src: ["Breast.mp4", "Breast2.mp4"],
+    src: ["Breast.mp4", "Breast 2.mp4"],
   },
   gallery2: {
-    src: ["slider.mp4", "slider2.mp4"],
+    src: ["BBL.mp4"],
   },
   gallery3: {
-    src: ["totalBody.mp4", "totalBody2.mp4"],
+    src: ["Total body.mp4", "Total Body 2.mp4"],
   },
 };
 
 export default function ComparisonPage() {
   return (
     <div className="">
-      <Navbar />
-      <div className="w-full px-4 mx-auto">
+      <div className="w-full px-4 mx-auto mb-24">
         <ParentState
           buttonsData={buttonsData}
           GalleryImgsData={GalleryImgsData}
