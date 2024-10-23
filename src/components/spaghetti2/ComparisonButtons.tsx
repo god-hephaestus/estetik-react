@@ -69,9 +69,9 @@ export default function ComparisonButtons({
   };
 
   return (
-    <div className="relative flex items-center justify-center w-full h-full">
+    <div className="relative flex items-center justify-center h-full">
       <div ref={scrollRef} className=" flex items-center justify-center h-full">
-        <div className="flex justify-center items-center w-screen lg:w-full  rounded-xl overflow-hidden">
+        <div className="flex justify-center items-center w-screen lg:w-full  rounded-xl">
           {buttonProps.map((button, index) => (
             <Button
               key={index}

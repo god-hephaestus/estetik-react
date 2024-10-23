@@ -534,7 +534,7 @@ const HeroBgData = {
     src: ["Breast.mp4", "Breast 2.mp4"],
   },
   gallery2: {
-    src: ["BBL.mp4", "BBL 2.mp4"],
+    src: ["BBL.mp4"],
   },
   gallery3: {
     src: ["Total body.mp4", "Total Body 2.mp4"],
