@@ -2,92 +2,114 @@ import React, { useRef, useEffect } from "react";
 import { Button } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
+interface ButtonProps {
+  label: string;
+  image1: string;
+  image2: string;
+  faqs: Array<{ question: string; answer: string }>;
+  stateKey: string;
+}
+
+interface ComparisonData {
+  label: string;
+  image1: string;
+  image2: string;
+  faqs: Array<{ question: string; answer: string }>;
+  stateKey: string;
+}
+
+interface ComparisonButtonsProps {
+  buttonProps: ButtonProps[];
+  comparisonData: ComparisonData;
+  onButtonClick: (newComparisonData: ComparisonData) => void;
+}
+
 export default function ComparisonButtons({
   buttonProps,
   comparisonData,
   onButtonClick,
-}: {
-  buttonProps: Array<{
-    label: string;
-    image1: string;
-    image2: string;
-    faqs: Array<{ question: string; answer: string }>;
-    stateKey: string;
-  }>;
-  comparisonData: {
-    label: string;
-    image1: string;
-    image2: string;
-    faqs: Array<{ question: string; answer: string }>;
-    stateKey: string;
-  };
-  onButtonClick: (newComparisonData: {
-    label: string;
-    image1: string;
-    image2: string;
-    faqs: Array<{ question: string; answer: string }>;
-    stateKey: string;
-  }) => void;
-}) {
+}: ComparisonButtonsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scrollToActiveButton = (index: number) => {
-    const container = scrollRef.current;
-    const buttons = container?.querySelectorAll("button");
-
-    if (container && buttons) {
-      const button = buttons[index];
-      const containerCenter =
-        container.getBoundingClientRect().left + container.offsetWidth / 2;
-      const buttonCenter =
-        button.getBoundingClientRect().left + button.offsetWidth / 2;
-      const offset = buttonCenter - containerCenter;
-
-      container.scrollBy({
-        left: offset,
-        behavior: "smooth",
-      });
-    }
-  };
-
   const handleNext = () => {
-    const nextIndex =
-      (buttonProps.findIndex((b) => b.label === comparisonData.label) + 1) %
-      buttonProps.length;
+    const currentIndex = buttonProps.findIndex(
+      (b) => b.label === comparisonData.label
+    );
+    const nextIndex = (currentIndex + 1) % buttonProps.length;
     onButtonClick(buttonProps[nextIndex]);
-    scrollToActiveButton(nextIndex);
   };
 
   const handlePrevious = () => {
+    const currentIndex = buttonProps.findIndex(
+      (b) => b.label === comparisonData.label
+    );
     const prevIndex =
-      (buttonProps.findIndex((b) => b.label === comparisonData.label) -
-        1 +
-        buttonProps.length) %
-      buttonProps.length;
+      (currentIndex - 1 + buttonProps.length) % buttonProps.length;
     onButtonClick(buttonProps[prevIndex]);
-    scrollToActiveButton(prevIndex);
   };
 
   useEffect(() => {
-    const initialIndex = buttonProps.findIndex(
-      (b) => b.label === comparisonData.label
-    );
-    scrollToActiveButton(initialIndex);
-  }, [buttonProps, comparisonData.label]);
+    const container = scrollRef.current;
+
+    // Handle mouse wheel events for desktop
+    const handleWheel = (e: WheelEvent) => {
+      if (container) {
+        const canScrollMore =
+          container.scrollLeft > 0 ||
+          container.scrollLeft + container.clientWidth < container.scrollWidth;
+
+        if (canScrollMore) {
+          e.preventDefault(); // Prevent the default vertical scrolling
+          container.scrollBy({
+            left: e.deltaY, // Use deltaY to scroll horizontally based on mouse wheel movement
+          });
+        }
+      }
+    };
+
+    if (container) {
+      container.addEventListener("wheel", handleWheel, { passive: false });
+    }
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      if (container) {
+        container.removeEventListener("wheel", handleWheel);
+      }
+    };
+  }, []);
 
   return (
-    <div className="relative flex items-center justify-center h-full w-full">
+    <div className="relative flex items-center justify-center h-full w-[410px]">
+      <Button
+        onClick={handlePrevious}
+        className="absolute left-0 z-20"
+        style={{
+          top: "50%",
+          transform: "translateY(-50%)",
+          borderRadius: "50px",
+          backgroundColor: "white",
+          padding: "10px",
+        }}
+      >
+        <LeftOutlined style={{ color: "#13a89e" }} />
+      </Button>
+
       <div
         ref={scrollRef}
-        className="scroll-container py-3 px-20 "
+        className="scroll-container py-3"
         style={{
           display: "flex",
-          overflowX: "hidden",
+          overflowX: "auto",
+          overflowY: "hidden", // Hide vertical overflow
           whiteSpace: "nowrap",
+          scrollBehavior: "smooth",
+          width: "400px", // Adjust the width as needed
           position: "relative",
-          marginRight: "10px",
-          marginLeft: "10px",
-          width: "180px",
+          scrollbarWidth: "none", // Hide scrollbar on Firefox
+          msOverflowStyle: "none", // Hide scrollbar on IE/Edge
+          WebkitOverflowScrolling: "touch", // Enable momentum scrolling on iOS
+          touchAction: "pan-x", // Enable native touch panning in the x direction
         }}
       >
         {buttonProps.map((button, index) => (
@@ -95,19 +117,11 @@ export default function ComparisonButtons({
             key={index}
             data-index={index}
             className={comparisonData.label === button.label ? "active" : ""}
-            onClick={() => {
-              onButtonClick(button); // Update state when button is clicked
-              scrollToActiveButton(index);
-            }}
+            onClick={() => onButtonClick(button)}
             style={{
               margin: "0 10px",
               minWidth: "150px",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
               padding: "10px",
-              transform:
-                comparisonData.label === button.label
-                  ? "scale(1.2)"
-                  : "scale(1)",
               boxShadow:
                 comparisonData.label === button.label
                   ? "0px 4px 12px rgba(0, 0, 0, 0.3)"
@@ -122,22 +136,8 @@ export default function ComparisonButtons({
       </div>
 
       <Button
-        onClick={handlePrevious}
-        className="absolute left-[30%] z-20"
-        style={{
-          top: "50%",
-          transform: "translateY(-50%)",
-          borderRadius: "50px",
-          backgroundColor: "white",
-          padding: "10px",
-        }}
-      >
-        <LeftOutlined style={{ color: "#13a89e" }} />
-      </Button>
-
-      <Button
         onClick={handleNext}
-        className="absolute right-[30%] z-20"
+        className="absolute right-0 z-20"
         style={{
           top: "50%",
           transform: "translateY(-50%)",
