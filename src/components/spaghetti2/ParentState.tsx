@@ -79,14 +79,14 @@ export default function ParentState({
         </div>
 
         <div className="col-span-1 lg:col-span-2 lg:row-span-2 flex flex-col rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec] shadow-md mb-0 md:mb-0">
-          <div className="flex flex-col md:flex-row">
-            <div className="lg:w-[57%] rounded-l-[25px] rounded-r-[25px] md:rounded-r-none border-2 border-[#d0eeec]">
+          <div className="flex flex-col xl:flex-row">
+            <div className="xl:w-[57%] rounded-l-[25px] rounded-r-[25px] xl:rounded-r-none border-2 border-[#d0eeec]">
               <Gallery
                 activestateKey={stateKey}
                 GalleryImgsData={GalleryImgsData}
               />
             </div>
-            <div className="lg:w-[43%] pt-[20px] bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] md:rounded-l-none border-2 border-[#d0eeec]">
+            <div className="xl:w-[43%] pt-[20px] bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]">
               <Collapse
                 expandIcon={({ isActive }) => (
                   <DownCircleOutlined

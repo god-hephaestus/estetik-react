@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Button } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
@@ -68,36 +68,57 @@ export default function ComparisonButtons({
     scrollToActiveButton(prevIndex);
   };
 
+  useEffect(() => {
+    const initialIndex = buttonProps.findIndex(
+      (b) => b.label === comparisonData.label
+    );
+    scrollToActiveButton(initialIndex);
+  }, [buttonProps, comparisonData.label]);
+
   return (
-    <div className="relative flex items-center justify-center h-full">
-      <div ref={scrollRef} className=" flex items-center justify-center h-full">
-        <div className="flex justify-center items-center w-screen lg:w-full  rounded-xl">
-          {buttonProps.map((button, index) => (
-            <Button
-              key={index}
-              data-index={index}
-              className={`${
-                comparisonData.label === button.label ? "active" : ""
-              } lg:mx-[10px] mx-2 py-2 px-8 lg:px-18`}
-              onClick={() => {
-                onButtonClick(button);
-                scrollToActiveButton(index);
-              }}
-              style={{
-                borderRadius: "50px",
-                height: "100%",
-                transform:
-                  comparisonData.label === button.label
-                    ? "scale(1)"
-                    : "scale(0.9)",
-                transition: "transform 0.3s ease",
-                zIndex: 10,
-              }}
-            >
-              {button.label}
-            </Button>
-          ))}
-        </div>
+    <div className="relative flex items-center justify-center h-full w-full">
+      <div
+        ref={scrollRef}
+        className="scroll-container py-3 px-20 "
+        style={{
+          display: "flex",
+          overflowX: "hidden",
+          whiteSpace: "nowrap",
+          position: "relative",
+          marginRight: "10px",
+          marginLeft: "10px",
+          width: "180px",
+        }}
+      >
+        {buttonProps.map((button, index) => (
+          <Button
+            key={index}
+            data-index={index}
+            className={comparisonData.label === button.label ? "active" : ""}
+            onClick={() => {
+              onButtonClick(button); // Update state when button is clicked
+              scrollToActiveButton(index);
+            }}
+            style={{
+              margin: "0 10px",
+              minWidth: "150px",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              padding: "10px",
+              transform:
+                comparisonData.label === button.label
+                  ? "scale(1.2)"
+                  : "scale(1)",
+              boxShadow:
+                comparisonData.label === button.label
+                  ? "0px 4px 12px rgba(0, 0, 0, 0.3)"
+                  : "none",
+              backgroundColor:
+                comparisonData.label === button.label ? "#13a89e" : "",
+            }}
+          >
+            {button.label}
+          </Button>
+        ))}
       </div>
 
       <Button
@@ -118,8 +139,8 @@ export default function ComparisonButtons({
         onClick={handleNext}
         className="absolute right-[30%] z-20"
         style={{
-          top: "50%", // Center the navigation buttons vertically
-          transform: "translateY(-50%)", // Ensure proper centering
+          top: "50%",
+          transform: "translateY(-50%)",
           borderRadius: "50px",
           backgroundColor: "white",
           padding: "10px",
