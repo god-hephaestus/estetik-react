@@ -88,7 +88,7 @@ export default function ParentState({
                 expandIcon={({ isActive }) => (
                   <DownCircleOutlined
                     style={{
-                      color: "#13a89e",
+                      color: "white",
                       fontSize: "25px",
                       border: 0,
                     }}
