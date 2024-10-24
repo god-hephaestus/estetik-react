@@ -83,7 +83,7 @@ export default function ComparisonButtons({
     <div className="relative flex items-center justify-center h-full max-w-[350px] sm:max-w-[410px]  border border-[#13a89e] rounded-[25px]">
       <Button
         onClick={handlePrevious}
-        className="absolute left-0 z-20"
+        className="absolute left-0 z-20 border-[#13a89e] border-2"
         style={{
           top: "50%",
           transform: "translateY(-50%)",
@@ -140,7 +140,7 @@ export default function ComparisonButtons({
 
       <Button
         onClick={handleNext}
-        className="absolute right-0 z-20"
+        className="absolute right-0 z-20 border-[#13a89e] border-2"
         style={{
           top: "50%",
           transform: "translateY(-50%)",
