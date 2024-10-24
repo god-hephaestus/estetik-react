@@ -90,7 +90,7 @@ export default function OperationForm() {
   };
 
   return (
-    <div className="flex justify-center items-center md:mr-0 md:ml-6 h-full">
+    <div className="flex justify-center items-center h-full">
       <Form
         name="operationForm"
         form={form}
@@ -98,6 +98,11 @@ export default function OperationForm() {
         onFinish={handleSubmit}
         className="w-full h-full flex-1 max-w-lg px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] shadow-md"
       >
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10133147.836277347!2d29.356114206454567!3d42.49165901949489!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac64c07925733%3A0x96ea14ba8be2cdb6!2sEstetik%20International!5e0!3m2!1sen!2str!4v1726670444497!5m2!1sen!2str"
+          loading="lazy"
+          className="w-full my-4 h-56"
+        ></iframe>
         <Form.Item
           label="Name"
           name="name"
@@ -165,9 +170,9 @@ export default function OperationForm() {
             placeholder="Select an operation"
             className="border-2 border-[#13a89e] rounded-xl h-full"
           >
-            <Option value="operation1">Operation 1</Option>
-            <Option value="operation2">Operation 2</Option>
-            <Option value="operation3">Operation 3</Option>
+            <Option value="bbl">BBL</Option>
+            <Option value="breast">Breast Surgeries</Option>
+            <Option value="total">Total Body</Option>
           </Select>
         </Form.Item>
         <Form.Item label="Message" name="message" rules={[{ required: false }]}>

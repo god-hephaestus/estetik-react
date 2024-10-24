@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import { Divider, Image } from "antd";
+import { Image } from "antd";
+import { InfoCircleOutlined } from "@ant-design/icons";
 
 export default function Gallery({
   activestateKey,
@@ -17,21 +18,18 @@ export default function Gallery({
   }));
 
   return (
-    <>
-      <Divider style={{ fontWeight: "bold" }}>Before & After</Divider>
-      <div className="p-4 text-center">
-        {currentGallery.length > 0 ? (
+    <div className="w-full h-full">
+      <div className="p-[20px] text-center">
+        {
           <Image.PreviewGroup items={previewItems}>
-            <Image
-              width={280}
-              src={currentGallery[0].src}
-              alt={currentGallery[0].alt}
-            />
+            <Image src={currentGallery[0].src} alt={currentGallery[0].alt} />
           </Image.PreviewGroup>
-        ) : (
-          <p>No images available for this gallery.</p>
-        )}
+        }
+        <p>
+          <InfoCircleOutlined /> See the full gallery of operation images via
+          clicking on the image
+        </p>
       </div>
-    </>
+    </div>
   );
 }
