@@ -71,28 +71,28 @@ export default function ParentState({
   const handleComparisonClick = () => {
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
       console.log("handleComparisonClick triggered");
-      setIsDoctorsExpanded((prev) => !prev);
+      setIsComparisonExpanded((prev) => !prev);
     }
   };
 
   const handleVideoClick = () => {
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
       console.log("handleVideoClick triggered");
-      setIsDoctorsExpanded((prev) => !prev);
+      setIsVideoExpanded((prev) => !prev);
     }
   };
 
   const handleGalleryClick = () => {
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
       console.log("handleGalleryClick triggered");
-      setIsDoctorsExpanded((prev) => !prev);
+      setIsGalleryExpanded((prev) => !prev);
     }
   };
 
   const handleFormClick = () => {
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
       console.log("handleFormClick triggered");
-      setIsDoctorsExpanded((prev) => !prev);
+      setIsFormExpanded((prev) => !prev);
     }
   };
 
@@ -106,14 +106,14 @@ export default function ParentState({
   const handleTestimonialsClick = () => {
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
       console.log("handleTestimonialsClick triggered");
-      setIsDoctorsExpanded((prev) => !prev);
+      setIsTestimonialsExpanded((prev) => !prev);
     }
   };
 
   const handleLocationClick = () => {
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
       console.log("handleLocationClick triggered");
-      setIsDoctorsExpanded((prev) => !prev);
+      setIsLocationExpanded((prev) => !prev);
     }
   };
 
@@ -200,10 +200,23 @@ export default function ParentState({
           />
         </div>
 
-        <div className="col-span-1 lg:col-span-5 flex-grow flex z-30">
+        <div
+          onClick={handleTestimonialsClick}
+          className={`col-span-1 lg:col-span-5 flex-grow flex z-30 ${
+            isTestimonialsExpanded && "z-50"
+          } `}
+          style={
+            isTestimonialsExpanded &&
+            typeof window !== "undefined" &&
+            window.innerWidth <= 768
+              ? { zIndex: "49" }
+              : { zIndex: "20" }
+          }
+        >
           <Testimonials
             stateKey={stateKey}
             testimonialsData={testimonialsData}
+            isExpanded={isTestimonialsExpanded}
           />
         </div>
         <div className="col-span-1 lg:col-span-3 z-40">

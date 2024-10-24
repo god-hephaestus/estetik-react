@@ -16,11 +16,13 @@ interface Testimonial {
 interface TestimonialsProps {
   stateKey: string;
   testimonialsData: { [key: string]: Testimonial[] };
+  isExpanded: boolean;
 }
 
 export default function Testimonials({
   stateKey,
   testimonialsData,
+  isExpanded,
 }: TestimonialsProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -70,11 +72,18 @@ export default function Testimonials({
   // Filter testimonials by stateKey
   const testimonials = testimonialsData[stateKey] || [];
 
+  const containerClassNames = `bg-[#13a89e]/20 -mt-80 lg:mt-0 border-2 border-[#13a89e] lg:border-none backdrop-blur lg:backdrop-blur-none lg:bg-[#d0eeec] shadow-md rounded-[25px] p-2 flex flex-grow overflow-x-auto cursor-${
+    isDragging ? "grabbing" : "grab"
+  } no-select ${
+    isExpanded
+      ? "h-[320px] backdrop-blur-none bg-[#d0eeec]"
+      : "h-[320px] backdrop-blur bg-[#13a89e]/20 "
+  }`;
+
   return (
     <div
       ref={containerRef}
-      className={`bg-[#13a89e]/20 -mt-80 lg:mt-0 border-2 border-[#13a89e] lg:border-none  backdrop-blur lg:backdrop-blur-none lg:bg-[#d0eeec] shadow-md rounded-[25px] p-2 flex flex-grow overflow-x-auto 
-        cursor-${isDragging ? "grabbing" : "grab"} no-select`}
+      className={containerClassNames}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleEnd}
