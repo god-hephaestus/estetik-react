@@ -25,10 +25,6 @@ export default function Gallery({
             <Image src={currentGallery[0].src} alt={currentGallery[0].alt} />
           </Image.PreviewGroup>
         }
-        <p>
-          <InfoCircleOutlined /> See the full gallery of operation images via
-          clicking on the image
-        </p>
       </div>
     </div>
   );

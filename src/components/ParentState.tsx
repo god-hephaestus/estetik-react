@@ -75,15 +75,15 @@ export default function ParentState({
           <VideoSlider videoDescription={videoDescription} />
         </div>
 
-        <div className="col-span-1 row-span-1 lg:col-span-8 flex flex-col rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec] shadow-md mb-0 md:mb-0">
-          <div className="flex flex-col xl:flex-row">
-            <div className="xl:w-[57%] rounded-l-[25px] rounded-r-[25px] xl:rounded-r-none border-2 border-[#d0eeec]">
+        <div className="col-span-1 row-span-1 lg:col-span-8 flex flex-col rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec] shadow-md ">
+          <div className="flex flex-col lg:flex-row">
+            <div className="lg:w-[45%] rounded-l-[25px] rounded-r-[25px] xl:rounded-r-none border-2 border-[#d0eeec]">
               <Gallery
                 activestateKey={stateKey}
                 GalleryImgsData={GalleryImgsData}
               />
             </div>
-            <div className="xl:w-[43%] pt-[20px] bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]">
+            <div className="lg:w-[55%] lg:pt-[20px] lg:pr-4 bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]">
               <Collapse
                 expandIcon={({ isActive }) => (
                   <DownCircleOutlined
