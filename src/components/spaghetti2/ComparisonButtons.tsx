@@ -59,9 +59,9 @@ export default function ComparisonButtons({
           container.scrollLeft + container.clientWidth < container.scrollWidth;
 
         if (canScrollMore) {
-          e.preventDefault(); // Prevent the default vertical scrolling
+          e.preventDefault();
           container.scrollBy({
-            left: e.deltaY, // Use deltaY to scroll horizontally based on mouse wheel movement
+            left: e.deltaY,
           });
         }
       }
@@ -80,7 +80,7 @@ export default function ComparisonButtons({
   }, []);
 
   return (
-    <div className="relative flex items-center justify-center h-full w-[410px]">
+    <div className="relative flex items-center justify-center h-full max-w-[350px] sm:max-w-[410px]">
       <Button
         onClick={handlePrevious}
         className="absolute left-0 z-20"
@@ -97,14 +97,13 @@ export default function ComparisonButtons({
 
       <div
         ref={scrollRef}
-        className="scroll-container py-3"
+        className="scroll-container py-3 no-scrollbar max-w-[350px] sm:max-w-[400px]"
         style={{
           display: "flex",
           overflowX: "auto",
           overflowY: "hidden", // Hide vertical overflow
           whiteSpace: "nowrap",
           scrollBehavior: "smooth",
-          width: "400px", // Adjust the width as needed
           position: "relative",
           scrollbarWidth: "none", // Hide scrollbar on Firefox
           msOverflowStyle: "none", // Hide scrollbar on IE/Edge
