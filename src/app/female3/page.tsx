@@ -543,7 +543,7 @@ const HeroBgData = {
 export default function ComparisonPage() {
   return (
     <div className="">
-      <div className="w-full px-4 mx-auto mb-24">
+      <div className="w-full lg:mb-24">
         <ParentState
           buttonsData={buttonsData}
           GalleryImgsData={GalleryImgsData}

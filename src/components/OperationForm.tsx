@@ -99,6 +99,7 @@ export default function OperationForm() {
         className="w-full h-full flex-1 px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] shadow-md"
       >
         <Form.Item
+          className="mb-2 lg:mb-6"
           label="Name"
           name="name"
           rules={[{ required: true, message: "Please input your name!" }]}
@@ -109,6 +110,7 @@ export default function OperationForm() {
           />
         </Form.Item>
         <Form.Item
+          className="mb-2 lg:mb-6"
           label="Phone"
           required
           rules={[
@@ -157,6 +159,7 @@ export default function OperationForm() {
           </div>
         </Form.Item>
         <Form.Item
+          className="mb-2 lg:mb-6"
           label="Operation"
           name="operation"
           rules={[{ required: true, message: "Please select an operation!" }]}
@@ -170,7 +173,12 @@ export default function OperationForm() {
             <Option value="total">Total Body</Option>
           </Select>
         </Form.Item>
-        <Form.Item label="Message" name="message" rules={[{ required: false }]}>
+        <Form.Item
+          className="mb-2 lg:mb-6"
+          label="Message"
+          name="message"
+          rules={[{ required: false }]}
+        >
           <TextArea
             rows={4}
             placeholder="Enter your message"
