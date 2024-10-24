@@ -80,7 +80,7 @@ export default function ComparisonButtons({
   }, []);
 
   return (
-    <div className="relative flex items-center justify-center h-full max-w-[350px] sm:max-w-[410px]">
+    <div className="relative flex items-center justify-center h-full max-w-[350px] sm:max-w-[410px]  border border-[#13a89e] rounded-[25px]">
       <Button
         onClick={handlePrevious}
         className="absolute left-0 z-20"
@@ -97,7 +97,7 @@ export default function ComparisonButtons({
 
       <div
         ref={scrollRef}
-        className="scroll-container py-3 no-scrollbar max-w-[350px] sm:max-w-[400px]"
+        className="scroll-container py-1 no-scrollbar max-w-[350px] sm:max-w-[400px] z-10 rounded-[25px] bg-[#dcfffb] "
         style={{
           display: "flex",
           overflowX: "auto",
@@ -115,7 +115,9 @@ export default function ComparisonButtons({
           <Button
             key={index}
             data-index={index}
-            className={comparisonData.label === button.label ? "active" : ""}
+            className={`${
+              comparisonData.label === button.label ? "active" : ""
+            } rounded-[25px]`}
             onClick={() => onButtonClick(button)}
             style={{
               margin: "0 10px",
@@ -123,10 +125,12 @@ export default function ComparisonButtons({
               padding: "10px",
               boxShadow:
                 comparisonData.label === button.label
-                  ? "0px 4px 12px rgba(0, 0, 0, 0.3)"
+                  ? "0px 4px 12px rgba(0, 0, 0, 0.6)"
                   : "none",
+              color: comparisonData.label === button.label ? "black" : "white",
               backgroundColor:
-                comparisonData.label === button.label ? "#13a89e" : "",
+                comparisonData.label === button.label ? "white" : "",
+              border: "none",
             }}
           >
             {button.label}
