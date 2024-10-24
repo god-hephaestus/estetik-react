@@ -42,14 +42,14 @@ export default function ParentState({
     doctorArea: string;
   }>;
 }) {
-  const [comparisonData, setComparisonData] = useState(buttonsData[0]); // Set initial comparison data
-  const [stateKey, setstateKey] = useState(comparisonData.stateKey); // Set initial state key
+  const [comparisonData, setComparisonData] = useState(buttonsData[0]);
+  const [stateKey, setstateKey] = useState(comparisonData.stateKey);
 
   const videoDescription: string[] = heroBgData[stateKey]?.src ?? [];
 
   const handleButtonClick = (newComparisonData: (typeof buttonsData)[0]) => {
-    setComparisonData(newComparisonData); // Update comparison data
-    setstateKey(newComparisonData.stateKey); // Update state key
+    setComparisonData(newComparisonData);
+    setstateKey(newComparisonData.stateKey);
   };
 
   const faqItems = comparisonData.faqs.map((faq, index) => ({
@@ -57,6 +57,17 @@ export default function ParentState({
     label: faq.question,
     children: <p className="bg-[#d0eeec]">{faq.answer}</p>,
   }));
+
+  // State for Doctors component expansion
+  const [isDoctorsExpanded, setIsDoctorsExpanded] = useState(false);
+
+  // Handle click event on Doctors component
+  const handleDoctorsClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth <= 768) {
+      console.log("Doctors component clicked on mobile device");
+      setIsDoctorsExpanded((prev) => !prev);
+    }
+  };
 
   return (
     <div>
@@ -66,17 +77,17 @@ export default function ParentState({
         onButtonClick={handleButtonClick}
       />
 
-      <div className=" px-4 mx-auto  grid grid-cols-1 grid-rows-1 lg:grid-rows-1 lg:grid-cols-12 gap-6">
-        <div className="col-span-1 row-span-1 lg:col-span-5 flex flex-col items-center  lg:mb-0 lg:mt-0 h-full">
+      <div className="px-4 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="col-span-1 lg:col-span-5 flex flex-col items-center h-full">
           <Comparison comparisonData={comparisonData} />
         </div>
 
-        <div className="col-span-1 row-span-1 lg:col-span-7 flex flex-col h-full z-30 -mt-24 lg:mt-0">
+        <div className="col-span-1 lg:col-span-7 flex flex-col h-full z-30 -mt-24 lg:mt-0">
           <VideoSlider videoDescription={videoDescription} />
         </div>
 
-        <div className="col-span-1 row-span-1 lg:col-span-8 -mt-24 lg:mt-0 z-40 flex flex-col rounded-[25px] backdrop-blur lg:backdrop-blur-none bg-[#13a89e]/20 lg:bg-[#d0eeec] shadow-md  ">
-          <div className="flex flex-col lg:flex-row h-[440px] lg:h-auto overflow-hidden ">
+        <div className="col-span-1 lg:col-span-8 -mt-24 lg:mt-0 z-40 flex flex-col rounded-[25px] backdrop-blur lg:backdrop-blur-none bg-[#13a89e]/20 lg:bg-[#d0eeec] shadow-md">
+          <div className="flex flex-col lg:flex-row h-[440px] lg:h-auto overflow-hidden">
             <div className="lg:w-[45%] rounded-l-[25px] rounded-r-[25px] xl:rounded-r-none border-2 border-[#d0eeec]">
               <Gallery
                 activestateKey={stateKey}
@@ -105,6 +116,7 @@ export default function ParentState({
             </div>
           </div>
         </div>
+
         <button
           onClick={() =>
             window.scrollBy({
@@ -116,15 +128,31 @@ export default function ParentState({
         >
           <DoubleRightOutlined className="text-[#13a89e] rotate-90 text-4xl" />
         </button>
-        <div className="col-span-1 row-span-1 lg:col-span-4 flex flex-col w-full z-10 border rounded-[25px] border-[#13a89e] lg:border-none">
+
+        <div className="col-span-1 lg:col-span-4 flex flex-col w-full z-10 border rounded-[25px] border-[#13a89e] lg:border-none">
           <OperationForm />
         </div>
 
-        <div className="col-span-1 lg:col-span-4 lg:mt-0 -mt-64 z-20 border-2 rounded-[25px] border-[#13a89e] lg:border-none">
-          <Doctors doctorDescription={doctorsData} />
+        <div
+          onClick={handleDoctorsClick}
+          className={`col-span-1 lg:col-span-4 lg:mt-0 -mt-64 border-2 rounded-[25px] border-[#13a89e] lg:border-none z-20 ${
+            isDoctorsExpanded && "z-50"
+          }`}
+          style={
+            isDoctorsExpanded &&
+            typeof window !== "undefined" &&
+            window.innerWidth <= 768
+              ? { height: "70vh" }
+              : {}
+          }
+        >
+          <Doctors
+            doctorDescription={doctorsData}
+            isExpanded={isDoctorsExpanded}
+          />
         </div>
 
-        <div className="col-span-1 lg:col-span-5 flex-grow flex z-30 ">
+        <div className="col-span-1 lg:col-span-5 flex-grow flex z-30">
           <Testimonials
             stateKey={stateKey}
             testimonialsData={testimonialsData}

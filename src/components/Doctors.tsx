@@ -14,18 +14,23 @@ interface Doctor {
 
 export default function Doctors({
   doctorDescription,
+  isExpanded,
 }: {
   doctorDescription: Doctor[];
+  isExpanded: boolean;
 }) {
+  const containerClassNames = `flex flex-col md:flex-col lg:flex-row items-center h-[474px] md:h-[446px] lg:h-[300px] gap-4 lg:gap-0 mx-0 pr-4 lg:pr-10   lg:backdrop-blur-none lg:bg-[#d0eeec] border-2 border-[#d0eeec] rounded-[25px] shadow-md
+ ${
+   isExpanded
+     ? "h-[70vh] backdrop-blur-none bg-[#d0eeec]"
+     : "h-[474px] backdrop-blur bg-[#13a89e]/20"
+ } `;
+
   return (
-    <Carousel arrows={true} infinite={true} draggable>
+    <Carousel arrows={true} infinite={true} draggable className="h-full">
       {doctorDescription.map((doctor, index) => (
-        <div
-          key={index}
-          className="flex flex-col md:flex-col lg:flex-row items-center h-[474px] md:h-[446px] lg:h-[300px] 
-          gap-4 lg:gap-0 mx-0 pr-4 lg:pr-10 bg-[#13a89e]/20 backdrop-blur lg:backdrop-blur-none lg:bg-[#d0eeec] border-2 border-[#d0eeec] rounded-[25px] shadow-md"
-        >
-          <div className="relative w-full h-[250px]  lg:h-full lg:w-[50%] flex-shrink-0">
+        <div key={index} className={containerClassNames}>
+          <div className="relative w-full h-[250px] lg:h-full lg:w-[50%] flex-shrink-0">
             <Image
               src={doctor.imageSrc}
               alt={doctor.doctorName}
