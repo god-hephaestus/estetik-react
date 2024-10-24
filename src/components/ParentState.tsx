@@ -75,7 +75,7 @@ export default function ParentState({
           <VideoSlider videoDescription={videoDescription} />
         </div>
 
-        <div className="col-span-1 row-span-1 lg:col-span-8 -mt-24 lg:mt-0 z-40 flex flex-col rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec] shadow-md  ">
+        <div className="col-span-1 row-span-1 lg:col-span-8 -mt-24 lg:mt-0 z-40 flex flex-col rounded-[25px] backdrop-blur lg:backdrop-blur-none bg-[#13a89e]/20 lg:bg-[#d0eeec] shadow-md  ">
           <div className="flex flex-col lg:flex-row h-[440px] lg:h-auto overflow-hidden ">
             <div className="lg:w-[45%] rounded-l-[25px] rounded-r-[25px] xl:rounded-r-none border-2 border-[#d0eeec]">
               <Gallery
