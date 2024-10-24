@@ -23,7 +23,7 @@ export default function Doctors({
         <div
           key={index}
           className="flex flex-col md:flex-col lg:flex-row items-center h-[474px] md:h-[446px] lg:h-[300px] 
-          gap-4 lg:gap-0 mx-0 pr-4 lg:pr-10 bg-[#d0eeec] border-2 border-[#d0eeec] rounded-[25px] shadow-md"
+          gap-4 lg:gap-0 mx-0 pr-4 lg:pr-10 bg-[#13a89e]/20 backdrop-blur lg:backdrop-blur-none lg:bg-[#d0eeec] border-2 border-[#d0eeec] rounded-[25px] shadow-md"
         >
           <div className="relative w-full h-[250px]  lg:h-full lg:w-[50%] flex-shrink-0">
             <Image
