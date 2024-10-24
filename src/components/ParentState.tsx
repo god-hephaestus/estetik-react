@@ -58,13 +58,61 @@ export default function ParentState({
     children: <p className="bg-[#d0eeec]">{faq.answer}</p>,
   }));
 
-  // State for Doctors component expansion
+  // State for component expansion
+  const [isComparisonExpanded, setIsComparisonExpanded] = useState(false);
+  const [isVideoExpanded, setIsVideoExpanded] = useState(false);
+  const [isGalleryExpanded, setIsGalleryExpanded] = useState(false);
+  const [isFormExpanded, setIsFormExpanded] = useState(false);
   const [isDoctorsExpanded, setIsDoctorsExpanded] = useState(false);
+  const [isTestimonialsExpanded, setIsTestimonialsExpanded] = useState(false);
+  const [isLocationExpanded, setIsLocationExpanded] = useState(false);
 
-  // Handle click event on Doctors component
+  // Handle click event on components
+  const handleComparisonClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth <= 768) {
+      console.log("handleComparisonClick triggered");
+      setIsDoctorsExpanded((prev) => !prev);
+    }
+  };
+
+  const handleVideoClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth <= 768) {
+      console.log("handleVideoClick triggered");
+      setIsDoctorsExpanded((prev) => !prev);
+    }
+  };
+
+  const handleGalleryClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth <= 768) {
+      console.log("handleGalleryClick triggered");
+      setIsDoctorsExpanded((prev) => !prev);
+    }
+  };
+
+  const handleFormClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth <= 768) {
+      console.log("handleFormClick triggered");
+      setIsDoctorsExpanded((prev) => !prev);
+    }
+  };
+
   const handleDoctorsClick = () => {
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
-      console.log("Doctors component clicked on mobile device");
+      console.log("handleDoctorsClick triggered");
+      setIsDoctorsExpanded((prev) => !prev);
+    }
+  };
+
+  const handleTestimonialsClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth <= 768) {
+      console.log("handleTestimonialsClick triggered");
+      setIsDoctorsExpanded((prev) => !prev);
+    }
+  };
+
+  const handleLocationClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth <= 768) {
+      console.log("handleLocationClick triggered");
       setIsDoctorsExpanded((prev) => !prev);
     }
   };
