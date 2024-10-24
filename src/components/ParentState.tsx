@@ -9,6 +9,7 @@ import OperationForm from "./OperationForm";
 import Doctors from "./Doctors";
 import Navbar from "./Navbar";
 import VideoSlider from "./VideoSlider";
+import Location from "./Location";
 
 export default function ParentState({
   testimonialsData,
@@ -65,20 +66,16 @@ export default function ParentState({
         onButtonClick={handleButtonClick}
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-        <div className="col-span-1 lg:col-span-2 flex flex-col items-center lg:mb-0 lg:mt-0 h-full">
+      <div className="grid grid-cols-1 grid-rows-1 lg:grid-rows-1 lg:grid-cols-12 gap-6">
+        <div className="col-span-1 row-span-1 lg:col-span-5 flex flex-col items-center lg:mb-0 lg:mt-0 h-full">
           <Comparison comparisonData={comparisonData} />
         </div>
 
-        <div className="col-span-1 lg:col-span-2 flex flex-col h-full">
+        <div className="col-span-1 row-span-1 lg:col-span-7 flex flex-col h-full">
           <VideoSlider videoDescription={videoDescription} />
         </div>
 
-        <div className="col-span-1 lg:col-span-1 lg:row-span-2 flex flex-col">
-          <OperationForm />
-        </div>
-
-        <div className="col-span-1 lg:col-span-2 lg:row-span-2 flex flex-col rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec] shadow-md mb-0 md:mb-0">
+        <div className="col-span-1 row-span-1 lg:col-span-8 flex flex-col rounded-[25px] border-2 bg-[#d0eeec] border-[#d0eeec] shadow-md mb-0 md:mb-0">
           <div className="flex flex-col xl:flex-row">
             <div className="xl:w-[57%] rounded-l-[25px] rounded-r-[25px] xl:rounded-r-none border-2 border-[#d0eeec]">
               <Gallery
@@ -109,15 +106,22 @@ export default function ParentState({
           </div>
         </div>
 
-        <div className="col-span-1 lg:col-span-2">
+        <div className="col-span-1 row-span-1 lg:col-span-4 flex flex-col w-full">
+          <OperationForm />
+        </div>
+
+        <div className="col-span-1 lg:col-span-4 ">
           <Doctors doctorDescription={doctorsData} />
         </div>
 
-        <div className="col-span-1 lg:col-span-3 flex-grow flex">
+        <div className="col-span-1 lg:col-span-5 flex-grow flex">
           <Testimonials
             stateKey={stateKey}
             testimonialsData={testimonialsData}
           />
+        </div>
+        <div className="col-span-1 lg:col-span-3 ">
+          <Location />
         </div>
       </div>
     </div>
