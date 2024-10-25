@@ -77,7 +77,8 @@ export default function ParentState({
 
   const handleVideoClick = () => {
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
-      console.log("handleVideoClick triggered");
+      console.log("handleVideoClick triggered ");
+      console.log(isVideoExpanded);
       setIsVideoExpanded((prev) => !prev);
     }
   };
@@ -126,12 +127,23 @@ export default function ParentState({
       />
 
       <div className="px-4 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div className="col-span-1 lg:col-span-5 flex flex-col items-center h-full">
+        <div
+          onClick={handleComparisonClick}
+          className="col-span-1 lg:col-span-5 flex flex-col items-center h-full"
+        >
           <Comparison comparisonData={comparisonData} />
         </div>
 
-        <div className="col-span-1 lg:col-span-7 flex flex-col h-full z-30 -mt-24 lg:mt-0">
-          <VideoSlider videoDescription={videoDescription} />
+        <div
+          onClick={handleVideoClick}
+          className={`col-span-1 lg:col-span-7 flex flex-col h-full ${
+            isVideoExpanded ? "z-50" : "z-30"
+          } ${isComparisonExpanded ? "mt-0" : "-mt-24 lg:mt-0"} lg:mt-0`}
+        >
+          <VideoSlider
+            isExpanded={isVideoExpanded}
+            videoDescription={videoDescription}
+          />
         </div>
 
         <div
@@ -140,10 +152,12 @@ export default function ParentState({
             isGalleryExpanded
               ? " z-50 backdrop-blur-none bg-[#d0eeec]"
               : "z-40  backdrop-blur bg-[#13a89e]/20"
-          }  -mt-24 lg:mt-0 flex flex-col rounded-[25px] lg:backdrop-blur-none  lg:bg-[#d0eeec] shadow-md`}
+          } ${
+            isVideoExpanded ? "mt-0" : "-mt-24 lg:mt-0"
+          } flex flex-col rounded-[25px] lg:backdrop-blur-none  lg:bg-[#d0eeec] shadow-md`}
         >
           <div
-            className={`flex flex-col lg:flex-row lg:h-auto ${
+            className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-auto ${
               isGalleryExpanded ? "" : "overflow-hidden h-[440px] "
             } `}
           >
@@ -153,7 +167,7 @@ export default function ParentState({
                 GalleryImgsData={GalleryImgsData}
               />
             </div>
-            <div className="lg:w-[55%] lg:pt-[20px] lg:pr-4 bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]">
+            <div className="lg:w-[55%] lg:pt-[20px] lg:pr-4 px-2 lg:pl-0 bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]">
               <Collapse
                 expandIcon={({ isActive }) => (
                   <DownCircleOutlined
