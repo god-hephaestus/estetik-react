@@ -177,15 +177,25 @@ export default function ParentState({
           <DoubleRightOutlined className="text-[#13a89e] rotate-90 text-4xl" />
         </button>
 
-        <div className="col-span-1 lg:col-span-4 flex flex-col w-full z-10 border rounded-[25px] border-[#13a89e] lg:border-none">
-          <OperationForm />
+        <div
+          onClick={handleFormClick}
+          style={
+            isFormExpanded &&
+            typeof window !== "undefined" &&
+            window.innerWidth <= 768
+              ? { zIndex: 50, height: "80vh" }
+              : {}
+          }
+          className="col-span-1 lg:col-span-4 flex flex-col w-full z-10 border rounded-[25px] border-[#13a89e] lg:border-none"
+        >
+          <OperationForm isExpanded={isFormExpanded} />
         </div>
 
         <div
           onClick={handleDoctorsClick}
-          className={`col-span-1 lg:col-span-4 lg:mt-0 -mt-64 border-2 rounded-[25px] border-[#13a89e] lg:border-none z-20 ${
+          className={`col-span-1 lg:col-span-4 lg:mt-0  border-2 rounded-[25px] border-[#13a89e] lg:border-none z-20 ${
             isDoctorsExpanded && "z-50"
-          }`}
+          } ${isFormExpanded || "-mt-64"} `}
           style={
             isDoctorsExpanded &&
             typeof window !== "undefined" &&
@@ -202,7 +212,7 @@ export default function ParentState({
 
         <div
           onClick={handleTestimonialsClick}
-          className={`col-span-1 lg:col-span-5 flex-grow flex z-30 ${
+          className={`col-span-1 lg:col-span-5 flex-grow flex ${
             isTestimonialsExpanded && "z-50"
           } `}
           style={

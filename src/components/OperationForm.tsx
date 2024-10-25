@@ -16,7 +16,10 @@ interface Country {
   phoneCode: string;
 }
 
-export default function OperationForm() {
+export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
+  const containerClassNames = `flex justify-center items-center  ${
+    isExpanded ? "z-50 h-full" : ""
+  }`;
   const [form] = Form.useForm();
   const [phone, setPhone] = useState<string>("");
   const [countryCode, setCountryCode] = useState<CountryCode>("US");
@@ -90,7 +93,7 @@ export default function OperationForm() {
   };
 
   return (
-    <div className="flex justify-center items-center h-full ">
+    <div className={containerClassNames}>
       <Form
         name="operationForm"
         form={form}
