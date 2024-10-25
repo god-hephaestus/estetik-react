@@ -2,7 +2,7 @@
 
 import { CommentOutlined } from "@ant-design/icons";
 import { Avatar, Typography } from "antd";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const { Title } = Typography;
 
@@ -28,9 +28,33 @@ export default function Testimonials({
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true); // Auto-scroll control
+
+  // Default auto-scrolling effect
+  useEffect(() => {
+    let scrollInterval: NodeJS.Timeout | null = null;
+
+    // Start auto-scrolling
+    const startAutoScroll = () => {
+      if (containerRef.current && isAutoScrolling) {
+        scrollInterval = setInterval(() => {
+          containerRef.current!.scrollLeft += 1; // Adjust speed by changing this value
+        }, 20);
+      }
+    };
+
+    // Stop auto-scrolling on interaction
+    if (isAutoScrolling) startAutoScroll();
+
+    // Cleanup on unmount
+    return () => {
+      if (scrollInterval) clearInterval(scrollInterval);
+    };
+  }, [isAutoScrolling]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
+    setIsAutoScrolling(false); // Stop auto-scrolling on interaction
     setStartX(e.clientX - (containerRef.current?.offsetLeft || 0));
     setScrollLeft(containerRef.current?.scrollLeft || 0);
     if (containerRef.current) {
@@ -40,6 +64,7 @@ export default function Testimonials({
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !containerRef.current) return;
+    setIsAutoScrolling(false); // Ensure auto-scrolling stops when sliding
     e.preventDefault();
     const x = e.clientX - (containerRef.current.offsetLeft || 0);
     const walk = x - startX;
@@ -48,6 +73,7 @@ export default function Testimonials({
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setIsDragging(true);
+    setIsAutoScrolling(false); // Stop auto-scrolling on interaction
     setStartX(e.touches[0].clientX - (containerRef.current?.offsetLeft || 0));
     setScrollLeft(containerRef.current?.scrollLeft || 0);
     if (containerRef.current) {
@@ -57,6 +83,7 @@ export default function Testimonials({
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging || !containerRef.current) return;
+    setIsAutoScrolling(false); // Ensure auto-scrolling stops when sliding
     const x = e.touches[0].clientX - (containerRef.current.offsetLeft || 0);
     const walk = (x - startX) * 1.6;
     containerRef.current.scrollLeft = scrollLeft - walk;
@@ -67,6 +94,9 @@ export default function Testimonials({
     if (containerRef.current) {
       containerRef.current.style.scrollBehavior = "smooth";
     }
+
+    // Resume auto-scrolling after a 2-second delay
+    setTimeout(() => setIsAutoScrolling(true), 2000);
   };
 
   // Filter testimonials by stateKey
