@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Image } from "antd";
-import { InfoCircleOutlined } from "@ant-design/icons";
 
 export default function Gallery({
   activestateKey,

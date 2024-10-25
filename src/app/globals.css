@@ -65,8 +65,11 @@ html:hover {
   animation: bounce 2s infinite;
 }
 .ant-collapse-header {
-  background-color: #abd7d4 !important;
+  background-color: #13a89e !important;
   border-radius: 15px !important;
+}
+.ant-collapse-header {
+  color: white !important;
 }
 .ant-collapse-item {
   border-color: transparent !important;
