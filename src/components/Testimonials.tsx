@@ -72,7 +72,7 @@ export default function Testimonials({
   // Filter testimonials by stateKey
   const testimonials = testimonialsData[stateKey] || [];
 
-  const containerClassNames = `bg-[#13a89e]/20 lg:mt-0 border-2 border-[#13a89e] lg:border-none backdrop-blur lg:backdrop-blur-none lg:bg-[#d0eeec] shadow-md rounded-[25px] p-2 flex flex-grow overflow-x-auto cursor-${
+  const containerClassNames = `no-scrollbar bg-[#13a89e]/20 lg:mt-0 border-2 border-[#13a89e] lg:border-none backdrop-blur lg:backdrop-blur-none lg:bg-[#d0eeec] shadow-md rounded-[25px] p-2 flex flex-grow overflow-x-auto cursor-${
     isDragging ? "grabbing" : "grab"
   } no-select ${
     isExpanded

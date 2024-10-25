@@ -119,3 +119,11 @@ html:hover {
   background-color: #d0eeec !important;
   border-color: #d0eeec !important;
 }
+.overlay-transition .ant-image-mask {
+  opacity: 1 !important;
+  transition: opacity 1s ease-in-out !important;
+}
+.overlay-active .ant-image-mask {
+  opacity: 1 !important;
+  transition: none !important;
+}

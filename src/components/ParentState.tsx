@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Comparison from "./Comparison";
 import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
@@ -58,15 +58,14 @@ export default function ParentState({
     children: <p className="bg-[#d0eeec]">{faq.answer}</p>,
   }));
 
-  // State for component expansion
   const [isComparisonExpanded, setIsComparisonExpanded] = useState(false);
   const [isVideoExpanded, setIsVideoExpanded] = useState(false);
   const [isGalleryExpanded, setIsGalleryExpanded] = useState(false);
   const [isFormExpanded, setIsFormExpanded] = useState(false);
   const [isDoctorsExpanded, setIsDoctorsExpanded] = useState(false);
   const [isTestimonialsExpanded, setIsTestimonialsExpanded] = useState(false);
+  const [imageOverlay, setImageOverlay] = useState("normal");
 
-  // Handle click event on components
   const handleComparisonClick = () => {
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
       console.log("handleComparisonClick triggered");
@@ -109,7 +108,20 @@ export default function ParentState({
       setIsTestimonialsExpanded((prev) => !prev);
     }
   };
+  useEffect(() => {
+    const startTransitionTimer = setTimeout(() => {
+      setImageOverlay("startedTransition");
+    }, 2000);
 
+    const endTransitionTimer = setTimeout(() => {
+      setImageOverlay("endedTransition");
+    }, 3000);
+
+    return () => {
+      clearTimeout(startTransitionTimer);
+      clearTimeout(endTransitionTimer);
+    };
+  }, []);
   return (
     <div>
       <Navbar
@@ -145,21 +157,27 @@ export default function ParentState({
               ? " z-50 backdrop-blur-none bg-[#d0eeec]"
               : "z-40  backdrop-blur bg-[#13a89e]/20"
           } ${
+            imageOverlay === "startedTransition"
+              ? "overlay-transition"
+              : imageOverlay === "endedTransition"
+              ? "overlay-active"
+              : ""
+          } ${
             isVideoExpanded ? "mt-0" : "-mt-24 lg:mt-0"
           } flex flex-col rounded-[25px] lg:backdrop-blur-none  lg:bg-[#d0eeec] shadow-md`}
         >
           <div
-            className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-auto ${
+            className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-full ${
               isGalleryExpanded ? "" : "overflow-hidden h-[440px] "
             } `}
           >
-            <div className="lg:w-[45%] rounded-l-[25px] rounded-r-[25px] xl:rounded-r-none border-2 border-[#d0eeec]">
+            <div className="lg:w-[45%] rounded-l-[25px] my-auto rounded-r-[25px] xl:rounded-r-none border-2 border-[#d0eeec]">
               <Gallery
                 activestateKey={stateKey}
                 GalleryImgsData={GalleryImgsData}
               />
             </div>
-            <div className="lg:w-[55%] lg:pt-[20px] lg:pr-4 px-2 lg:pl-0 bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]">
+            <div className="my-auto lg:w-[55%] lg:pt-[20px] lg:pr-4 px-2 lg:pl-0 bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]">
               <Collapse
                 expandIcon={({ isActive }) => (
                   <DownCircleOutlined
@@ -203,7 +221,7 @@ export default function ParentState({
               ? { zIndex: 50, height: "80vh" }
               : {}
           }
-          className="col-span-1 lg:col-span-4 flex flex-col w-full z-10 border rounded-[25px] border-[#13a89e] lg:border-none"
+          className="col-span-1 lg:col-span-4 flex flex-col w-full  z-10 border rounded-[25px] border-[#13a89e] lg:border-none"
         >
           <OperationForm isExpanded={isFormExpanded} />
         </div>
