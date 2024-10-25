@@ -228,7 +228,7 @@ export default function ParentState({
 
         <div
           onClick={handleDoctorsClick}
-          className={`col-span-1 lg:col-span-4 lg:mt-0  border-2 rounded-[25px] border-[#13a89e] lg:border-none z-20 ${
+          className={`col-span-1 lg:col-span-4 lg:mt-0  border-2 rounded-[25px] border-none lg:border-none z-20 ${
             isDoctorsExpanded && "z-50"
           } ${isFormExpanded || "-mt-64"} `}
           style={

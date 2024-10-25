@@ -19,7 +19,7 @@ export default function Doctors({
   doctorDescription: Doctor[];
   isExpanded: boolean;
 }) {
-  const containerClassNames = `flex flex-col md:flex-col lg:flex-row items-center h-[474px] md:h-[446px] lg:h-[300px] gap-4 lg:gap-0 mx-0 pr-4 lg:pr-10   lg:backdrop-blur-none lg:bg-[#d0eeec] border-2 border-[#d0eeec] rounded-[25px] shadow-md
+  const containerClassNames = `flex flex-col md:flex-col lg:flex-row items-center h-[474px] md:h-[446px] lg:h-[300px] gap-4 lg:gap-0 mx-0 pr-4 lg:pr-10   lg:backdrop-blur-none lg:bg-[#d0eeec] border-2 border-[#13a89e] lg:border-none rounded-[25px] shadow-md
  ${
    isExpanded
      ? "h-[70vh] backdrop-blur-none bg-[#d0eeec]"
