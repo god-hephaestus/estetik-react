@@ -118,7 +118,7 @@ export default function ParentState({
         onButtonClick={handleButtonClick}
       />
 
-      <div className="px-4 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="px-4 xl:px-[5%] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div
           onClick={handleComparisonClick}
           className="col-span-1 lg:col-span-5 flex flex-col items-center h-full"
