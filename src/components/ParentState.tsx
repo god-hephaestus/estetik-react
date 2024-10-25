@@ -65,7 +65,6 @@ export default function ParentState({
   const [isFormExpanded, setIsFormExpanded] = useState(false);
   const [isDoctorsExpanded, setIsDoctorsExpanded] = useState(false);
   const [isTestimonialsExpanded, setIsTestimonialsExpanded] = useState(false);
-  const [isLocationExpanded, setIsLocationExpanded] = useState(false);
 
   // Handle click event on components
   const handleComparisonClick = () => {
@@ -108,13 +107,6 @@ export default function ParentState({
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
       console.log("handleTestimonialsClick triggered");
       setIsTestimonialsExpanded((prev) => !prev);
-    }
-  };
-
-  const handleLocationClick = () => {
-    if (typeof window !== "undefined" && window.innerWidth <= 768) {
-      console.log("handleLocationClick triggered");
-      setIsLocationExpanded((prev) => !prev);
     }
   };
 
