@@ -134,8 +134,19 @@ export default function ParentState({
           <VideoSlider videoDescription={videoDescription} />
         </div>
 
-        <div className="col-span-1 lg:col-span-8 -mt-24 lg:mt-0 z-40 flex flex-col rounded-[25px] backdrop-blur lg:backdrop-blur-none bg-[#13a89e]/20 lg:bg-[#d0eeec] shadow-md">
-          <div className="flex flex-col lg:flex-row h-[440px] lg:h-auto overflow-hidden">
+        <div
+          onClick={handleGalleryClick}
+          className={`col-span-1 lg:col-span-8 ${
+            isGalleryExpanded
+              ? " z-50 backdrop-blur-none bg-[#d0eeec]"
+              : "z-40  backdrop-blur bg-[#13a89e]/20"
+          }  -mt-24 lg:mt-0 flex flex-col rounded-[25px] lg:backdrop-blur-none  lg:bg-[#d0eeec] shadow-md`}
+        >
+          <div
+            className={`flex flex-col lg:flex-row lg:h-auto ${
+              isGalleryExpanded ? "" : "overflow-hidden h-[440px] "
+            } `}
+          >
             <div className="lg:w-[45%] rounded-l-[25px] rounded-r-[25px] xl:rounded-r-none border-2 border-[#d0eeec]">
               <Gallery
                 activestateKey={stateKey}
@@ -214,12 +225,12 @@ export default function ParentState({
           onClick={handleTestimonialsClick}
           className={`col-span-1 lg:col-span-5 flex-grow flex ${
             isTestimonialsExpanded && "z-50"
-          } `}
+          } ${isDoctorsExpanded || "-mt-80 lg:mt-0"}  `}
           style={
             isTestimonialsExpanded &&
             typeof window !== "undefined" &&
             window.innerWidth <= 768
-              ? { zIndex: "49" }
+              ? {}
               : { zIndex: "20" }
           }
         >
@@ -229,7 +240,11 @@ export default function ParentState({
             isExpanded={isTestimonialsExpanded}
           />
         </div>
-        <div className="col-span-1 lg:col-span-3 z-40">
+        <div
+          className={`col-span-1 lg:col-span-3 z-40 ${
+            isTestimonialsExpanded || "-mt-40 lg:mt-0"
+          } `}
+        >
           <Location />
         </div>
       </div>
