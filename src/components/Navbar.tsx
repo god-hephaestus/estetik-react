@@ -36,7 +36,7 @@ export default function Navbar({
 }) {
   return (
     <div className="w-full bg-white flex flex-wrap lg:flex-row flex-col items-center py-0 sticky top-0 z-[100] px-4 xl:px-[5%]">
-      <div className="w-full flex justify-center lg:justify-start lg:py-1 lg:w-[45%]">
+      <div className="w-full flex justify-center lg:justify-start lg:py-1 order-2 lg:order-1 lg:w-[45%]">
         <ComparisonButtons
           buttonProps={buttonProps}
           comparisonData={comparisonData}

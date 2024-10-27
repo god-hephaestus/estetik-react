@@ -2,8 +2,8 @@ import ParentState from "@/components/ParentState";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "LP Title",
-  description: "LP Description",
+  title: "Estetik International | Plastic Surgeries",
+  description: "Plastic Surgeries in Turkey",
 };
 
 const buttonsData = [

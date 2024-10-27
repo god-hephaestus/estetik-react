@@ -4,7 +4,12 @@ import Comparison from "./Comparison";
 import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
 import { Collapse } from "antd";
-import { DoubleRightOutlined, DownCircleOutlined } from "@ant-design/icons";
+import {
+  DoubleRightOutlined,
+  DownCircleOutlined,
+  DownSquareTwoTone,
+  UpSquareTwoTone,
+} from "@ant-design/icons";
 import OperationForm from "./OperationForm";
 import Doctors from "./Doctors";
 import Navbar from "./Navbar";
@@ -44,10 +49,8 @@ export default function ParentState({
 }) {
   const [comparisonData, setComparisonData] = useState(buttonsData[0]);
   const [stateKey, setstateKey] = useState(comparisonData.stateKey);
-
   const videoDescription: string[] = heroBgData[stateKey]?.src ?? [];
 
-  // Single expanded state
   const [expandedState, setExpandedState] = useState<string | null>(null);
   const [imageOverlay, setImageOverlay] = useState("normal");
 
@@ -87,8 +90,6 @@ export default function ParentState({
   // UseEffect for Testimonials transition logic
   useEffect(() => {
     if (expandedState === "Testimonials") {
-      console.log("Testimonials section is expanded");
-      // Additional logic for Testimonials when expanded
     }
   }, [expandedState]);
 
@@ -109,13 +110,22 @@ export default function ParentState({
         </div>
 
         <div
-          onClick={() => handleExpandClick("Video")}
-          className={`col-span-1 lg:col-span-7 flex flex-col h-full ${
+          className={`relative col-span-1 lg:col-span-7 flex flex-col h-full ${
             expandedState === "Video" ? "z-50" : "z-30"
           } ${
             expandedState === "Comparison" ? "mt-0" : "-mt-24 lg:mt-0"
           } lg:mt-0`}
         >
+          <div
+            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl lg:hidden text-[#13a89e] rounded-full"
+            onClick={() => handleExpandClick("Video")}
+          >
+            {expandedState === "Video" ? (
+              <UpSquareTwoTone twoToneColor={"#13a89e"} />
+            ) : (
+              <DownSquareTwoTone twoToneColor={"#13a89e"} />
+            )}
+          </div>
           <VideoSlider
             isExpanded={expandedState === "Video"}
             videoDescription={videoDescription}
@@ -123,8 +133,7 @@ export default function ParentState({
         </div>
 
         <div
-          onClick={() => handleExpandClick("Gallery")}
-          className={`col-span-1 lg:col-span-8 ${
+          className={`relative col-span-1 lg:col-span-8 ${
             expandedState === "Gallery"
               ? "z-50 backdrop-blur-none bg-[#d0eeec]"
               : "z-40 backdrop-blur bg-[#13a89e]/20"
@@ -138,6 +147,17 @@ export default function ParentState({
             expandedState === "Video" ? "mt-0" : "-mt-24 lg:mt-0"
           } flex flex-col rounded-[25px] lg:backdrop-blur-none lg:bg-[#d0eeec] shadow-md`}
         >
+          <div
+            className="absolute top-2 left-2 cursor-pointer z-[99] text-3xl lg:hidden text-[#13a89e] rounded-full"
+            onClick={() => handleExpandClick("Gallery")}
+          >
+            {expandedState === "Gallery" ? (
+              <UpSquareTwoTone twoToneColor={"#13a89e"} />
+            ) : (
+              <DownSquareTwoTone twoToneColor={"#13a89e"} />
+            )}
+          </div>
+
           <div
             className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-full ${
               expandedState === "Gallery" ? "" : "overflow-hidden h-[440px]"
