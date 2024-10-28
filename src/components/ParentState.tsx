@@ -117,7 +117,7 @@ export default function ParentState({
         </div>
 
         <div
-          className={`relative col-span-1 lg:col-span-7 flex flex-col h-full transition-all duration-500 ease-in-out ${
+          className={`relative col-span-1 lg:col-span-7 flex flex-col h-full transition-all duration-500 ease-in-out transform ${
             expandedState === "Video" ? "z-50" : "z-30"
           } ${
             expandedState === "Comparison" ? "mt-0" : "-mt-24 lg:mt-0"
@@ -142,8 +142,8 @@ export default function ParentState({
         <div
           className={`relative col-span-1 lg:col-span-8 transition-all duration-500 ease-in-out ${
             expandedState === "Gallery"
-              ? "z-50 backdrop-blur-none bg-[#d0eeec]"
-              : "z-40 backdrop-blur bg-[#13a89e]/20"
+              ? "z-50 backdrop-blur-none bg-[#d0eeec] translate-y-[-250px]"
+              : "z-40 backdrop-blur bg-[#13a89e]/20 translate-y-0"
           } ${
             imageOverlay === "startedTransition"
               ? "overlay-transition"
@@ -166,9 +166,11 @@ export default function ParentState({
           </div>
 
           <div
-            className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-full transition-all duration-500 ease-in-out overflow-hidden ${
-              expandedState === "Gallery" ? "max-h-[1000px]" : "max-h-[500px]"
-            }`}
+            className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-full transition-all duration-500 ease-in-out  ${
+              expandedState === "Gallery"
+                ? "max-h-[670px] overflow-visible"
+                : "max-h-[500px] overflow-hidden"
+            } `}
           >
             <div className="lg:w-[45%] rounded-l-[25px] my-auto rounded-r-[25px] xl:rounded-r-none border-2 border-[#d0eeec]">
               <Gallery
@@ -206,7 +208,9 @@ export default function ParentState({
               behavior: "smooth",
             })
           }
-          className="flex w-full justify-center lg:hidden -my-4"
+          className={` flex w-full justify-center lg:hidden  ${
+            expandedState === "Gallery" ? "-my-4 " : "-my-4"
+          }`}
         >
           <DoubleRightOutlined className="text-[#13a89e] rotate-90 text-4xl" />
         </button>
