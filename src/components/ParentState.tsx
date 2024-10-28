@@ -104,7 +104,7 @@ export default function ParentState({
       <div className="px-4 xl:px-[5%] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div className="relative col-span-1 lg:col-span-5 flex flex-col items-center h-full transition-all duration-500 ease-in-out">
           <div
-            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl lg:hidden text-[#13a89e] "
+            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
             onClick={() => handleExpandClick("Comparison")}
           >
             {expandedState === "Comparison" ? (
@@ -124,7 +124,7 @@ export default function ParentState({
           } lg:mt-0`}
         >
           <div
-            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl lg:hidden text-[#13a89e]"
+            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e]"
             onClick={() => handleExpandClick("Video")}
           >
             {expandedState === "Video" ? (
@@ -155,7 +155,7 @@ export default function ParentState({
           } flex flex-col rounded-[25px] lg:backdrop-blur-none lg:bg-[#d0eeec] shadow-md`}
         >
           <div
-            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl lg:hidden text-[#13a89e]"
+            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e]"
             onClick={() => handleExpandClick("Gallery")}
           >
             {expandedState === "Gallery" ? (
@@ -208,7 +208,7 @@ export default function ParentState({
               behavior: "smooth",
             })
           }
-          className={` flex w-full justify-center lg:hidden  ${
+          className={` flex w-full justify-center md:hidden  ${
             expandedState === "Gallery" ? "-my-4 " : "-my-4"
           }`}
         >
@@ -217,7 +217,7 @@ export default function ParentState({
 
         <div className=" relative col-span-1 lg:col-span-4 flex flex-col w-full z-10 border rounded-[25px] border-[#13a89e] lg:border-none">
           <div
-            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl lg:hidden text-[#13a89e] "
+            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
             onClick={() => handleExpandClick("Form")}
           >
             {expandedState === "Form" ? (
@@ -235,7 +235,7 @@ export default function ParentState({
           } ${expandedState === "Form" ? "" : "-mt-64"} `}
         >
           <div
-            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl lg:hidden text-[#13a89e] "
+            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
             onClick={() => handleExpandClick("Doctors")}
           >
             {expandedState === "Doctors" ? (
@@ -263,7 +263,7 @@ export default function ParentState({
           }
         >
           <div
-            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl lg:hidden text-[#13a89e] "
+            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
             onClick={() => handleExpandClick("Testimonials")}
           >
             {expandedState === "Testimonials" ? (
