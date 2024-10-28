@@ -22,8 +22,8 @@ export default function Doctors({
   const containerClassNames = `flex flex-col md:flex-col lg:flex-row items-center h-[474px] md:h-[446px] lg:h-[300px] gap-4 lg:gap-0 mx-0 pr-4 lg:pr-10   lg:backdrop-blur-none lg:bg-[#d0eeec] border-2 border-[#13a89e] lg:border-none rounded-[25px] shadow-md
  ${
    isExpanded
-     ? "h-[70vh] backdrop-blur-none bg-[#d0eeec]"
-     : "h-[474px] backdrop-blur bg-[#13a89e]/20"
+     ? " backdrop-blur-none bg-[#d0eeec]"
+     : "backdrop-blur bg-[#13a89e]/20"
  } `;
 
   return (

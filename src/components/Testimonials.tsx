@@ -106,8 +106,8 @@ export default function Testimonials({
     isDragging ? "grabbing" : "grab"
   } no-select ${
     isExpanded
-      ? "h-[320px] backdrop-blur-none bg-[#d0eeec]"
-      : "h-[320px] backdrop-blur bg-[#13a89e]/20 "
+      ? "h-[270px] lg:h-auto backdrop-blur-none bg-[#d0eeec]"
+      : "h-[270px] lg:h-auto backdrop-blur bg-[#13a89e]/20 "
   }`;
 
   return (
