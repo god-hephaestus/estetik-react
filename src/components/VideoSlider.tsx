@@ -17,8 +17,17 @@ export default function VideoSlider({
   } lg:border-[#d0eeec] rounded-[25px] overflow-hidden `;
   return (
     <Carousel arrows={true} infinite={true} className="w-full mx-auto">
+      <div key={1} className={containerClassNames}>
+        <video
+          src={"/video/hero7.mp4"}
+          className="object-cover w-full h-full"
+          autoPlay
+          muted
+          controls
+        ></video>
+      </div>
       {videoDescription.map((videoSrc, index) => (
-        <div key={index} className={containerClassNames}>
+        <div key={index + 1} className={containerClassNames}>
           <video
             src={"/video/" + videoSrc}
             className="object-cover w-full h-full"

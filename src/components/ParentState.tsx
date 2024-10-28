@@ -51,7 +51,7 @@ export default function ParentState({
   const [stateKey, setstateKey] = useState(comparisonData.stateKey);
   const videoDescription: string[] = heroBgData[stateKey]?.src ?? [];
 
-  const [expandedState, setExpandedState] = useState<string | null>(null);
+  const [expandedState, setExpandedState] = useState<string | null>("Video");
   const [imageOverlay, setImageOverlay] = useState("normal");
 
   const handleButtonClick = (newComparisonData: (typeof buttonsData)[0]) => {
