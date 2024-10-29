@@ -4,17 +4,13 @@ import Comparison from "./Comparison";
 import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
 import { Collapse } from "antd";
-import {
-  DoubleRightOutlined,
-  DownCircleOutlined,
-  DownSquareTwoTone,
-  UpSquareTwoTone,
-} from "@ant-design/icons";
+import { DoubleRightOutlined, DownCircleOutlined } from "@ant-design/icons";
 import OperationForm from "./OperationForm";
 import Doctors from "./Doctors";
 import Navbar from "./Navbar";
 import VideoSlider from "./VideoSlider";
 import Location from "./Location";
+import ClickIcon from "./ClickIcon";
 
 export default function ParentState({
   testimonialsData,
@@ -28,7 +24,7 @@ export default function ParentState({
       name: string;
       operation: string;
       message: string;
-      imageSrc: string;
+      genderFemale: boolean;
     }>;
   };
   buttonsData: Array<{
@@ -104,14 +100,10 @@ export default function ParentState({
       <div className="px-4 xl:px-[5%] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div className="relative col-span-1 lg:col-span-5 flex flex-col items-center h-full transition-all duration-500 ease-in-out">
           <div
-            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
+            className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
             onClick={() => handleExpandClick("Comparison")}
           >
-            {expandedState === "Comparison" ? (
-              <UpSquareTwoTone twoToneColor={"#13a89e"} />
-            ) : (
-              <DownSquareTwoTone twoToneColor={"#13a89e"} />
-            )}
+            <ClickIcon wobble />
           </div>
           <Comparison comparisonData={comparisonData} />
         </div>
@@ -124,14 +116,10 @@ export default function ParentState({
           } lg:mt-0`}
         >
           <div
-            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e]"
+            className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e]"
             onClick={() => handleExpandClick("Video")}
           >
-            {expandedState === "Video" ? (
-              <UpSquareTwoTone twoToneColor={"#13a89e"} />
-            ) : (
-              <DownSquareTwoTone twoToneColor={"#13a89e"} />
-            )}
+            <ClickIcon />
           </div>
           <VideoSlider
             isExpanded={expandedState === "Video"}
@@ -155,14 +143,10 @@ export default function ParentState({
           } flex flex-col rounded-[25px] lg:backdrop-blur-none lg:bg-[#d0eeec] shadow-md`}
         >
           <div
-            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e]"
+            className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e]"
             onClick={() => handleExpandClick("Gallery")}
           >
-            {expandedState === "Gallery" ? (
-              <UpSquareTwoTone twoToneColor={"#13a89e"} />
-            ) : (
-              <DownSquareTwoTone twoToneColor={"#13a89e"} />
-            )}
+            <ClickIcon />
           </div>
 
           <div
@@ -217,14 +201,10 @@ export default function ParentState({
 
         <div className=" relative col-span-1 lg:col-span-4 flex flex-col w-full z-10 border rounded-[25px] border-[#13a89e] lg:border-none">
           <div
-            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
+            className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
             onClick={() => handleExpandClick("Form")}
           >
-            {expandedState === "Form" ? (
-              <UpSquareTwoTone twoToneColor={"#13a89e"} />
-            ) : (
-              <DownSquareTwoTone twoToneColor={"#13a89e"} />
-            )}
+            <ClickIcon />
           </div>
           <OperationForm isExpanded={expandedState === "Form"} />
         </div>
@@ -232,17 +212,13 @@ export default function ParentState({
         <div
           className={`transition-all duration-500 ease-in-out relative col-span-1 lg:col-span-4 lg:mt-0 border-2 rounded-[25px] border-none lg:border-none z-20 ${
             expandedState === "Doctors" ? "z-50" : ""
-          } ${expandedState === "Form" ? "" : "-mt-64"} `}
+          } ${expandedState === "Form" ? "" : "-mt-32"} `}
         >
           <div
-            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
+            className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
             onClick={() => handleExpandClick("Doctors")}
           >
-            {expandedState === "Doctors" ? (
-              <UpSquareTwoTone twoToneColor={"#13a89e"} />
-            ) : (
-              <DownSquareTwoTone twoToneColor={"#13a89e"} />
-            )}
+            <ClickIcon />
           </div>
           <Doctors
             doctorDescription={doctorsData}
@@ -263,14 +239,10 @@ export default function ParentState({
           }
         >
           <div
-            className="absolute top-2 left-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
+            className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
             onClick={() => handleExpandClick("Testimonials")}
           >
-            {expandedState === "Testimonials" ? (
-              <UpSquareTwoTone twoToneColor={"#13a89e"} />
-            ) : (
-              <DownSquareTwoTone twoToneColor={"#13a89e"} />
-            )}
+            <ClickIcon />
           </div>
 
           <Testimonials

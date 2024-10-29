@@ -7,7 +7,7 @@ import React, { useRef, useState, useEffect } from "react";
 const { Title } = Typography;
 
 interface Testimonial {
-  imageSrc: string;
+  genderFemale: boolean;
   name: string;
   operation: string;
   message: string;
@@ -28,33 +28,45 @@ export default function Testimonials({
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true); // Auto-scroll control
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const [scrollDirection, setScrollDirection] = useState(1); // 1 for forward, -1 for reverse
 
-  // Default auto-scrolling effect
   useEffect(() => {
     let scrollInterval: NodeJS.Timeout | null = null;
 
-    // Start auto-scrolling
     const startAutoScroll = () => {
       if (containerRef.current && isAutoScrolling) {
         scrollInterval = setInterval(() => {
-          containerRef.current!.scrollLeft += 1; // Adjust speed by changing this value
+          if (containerRef.current) {
+            containerRef.current.scrollLeft += scrollDirection;
+            if (
+              containerRef.current.scrollLeft +
+                containerRef.current.clientWidth >=
+              containerRef.current.scrollWidth
+            ) {
+              setScrollDirection(-1);
+              setIsAutoScrolling(false);
+              setTimeout(() => setIsAutoScrolling(true), 5000);
+            } else if (containerRef.current.scrollLeft <= 0) {
+              setScrollDirection(1);
+              setIsAutoScrolling(false);
+              setTimeout(() => setIsAutoScrolling(true), 5000);
+            }
+          }
         }, 20);
       }
     };
 
-    // Stop auto-scrolling on interaction
     if (isAutoScrolling) startAutoScroll();
 
-    // Cleanup on unmount
     return () => {
       if (scrollInterval) clearInterval(scrollInterval);
     };
-  }, [isAutoScrolling]);
+  }, [isAutoScrolling, scrollDirection]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
-    setIsAutoScrolling(false); // Stop auto-scrolling on interaction
+    setIsAutoScrolling(false);
     setStartX(e.clientX - (containerRef.current?.offsetLeft || 0));
     setScrollLeft(containerRef.current?.scrollLeft || 0);
     if (containerRef.current) {
@@ -64,7 +76,7 @@ export default function Testimonials({
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !containerRef.current) return;
-    setIsAutoScrolling(false); // Ensure auto-scrolling stops when sliding
+    setIsAutoScrolling(false);
     e.preventDefault();
     const x = e.clientX - (containerRef.current.offsetLeft || 0);
     const walk = x - startX;
@@ -73,7 +85,7 @@ export default function Testimonials({
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setIsDragging(true);
-    setIsAutoScrolling(false); // Stop auto-scrolling on interaction
+    setIsAutoScrolling(false);
     setStartX(e.touches[0].clientX - (containerRef.current?.offsetLeft || 0));
     setScrollLeft(containerRef.current?.scrollLeft || 0);
     if (containerRef.current) {
@@ -83,7 +95,7 @@ export default function Testimonials({
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging || !containerRef.current) return;
-    setIsAutoScrolling(false); // Ensure auto-scrolling stops when sliding
+    setIsAutoScrolling(false);
     const x = e.touches[0].clientX - (containerRef.current.offsetLeft || 0);
     const walk = (x - startX) * 1.6;
     containerRef.current.scrollLeft = scrollLeft - walk;
@@ -94,9 +106,7 @@ export default function Testimonials({
     if (containerRef.current) {
       containerRef.current.style.scrollBehavior = "smooth";
     }
-
-    // Resume auto-scrolling after a 2-second delay
-    setTimeout(() => setIsAutoScrolling(true), 2000);
+    setTimeout(() => setIsAutoScrolling(true), 10000);
   };
 
   // Filter testimonials by stateKey
@@ -135,7 +145,11 @@ export default function Testimonials({
               <div className="absolute bottom-0 left-0 flex items-center p-5">
                 <Avatar
                   size={50}
-                  src={"/img/testimonials/" + testimonial.imageSrc}
+                  src={`${
+                    testimonial.genderFemale
+                      ? "/img/avatarFemale.png"
+                      : "/img/avatarMale.png"
+                  }`}
                   alt={"customer testimonial"}
                   draggable={false}
                   shape="circle"
