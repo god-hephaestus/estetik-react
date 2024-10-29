@@ -210,7 +210,7 @@ export default function ParentState({
         </div>
 
         <div
-          className={`transition-all duration-500 ease-in-out relative col-span-1 lg:col-span-4 lg:mt-0 border-2 rounded-[25px] border-none lg:border-none z-20 ${
+          className={`transition-all duration-500 ease-in-out relative col-span-1 lg:col-span-5 2xl:col-span-4 lg:mt-0 border-2 rounded-[25px] border-none lg:border-none z-20 ${
             expandedState === "Doctors" ? "z-50" : ""
           } ${expandedState === "Form" ? "" : "-mt-32"} `}
         >
@@ -227,37 +227,42 @@ export default function ParentState({
         </div>
 
         <div
-          className={`transition-all duration-500 ease-in-out relative col-span-1 lg:col-span-5 flex-grow flex ${
-            expandedState === "Testimonials" ? "z-50" : ""
+          className={`relative col-span-1 lg:col-span-7 2xl:col-span-8 flex flex-col w-full transition-all duration-500 ease-in-out ${
+            expandedState === "Testimonials" ? "z-50" : "z-40"
           } ${expandedState === "Doctors" ? "" : "-mt-72 lg:mt-0"}`}
-          style={
-            expandedState === "Testimonials" &&
-            typeof window !== "undefined" &&
-            window.innerWidth <= 768
-              ? {}
-              : { zIndex: "20" }
-          }
         >
-          <div
-            className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
-            onClick={() => handleExpandClick("Testimonials")}
-          >
-            <ClickIcon />
+          <div className="flex flex-col lg:flex-row gap-6 w-full">
+            <div
+              className={`transition-all duration-500 ease-in-out relative lg:w-[64%] flex-grow`}
+              style={
+                expandedState === "Testimonials" &&
+                typeof window !== "undefined" &&
+                window.innerWidth <= 768
+                  ? {}
+                  : { zIndex: "20" }
+              }
+            >
+              <div
+                className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e]"
+                onClick={() => handleExpandClick("Testimonials")}
+              >
+                <ClickIcon />
+              </div>
+              <Testimonials
+                stateKey={stateKey}
+                testimonialsData={testimonialsData}
+                isExpanded={expandedState === "Testimonials"}
+              />
+            </div>
+
+            <div
+              className={`transition-all duration-500 ease-in-out relative lg:w-[36%] z-40 mb-16 lg:mb-0 ${
+                expandedState === "Testimonials" ? "" : "-mt-40 lg:mt-0"
+              }`}
+            >
+              <Location />
+            </div>
           </div>
-
-          <Testimonials
-            stateKey={stateKey}
-            testimonialsData={testimonialsData}
-            isExpanded={expandedState === "Testimonials"}
-          />
-        </div>
-
-        <div
-          className={`transition-all duration-500 ease-in-out col-span-1 lg:col-span-3 z-40 mb-16 lg:mb-0 ${
-            expandedState === "Testimonials" ? "" : "-mt-40 lg:mt-0"
-          }`}
-        >
-          <Location />
         </div>
       </div>
     </div>

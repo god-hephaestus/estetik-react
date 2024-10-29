@@ -39,7 +39,7 @@ export default function Comparison({
   return (
     <div className="container relative rounded-3xl shadow-md bg-[#d0eeec] h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] flex items-center">
       <div className="flex items-center justify-center  w-full">
-        <div className="relative w-full xl:w-auto 2xl:w-auto lg:w-[390px] xl:h-[355px] 2xl:h-[430px] rounded-[25px] bg-[#f0f0f0] overflow-hidden aspect-video">
+        <div className="relative w-full xl:w-auto 2xl:w-auto lg:w-[390px] xl:h-[355px] 2xl:h-[430px] rounded-[25px] bg-[#fff] overflow-hidden aspect-video">
           {!isImageLoaded && (
             <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center bg-[rgba(240,240,240,0.8)] z-[1]">
               <Spin size="large" />
