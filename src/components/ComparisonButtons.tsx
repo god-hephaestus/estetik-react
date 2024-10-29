@@ -31,12 +31,27 @@ export default function ComparisonButtons({
 }: ComparisonButtonsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  const handleScroll = (scrollAmount: number) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const handleNext = () => {
     const currentIndex = buttonProps.findIndex(
       (b) => b.label === comparisonData.label
     );
     const nextIndex = (currentIndex + 1) % buttonProps.length;
     onButtonClick(buttonProps[nextIndex]);
+
+    if (scrollRef.current) {
+      const buttonWidth =
+        scrollRef.current?.firstElementChild?.clientWidth || 0;
+      handleScroll(buttonWidth);
+    }
   };
 
   const handlePrevious = () => {
@@ -46,6 +61,12 @@ export default function ComparisonButtons({
     const prevIndex =
       (currentIndex - 1 + buttonProps.length) % buttonProps.length;
     onButtonClick(buttonProps[prevIndex]);
+
+    if (scrollRef.current) {
+      const buttonWidth =
+        scrollRef.current?.firstElementChild?.clientWidth || 0;
+      handleScroll(-buttonWidth);
+    }
   };
 
   useEffect(() => {
@@ -80,7 +101,7 @@ export default function ComparisonButtons({
   }, []);
 
   return (
-    <div className="relative flex items-center justify-center h-full max-w-[350px] sm:max-w-[410px]  border border-[#13a89e] rounded-[25px]">
+    <div className="relative flex items-center justify-center h-full max-w-[350px] sm:max-w-[410px] border border-[#13a89e] rounded-[25px]">
       <Button
         onClick={handlePrevious}
         className="absolute left-0 z-20 border-[#13a89e] border-2"
@@ -97,18 +118,18 @@ export default function ComparisonButtons({
 
       <div
         ref={scrollRef}
-        className="scroll-container py-1 no-scrollbar max-w-[350px] sm:max-w-[400px] z-10 rounded-[25px] bg-[#dcfffb] "
+        className="scroll-container py-1 no-scrollbar max-w-[350px] sm:max-w-[400px] z-10 rounded-[25px] bg-[#dcfffb]"
         style={{
           display: "flex",
           overflowX: "auto",
-          overflowY: "hidden", // Hide vertical overflow
+          overflowY: "hidden",
           whiteSpace: "nowrap",
           scrollBehavior: "smooth",
           position: "relative",
-          scrollbarWidth: "none", // Hide scrollbar on Firefox
-          msOverflowStyle: "none", // Hide scrollbar on IE/Edge
-          WebkitOverflowScrolling: "touch", // Enable momentum scrolling on iOS
-          touchAction: "pan-x", // Enable native touch panning in the x direction
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          WebkitOverflowScrolling: "touch",
+          touchAction: "pan-x",
         }}
       >
         {buttonProps.map((button, index) => (
