@@ -10,7 +10,7 @@ export default function ClickIcon({ wobble, ...props }: ClickIconProps) {
   return (
     <span
       {...props}
-      className={`relative inline-flex items-center justify-center w-[1em] h-[1em] leading-[1em] ${
+      className={`relative inline-flex items-center justify-center w-[35px] h-[35px] leading-[35px] ${
         wobble ? "animate-wobble" : ""
       }`}
       style={{ animation: wobble ? "wobble 2s ease-in-out infinite" : "none" }}
@@ -19,7 +19,7 @@ export default function ClickIcon({ wobble, ...props }: ClickIconProps) {
         src={iconUrl}
         alt="Click Icon"
         className="absolute inset-0 object-contain"
-        sizes="(max-width: 768px) 1em, 0px"
+        sizes="(max-width: 768px) 35px, 0px"
       />
       <style jsx>{`
         @keyframes wobble {
