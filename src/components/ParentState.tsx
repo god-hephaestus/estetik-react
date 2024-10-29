@@ -97,7 +97,7 @@ export default function ParentState({
         onButtonClick={handleButtonClick}
       />
 
-      <div className="px-4 xl:px-[5%] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="px-4 xl:px-[10%] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div className="relative col-span-1 lg:col-span-5 flex flex-col items-center h-full transition-all duration-500 ease-in-out">
           <div
             className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "

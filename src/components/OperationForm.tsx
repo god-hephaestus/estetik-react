@@ -6,7 +6,6 @@ import {
   getCountryCallingCode,
   isValidPhoneNumber,
 } from "libphonenumber-js";
-import { useRouter } from "next/router";
 import { DefaultOptionType } from "antd/es/select";
 
 const { TextArea } = Input;
@@ -19,7 +18,6 @@ interface Country {
 }
 
 export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
-  const router = useRouter();
   const containerClassNames = `flex justify-center items-center ${
     isExpanded ? "z-50 h-full" : ""
   }`;
@@ -29,10 +27,27 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
   const [countries, setCountries] = useState<Country[]>([]);
   const [submitting, setSubmitting] = useState(false);
 
-  const { utm_source, utm_medium, utm_campaign, utm_content, utm_term, gclid } =
-    router.query;
+  const [queryParams, setQueryParams] = useState({
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_content: "",
+    utm_term: "",
+    gclid: "",
+  });
 
   useEffect(() => {
+    // Extract URL parameters
+    const params = new URLSearchParams(window.location.search);
+    setQueryParams({
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_content: params.get("utm_content") || "",
+      utm_term: params.get("utm_term") || "",
+      gclid: params.get("gclid") || "",
+    });
+
     const allCountries = getCountries().map((code) => {
       const countryName =
         new Intl.DisplayNames(["en"], { type: "region" }).of(code) || "Unknown";
@@ -97,13 +112,13 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
         lead_message: values.message || "",
         lead_treatment: values.operation,
         lead_language: "EN",
-        gclid: gclid || "", // UTM and gclid parameters
+        gclid: queryParams.gclid,
         gtags: JSON.stringify({
-          utm_source: utm_source || "",
-          utm_medium: utm_medium || "",
-          utm_campaign: utm_campaign || "",
-          utm_content: utm_content || "",
-          utm_term: utm_term || "",
+          utm_source: queryParams.utm_source,
+          utm_medium: queryParams.utm_medium,
+          utm_campaign: queryParams.utm_campaign,
+          utm_content: queryParams.utm_content,
+          utm_term: queryParams.utm_term,
         }),
       };
 
@@ -122,10 +137,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
       console.log("Submission success:", await response.json());
 
       // Redirect to the thank-you page
-      router.push({
-        pathname: `/thankyou`,
-        query: { email: values.email },
-      });
+      window.location.assign(`/thankyou?email=${values.email}`);
     } catch (error) {
       console.error("Submission error:", error);
     } finally {
@@ -143,22 +155,38 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
         onFinish={handleSubmit}
         className="w-full h-full flex-1 px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] shadow-md"
       >
-        <Form.Item name="utm_source" initialValue={utm_source} hidden>
+        <Form.Item
+          name="utm_source"
+          initialValue={queryParams.utm_source}
+          hidden
+        >
           <Input type="hidden" />
         </Form.Item>
-        <Form.Item name="utm_medium" initialValue={utm_medium} hidden>
+        <Form.Item
+          name="utm_medium"
+          initialValue={queryParams.utm_medium}
+          hidden
+        >
           <Input type="hidden" />
         </Form.Item>
-        <Form.Item name="utm_campaign" initialValue={utm_campaign} hidden>
+        <Form.Item
+          name="utm_campaign"
+          initialValue={queryParams.utm_campaign}
+          hidden
+        >
           <Input type="hidden" />
         </Form.Item>
-        <Form.Item name="utm_content" initialValue={utm_content} hidden>
+        <Form.Item
+          name="utm_content"
+          initialValue={queryParams.utm_content}
+          hidden
+        >
           <Input type="hidden" />
         </Form.Item>
-        <Form.Item name="utm_term" initialValue={utm_term} hidden>
+        <Form.Item name="utm_term" initialValue={queryParams.utm_term} hidden>
           <Input type="hidden" />
         </Form.Item>
-        <Form.Item name="gclid" initialValue={gclid} hidden>
+        <Form.Item name="gclid" initialValue={queryParams.gclid} hidden>
           <Input type="hidden" />
         </Form.Item>
 

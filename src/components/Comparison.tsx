@@ -37,9 +37,9 @@ export default function Comparison({
   }, [comparisonData]);
 
   return (
-    <div className="container relative rounded-3xl shadow-md bg-[#d0eeec] h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[380px] flex items-center">
+    <div className="container relative rounded-3xl shadow-md bg-[#d0eeec] h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] flex items-center">
       <div className="flex items-center justify-center  w-full">
-        <div className="relative w-full lg:w-[390px] xl:w-[520px] 2xl:w-[640px]  rounded-[25px] bg-[#f0f0f0] overflow-hidden aspect-video">
+        <div className="relative w-full xl:w-auto 2xl:w-auto lg:w-[390px] xl:h-[355px] 2xl:h-[430px] rounded-[25px] bg-[#f0f0f0] overflow-hidden aspect-video">
           {!isImageLoaded && (
             <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center bg-[rgba(240,240,240,0.8)] z-[1]">
               <Spin size="large" />
@@ -47,7 +47,7 @@ export default function Comparison({
           )}
 
           {isImageLoaded && (
-            <div className="w-full h-full border-[#13a89e] rounded-[25px] border-2">
+            <div className="w-full h-full border-[#d0eeec] flex justify-center items-center rounded-[25px] border-2">
               <ReactCompareImage
                 leftImage={comparisonData.image1}
                 rightImage={comparisonData.image2}

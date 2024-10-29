@@ -82,18 +82,12 @@
   border-color: #d0eeec !important;
 }
 .overlay-transition .ant-image-mask {
-  opacity: 1 !important;
-  transition: opacity 1s ease-in-out !important;
   border-radius: 25px !important;
   border-width: 2px !important;
-  border-color: #13a89e !important;
 }
 .overlay-active .ant-image-mask {
-  opacity: 1 !important;
-  transition: none !important;
   border-radius: 25px !important;
   border-width: 2px !important;
-  border-color: #13a89e !important;
 }
 ::-webkit-scrollbar {
   width: 6px !important;
