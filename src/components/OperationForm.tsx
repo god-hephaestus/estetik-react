@@ -6,6 +6,8 @@ import {
   getCountryCallingCode,
   isValidPhoneNumber,
 } from "libphonenumber-js";
+import { useRouter } from "next/router";
+import { DefaultOptionType } from "antd/es/select";
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -17,7 +19,8 @@ interface Country {
 }
 
 export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
-  const containerClassNames = `flex justify-center items-center  ${
+  const router = useRouter();
+  const containerClassNames = `flex justify-center items-center ${
     isExpanded ? "z-50 h-full" : ""
   }`;
   const [form] = Form.useForm();
@@ -25,6 +28,9 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
   const [countryCode, setCountryCode] = useState<CountryCode>("US");
   const [countries, setCountries] = useState<Country[]>([]);
   const [submitting, setSubmitting] = useState(false);
+
+  const { utm_source, utm_medium, utm_campaign, utm_content, utm_term, gclid } =
+    router.query;
 
   useEffect(() => {
     const allCountries = getCountries().map((code) => {
@@ -36,7 +42,6 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
         phoneCode: getCountryCallingCode(code),
       };
     });
-
     setCountries(allCountries);
 
     const detectUserCountry = async () => {
@@ -70,20 +75,57 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
     setCountryCode(value);
   };
 
-  const handleSubmit = async (values: unknown) => {
+  const handleSubmit = async (values: {
+    name: string;
+    email: string;
+    operation: string;
+    message: string;
+  }) => {
     setSubmitting(true);
     try {
-      console.log("Form submitted:", values);
-      console.log("Selected country code:", countryCode);
-      console.log("Phone number:", phone);
-
-      if (isValidPhoneNumber(phone, countryCode)) {
-        console.log("Phone number is valid");
-      } else {
+      if (!isValidPhoneNumber(phone, countryCode)) {
         console.log("Phone number is invalid");
+        return;
       }
 
-      // Add form submission logic here
+      const payload = {
+        op_source: "ist",
+        lead_name: values.name,
+        lead_phone: `${countryCode} ${phone}`,
+        lead_email: values.email,
+        lead_campaign: "ReactLP",
+        lead_message: values.message || "",
+        lead_treatment: values.operation,
+        lead_language: "EN",
+        gclid: gclid || "", // UTM and gclid parameters
+        gtags: JSON.stringify({
+          utm_source: utm_source || "",
+          utm_medium: utm_medium || "",
+          utm_campaign: utm_campaign || "",
+          utm_content: utm_content || "",
+          utm_term: utm_term || "",
+        }),
+      };
+
+      const response = await fetch("https://amo-gw.estetikcep.com/index.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      console.log("Submission success:", await response.json());
+
+      // Redirect to the thank-you page
+      router.push({
+        pathname: `/thankyou`,
+        query: { email: values.email },
+      });
     } catch (error) {
       console.error("Submission error:", error);
     } finally {
@@ -101,6 +143,25 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
         onFinish={handleSubmit}
         className="w-full h-full flex-1 px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] shadow-md"
       >
+        <Form.Item name="utm_source" initialValue={utm_source} hidden>
+          <Input type="hidden" />
+        </Form.Item>
+        <Form.Item name="utm_medium" initialValue={utm_medium} hidden>
+          <Input type="hidden" />
+        </Form.Item>
+        <Form.Item name="utm_campaign" initialValue={utm_campaign} hidden>
+          <Input type="hidden" />
+        </Form.Item>
+        <Form.Item name="utm_content" initialValue={utm_content} hidden>
+          <Input type="hidden" />
+        </Form.Item>
+        <Form.Item name="utm_term" initialValue={utm_term} hidden>
+          <Input type="hidden" />
+        </Form.Item>
+        <Form.Item name="gclid" initialValue={gclid} hidden>
+          <Input type="hidden" />
+        </Form.Item>
+
         <Form.Item
           className="mb-2 lg:mb-6"
           label="Name"
@@ -135,8 +196,8 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
               onChange={handleCountryChange}
               placeholder="Country Code"
               optionFilterProp="label"
-              /* eslint-disable @typescript-eslint/no-explicit-any */
-              filterOption={(input: string, option: any) => {
+              filterOption={(input: string, option?: DefaultOptionType) => {
+                if (!option) return false;
                 const searchText = `${option.label}`.toLowerCase();
                 return searchText.includes(input.toLowerCase());
               }}
@@ -152,7 +213,6 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
                 </Option>
               ))}
             </Select>
-
             <Input
               value={phone}
               onChange={handlePhoneChange}
