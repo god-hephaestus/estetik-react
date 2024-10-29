@@ -22,7 +22,7 @@ export default function Gallery({
         {
           <Image.PreviewGroup items={previewItems}>
             <Image
-              className=" rounded-[25px]"
+              className=" rounded-[25px] border-2 border-[#13a89e]"
               src={currentGallery[0].src}
               alt={currentGallery[0].alt}
             />

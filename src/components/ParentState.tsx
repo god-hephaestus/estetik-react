@@ -24,7 +24,7 @@ export default function ParentState({
       name: string;
       operation: string;
       message: string;
-      imageSrc: string;
+      genderFemale: boolean;
     }>;
   };
   buttonsData: Array<{

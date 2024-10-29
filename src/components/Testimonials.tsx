@@ -7,7 +7,7 @@ import React, { useRef, useState, useEffect } from "react";
 const { Title } = Typography;
 
 interface Testimonial {
-  imageSrc: string;
+  genderFemale: boolean;
   name: string;
   operation: string;
   message: string;
@@ -145,7 +145,11 @@ export default function Testimonials({
               <div className="absolute bottom-0 left-0 flex items-center p-5">
                 <Avatar
                   size={50}
-                  src={"/img/testimonials/" + testimonial.imageSrc}
+                  src={`${
+                    testimonial.genderFemale
+                      ? "/img/avatarFemale.png"
+                      : "/img/avatarMale.png"
+                  }`}
                   alt={"customer testimonial"}
                   draggable={false}
                   shape="circle"
