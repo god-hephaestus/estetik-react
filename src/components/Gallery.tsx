@@ -18,10 +18,14 @@ export default function Gallery({
 
   return (
     <div className="w-full h-full">
-      <div className="p-[20px] text-center">
+      <div className="p-[20px] text-center ">
         {
           <Image.PreviewGroup items={previewItems}>
-            <Image src={currentGallery[0].src} alt={currentGallery[0].alt} />
+            <Image
+              className=" rounded-[25px]"
+              src={currentGallery[0].src}
+              alt={currentGallery[0].alt}
+            />
           </Image.PreviewGroup>
         }
       </div>

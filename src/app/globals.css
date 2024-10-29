@@ -84,10 +84,14 @@
 .overlay-transition .ant-image-mask {
   opacity: 1 !important;
   transition: opacity 1s ease-in-out !important;
+  border-radius: 25px !important;
+  border-width: 2px !important;
 }
 .overlay-active .ant-image-mask {
   opacity: 1 !important;
   transition: none !important;
+  border-radius: 25px !important;
+  border-width: 2px !important;
 }
 ::-webkit-scrollbar {
   width: 6px !important;
@@ -115,4 +119,8 @@ html {
 
 * {
   scrollbar-width: thin !important;
+}
+.ant-image-preview-switch-left,
+.ant-image-preview-switch-right {
+  background-color: #13a89e !important;
 }
