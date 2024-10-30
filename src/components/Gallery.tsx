@@ -23,7 +23,7 @@ export default function Gallery({
           <Image.PreviewGroup items={previewItems}>
             <Image
               className=" rounded-[25px] border-5 border-[#d0eeec]"
-              src={currentGallery[0].src}
+              src={"/BeforeAfter/gallery/cover/" + activestateKey + ".png"}
               alt={currentGallery[0].alt}
             />
           </Image.PreviewGroup>

@@ -155,7 +155,7 @@ export default function ParentState({
             className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-[450px] 2xl:h-[520px] overflow-hidden lg:overflow-scroll no-scrollbar transition-all duration-500 ease-in-out  ${
               expandedState === "Gallery"
                 ? "max-h-[1000px] "
-                : "max-h-[360px] lg:max-h-[550px] "
+                : "max-h-[500px] lg:max-h-[550px] "
             } `}
           >
             <div className="lg:w-[50%] rounded-l-[25px] my-auto rounded-r-[25px] xl:rounded-r-none ">
