@@ -137,8 +137,8 @@ export default function Testimonials({
         testimonials.map((testimonial, index) => (
           <div key={index} className="ml-4 flex-grow flex ">
             <div className="shadow-xl p-5 my-2 bg-[#13a89e] relative rounded-xl w-80 lg:w-80 flex-grow">
-              <div className="mb-16 md:mb-10 text-black">
-                <CommentOutlined className="bottom-[5px] right-[5px] absolute text-xl text-white" />
+              <div className="mb-16 md:mb-10 text-black ">
+                <CommentOutlined className="bottom-[5px] right-[5px] absolute text-xl rounded-full bg-[#b574ed] p-1 text-white" />
                 <p className="text-white">{testimonial.message}</p>
               </div>
 

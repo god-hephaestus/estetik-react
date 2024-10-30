@@ -47,7 +47,7 @@ export default function Doctors({
               <div className="flex items-center justify-center bg-[#b574ed] rounded-[10px] w-10 h-10">
                 <MedicineBoxOutlined className="text-white text-2xl" />
               </div>
-              <p className="text-[#0a5b56] text-center lg:text-start  lg:whitespace-normal font-bold lg:w-[80%] ml-2 md:ml-4">
+              <p className="text-[#0a5b56] text-center lg:text-start  lg:whitespace-normal font-medium lg:w-[80%] ml-2 md:ml-4">
                 {doctor.doctorArea}
               </p>
             </div>

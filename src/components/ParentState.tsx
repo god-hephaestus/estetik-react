@@ -48,7 +48,6 @@ export default function ParentState({
   const videoDescription: string[] = heroBgData[stateKey]?.src ?? [];
 
   const [expandedState, setExpandedState] = useState<string | null>("Video");
-  const [imageOverlay, setImageOverlay] = useState("normal");
 
   const handleButtonClick = (newComparisonData: (typeof buttonsData)[0]) => {
     setComparisonData(newComparisonData);
@@ -67,27 +66,7 @@ export default function ParentState({
       setExpandedState((prev) => (prev === component ? null : component));
     }
   };
-
-  useEffect(() => {
-    const startTransitionTimer = setTimeout(() => {
-      setImageOverlay("startedTransition");
-    }, 2000);
-
-    const endTransitionTimer = setTimeout(() => {
-      setImageOverlay("endedTransition");
-    }, 3000);
-
-    return () => {
-      clearTimeout(startTransitionTimer);
-      clearTimeout(endTransitionTimer);
-    };
-  }, []);
-
-  // UseEffect for Testimonials transition logic
-  useEffect(() => {
-    if (expandedState === "Testimonials") {
-    }
-  }, [expandedState]);
+  console.log(expandedState);
 
   return (
     <div>
@@ -97,23 +76,12 @@ export default function ParentState({
         onButtonClick={handleButtonClick}
       />
 
-      <div className="px-4 xl:px-[10%] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div className="relative col-span-1 lg:col-span-5 flex flex-col items-center h-full transition-all duration-500 ease-in-out">
-          <div
-            className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
-            onClick={() => handleExpandClick("Comparison")}
-          >
-            <ClickIcon wobble />
-          </div>
-          <Comparison comparisonData={comparisonData} />
-        </div>
-
+      <div className="px-8 xl:px-[10%] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-6">
         <div
-          className={`relative col-span-1 lg:col-span-7 flex flex-col h-full transition-all duration-500 ease-in-out transform ${
-            expandedState === "Video" ? "z-50" : "z-30"
-          } ${
-            expandedState === "Comparison" ? "mt-0" : "-mt-24 lg:mt-0"
-          } lg:mt-0`}
+          className={`relative md:hidden col-span-1 lg:col-span-7 flex flex-col h-full transition-all duration-500 ease-in-out transform ${
+            expandedState === "Video" ? "" : "z-20"
+          } ${expandedState === "Comparison" ? "mt-0" : "lg:mt-0"}
+           lg:mt-0`}
         >
           <div
             className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e]"
@@ -128,19 +96,53 @@ export default function ParentState({
         </div>
 
         <div
-          className={`relative col-span-1 lg:col-span-8 transition-all duration-500 ease-in-out ${
+          className={`relative col-span-1 lg:col-span-5 flex flex-col items-center h-full transition-all duration-500 ease-in-out
+            ${expandedState === "Video" ? "z-30 mt-0" : ""}
+            ${expandedState === "Comparison" ? "z-50 mt-0" : ""}
+            ${
+              expandedState !== "Video" && expandedState !== "Comparison"
+                ? "z-30 -mt-36"
+                : ""
+            }
+          `}
+        >
+          <div
+            className={`absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden `}
+            onClick={() => handleExpandClick("Comparison")}
+          >
+            <ClickIcon wobble />
+          </div>
+          <Comparison
+            comparisonData={comparisonData}
+            isExpanded={expandedState === "Comparison"}
+          />
+        </div>
+
+        <div
+          className={`relative hidden col-span-1 lg:col-span-7 md:flex flex-col h-full transition-all duration-500 ease-in-out transform lg:mt-0`}
+        >
+          <div
+            className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e]"
+            onClick={() => handleExpandClick("Video")}
+          >
+            <ClickIcon />
+          </div>
+          <VideoSlider
+            isExpanded={expandedState === "Video"}
+            videoDescription={videoDescription}
+          />
+        </div>
+
+        <div
+          className={`relative col-span-1 lg:col-span-8 transition-all  duration-500 ease-in-out ${
             expandedState === "Gallery"
-              ? "z-50 backdrop-blur-none bg-[#d0eeec] translate-y-[-250px]"
-              : "z-40 backdrop-blur bg-[#13a89e]/20 translate-y-0"
-          } ${
-            imageOverlay === "startedTransition"
-              ? "overlay-transition"
-              : imageOverlay === "endedTransition"
-              ? "overlay-active"
+              ? "z-50 backdrop-blur-none bg-[#d0eeec] -mt-40"
+              : "z-40 backdrop-blur bg-[#13a89e]/20 "
+          } ${expandedState === "Comparison" ? "mt-0" : "-mt-24 lg:mt-0"} ${
+            expandedState !== "Video" && expandedState !== "Comparison"
+              ? ""
               : ""
-          } ${
-            expandedState === "Video" ? "mt-0" : "-mt-24 lg:mt-0"
-          } flex flex-col rounded-[25px] lg:backdrop-blur-none lg:bg-[#d0eeec] shadow-md`}
+          } flex flex-col rounded-[35px] lg:backdrop-blur-none lg:bg-[#d0eeec] shadow-md`}
         >
           <div
             className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e]"
@@ -150,19 +152,23 @@ export default function ParentState({
           </div>
 
           <div
-            className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-full transition-all duration-500 ease-in-out  ${
+            className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-[450px] 2xl:h-[520px] overflow-hidden lg:overflow-scroll no-scrollbar transition-all duration-500 ease-in-out  ${
               expandedState === "Gallery"
-                ? "max-h-[670px] overflow-visible"
-                : "max-h-[500px] overflow-hidden"
+                ? "max-h-[1000px] "
+                : "max-h-[360px] lg:max-h-[550px] "
             } `}
           >
-            <div className="lg:w-[45%] rounded-l-[25px] my-auto rounded-r-[25px] xl:rounded-r-none border-2 border-[#d0eeec]">
+            <div className="lg:w-[50%] rounded-l-[25px] my-auto rounded-r-[25px] xl:rounded-r-none ">
               <Gallery
                 activestateKey={stateKey}
                 GalleryImgsData={GalleryImgsData}
               />
             </div>
-            <div className="my-auto lg:w-[55%] lg:pt-[20px] lg:pr-4 px-2 lg:pl-0 bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]">
+            <div
+              className={`my-auto lg:w-[50%] lg:max-h-[550px] justify-center lg:overflow-scroll px-2 lg:pr-4 ${
+                expandedState === "Gallery" ? "" : ""
+              } lg:pl-0 lg:py-2 no-scrollbar bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]`}
+            >
               <Collapse
                 expandIcon={({ isActive }) => (
                   <DownCircleOutlined
@@ -193,13 +199,13 @@ export default function ParentState({
             })
           }
           className={` flex w-full justify-center md:hidden  ${
-            expandedState === "Gallery" ? "-my-4 " : "-my-4"
+            expandedState === "Gallery" ? "" : ""
           }`}
         >
           <DoubleRightOutlined className="text-[#13a89e] rotate-90 text-4xl" />
         </button>
 
-        <div className=" relative col-span-1 lg:col-span-4 flex flex-col w-full z-10 border rounded-[25px] border-[#13a89e] lg:border-none">
+        <div className=" relative col-span-1 lg:col-span-4 flex flex-col lg:h-[450px] 2xl:h-[520px]  w-full z-10 border rounded-[25px] border-[#13a89e] lg:border-none">
           <div
             className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
             onClick={() => handleExpandClick("Form")}
@@ -256,7 +262,7 @@ export default function ParentState({
             </div>
 
             <div
-              className={`transition-all duration-500 ease-in-out relative lg:w-[36%] z-40 mb-16 lg:mb-0 ${
+              className={`transition-all duration-500 ease-in-out relative lg:w-[36%] z-40 mb-8 lg:mb-0 ${
                 expandedState === "Testimonials" ? "" : "-mt-40 lg:mt-0"
               }`}
             >

@@ -10,7 +10,7 @@ export default function VideoSlider({
   isExpanded: boolean;
 }) {
   const containerClassNames = `flex items-center justify-center w-full h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] 
-  border-[#13a89e]/20 border-[10px] border-t-[25px] lg:backdrop-blur-none lg:bg-[#d0eeec] lg:border-2  ${
+  border-[#13a89e]/20  lg:backdrop-blur-none lg:bg-[#d0eeec] lg:border-2  ${
     isExpanded
       ? "backdrop-blur-none bg-[#d0eeec]"
       : "backdrop-blur bg-[#13a89e]/20"
@@ -23,7 +23,6 @@ export default function VideoSlider({
           className="object-cover w-full h-full"
           autoPlay
           muted
-          controls
         ></video>
       </div>
       {videoDescription.map((videoSrc, index) => (
@@ -31,7 +30,6 @@ export default function VideoSlider({
           <video
             src={"/video/" + videoSrc}
             className="object-cover w-full h-full"
-            controls
           ></video>
         </div>
       ))}

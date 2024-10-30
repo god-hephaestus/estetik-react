@@ -81,14 +81,6 @@
   background-color: #d0eeec !important;
   border-color: #d0eeec !important;
 }
-.overlay-transition .ant-image-mask {
-  border-radius: 25px !important;
-  border-width: 2px !important;
-}
-.overlay-active .ant-image-mask {
-  border-radius: 25px !important;
-  border-width: 2px !important;
-}
 ::-webkit-scrollbar {
   width: 6px !important;
   height: 6px !important;

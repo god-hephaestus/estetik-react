@@ -18,7 +18,7 @@ interface Country {
 }
 
 export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
-  const containerClassNames = `flex justify-center items-center ${
+  const containerClassNames = `flex justify-center lg:h-[450px] 2xl:h-[520px] items-center ${
     isExpanded ? "z-50 h-full" : ""
   }`;
   const [form] = Form.useForm();
@@ -191,7 +191,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
         </Form.Item>
 
         <Form.Item
-          className="mb-2 lg:mb-6"
+          className="mb-4"
           label="Name"
           name="name"
           rules={[{ required: true, message: "Please input your name!" }]}
@@ -202,7 +202,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
           />
         </Form.Item>
         <Form.Item
-          className="mb-2 lg:mb-6"
+          className="mb-4"
           label="Phone"
           required
           rules={[
@@ -250,14 +250,14 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
           </div>
         </Form.Item>
         <Form.Item
-          className="mb-2 lg:mb-6"
+          className="mb-4"
           label="Operation"
           name="operation"
           rules={[{ required: true, message: "Please select an operation!" }]}
         >
           <Select
             placeholder="Select an operation"
-            className="border-2 border-[#13a89e] rounded-xl h-full"
+            className="border-2 border-[#13a89e] rounded-xl"
           >
             <Option value="bbl">BBL</Option>
             <Option value="breast">Breast Surgeries</Option>
@@ -265,7 +265,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
           </Select>
         </Form.Item>
         <Form.Item
-          className="mb-2 lg:mb-6"
+          className="mb-4"
           label="Message"
           name="message"
           rules={[{ required: false }]}
@@ -276,8 +276,12 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
             className="border-2 border-[#13a89e] rounded-xl"
           />
         </Form.Item>
-        <Form.Item className="text-right">
-          <Button type="primary" htmlType="submit" disabled={submitting}>
+        <Form.Item className="text-right mt-4">
+          <Button
+            className="bg-[#b574ed] px-12 rounded-[25px]"
+            htmlType="submit"
+            disabled={submitting}
+          >
             {submitting ? "Submitting..." : "Submit"}
           </Button>
         </Form.Item>

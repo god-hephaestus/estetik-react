@@ -101,24 +101,23 @@ export default function ComparisonButtons({
   }, []);
 
   return (
-    <div className="relative flex items-center justify-center h-full max-w-[350px] sm:max-w-[410px] border border-[#13a89e] rounded-[25px]">
+    <div className="relative flex items-center justify-center h-full max-w-[365px] sm:max-w-[410px] border border-transparent rounded-[25px]">
       <Button
         onClick={handlePrevious}
-        className="absolute left-0 z-20 border-[#13a89e] border-2"
+        className="absolute left-3 z-20 border-transparent bg-[#ffffff]/70 border-2"
         style={{
           top: "50%",
           transform: "translateY(-50%)",
           borderRadius: "50px",
-          backgroundColor: "white",
-          padding: "10px",
+          padding: "8px",
         }}
       >
-        <LeftOutlined style={{ color: "#13a89e" }} />
+        <LeftOutlined style={{ color: "black" }} />
       </Button>
 
       <div
         ref={scrollRef}
-        className="scroll-container py-1 no-scrollbar max-w-[350px] sm:max-w-[400px] z-10 rounded-[25px] bg-[#dcfffb]"
+        className="scroll-container py-1 no-scrollbar max-w-max md:max-w-[400px] z-10 rounded-[25px] bg-[#dcfffb]"
         style={{
           display: "flex",
           overflowX: "auto",
@@ -141,17 +140,18 @@ export default function ComparisonButtons({
             } rounded-[25px]`}
             onClick={() => onButtonClick(button)}
             style={{
-              margin: "0 10px",
-              minWidth: "150px",
-              padding: "10px",
+              margin: "3px 10px",
+              minWidth: "175px",
+              padding: "18px",
               boxShadow:
                 comparisonData.label === button.label
-                  ? "0px 4px 12px rgba(0, 0, 0, 0.6)"
+                  ? "0px 4px 12px rgba(19, 168, 158, 0.6)"
                   : "none",
+              borderColor:
+                comparisonData.label === button.label ? "#13a89e" : "",
               color: comparisonData.label === button.label ? "black" : "white",
               backgroundColor:
-                comparisonData.label === button.label ? "white" : "",
-              border: "none",
+                comparisonData.label === button.label ? "white" : "#13a89e",
             }}
           >
             {button.label}
@@ -161,16 +161,16 @@ export default function ComparisonButtons({
 
       <Button
         onClick={handleNext}
-        className="absolute right-0 z-20 border-[#13a89e] border-2"
+        className="absolute right-3 z-20 border-transparent bg-[#ffffff]/70 border-2"
         style={{
           top: "50%",
           transform: "translateY(-50%)",
           borderRadius: "50px",
           backgroundColor: "white",
-          padding: "10px",
+          padding: "8px",
         }}
       >
-        <RightOutlined style={{ color: "#13a89e" }} />
+        <RightOutlined style={{ color: "black" }} />
       </Button>
     </div>
   );

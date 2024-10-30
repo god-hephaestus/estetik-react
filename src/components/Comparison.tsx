@@ -6,6 +6,7 @@ import { Spin } from "antd";
 
 export default function Comparison({
   comparisonData,
+  isExpanded,
 }: {
   comparisonData: {
     label: string;
@@ -14,9 +15,12 @@ export default function Comparison({
     faqs: Array<{ question: string; answer: string }>;
     stateKey: string;
   };
+  isExpanded: boolean;
 }) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-
+  const containerClassNames = `container relative rounded-3xl shadow-md bg-[#d0eeec] h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] flex items-center ${
+    isExpanded ? "" : ""
+  }`;
   const handleImageChange = (image1: string, image2: string) => {
     setIsImageLoaded(false);
 
@@ -37,7 +41,7 @@ export default function Comparison({
   }, [comparisonData]);
 
   return (
-    <div className="container relative rounded-3xl shadow-md bg-[#d0eeec] h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] flex items-center">
+    <div className={containerClassNames}>
       <div className="flex items-center justify-center  w-full">
         <div className="relative w-full xl:w-auto 2xl:w-auto lg:w-[390px] xl:h-[355px] 2xl:h-[430px] rounded-[25px] bg-[#fff] overflow-hidden aspect-video">
           {!isImageLoaded && (
