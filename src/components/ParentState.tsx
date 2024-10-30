@@ -152,11 +152,18 @@ export default function ParentState({
           </div>
 
           <div
-            className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-[450px] 2xl:h-[520px] overflow-hidden lg:overflow-scroll no-scrollbar transition-all duration-500 ease-in-out  ${
-              expandedState === "Gallery"
-                ? "max-h-[1000px] "
-                : "max-h-[500px] lg:max-h-[550px] "
-            } `}
+            className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-[450px] 2xl:h-[450px] lg:max-h-[550px]  no-scrollbar transition-all duration-500 ease-in-out  ${
+              expandedState === "Gallery" ? "max-h-[580px] " : ""
+            } ${expandedState === "Comparison" ? " max-h-[280px]" : ""} 
+            ${expandedState === "Video" ? " max-h-[370px]" : ""}
+            ${
+              expandedState !== "Video" &&
+              expandedState !== "Comparison" &&
+              expandedState !== "Gallery"
+                ? "max-h-[520px]"
+                : ""
+            }
+            `}
           >
             <div className="lg:w-[50%] rounded-l-[25px] my-auto rounded-r-[25px] xl:rounded-r-none ">
               <Gallery
@@ -165,9 +172,9 @@ export default function ParentState({
               />
             </div>
             <div
-              className={`my-auto lg:w-[50%] lg:max-h-[550px] justify-center lg:overflow-scroll px-2 lg:pr-4 ${
+              className={`my-auto lg:w-[50%] lg:h-[450px] justify-center overflow-scroll  no-scrollbar px-2 lg:pr-4 ${
                 expandedState === "Gallery" ? "" : ""
-              } lg:pl-0 lg:py-2 no-scrollbar bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]`}
+              } lg:pl-0 lg:py-2  bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]`}
             >
               <Collapse
                 expandIcon={({ isActive }) => (
@@ -205,7 +212,7 @@ export default function ParentState({
           <DoubleRightOutlined className="text-[#13a89e] rotate-90 text-4xl" />
         </button>
 
-        <div className=" relative col-span-1 lg:col-span-4 flex flex-col lg:h-[450px] 2xl:h-[520px]  w-full z-10 border rounded-[25px] border-[#13a89e] lg:border-none">
+        <div className=" relative col-span-1 lg:col-span-4 flex flex-col lg:h-[450px] 2xl:h-[450px]  w-full z-10 border rounded-[25px] border-[#13a89e] lg:border-none">
           <div
             className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
             onClick={() => handleExpandClick("Form")}

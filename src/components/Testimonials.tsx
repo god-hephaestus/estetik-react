@@ -116,8 +116,8 @@ export default function Testimonials({
     isDragging ? "grabbing" : "grab"
   } no-select ${
     isExpanded
-      ? "h-[270px] lg:h-[280px] xl:h-[250px] backdrop-blur-none bg-[#d0eeec]"
-      : "h-[270px] lg:h-[280px] xl:h-[250px] backdrop-blur bg-[#13a89e]/20 "
+      ? "h-[240px] lg:h-[280px] xl:h-[250px] backdrop-blur-none bg-[#d0eeec]"
+      : "h-[240px] lg:h-[280px] xl:h-[250px] backdrop-blur bg-[#13a89e]/20 "
   }`;
 
   return (
@@ -138,7 +138,7 @@ export default function Testimonials({
           <div key={index} className="ml-4 flex-grow flex ">
             <div className="shadow-xl p-5 my-2 bg-[#13a89e] relative rounded-xl w-80 lg:w-80 flex-grow">
               <div className="mb-16 md:mb-10 text-black ">
-                <CommentOutlined className="bottom-[5px] right-[5px] absolute text-xl rounded-full bg-[#b574ed] p-1 text-white" />
+                <CommentOutlined className="bottom-[5px] right-[5px] absolute text-xl hidden lg:flex rounded-full bg-white p-1 text-black" />
                 <p className="text-white">{testimonial.message}</p>
               </div>
 

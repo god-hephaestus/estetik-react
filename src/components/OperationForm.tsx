@@ -278,7 +278,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
         </Form.Item>
         <Form.Item className="text-right mt-4">
           <Button
-            className="bg-[#b574ed] px-12 rounded-[25px]"
+            className="bg-[#13a89e] px-12 rounded-[25px]"
             htmlType="submit"
             disabled={submitting}
           >
