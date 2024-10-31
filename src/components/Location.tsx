@@ -20,7 +20,7 @@ export default function Location() {
           title="Instagram"
           rel="noopener noreferrer"
         >
-          <InstagramFilled className="text-4xl  text-[#7ac8c3]" />
+          <InstagramFilled className="text-3xl my-1 lg:my-0 lg:text-4xl  text-[#7ac8c3]" />
         </a>
         <a
           target="_blank"
@@ -28,7 +28,7 @@ export default function Location() {
           title="Facebook"
           rel="noopener noreferrer"
         >
-          <FacebookFilled className="text-4xl text-[#7ac8c3]" />
+          <FacebookFilled className="text-3xl my-1 lg:my-0 lg:text-4xl text-[#7ac8c3]" />
         </a>
         <a
           target="_blank"
@@ -36,7 +36,7 @@ export default function Location() {
           title="YouTube"
           rel="noopener noreferrer"
         >
-          <YoutubeFilled className="text-4xl text-[#7ac8c3]" />
+          <YoutubeFilled className="text-3xl my-1 lg:my-0 lg:text-4xl text-[#7ac8c3]" />
         </a>
         <a
           target="_blank"
@@ -44,7 +44,7 @@ export default function Location() {
           title="LinkedIn"
           rel="noopener noreferrer"
         >
-          <LinkedinFilled className="text-4xl text-[#7ac8c3]" />
+          <LinkedinFilled className="text-3xl my-1 lg:my-0 lg:text-4xl text-[#7ac8c3]" />
         </a>
         <a
           target="_blank"
@@ -52,7 +52,7 @@ export default function Location() {
           title="TikTok"
           rel="noopener noreferrer"
         >
-          <TikTokFilled className="text-4xl text-[#7ac8c3]" />
+          <TikTokFilled className="text-3xl my-1 lg:my-0 lg:text-4xl text-[#7ac8c3]" />
         </a>
       </div>
     </div>
