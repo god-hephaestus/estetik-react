@@ -130,6 +130,93 @@ const buttonsData = [
     ],
     stateKey: "gallery3",
   },
+  {
+    label: "Tummy Tuck",
+    image1: "/BeforeAfter/tummytuck.webp",
+    image2: "/BeforeAfter/tummytuck2.webp",
+    faqs: [
+      {
+        question:
+          "What is a Tummy Tuck, and how does it differ from liposuction?",
+        answer:
+          "A Tummy Tuck tightens the abdominal muscles and removes excess skin for a flatter stomach, while liposuction focuses on removing fat and doesn’t address loose skin or muscle laxity.",
+      },
+      {
+        question:
+          "How long will it take to recover after a Tummy Tuck, and when can I resume daily activities?",
+        answer:
+          "Recovery typically takes 4-6 weeks. Light activities can usually resume after 2 weeks, but you should avoid strenuous activities for the full recovery period.",
+      },
+      {
+        question:
+          "Are there any risks associated with a Tummy Tuck, and how can I ensure a safe and successful outcome?",
+        answer:
+          "Risks are reduced when performed by an experienced surgeon. Following all aftercare instructions, especially for wound care and movement restrictions, is crucial for a safe recovery.",
+      },
+      {
+        question:
+          "Can I combine a Tummy Tuck with other procedures like liposuction or a BBL to enhance my overall body shape?",
+        answer:
+          "Yes, combining a Tummy Tuck with other procedures, such as liposuction or a Brazilian Butt Lift, can help achieve more comprehensive body contouring results.",
+      },
+      {
+        question:
+          "How long will it take to see the final results of my Tummy Tuck?",
+        answer:
+          "While some results are noticeable right after surgery, final results typically become visible after 3-6 months once the swelling reduces and the healing process is complete.",
+      },
+      {
+        question: "Will a Tummy Tuck help remove stretch marks?",
+        answer:
+          "A Tummy Tuck can reduce or remove stretch marks located on the lower abdomen below the belly button, as this skin is often removed during the procedure. Stretch marks outside this area may not be affected.",
+      },
+    ],
+    stateKey: "gallery4",
+  },
+  {
+    label: "Rhinoplasty",
+    image1: "/BeforeAfter/rhinof.webp",
+    image2: "/BeforeAfter/rhinof2.webp",
+    faqs: [
+      {
+        question:
+          "What is Rhinoplasty, and how does it differ from non-surgical nose reshaping?",
+        answer:
+          "Rhinoplasty is a surgical procedure that alters the nose’s structure for aesthetic or functional purposes, while non-surgical reshaping uses fillers for minor contour changes without altering the bone or cartilage.",
+      },
+      {
+        question:
+          "How long will it take to recover after Rhinoplasty, and when can I resume daily activities?",
+        answer:
+          "Recovery generally takes 1-2 weeks for initial healing, with swelling gradually subsiding over months. Light activities can typically resume after a week, while strenuous activities should be avoided for several weeks.",
+      },
+      {
+        question:
+          "Are there any risks associated with Rhinoplasty, and how can I ensure a safe and successful outcome?",
+        answer:
+          "Risks are minimized when performed by an experienced surgeon. Following all aftercare instructions, especially to reduce swelling and protect the nose, is essential for a safe recovery",
+      },
+      {
+        question:
+          "Will Rhinoplasty improve my breathing, and can it address issues like a deviated septum?",
+        answer:
+          "Rhinoplasty can improve breathing when combined with septoplasty, which straightens the nasal septum. This option addresses both functional and aesthetic concerns.",
+      },
+      {
+        question:
+          "Will my nose continue to change after Rhinoplasty, and how long will the results last?",
+        answer:
+          "While swelling may alter the nose’s appearance in the first year, results are typically long-lasting. Minor changes can occur over time due to aging, but your new shape will largely be permanent.",
+      },
+      {
+        question:
+          "What should I avoid before and after Rhinoplasty to ensure the best results?",
+        answer:
+          "Before surgery, avoid smoking and certain medications, as they can impact healing. After surgery, avoid strenuous activities, nose-blowing, and any pressure on the nose to ensure optimal results.",
+      },
+    ],
+    stateKey: "gallery5",
+  },
 ];
 const GalleryImgsData = {
   gallery1: [
@@ -200,6 +287,50 @@ const GalleryImgsData = {
     {
       src: "/BeforeAfter/gallery/total/Total - 6.webp",
       alt: "Total Body",
+    },
+  ],
+  gallery4: [
+    {
+      src: "/BeforeAfter/gallery/tummy/Tummytuck1.webp",
+      alt: "Tummy Tuck",
+    },
+    {
+      src: "/BeforeAfter/gallery/tummy/Tummytuck2.webp",
+      alt: "Tummy Tuck",
+    },
+    {
+      src: "/BeforeAfter/gallery/tummy/Tummytuck3.webp",
+      alt: "Tummy Tuck",
+    },
+    {
+      src: "/BeforeAfter/gallery/tummy/Tummytuck4.webp",
+      alt: "Tummy Tuck",
+    },
+    {
+      src: "/BeforeAfter/gallery/tummy/Tummytuck5.webp",
+      alt: "Tummy Tuck",
+    },
+  ],
+  gallery5: [
+    {
+      src: "/BeforeAfter/gallery/rhinoplasty-female/Rhino1.webp",
+      alt: "Rhinoplasty",
+    },
+    {
+      src: "/BeforeAfter/gallery/rhinoplasty-female/Rhino2.webp",
+      alt: "Rhinoplasty",
+    },
+    {
+      src: "/BeforeAfter/gallery/rhinoplasty-female/Rhino3.webp",
+      alt: "Rhinoplasty",
+    },
+    {
+      src: "/BeforeAfter/gallery/rhinoplasty-female/Rhino4.webp",
+      alt: "Rhinoplasty",
+    },
+    {
+      src: "/BeforeAfter/gallery/rhinoplasty-female/Rhino5.webp",
+      alt: "Rhinoplasty",
     },
   ],
 };
@@ -420,6 +551,150 @@ const testimonialsData = {
       genderFemale: true,
     },
   ],
+  gallery4: [
+    {
+      name: "Sarah P.",
+      operation: "Tummy Tuck",
+      message:
+        "My tummy tuck went perfectly. The results are fantastic, and the care was top-notch.",
+      genderFemale: true,
+    },
+    {
+      name: "Jeniffer B.",
+      operation: "Tummy Tuck",
+      message:
+        "Tummy tuck by Dr. B was amazing!  Super excited to wear a bikini next summer!",
+      genderFemale: true,
+    },
+    {
+      name: "Maria Y.",
+      operation: "Tummy Tuck",
+      message:
+        "Estetik International team were incredible! Had a tummy tuck and lift, loving the results. Felt cared for every step, and accommodations were fantastic.",
+      genderFemale: true,
+    },
+    {
+      name: "Angel B.",
+      operation: "Tummy Tuck",
+      message:
+        "The doctor and staff are attentive, quick, and efficient. Spacious room and overall great experience. Highly recommended!",
+      genderFemale: true,
+    },
+    {
+      name: "Ariana P.",
+      operation: "Tummy Tuck and Breast Augmentation",
+      message:
+        "Attentive doctor and supportive nurses. The clinic you want to return to! High quality care at every step. Thank you, Estetik International.",
+      genderFemale: true,
+    },
+    {
+      name: "Caroline N.",
+      operation: "360 Lipo and Tummy Tuck",
+      message:
+        "Lipo 360 + Tummy Tuck. Now 23 days post-op, I’m thrilled with the results. Life-changing experience!",
+      genderFemale: true,
+    },
+    {
+      name: "Jennifer O.",
+      operation: "Tummy Tuck",
+      message:
+        "Tummy tuck operation by Dr. B was a success. 5 weeks post-op and so happy with the results. Grateful for Estetik’s amazing staff.",
+      genderFemale: true,
+    },
+    {
+      name: "Charlotte R.",
+      operation: "Lipo and Tummy Tuck",
+      message:
+        "The clinic you want to return to! Everything is at the highest level. An attentive doctors with a sincere kind smile, professionals in their field.",
+      genderFemale: true,
+    },
+    {
+      name: "Yana M. ",
+      operation: "Tummy Tuck and Rhinoplasty ",
+      message:
+        "My experience at Estetik International was perfect! Their professionalism deserves five stars!",
+      genderFemale: true,
+    },
+    {
+      name: "Esra D.",
+      operation: "Tummy Tuck",
+      message:
+        "My surgery at Estetik International was a success. The service is priceless, and the staff is so caring. Definitely recommend.",
+      genderFemale: true,
+    },
+  ],
+  gallery5: [
+    {
+      name: "Fatos S.",
+      operation: "Rhinoplasty",
+      message:
+        "I highly recommend it! The tummy tuck at Estetik International delivered excellent results. Impressive outcomes and professional support.",
+      genderFemale: true,
+    },
+    {
+      name: "Maryam A.",
+      operation: "Rhinoplasty",
+      message:
+        "I am extremely satisfied with the Estetik International team. Thank you for helping me with something I was so uncomfortable with!",
+      genderFemale: true,
+    },
+    {
+      name: "Gizem B.",
+      operation: "Rhinoplasty",
+      message:
+        "Estetik International is top-notch with all its services! I’ll continue choosing you from now on.",
+      genderFemale: true,
+    },
+    {
+      name: "Veronika K.",
+      operation: "Rhinoplasty",
+      message:
+        "Dr. B was amazing! Took time to listen, gave honest feedback. Clinic is clean, staff is friendly. Felt welcome and calm from start to finish.",
+      genderFemale: true,
+    },
+    {
+      name: "Linda B.",
+      operation: "Rhinoplasty",
+      message:
+        "Thrilled with my rhino and bbl at Estetik International. Natural results, great team, and a huge confidence boost!",
+      genderFemale: true,
+    },
+    {
+      name: "Dana M.",
+      operation: "Rhinoplasty",
+      message:
+        "Rhino at Estetik International exceeded expectations! Doktor's skill, supportive staff, and amazing results make it the best place for aesthetics!",
+      genderFemale: true,
+    },
+    {
+      name: "Maria S.",
+      operation: "Rhinoplasty",
+      message:
+        "Exceptional experience at Estetik International! BBL, lipo, and rhino gave amazing results. Professional team, highly recommend!",
+      genderFemale: true,
+    },
+    {
+      name: "Marva W.",
+      operation: "Rhinoplasty",
+      message:
+        "Had rhinoplasty at Estetik International, and I’m very happy with the results. My nose looks natural and aesthetic, truly a professional clinic.",
+      genderFemale: true,
+    },
+    {
+      name: "Dilek E.",
+      operation: "Rhinoplasty",
+      message:
+        "I went to Estetik International for a nose correction. My nose turned out just how I wanted.",
+      genderFemale: true,
+    },
+    {
+      name: "Fatima A.",
+      operation: "Rhinoplasty",
+      message:
+        "With septorhinoplasty, they resolved my breathing issues and gave my nose a wonderful shape. Extremely satisfied with Estetik International.",
+      genderFemale: true,
+    },
+  ],
 };
 const doctorsData = [
   {
@@ -536,7 +811,13 @@ const HeroBgData = {
     src: ["BBL.mp4"],
   },
   gallery3: {
-    src: ["Total body.mp4", "Total Body 2.mp4"],
+    src: ["Total body.mp4"],
+  },
+  gallery4: {
+    src: ["Total body.mp4"],
+  },
+  gallery5: {
+    src: ["Total body.mp4"],
   },
 };
 
