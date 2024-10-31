@@ -232,7 +232,7 @@ export default function ParentState({
           ${
             expandedState === "Doctors"
               ? "z-50 -mt-96"
-              : "max-h-[20vh] overflow-hidden"
+              : "max-h-[20vh] lg:max-h-fit overflow-hidden"
           }
           ${expandedState === "Testimonials" ? "-mt-80" : ""}
           ${
