@@ -36,6 +36,7 @@ export default function Doctors({
               alt={doctor.doctorName}
               sizes="(max-width: 768px) 30vw, (max-width: 1200px) 50vw, 30vw"
               fill
+              loading="lazy"
               className="object-contain lg:bg-white rounded-[25px] mx-auto lg:w-[80%]"
             />
           </div>

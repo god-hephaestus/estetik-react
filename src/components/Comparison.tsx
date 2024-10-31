@@ -18,31 +18,34 @@ export default function Comparison({
   isExpanded: boolean;
 }) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   const containerClassNames = `container relative rounded-3xl shadow-md bg-[#d0eeec] h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] flex items-center ${
     isExpanded ? "" : ""
   }`;
-  const handleImageChange = (image1: string, image2: string) => {
-    setIsImageLoaded(false);
-
-    const img1 = new Image();
-    const img2 = new Image();
-
-    img1.onload = () => {
-      img2.onload = () => {
-        setIsImageLoaded(true);
-      };
-      img2.src = image2;
-    };
-    img1.src = image1;
-  };
 
   useEffect(() => {
-    handleImageChange(comparisonData.image1, comparisonData.image2);
+    const preloadImages = async () => {
+      await Promise.all([
+        new Promise((resolve) => {
+          const img1 = new Image();
+          img1.onload = resolve;
+          img1.src = comparisonData.image1;
+        }),
+        new Promise((resolve) => {
+          const img2 = new Image();
+          img2.onload = resolve;
+          img2.src = comparisonData.image2;
+        }),
+      ]);
+      setIsImageLoaded(true);
+    };
+
+    preloadImages();
   }, [comparisonData]);
 
   return (
     <div className={containerClassNames}>
-      <div className="flex items-center justify-center  w-full">
+      <div className="flex items-center justify-center w-full">
         <div className="relative w-full xl:w-auto 2xl:w-auto lg:w-[390px] xl:h-[355px] 2xl:h-[430px] rounded-[25px] bg-[#fff] overflow-hidden aspect-video">
           {!isImageLoaded && (
             <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center bg-[rgba(240,240,240,0.8)] z-[1]">
