@@ -101,10 +101,10 @@ export default function ComparisonButtons({
   }, []);
 
   return (
-    <div className="relative flex items-center justify-center px-8 lg:px-0 h-full max-w-[365px] sm:max-w-[410px] border border-transparent rounded-[25px]">
+    <div className="relative flex items-center w-full justify-center lg:px-0 h-full max-w-[365px] sm:max-w-[410px] border border-transparent rounded-[25px]">
       <Button
         onClick={handlePrevious}
-        className="absolute left-7 lg:left-3 z-20 border-transparent bg-[#ffffff]/70 border-2"
+        className="absolute left-1 lg:left-3 z-20 border-transparent bg-[#ffffff]/70 border-2"
         style={{
           top: "50%",
           transform: "translateY(-50%)",
@@ -161,7 +161,7 @@ export default function ComparisonButtons({
 
       <Button
         onClick={handleNext}
-        className="absolute right-7 lg:right-3 z-20 border-transparent bg-[#ffffff]/70 border-2"
+        className="absolute right-1 lg:right-3 z-20 border-transparent bg-[#ffffff]/70 border-2"
         style={{
           top: "50%",
           transform: "translateY(-50%)",

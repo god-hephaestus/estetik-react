@@ -264,6 +264,8 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
             <Option value="bbl">BBL</Option>
             <Option value="breast">Breast Surgeries</Option>
             <Option value="total">Total Body</Option>
+            <Option value="tummy">Tummy Tuck</Option>
+            <Option value="rhinoplasty">Rhinoplasty</Option>
           </Select>
         </Form.Item>
         <Form.Item

@@ -11,6 +11,7 @@ import Navbar from "./Navbar";
 import VideoSlider from "./VideoSlider";
 import Location from "./Location";
 import ClickIcon from "./ClickIcon";
+import VideoSliderMobile from "./VideoSliderMobile";
 
 export default function ParentState({
   testimonialsData,
@@ -66,7 +67,6 @@ export default function ParentState({
       setExpandedState((prev) => (prev === component ? null : component));
     }
   };
-  console.log(expandedState);
 
   return (
     <div>
@@ -89,7 +89,7 @@ export default function ParentState({
           >
             <ClickIcon />
           </div>
-          <VideoSlider
+          <VideoSliderMobile
             isExpanded={expandedState === "Video"}
             videoDescription={videoDescription}
           />
@@ -121,16 +121,7 @@ export default function ParentState({
         <div
           className={`relative hidden col-span-1 lg:col-span-7 md:flex flex-col h-full transition-all duration-500 ease-in-out transform lg:mt-0`}
         >
-          <div
-            className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e]"
-            onClick={() => handleExpandClick("Video")}
-          >
-            <ClickIcon />
-          </div>
-          <VideoSlider
-            isExpanded={expandedState === "Video"}
-            videoDescription={videoDescription}
-          />
+          <VideoSlider videoDescription={videoDescription} />
         </div>
 
         <div
