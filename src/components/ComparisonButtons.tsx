@@ -31,15 +31,6 @@ export default function ComparisonButtons({
 }: ComparisonButtonsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const handleScroll = (scrollAmount: number) => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({
-        left: scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
   const handleNext = () => {
     const currentIndex = buttonProps.findIndex(
       (b) => b.label === comparisonData.label
@@ -48,9 +39,7 @@ export default function ComparisonButtons({
     onButtonClick(buttonProps[nextIndex]);
 
     if (scrollRef.current) {
-      const buttonWidth =
-        scrollRef.current?.firstElementChild?.clientWidth || 0;
-      handleScroll(buttonWidth);
+      scrollToButton(nextIndex);
     }
   };
 
@@ -63,16 +52,41 @@ export default function ComparisonButtons({
     onButtonClick(buttonProps[prevIndex]);
 
     if (scrollRef.current) {
-      const buttonWidth =
-        scrollRef.current?.firstElementChild?.clientWidth || 0;
-      handleScroll(-buttonWidth);
+      scrollToButton(prevIndex);
     }
+  };
+
+  const scrollToButton = (index: number) => {
+    if (scrollRef.current) {
+      const containerWidth = scrollRef.current.clientWidth;
+      const buttonElement = scrollRef.current.children[
+        index
+      ] as HTMLButtonElement;
+
+      if (buttonElement) {
+        const buttonWidth = buttonElement.offsetWidth;
+        const buttonLeftOffset = buttonElement.offsetLeft;
+
+        // Center the button within the visible container
+        const scrollPosition =
+          buttonLeftOffset - containerWidth / 2 + buttonWidth / 2;
+
+        scrollRef.current.scrollTo({
+          left: scrollPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
+  const handleButtonClick = (button: ButtonProps, index: number) => {
+    onButtonClick(button);
+    scrollToButton(index);
   };
 
   useEffect(() => {
     const container = scrollRef.current;
 
-    // Handle mouse wheel events for desktop
     const handleWheel = (e: WheelEvent) => {
       if (container) {
         const canScrollMore =
@@ -92,7 +106,6 @@ export default function ComparisonButtons({
       container.addEventListener("wheel", handleWheel, { passive: false });
     }
 
-    // Cleanup the event listener on component unmount
     return () => {
       if (container) {
         container.removeEventListener("wheel", handleWheel);
@@ -138,7 +151,7 @@ export default function ComparisonButtons({
             className={`${
               comparisonData.label === button.label ? "active" : ""
             } rounded-[25px]`}
-            onClick={() => onButtonClick(button)}
+            onClick={() => handleButtonClick(button, index)}
             style={{
               margin: "3px 10px",
               minWidth: "175px",
