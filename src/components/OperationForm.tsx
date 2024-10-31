@@ -197,7 +197,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
           rules={[{ required: true, message: "Please input your name!" }]}
         >
           <Input
-            className="border-2 border-[#13a89e]"
+            className="border-2 border-[#13a89e] bg-[#d0eeec]"
             placeholder="Enter your name"
           />
         </Form.Item>
@@ -229,7 +229,8 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
                 const searchText = `${option.label}`.toLowerCase();
                 return searchText.includes(input.toLowerCase());
               }}
-              className="w-1/3 border-2 border-[#13a89e] rounded-xl"
+              className="select-bg w-1/3 border-2 border-[#13a89e] rounded-xl"
+              popupClassName="bg-[#d0eeec]"
             >
               {countries.map((country) => (
                 <Option
@@ -245,7 +246,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
               value={phone}
               onChange={handlePhoneChange}
               placeholder="Enter your phone number"
-              className="w-2/3 border-2 border-[#13a89e]"
+              className="w-2/3 border-2 border-[#13a89e] bg-[#d0eeec]"
             />
           </div>
         </Form.Item>
@@ -257,7 +258,8 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
         >
           <Select
             placeholder="Select an operation"
-            className="border-2 border-[#13a89e] rounded-xl"
+            className="select-bg border-2 border-[#13a89e] rounded-xl"
+            popupClassName="bg-[#d0eeec]"
           >
             <Option value="bbl">BBL</Option>
             <Option value="breast">Breast Surgeries</Option>
@@ -273,12 +275,12 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
           <TextArea
             rows={4}
             placeholder="Enter your message"
-            className="border-2 border-[#13a89e] rounded-xl"
+            className="border-2 border-[#13a89e] bg-[#d0eeec] rounded-xl"
           />
         </Form.Item>
         <Form.Item className="text-right mt-4">
           <Button
-            className="bg-[#13a89e] px-12 rounded-[25px]"
+            className="bg-[#13a89e] px-12 rounded-[25px] text-white"
             htmlType="submit"
             disabled={submitting}
           >

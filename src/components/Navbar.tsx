@@ -43,7 +43,7 @@ export default function Navbar({
           onButtonClick={onButtonClick}
         />
       </div>
-      <div className="flex w-full lg:w-[55%] mt-8 lg:mt-0 items-center order-1 lg:order-2 justify-between lg:justify-center">
+      <div className="flex w-full lg:w-[55%] mt-8 lg:mt-0 items-center order-1 lg:order-2 justify-between">
         <div className="flex items-center justify-start ">
           <Image
             src="/img/estintlogo25.webp"

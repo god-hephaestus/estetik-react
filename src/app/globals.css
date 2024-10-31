@@ -112,3 +112,6 @@ html {
 .ant-image-preview-switch-right {
   background-color: #13a89e !important;
 }
+.select-bg .ant-select-selector {
+  background-color: #d0eeec !important;
+}
