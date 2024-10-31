@@ -114,4 +114,5 @@ html {
 }
 .select-bg .ant-select-selector {
   background-color: #d0eeec !important;
+  border-radius: 25px !important;
 }

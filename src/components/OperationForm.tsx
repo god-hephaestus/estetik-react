@@ -18,7 +18,7 @@ interface Country {
 }
 
 export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
-  const containerClassNames = `flex justify-center lg:h-[450px] 2xl:h-[520px] items-center ${
+  const containerClassNames = `flex justify-center lg:h-[470px] 2xl:h-[490px] items-center ${
     isExpanded ? "z-50 h-full" : ""
   }`;
   const [form] = Form.useForm();
@@ -191,18 +191,18 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
         </Form.Item>
 
         <Form.Item
-          className="mb-4"
+          className="mb-4 mt-4"
           label="Name"
           name="name"
           rules={[{ required: true, message: "Please input your name!" }]}
         >
           <Input
-            className="border-2 border-[#13a89e] bg-[#d0eeec]"
+            className="border-2 border-[#13a89e] bg-[#d0eeec] h-[40px] rounded-[25px]"
             placeholder="Enter your name"
           />
         </Form.Item>
         <Form.Item
-          className="mb-4"
+          className="mb-4 "
           label="Phone"
           required
           rules={[
@@ -217,7 +217,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
             }),
           ]}
         >
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 ">
             <Select
               showSearch
               value={countryCode}
@@ -229,8 +229,8 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
                 const searchText = `${option.label}`.toLowerCase();
                 return searchText.includes(input.toLowerCase());
               }}
-              className="select-bg w-1/2 border-2 border-[#13a89e] rounded-xl"
-              popupClassName="bg-[#d0eeec]"
+              className="select-bg w-1/2 lg:3/5 border-2 border-[#13a89e] rounded-[25px]  h-[40px] "
+              popupClassName="bg-[#d0eeec]  "
             >
               {countries.map((country) => (
                 <Option
@@ -246,7 +246,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
               value={phone}
               onChange={handlePhoneChange}
               placeholder="Enter your phone number"
-              className="w-1/2 border-2 border-[#13a89e] bg-[#d0eeec]"
+              className="w-1/2 lg:w-3/5 border-2 border-[#13a89e] bg-[#d0eeec] h-[40px] rounded-[25px]"
             />
           </div>
         </Form.Item>
@@ -258,7 +258,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
         >
           <Select
             placeholder="Select an operation"
-            className="select-bg border-2 border-[#13a89e] rounded-xl"
+            className="select-bg border-2 border-[#13a89e] h-[40px] rounded-[25px]"
             popupClassName="bg-[#d0eeec]"
           >
             <Option value="bbl">BBL</Option>
@@ -277,12 +277,12 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
           <TextArea
             rows={4}
             placeholder="Enter your message"
-            className="border-2 border-[#13a89e] bg-[#d0eeec] rounded-xl"
+            className="border-2 border-[#13a89e] bg-[#d0eeec] rounded-[25px]"
           />
         </Form.Item>
-        <Form.Item className="text-right mt-4">
+        <Form.Item className="text-right mt-4  ">
           <Button
-            className="bg-[#13a89e] px-12 rounded-[25px] text-white"
+            className="bg-[#13a89e] px-12  rounded-[25px] text-white h-[32px] lg:h-[40px]"
             htmlType="submit"
             disabled={submitting}
           >

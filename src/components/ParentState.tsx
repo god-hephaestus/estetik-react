@@ -143,7 +143,7 @@ export default function ParentState({
           </div>
 
           <div
-            className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-[450px] 2xl:h-[450px] lg:max-h-[550px]  no-scrollbar transition-all duration-500 ease-in-out  ${
+            className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-[470px] 2xl:h-[490px] lg:max-h-[550px]  no-scrollbar transition-all duration-500 ease-in-out  ${
               expandedState === "Gallery" ? "max-h-[62vh] " : ""
             } ${
               expandedState === "Comparison"
@@ -230,7 +230,7 @@ export default function ParentState({
             expandedState !== "Form" &&
             expandedState !== "Doctors" &&
             expandedState !== "Testimonials"
-              ? "-mt-80"
+              ? "-mt-48"
               : ""
           }`}
         >
@@ -256,7 +256,7 @@ export default function ParentState({
             expandedState !== "Form" &&
             expandedState !== "Doctors" &&
             expandedState !== "Testimonials"
-              ? "-mt-60"
+              ? "-mt-32"
               : ""
           }
 
