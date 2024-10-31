@@ -227,9 +227,21 @@ export default function ParentState({
         </div>
 
         <div
-          className={`transition-all duration-500 ease-in-out relative col-span-1 lg:col-span-5 2xl:col-span-4 lg:mt-0 border-2 rounded-[25px] border-none lg:border-none z-20 ${
-            expandedState === "Doctors" ? "z-50" : ""
-          } ${expandedState === "Form" ? "" : "-mt-32"} `}
+          className={`transition-all duration-500 ease-in-out relative col-span-1 lg:col-span-5 2xl:col-span-4 lg:mt-0 border-2 rounded-[25px] border-none lg:border-none z-20 
+          ${expandedState === "Form" ? "mt-0" : ""}
+          ${
+            expandedState === "Doctors"
+              ? "z-50 -mt-96"
+              : "max-h-[20vh] overflow-hidden"
+          }
+          ${expandedState === "Testimonials" ? "-mt-80" : ""}
+          ${
+            expandedState !== "Form" &&
+            expandedState !== "Doctors" &&
+            expandedState !== "Testimonials"
+              ? "-mt-80"
+              : ""
+          }`}
         >
           <div
             className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e] "
@@ -244,11 +256,22 @@ export default function ParentState({
         </div>
 
         <div
-          className={`relative col-span-1 lg:col-span-7 2xl:col-span-8 flex flex-col w-full transition-all duration-500 ease-in-out ${
-            expandedState === "Testimonials" ? "z-50" : "z-40"
-          } ${expandedState === "Doctors" ? "" : "-mt-72 lg:mt-0"}`}
+          className={`relative col-span-1 lg:col-span-7 lg:mt-0 2xl:col-span-8 flex flex-col w-full transition-all duration-500 ease-in-out ${
+            expandedState === "Testimonials" ? "z-50 -mt-60" : "z-30"
+          }
+          ${expandedState === "Form" ? "-mt-16" : ""}          
+          ${expandedState === "Doctors" ? "" : " "}          
+          ${
+            expandedState !== "Form" &&
+            expandedState !== "Doctors" &&
+            expandedState !== "Testimonials"
+              ? "-mt-60"
+              : ""
+          }
+
+          `}
         >
-          <div className="flex flex-col lg:flex-row gap-6 w-full">
+          <div className="flex flex-col lg:flex-row gap-2 lg:gap-6 w-full">
             <div
               className={`transition-all duration-500 ease-in-out relative lg:w-[64%] flex-grow`}
               style={
@@ -273,7 +296,7 @@ export default function ParentState({
             </div>
 
             <div
-              className={`transition-all duration-500 ease-in-out relative lg:w-[36%] z-40 mb-8 lg:mb-0 ${
+              className={`transition-all duration-500 ease-in-out relative lg:w-[36%] z-40 lg:mb-0 ${
                 expandedState === "Testimonials" ? "" : "-mt-40 lg:mt-0"
               }`}
             >

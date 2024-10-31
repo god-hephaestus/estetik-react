@@ -229,7 +229,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
                 const searchText = `${option.label}`.toLowerCase();
                 return searchText.includes(input.toLowerCase());
               }}
-              className="select-bg w-1/3 border-2 border-[#13a89e] rounded-xl"
+              className="select-bg w-1/2 border-2 border-[#13a89e] rounded-xl"
               popupClassName="bg-[#d0eeec]"
             >
               {countries.map((country) => (
@@ -246,7 +246,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
               value={phone}
               onChange={handlePhoneChange}
               placeholder="Enter your phone number"
-              className="w-2/3 border-2 border-[#13a89e] bg-[#d0eeec]"
+              className="w-1/2 border-2 border-[#13a89e] bg-[#d0eeec]"
             />
           </div>
         </Form.Item>
