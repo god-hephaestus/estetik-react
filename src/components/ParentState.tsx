@@ -153,14 +153,18 @@ export default function ParentState({
 
           <div
             className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-[450px] 2xl:h-[450px] lg:max-h-[550px]  no-scrollbar transition-all duration-500 ease-in-out  ${
-              expandedState === "Gallery" ? "max-h-[580px] " : ""
-            } ${expandedState === "Comparison" ? " max-h-[280px]" : ""} 
-            ${expandedState === "Video" ? " max-h-[370px]" : ""}
+              expandedState === "Gallery" ? "max-h-[62vh] " : ""
+            } ${
+              expandedState === "Comparison"
+                ? " max-h-[25vh] overflow-hidden"
+                : ""
+            } 
+            ${expandedState === "Video" ? " max-h-[39vh]" : ""}
             ${
               expandedState !== "Video" &&
               expandedState !== "Comparison" &&
               expandedState !== "Gallery"
-                ? "max-h-[520px]"
+                ? "max-h-[55vh]"
                 : ""
             }
             `}
