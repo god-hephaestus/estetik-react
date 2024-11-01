@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Comparison from "./Comparison";
 import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
@@ -13,46 +13,81 @@ import Location from "./Location";
 import ClickIcon from "./ClickIcon";
 import VideoSliderMobile from "./VideoSliderMobile";
 
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface ButtonData {
+  label: string;
+  image1: string;
+  image2: string;
+  faqs: FAQ[];
+  stateKey: string;
+}
+
+interface Testimonial {
+  name: string;
+  operation: string;
+  message: string;
+  genderFemale: boolean;
+}
+
+interface DoctorData {
+  imageSrc: string;
+  doctorName: string;
+  doctorText: string;
+  doctorArea: string;
+}
+
+interface GalleryImage {
+  src: string;
+  alt: string;
+}
+
+interface HeroBgData {
+  src: string[];
+  alt?: string;
+}
+
+interface ParentStateProps {
+  activeState: string;
+  testimonialsData: {
+    [key: string]: Testimonial[];
+  };
+  buttonsData: ButtonData[];
+  GalleryImgsData: {
+    [key: string]: GalleryImage[];
+  };
+  heroBgData: {
+    [key: string]: HeroBgData;
+  };
+  doctorsData: DoctorData[];
+}
+
 export default function ParentState({
+  activeState,
   testimonialsData,
   buttonsData,
   GalleryImgsData,
   heroBgData,
   doctorsData,
-}: {
-  testimonialsData: {
-    [key: string]: Array<{
-      name: string;
-      operation: string;
-      message: string;
-      genderFemale: boolean;
-    }>;
-  };
-  buttonsData: Array<{
-    label: string;
-    image1: string;
-    image2: string;
-    faqs: Array<{ question: string; answer: string }>;
-    stateKey: string;
-  }>;
-  GalleryImgsData: { [key: string]: Array<{ src: string; alt: string }> };
-  heroBgData: { [key: string]: { src: string[]; alt?: string } };
-  doctorsData: Array<{
-    imageSrc: string;
-    doctorName: string;
-    doctorText: string;
-    doctorArea: string;
-  }>;
-}) {
-  const [comparisonData, setComparisonData] = useState(buttonsData[0]);
-  const [stateKey, setstateKey] = useState(comparisonData.stateKey);
-  const videoDescription: string[] = heroBgData[stateKey]?.src ?? [];
+}: ParentStateProps) {
+  const initialComparisonData =
+    buttonsData.find((item) => item.stateKey === activeState) || buttonsData[0];
 
+  const [comparisonData, setComparisonData] = useState<ButtonData>(
+    initialComparisonData
+  );
+  const [stateKey, setStateKey] = useState<string>(
+    initialComparisonData.stateKey
+  );
+  const videoDescription: string[] = heroBgData[stateKey]?.src ?? [];
   const [expandedState, setExpandedState] = useState<string | null>("Video");
 
-  const handleButtonClick = (newComparisonData: (typeof buttonsData)[0]) => {
+  const handleButtonClick = (newComparisonData: ButtonData) => {
     setComparisonData(newComparisonData);
-    setstateKey(newComparisonData.stateKey);
+    setStateKey(newComparisonData.stateKey);
   };
 
   const faqItems = comparisonData.faqs.map((faq, index) => ({
@@ -61,13 +96,11 @@ export default function ParentState({
     children: <p className="bg-[#d0eeec]">{faq.answer}</p>,
   }));
 
-  // Unified handle function for expanded states
   const handleExpandClick = (component: string) => {
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
       setExpandedState((prev) => (prev === component ? null : component));
     }
   };
-
   return (
     <div>
       <Navbar
