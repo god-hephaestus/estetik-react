@@ -153,7 +153,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
         form={form}
         layout="vertical"
         onFinish={handleSubmit}
-        className="w-full h-full flex-1 px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] shadow-md"
+        className="w-full h-full flex-1 px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] "
       >
         <Form.Item
           name="utm_source"

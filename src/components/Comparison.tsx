@@ -19,7 +19,7 @@ export default function Comparison({
 }) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
-  const containerClassNames = `container relative rounded-3xl shadow-md bg-[#d0eeec] h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] flex items-center ${
+  const containerClassNames = `container relative rounded-3xl bg-[#d0eeec] h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] flex items-center ${
     isExpanded ? "" : ""
   }`;
 

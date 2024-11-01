@@ -133,7 +133,7 @@ export default function ParentState({
             expandedState !== "Video" && expandedState !== "Comparison"
               ? ""
               : ""
-          } flex flex-col rounded-[35px] lg:backdrop-blur-none lg:bg-[#d0eeec] shadow-md`}
+          } flex flex-col rounded-[35px] lg:backdrop-blur-none lg:bg-[#d0eeec] `}
         >
           <div
             className="absolute top-2 right-2 cursor-pointer z-[99] text-4xl md:hidden text-[#13a89e]"
