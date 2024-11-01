@@ -27,7 +27,12 @@ export default function Doctors({
  } `;
 
   return (
-    <Carousel arrows={true} infinite={true} draggable className="h-full">
+    <Carousel
+      arrows={true}
+      infinite={true}
+      draggable
+      className="h-full doctors"
+    >
       {doctorDescription.map((doctor, index) => (
         <div key={index} className={containerClassNames}>
           <div className="relative w-full my-4 lg:mt-0 h-[250px] lg:h-[80%] lg:w-[45%] flex-shrink-0">
@@ -48,7 +53,7 @@ export default function Doctors({
               <div className="flex items-center justify-center bg-[#13a89e] rounded-[10px] w-10 h-10 min-w-[2.5rem] flex-shrink-0">
                 <MedicineBoxOutlined className="text-white text-2xl" />
               </div>
-              <p className="text-[#0a5b56] text-center lg:text-start font-medium lg:w-[80%] md:ml-4">
+              <p className="text-[#0a5b56] text-center lg:text-start lg:w-[80%] md:ml-2">
                 {doctor.doctorArea}
               </p>
             </div>
