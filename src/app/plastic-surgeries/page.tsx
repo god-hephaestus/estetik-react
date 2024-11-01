@@ -826,6 +826,7 @@ export default function ComparisonPage() {
     <div className="">
       <div className="w-full lg:mb-24">
         <ParentState
+          activeState="gallery1"
           buttonsData={buttonsData}
           GalleryImgsData={GalleryImgsData}
           testimonialsData={testimonialsData}
