@@ -14,17 +14,10 @@ interface Doctor {
 
 export default function Doctors({
   doctorDescription,
-  isExpanded,
 }: {
   doctorDescription: Doctor[];
-  isExpanded: boolean;
 }) {
-  const containerClassNames = `flex flex-col md:flex-col lg:flex-row items-center h-[474px] md:h-[446px] lg:h-[280px] xl:h-[250px] mx-0 pr-0  lg:backdrop-blur-none lg:bg-[#d0eeec] border-2 border-[#13a89e] lg:border-none rounded-[25px]
- ${
-   isExpanded
-     ? " backdrop-blur-none bg-[#d0eeec]"
-     : "backdrop-blur bg-[#13a89e]/20"
- } `;
+  const containerClassNames = `flex flex-col md:flex-col lg:flex-row items-center h-[474px] md:h-[446px] lg:h-[280px] xl:h-[250px] mx-0 pr-0  bg-[#d0eeec] border-2 border-[#13a89e] border-none rounded-[25px]`;
 
   return (
     <Carousel

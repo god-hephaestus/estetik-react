@@ -8,17 +8,11 @@ import OperationForm from "./OperationForm";
 
 export default function VideoSliderMobile({
   videoDescription,
-  isExpanded,
 }: {
   videoDescription: string[];
-  isExpanded: boolean;
 }) {
   const containerClassNames = `relative flex items-center justify-center w-full h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] 
-    border-[#13a89e]/20 lg:backdrop-blur-none lg:bg-[#d0eeec] lg:border-2 ${
-      isExpanded
-        ? "backdrop-blur-none bg-[#d0eeec]"
-        : "backdrop-blur bg-[#13a89e]/20"
-    } lg:border-[#d0eeec] rounded-[25px] overflow-hidden`;
+    border-[#13a89e]/20 lg:backdrop-blur-none lg:bg-[#d0eeec] lg:border-2 bg-[#d0eeec] lg:border-[#d0eeec] rounded-[25px] overflow-hidden`;
 
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -175,7 +169,7 @@ export default function VideoSliderMobile({
               >
                 &times;
               </button>
-              <OperationForm isExpanded />
+              <OperationForm />
             </div>
           </div>,
           document.body

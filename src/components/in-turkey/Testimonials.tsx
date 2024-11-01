@@ -16,13 +16,11 @@ interface Testimonial {
 interface TestimonialsProps {
   stateKey: string;
   testimonialsData: { [key: string]: Testimonial[] };
-  isExpanded: boolean;
 }
 
 export default function Testimonials({
   stateKey,
   testimonialsData,
-  isExpanded,
 }: TestimonialsProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -112,13 +110,9 @@ export default function Testimonials({
   // Filter testimonials by stateKey
   const testimonials = testimonialsData[stateKey] || [];
 
-  const containerClassNames = `no-scrollbar bg-[#13a89e]/20 lg:mt-0 border-2 border-[#13a89e] lg:border-none backdrop-blur lg:backdrop-blur-none lg:bg-[#d0eeec] rounded-[25px] px-2 flex flex-grow overflow-x-auto cursor-${
+  const containerClassNames = `no-scrollbar bg-[#13a89e]/20 lg:mt-0 border-2 border-[#13a89e] border-none h-[240px] lg:h-[280px] xl:h-[250px] rounded-[25px] px-2 flex flex-grow overflow-x-auto cursor-${
     isDragging ? "grabbing" : "grab"
-  } no-select ${
-    isExpanded
-      ? "h-[240px] lg:h-[280px] xl:h-[250px] backdrop-blur-none bg-[#d0eeec]"
-      : "h-[240px] lg:h-[280px] xl:h-[250px] backdrop-blur bg-[#13a89e]/20 "
-  }`;
+  } no-select `;
 
   return (
     <div

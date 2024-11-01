@@ -6,7 +6,6 @@ import { Spin } from "antd";
 
 export default function Comparison({
   comparisonData,
-  isExpanded,
 }: {
   comparisonData: {
     label: string;
@@ -15,13 +14,10 @@ export default function Comparison({
     faqs: Array<{ question: string; answer: string }>;
     stateKey: string;
   };
-  isExpanded: boolean;
 }) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
-  const containerClassNames = `container relative rounded-3xl bg-[#d0eeec] h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] flex items-center ${
-    isExpanded ? "" : ""
-  }`;
+  const containerClassNames = `container relative rounded-3xl bg-[#d0eeec] h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] flex items-center`;
 
   useEffect(() => {
     const preloadImages = async () => {
