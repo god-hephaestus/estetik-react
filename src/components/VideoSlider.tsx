@@ -74,18 +74,18 @@ export default function VideoSlider({
           ></video>
           <button
             onClick={() => openModal(allVideos[0], 0)}
-            className="absolute bottom-4 left-4 bg-[#13a89e] bg-opacity-60 text-white p-2 rounded-full flex items-center justify-center"
+            className="absolute bottom-4 right-4 bg-[#13a89e] bg-opacity-60 text-white p-2 rounded-full flex items-center justify-center"
           >
             <FullscreenOutlined className="text-xl" />
           </button>
         </div>
-        {videoDescription.map((videoSrc, index) => (
-          <div key={index + 1} className={containerClassNames}>
+        {videoDescription.map((_, index: number) => (
+          <div key={index} className={containerClassNames}>
             <video
               ref={(el) => {
-                if (el) videoRefs.current[index + 1] = el;
+                if (el) videoRefs.current[index] = el;
               }}
-              src={allVideos[index + 1]}
+              src={allVideos[index]}
               className="object-cover w-full h-full"
               autoPlay
               muted
@@ -97,8 +97,8 @@ export default function VideoSlider({
               }
             ></video>
             <button
-              onClick={() => openModal(allVideos[index + 1], index + 1)}
-              className="absolute bottom-4 left-4 bg-[#13a89e] bg-opacity-60 text-white p-2 rounded-full flex items-center justify-center"
+              onClick={() => openModal(allVideos[index], index)}
+              className="absolute bottom-4 right-4 bg-[#13a89e] bg-opacity-60 text-white p-2 rounded-full flex items-center justify-center"
             >
               <FullscreenOutlined className="text-xl" />
             </button>

@@ -136,7 +136,7 @@ export default function ParentState({
               />
             </div>
             <div
-              className={`my-auto lg:w-[50%] lg:h-[450px] justify-center overflow-scroll no-scrollbar px-2 lg:pr-4 lg:pl-0 lg:py-2 bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]`}
+              className={`my-auto lg:w-[50%] lg:h-[450px] justify-center overflow-y-scroll px-2 lg:pr-4 lg:pl-0  bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]`}
             >
               <Collapse
                 expandIcon={({ isActive }) => (
