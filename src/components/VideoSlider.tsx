@@ -23,7 +23,6 @@ export default function VideoSlider({
   const [activeVideoSrc, setActiveVideoSrc] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  // Combine first video with the rest of the videos
   const allVideos = [
     "/video/hero7.mp4",
     ...videoDescription.map((src) => `/video/${src}`),
@@ -33,13 +32,13 @@ export default function VideoSlider({
     setActiveVideoSrc(videoSrc);
     setCurrentIndex(index);
     setShowModal(true);
-    setTimeout(() => setIsOpen(true), 50); // Delay for transition to apply
+    setTimeout(() => setIsOpen(true), 50);
   };
 
   const closeModal = () => {
     setIsOpen(false);
-    setTimeout(() => setShowModal(false), 300); // Unmount modal after transition
-    setTimeout(() => setActiveVideoSrc(null), 300); // Clear video source
+    setTimeout(() => setShowModal(false), 300);
+    setTimeout(() => setActiveVideoSrc(null), 300);
   };
 
   const handleNextVideo = () => {
@@ -128,7 +127,6 @@ export default function VideoSlider({
                 &times;
               </button>
 
-              {/* Left Arrow */}
               <button
                 onClick={handlePreviousVideo}
                 className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-[#13a89e] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
@@ -136,7 +134,6 @@ export default function VideoSlider({
                 <LeftOutlined />
               </button>
 
-              {/* Right Arrow */}
               <button
                 onClick={handleNextVideo}
                 className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#13a89e] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
