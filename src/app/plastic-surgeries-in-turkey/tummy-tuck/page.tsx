@@ -814,7 +814,7 @@ const HeroBgData = {
     src: ["Total body.mp4"],
   },
   gallery4: {
-    src: ["Total body.mp4"],
+    src: ["tummy-tuck.mp4"],
   },
   gallery5: {
     src: ["Total body.mp4"],

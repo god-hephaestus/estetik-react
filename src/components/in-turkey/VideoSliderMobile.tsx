@@ -11,7 +11,7 @@ export default function VideoSliderMobile({
 }: {
   videoDescription: string[];
 }) {
-  const containerClassNames = `relative flex items-center justify-center w-full h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] 
+  const containerClassNames = `relative flex items-center justify-center w-full h-auto aspect-[9/16] 
     border-[#13a89e]/20 lg:backdrop-blur-none lg:bg-[#d0eeec] lg:border-2 bg-[#d0eeec] lg:border-[#d0eeec] rounded-[25px] overflow-hidden`;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -68,7 +68,7 @@ export default function VideoSliderMobile({
       <Carousel arrows={true} infinite={true} className="w-full mx-auto">
         <div
           key={0}
-          className={containerClassNames}
+          className={`${containerClassNames} aspect-[9/16]`} // Set aspect ratio here
           onClick={() => handleVideoClick(0)}
         >
           <Button
@@ -82,7 +82,7 @@ export default function VideoSliderMobile({
           </Button>
           <video
             src={allVideosM[0]}
-            className="object-cover w-full h-full pointer-events-none"
+            className="object-cover w-full h-full pointer-events-none aspect-[9/16]" // Adjusted for 9:16 aspect ratio
             autoPlay
             muted
             loop
@@ -140,10 +140,10 @@ export default function VideoSliderMobile({
                 <RightOutlined />
               </button>
 
-              <div className="relative overflow-hidden pt-[56.25%] rounded-lg">
+              <div className="relative rounded-lg aspect-[9/16] w-full h-auto">
                 <video
                   src={activeVideoSrc ?? ""}
-                  className="absolute top-0 left-0 w-full h-full"
+                  className="w-full h-full object-cover"
                   controls
                   autoPlay
                 ></video>
