@@ -18,7 +18,6 @@ interface Country {
 }
 
 export default function OperationForm() {
-  const containerClassNames = `flex justify-center lg:h-[470px] 2xl:h-[490px] items-center `;
   const [form] = Form.useForm();
   const [phone, setPhone] = useState<string>("");
   const [countryCode, setCountryCode] = useState<CountryCode>("US");
@@ -145,7 +144,7 @@ export default function OperationForm() {
   };
 
   return (
-    <div className={containerClassNames}>
+    <div className="flex justify-center lg:h-[470px] 2xl:h-[490px] items-center">
       <Form
         name="operationForm"
         form={form}

@@ -20,10 +20,9 @@ export default function VideoSliderMobile({
   const [activeVideoSrc, setActiveVideoSrc] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  const allVideos = [
-    "/video/hero7.mp4",
-    ...videoDescription.map((src) => `/video/${src}`),
-  ];
+  const allVideosM = videoDescription.map(
+    (src) => `/video/slider/mobile/${src}`
+  );
 
   const openModal = (videoSrc: string, index: number) => {
     setActiveVideoSrc(videoSrc);
@@ -48,19 +47,20 @@ export default function VideoSliderMobile({
   };
 
   const handleNextVideo = () => {
-    const nextIndex = (currentIndex + 1) % allVideos.length;
+    const nextIndex = (currentIndex + 1) % allVideosM.length;
     setCurrentIndex(nextIndex);
-    setActiveVideoSrc(allVideos[nextIndex]);
+    setActiveVideoSrc(allVideosM[nextIndex]);
   };
 
   const handlePreviousVideo = () => {
-    const prevIndex = (currentIndex - 1 + allVideos.length) % allVideos.length;
+    const prevIndex =
+      (currentIndex - 1 + allVideosM.length) % allVideosM.length;
     setCurrentIndex(prevIndex);
-    setActiveVideoSrc(allVideos[prevIndex]);
+    setActiveVideoSrc(allVideosM[prevIndex]);
   };
 
   const handleVideoClick = (index: number) => {
-    openModal(allVideos[index], index);
+    openModal(allVideosM[index], index);
   };
 
   return (
@@ -81,7 +81,7 @@ export default function VideoSliderMobile({
             </span>
           </Button>
           <video
-            src={allVideos[0]}
+            src={allVideosM[0]}
             className="object-cover w-full h-full pointer-events-none"
             autoPlay
             muted
@@ -95,7 +95,7 @@ export default function VideoSliderMobile({
             onClick={() => handleVideoClick(index + 1)}
           >
             <video
-              src={allVideos[index + 1]}
+              src={allVideosM[index + 1]}
               className="object-cover w-full h-full pointer-events-none"
               autoPlay
               muted

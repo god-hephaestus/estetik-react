@@ -1,3 +1,4 @@
+import Hero from "@/components/in-turkey/Hero";
 import ParentState from "@/components/in-turkey/ParentState";
 import { Metadata } from "next";
 
@@ -814,7 +815,7 @@ const HeroBgData = {
     src: ["Total body.mp4"],
   },
   gallery4: {
-    src: ["Total body.mp4"],
+    src: ["tummy-tuck.mp4"],
   },
   gallery5: {
     src: ["Total body.mp4"],
@@ -824,6 +825,7 @@ const HeroBgData = {
 export default function ComparisonPage() {
   return (
     <div className="">
+      <Hero></Hero>
       <div className="w-full lg:mb-24">
         <ParentState
           activeState="gallery1"

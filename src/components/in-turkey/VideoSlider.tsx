@@ -23,10 +23,12 @@ export default function VideoSlider({
   const [activeVideoSrc, setActiveVideoSrc] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  const allVideos = [
-    "/video/hero7.mp4",
-    ...videoDescription.map((src) => `/video/${src}`),
-  ];
+  const allVideosD = videoDescription.map(
+    (src) => `/video/slider/desktop/${src}`
+  );
+  const allVideosM = videoDescription.map(
+    (src) => `/video/slider/mobile/${src}`
+  );
 
   const openModal = (videoSrc: string, index: number) => {
     setActiveVideoSrc(videoSrc);
@@ -42,15 +44,16 @@ export default function VideoSlider({
   };
 
   const handleNextVideo = () => {
-    const nextIndex = (currentIndex + 1) % allVideos.length;
+    const nextIndex = (currentIndex + 1) % allVideosD.length;
     setCurrentIndex(nextIndex);
-    setActiveVideoSrc(allVideos[nextIndex]);
+    setActiveVideoSrc(allVideosD[nextIndex]);
   };
 
   const handlePreviousVideo = () => {
-    const prevIndex = (currentIndex - 1 + allVideos.length) % allVideos.length;
+    const prevIndex =
+      (currentIndex - 1 + allVideosD.length) % allVideosD.length;
     setCurrentIndex(prevIndex);
-    setActiveVideoSrc(allVideos[prevIndex]);
+    setActiveVideoSrc(allVideosD[prevIndex]);
   };
 
   return (
@@ -61,7 +64,7 @@ export default function VideoSlider({
             ref={(el) => {
               if (el) videoRefs.current[0] = el;
             }}
-            src={allVideos[0]}
+            src={allVideosD[0]}
             className="object-cover w-full h-full"
             autoPlay
             muted
@@ -73,7 +76,7 @@ export default function VideoSlider({
             }
           ></video>
           <button
-            onClick={() => openModal(allVideos[0], 0)}
+            onClick={() => openModal(allVideosD[0], 0)}
             className="absolute bottom-4 right-4 bg-[#13a89e] bg-opacity-60 text-white p-2 rounded-full flex items-center justify-center"
           >
             <FullscreenOutlined className="text-xl" />
@@ -85,7 +88,7 @@ export default function VideoSlider({
               ref={(el) => {
                 if (el) videoRefs.current[index] = el;
               }}
-              src={allVideos[index]}
+              src={allVideosD[index]}
               className="object-cover w-full h-full"
               autoPlay
               muted
@@ -97,7 +100,7 @@ export default function VideoSlider({
               }
             ></video>
             <button
-              onClick={() => openModal(allVideos[index], index)}
+              onClick={() => openModal(allVideosD[index], index)}
               className="absolute bottom-4 right-4 bg-[#13a89e] bg-opacity-60 text-white p-2 rounded-full flex items-center justify-center"
             >
               <FullscreenOutlined className="text-xl" />
