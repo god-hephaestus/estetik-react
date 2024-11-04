@@ -1,4 +1,3 @@
-import { ArrowDownOutlined } from "@ant-design/icons";
 import DownArrow from "./DownArrow";
 
 export default function Hero() {
