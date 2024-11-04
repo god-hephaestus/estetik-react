@@ -31,31 +31,6 @@ export default function ComparisonButtons({
 }: ComparisonButtonsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const handleNext = () => {
-    const currentIndex = buttonProps.findIndex(
-      (b) => b.label === comparisonData.label
-    );
-    const nextIndex = (currentIndex + 1) % buttonProps.length;
-    onButtonClick(buttonProps[nextIndex]);
-
-    if (scrollRef.current) {
-      scrollToButton(nextIndex);
-    }
-  };
-
-  const handlePrevious = () => {
-    const currentIndex = buttonProps.findIndex(
-      (b) => b.label === comparisonData.label
-    );
-    const prevIndex =
-      (currentIndex - 1 + buttonProps.length) % buttonProps.length;
-    onButtonClick(buttonProps[prevIndex]);
-
-    if (scrollRef.current) {
-      scrollToButton(prevIndex);
-    }
-  };
-
   const scrollToButton = (index: number) => {
     if (scrollRef.current) {
       const containerWidth = scrollRef.current.clientWidth;
@@ -79,39 +54,36 @@ export default function ComparisonButtons({
     }
   };
 
+  useEffect(() => {
+    const activeIndex = buttonProps.findIndex(
+      (b) => b.label === comparisonData.label
+    );
+    if (activeIndex >= 0) {
+      scrollToButton(activeIndex);
+    }
+  }, [comparisonData, buttonProps]);
+
+  const handleNext = () => {
+    const currentIndex = buttonProps.findIndex(
+      (b) => b.label === comparisonData.label
+    );
+    const nextIndex = (currentIndex + 1) % buttonProps.length;
+    onButtonClick(buttonProps[nextIndex]);
+  };
+
+  const handlePrevious = () => {
+    const currentIndex = buttonProps.findIndex(
+      (b) => b.label === comparisonData.label
+    );
+    const prevIndex =
+      (currentIndex - 1 + buttonProps.length) % buttonProps.length;
+    onButtonClick(buttonProps[prevIndex]);
+  };
+
   const handleButtonClick = (button: ButtonProps, index: number) => {
     onButtonClick(button);
     scrollToButton(index);
   };
-
-  useEffect(() => {
-    const container = scrollRef.current;
-
-    const handleWheel = (e: WheelEvent) => {
-      if (container) {
-        const canScrollMore =
-          container.scrollLeft > 0 ||
-          container.scrollLeft + container.clientWidth < container.scrollWidth;
-
-        if (canScrollMore) {
-          e.preventDefault();
-          container.scrollBy({
-            left: e.deltaY,
-          });
-        }
-      }
-    };
-
-    if (container) {
-      container.addEventListener("wheel", handleWheel, { passive: false });
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener("wheel", handleWheel);
-      }
-    };
-  }, []);
 
   return (
     <div className="relative flex items-center w-full justify-center lg:px-0 h-full max-w-[365px] sm:max-w-[410px] border border-transparent rounded-[25px]">
