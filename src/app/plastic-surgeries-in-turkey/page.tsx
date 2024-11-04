@@ -664,7 +664,7 @@ const testimonialsData = {
       name: "Dana M.",
       operation: "Rhinoplasty",
       message:
-        "Rhino at Estetik International exceeded expectations! Doktor's skill, supportive staff, and amazing results make it the best place for aesthetics!",
+        "Rhino at Estetik International exceeded expectations! Doctor's skill, supportive staff, and amazing results make it the best place for aesthetics!",
       genderFemale: true,
     },
     {
@@ -806,19 +806,19 @@ const doctorsData = [
 ];
 const HeroBgData = {
   gallery1: {
-    src: ["Breast.mp4", "Breast 2.mp4"],
+    src: ["breast.mp4"],
   },
   gallery2: {
-    src: ["BBL.mp4"],
+    src: ["bbl.mp4"],
   },
   gallery3: {
-    src: ["Total body.mp4"],
+    src: ["total-body.mp4"],
   },
   gallery4: {
     src: ["tummy-tuck.mp4"],
   },
   gallery5: {
-    src: ["Total body.mp4"],
+    src: ["rhinoplasty.mp4"],
   },
 };
 
