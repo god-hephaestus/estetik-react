@@ -139,7 +139,9 @@ export default function Testimonials({
             <div className="shadow-xl p-5 my-2 bg-[#13a89e] relative rounded-xl w-80 lg:w-80 flex-grow">
               <div className="mb-16 md:mb-10 text-black ">
                 <CommentOutlined className="bottom-[5px] right-[5px] absolute text-xl hidden lg:flex rounded-full bg-white p-1 text-black" />
-                <p className="text-white">{testimonial.message}</p>
+                <p className="text-white leading-tight">
+                  {testimonial.message}
+                </p>
               </div>
 
               <div className="absolute bottom-0 left-0 flex items-center p-5">
@@ -153,13 +155,15 @@ export default function Testimonials({
                   alt={"customer testimonial"}
                   draggable={false}
                   shape="circle"
-                  className="mr-3"
+                  className="mr-3 flex-shrink-0"
                 />
-                <div>
+                <div className="max-w-[220px] overflow-hidden">
                   <Title level={4} className="m-0 text-white">
                     {testimonial.name}
                   </Title>
-                  <p className="text-white">{testimonial.operation}</p>
+                  <p className="text-white font-light truncate">
+                    <i>{testimonial.operation}</i>
+                  </p>
                 </div>
               </div>
             </div>

@@ -54,7 +54,7 @@ export default function Navbar({
         </div>
         <div className="flex justify-end items-center gap-3 border-[#13a89e] p-1 border rounded-[25px] lg:border-0 xl:gap-4">
           <Button
-            className="h-[90%] sm:h-[70%] bg-[#22c55e] p-[5px] lg:px-3 lg:py-3 rounded-[25px] flex items-center justify-center"
+            className="h-[90%] sm:h-[70%] bg-[#22c55e] border-none p-[5px] lg:px-3 lg:py-3 rounded-[25px] flex items-center justify-center"
             target="_blank"
             href="https://wa.me/905498287202?text=RCT01%20Hello%20Estetik%20International%20Health%20Group%20Team.%20Can%20I%20book%20a%20consultation%3F"
           >
@@ -64,7 +64,7 @@ export default function Navbar({
             </span>
           </Button>
           <Button
-            className="h-[90%] sm:h-[70%] bg-[#4060f8] p-[5px] lg:px-3 lg:py-3 rounded-[25px] flex items-center justify-center"
+            className="h-[90%] sm:h-[70%] bg-[#4060f8] border-none p-[5px] lg:px-3 lg:py-3 rounded-[25px] flex items-center justify-center"
             target="_blank"
             href="https://bcrw.apple.com/urn:biz:968dfb5d-99a1-4978-a269-cb52d58c7c18"
           >
@@ -74,7 +74,7 @@ export default function Navbar({
             </span>
           </Button>
           <Button
-            className="h-[90%] sm:h-[70%] bg-[#ea580c] p-[5px] lg:px-3 lg:py-3 rounded-[25px] flex items-center justify-center"
+            className="h-[90%] sm:h-[70%] bg-[#ea580c] border-none p-[5px] lg:px-3 lg:py-3 rounded-[25px] flex items-center justify-center"
             href="tel:+902169001899"
           >
             <span className="flex items-center gap-2">
