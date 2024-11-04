@@ -26,6 +26,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
   const [countryCode, setCountryCode] = useState<CountryCode>("US");
   const [countries, setCountries] = useState<Country[]>([]);
   const [submitting, setSubmitting] = useState(false);
+  const [ipApiCalled, setIpApiCalled] = useState(false); // Track API call status
 
   const [queryParams, setQueryParams] = useState({
     utm_source: "",
@@ -39,13 +40,23 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
   useEffect(() => {
     // Extract URL parameters
     const params = new URLSearchParams(window.location.search);
-    setQueryParams({
+    const newQueryParams = {
       utm_source: params.get("utm_source") || "",
       utm_medium: params.get("utm_medium") || "",
       utm_campaign: params.get("utm_campaign") || "",
       utm_content: params.get("utm_content") || "",
       utm_term: params.get("utm_term") || "",
       gclid: params.get("gclid") || "",
+    };
+    setQueryParams(newQueryParams);
+
+    form.setFieldsValue({
+      utm_source: newQueryParams.utm_source,
+      utm_medium: newQueryParams.utm_medium,
+      utm_campaign: newQueryParams.utm_campaign,
+      utm_content: newQueryParams.utm_content,
+      utm_term: newQueryParams.utm_term,
+      gclid: newQueryParams.gclid,
     });
 
     const allCountries = getCountries().map((code) => {
@@ -60,6 +71,8 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
     setCountries(allCountries);
 
     const detectUserCountry = async () => {
+      if (ipApiCalled) return; // Prevent multiple requests
+
       try {
         const response = await fetch("https://ipapi.co/json/");
         const data = await response.json();
@@ -76,11 +89,13 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
       } catch (error) {
         console.warn("IP detection failed, defaulting to US.");
         setCountryCode("US");
+      } finally {
+        setIpApiCalled(true); // Ensure request is only made once
       }
     };
 
     detectUserCountry();
-  }, []);
+  }, [form, ipApiCalled]);
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPhone(e.target.value);
@@ -88,6 +103,18 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
 
   const handleCountryChange = (value: CountryCode) => {
     setCountryCode(value);
+  };
+
+  const handlePhoneBlur = () => {
+    if (phone && !isValidPhoneNumber(phone, countryCode)) {
+      console.log("Phone number is invalid on blur");
+    }
+  };
+
+  const handleCountryBlur = () => {
+    if (phone && !isValidPhoneNumber(phone, countryCode)) {
+      console.log("Phone number is invalid after country change");
+    }
   };
 
   const handleSubmit = async (values: {
@@ -209,7 +236,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
             { required: true, message: "Please input a valid phone number!" },
             () => ({
               validator(_: unknown, value: string) {
-                if (isValidPhoneNumber(value, countryCode)) {
+                if (isValidPhoneNumber(`${countryCode}${value}`, countryCode)) {
                   return Promise.resolve();
                 }
                 return Promise.reject(new Error("Invalid phone number."));
@@ -222,6 +249,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
               showSearch
               value={countryCode}
               onChange={handleCountryChange}
+              onBlur={handleCountryBlur}
               placeholder="Country Code"
               optionFilterProp="label"
               filterOption={(input: string, option?: DefaultOptionType) => {
@@ -229,8 +257,8 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
                 const searchText = `${option.label}`.toLowerCase();
                 return searchText.includes(input.toLowerCase());
               }}
-              className="select-bg w-1/2 lg:3/5 border-2 border-[#13a89e] rounded-[25px]  h-[40px] "
-              popupClassName="bg-[#d0eeec]  "
+              className="select-bg w-1/2 lg:3/5 border-2 border-[#13a89e] rounded-[25px] h-[40px]"
+              popupClassName="bg-[#d0eeec]"
             >
               {countries.map((country) => (
                 <Option
@@ -245,11 +273,23 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
             <Input
               value={phone}
               onChange={handlePhoneChange}
+              onBlur={handlePhoneBlur}
+              onKeyDown={(e) => {
+                if (
+                  !/[0-9]/.test(e.key) &&
+                  e.key !== "Backspace" &&
+                  e.key !== "Tab"
+                ) {
+                  e.preventDefault();
+                }
+              }}
               placeholder="Enter your phone number"
+              maxLength={10}
               className="w-1/2 lg:w-3/5 border-2 border-[#13a89e] bg-[#d0eeec] h-[40px] rounded-[25px]"
             />
           </div>
         </Form.Item>
+
         <Form.Item
           className="mb-4"
           label="Operation"
@@ -275,8 +315,9 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
           rules={[{ required: false }]}
         >
           <TextArea
+            maxLength={500}
             rows={4}
-            placeholder="Enter your message"
+            placeholder="Write your message"
             className="border-2 border-[#13a89e] bg-[#d0eeec] rounded-[25px]"
           />
         </Form.Item>
