@@ -66,37 +66,24 @@ export default function VideoSliderMobile({
   return (
     <>
       <Carousel arrows={true} infinite={true} className="w-full mx-auto">
-        <div
-          key={0}
-          className={`${containerClassNames} aspect-[9/16]`} // Set aspect ratio here
-          onClick={() => handleVideoClick(0)}
-        >
-          <Button
-            className="absolute bottom-2 h-[40px] rounded-[25px] z-[99] border-[#13a89e]"
-            onClick={openFormModal}
-          >
-            Consultation
-            <span className="rounded-full flex -mr-3 justify-center items-center w-8 h-8 bg-white">
-              <FormOutlined className="text-[#13a89e] transform scale-[1.2]" />
-            </span>
-          </Button>
-          <video
-            src={allVideosM[0]}
-            className="object-cover w-full h-full pointer-events-none aspect-[9/16]" // Adjusted for 9:16 aspect ratio
-            autoPlay
-            muted
-            loop
-          ></video>
-        </div>
-        {videoDescription.map((videoSrc, index) => (
+        {allVideosM.map((videoSrc, index) => (
           <div
-            key={index + 1}
+            key={index}
             className={containerClassNames}
-            onClick={() => handleVideoClick(index + 1)}
+            onClick={() => handleVideoClick(index)}
           >
+            <Button
+              className="absolute bottom-2 h-[40px] rounded-[25px] z-[99] border-[#13a89e]"
+              onClick={openFormModal}
+            >
+              Consultation
+              <span className="rounded-full flex -mr-3 justify-center items-center w-8 h-8 bg-white">
+                <FormOutlined className="text-[#13a89e] transform scale-[1.2]" />
+              </span>
+            </Button>
             <video
-              src={allVideosM[index + 1]}
-              className="object-cover w-full h-full pointer-events-none"
+              src={videoSrc}
+              className="object-cover w-full h-full pointer-events-none aspect-[9/16]"
               autoPlay
               muted
               loop
@@ -160,7 +147,7 @@ export default function VideoSliderMobile({
             onClick={closeFormModal}
           >
             <div
-              className="relative  rounded-[25px]  shadow-lg w-11/12 max-w-lg transform transition-transform duration-[300ms] scale-100"
+              className="relative rounded-[25px] shadow-lg w-11/12 max-w-lg transform transition-transform duration-[300ms] scale-100"
               onClick={(e) => e.stopPropagation()}
             >
               <button
