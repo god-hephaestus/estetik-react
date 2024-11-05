@@ -9,7 +9,6 @@ import {
 import { DefaultOptionType } from "antd/es/select";
 
 const { TextArea } = Input;
-const { Option } = Select;
 
 interface Country {
   code: CountryCode;
@@ -26,7 +25,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
   const [countryCode, setCountryCode] = useState<CountryCode>("US");
   const [countries, setCountries] = useState<Country[]>([]);
   const [submitting, setSubmitting] = useState(false);
-  const [ipApiCalled, setIpApiCalled] = useState(false); // Track API call status
+  const [ipApiCalled, setIpApiCalled] = useState(false);
 
   const [queryParams, setQueryParams] = useState({
     utm_source: "",
@@ -71,7 +70,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
     setCountries(allCountries);
 
     const detectUserCountry = async () => {
-      if (ipApiCalled) return; // Prevent multiple requests
+      if (ipApiCalled) return;
 
       try {
         const response = await fetch("https://ipapi.co/json/");
@@ -90,7 +89,7 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
         console.warn("IP detection failed, defaulting to US.");
         setCountryCode("US");
       } finally {
-        setIpApiCalled(true); // Ensure request is only made once
+        setIpApiCalled(true);
       }
     };
 
@@ -120,7 +119,6 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
   const handleSubmit = async (values: {
     name: string;
     email: string;
-    operation: string;
     message: string;
   }) => {
     setSubmitting(true);
@@ -137,7 +135,6 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
         lead_email: values.email,
         lead_campaign: "ReactLP",
         lead_message: values.message || "",
-        lead_treatment: values.operation,
         lead_language: "EN",
         gclid: queryParams.gclid,
         gtags: JSON.stringify({
@@ -261,13 +258,13 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
               popupClassName="bg-[#d0eeec]"
             >
               {countries.map((country) => (
-                <Option
+                <Select.Option
                   key={country.code}
                   value={country.code}
                   label={`${country.name} (+${country.phoneCode}) ${country.code}`}
                 >
                   {country.code} (+{country.phoneCode})
-                </Option>
+                </Select.Option>
               ))}
             </Select>
             <Input
@@ -289,41 +286,38 @@ export default function OperationForm({ isExpanded }: { isExpanded: boolean }) {
             />
           </div>
         </Form.Item>
-
         <Form.Item
           className="mb-4"
-          label="Operation"
-          name="operation"
-          rules={[{ required: true, message: "Please select an operation!" }]}
+          label="Email"
+          name="email"
+          rules={[
+            { required: true, message: "Please input your email!" },
+            { type: "email", message: "Please enter a valid email!" },
+          ]}
         >
-          <Select
-            placeholder="Select an operation"
-            className="select-bg border-2 border-[#13a89e] h-[40px] rounded-[25px]"
-            popupClassName="bg-[#d0eeec]"
-          >
-            <Option value="bbl">BBL</Option>
-            <Option value="breast">Breast Surgeries</Option>
-            <Option value="total">Total Body</Option>
-            <Option value="tummy">Tummy Tuck</Option>
-            <Option value="rhinoplasty">Rhinoplasty</Option>
-          </Select>
+          <Input
+            className="border-2 border-[#13a89e] bg-[#d0eeec] h-[40px] rounded-[25px]"
+            placeholder="Enter your email"
+          />
         </Form.Item>
         <Form.Item
           className="mb-4"
           label="Message"
           name="message"
-          rules={[{ required: false }]}
+          rules={[
+            { max: 500, message: "Message can't exceed 500 characters." },
+          ]}
         >
           <TextArea
-            maxLength={500}
             rows={4}
             placeholder="Write your message"
             className="border-2 border-[#13a89e] bg-[#d0eeec] rounded-[25px]"
           />
         </Form.Item>
-        <Form.Item className="text-right mt-4  ">
+
+        <Form.Item className="text-right mt-4">
           <Button
-            className="bg-[#13a89e] px-12  rounded-[25px] text-white h-[32px] lg:h-[40px]"
+            className="bg-[#13a89e] px-12 rounded-[25px] text-white h-[32px] lg:h-[40px]"
             htmlType="submit"
             disabled={submitting}
           >

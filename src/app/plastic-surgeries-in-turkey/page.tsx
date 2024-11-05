@@ -1,4 +1,3 @@
-import Hero from "@/components/in-turkey/Hero";
 import ParentState from "@/components/in-turkey/ParentState";
 import { Metadata } from "next";
 
@@ -825,7 +824,6 @@ const HeroBgData = {
 export default function ComparisonPage() {
   return (
     <div className="">
-      <Hero></Hero>
       <div className="w-full lg:mb-24">
         <ParentState
           activeState="gallery1"
