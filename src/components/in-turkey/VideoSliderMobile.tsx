@@ -73,12 +73,12 @@ export default function VideoSliderMobile({
             onClick={() => handleVideoClick(index)}
           >
             <Button
-              className="absolute bottom-2 h-[40px] rounded-[25px] z-[99] border-[#13a89e]"
+              className="absolute bottom-2 h-[60px] rounded-[30px] z-[99] border-[#13a89e]"
               onClick={openFormModal}
             >
-              Consultation
-              <span className="rounded-full flex -mr-3 justify-center items-center w-8 h-8 bg-white">
-                <FormOutlined className="text-[#13a89e] transform scale-[1.2]" />
+              <p className="text-2xl">Consultation</p>
+              <span className="rounded-full flex -mr-3 justify-center items-center w-12 h-12 bg-white">
+                <FormOutlined className="text-[#13a89e] transform scale-[1.6] " />
               </span>
             </Button>
             <video
