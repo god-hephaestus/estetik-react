@@ -24,7 +24,7 @@ export default function VideoSlider({
   const [showModal, setShowModal] = useState(false);
   const [showFormModal, setShowFormModal] = useState(false); // State for form modal
   const [activeVideoSrc, setActiveVideoSrc] = useState<string | null>(null);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  // const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const allVideosD = videoDescription.map(
     (src) => `/video/slider/desktop/${src}`
@@ -32,7 +32,7 @@ export default function VideoSlider({
 
   const openModal = (videoSrc: string, index: number) => {
     setActiveVideoSrc(videoSrc);
-    setCurrentIndex(index);
+    // setCurrentIndex(index);
     setShowModal(true);
     setTimeout(() => setIsOpen(true), 50);
   };
@@ -52,18 +52,18 @@ export default function VideoSlider({
     setShowFormModal(false);
   };
 
-  const handleNextVideo = () => {
-    const nextIndex = (currentIndex + 1) % allVideosD.length;
-    setCurrentIndex(nextIndex);
-    setActiveVideoSrc(allVideosD[nextIndex]);
-  };
+  // const handleNextVideo = () => {
+  //   const nextIndex = (currentIndex + 1) % allVideosD.length;
+  //   setCurrentIndex(nextIndex);
+  //   setActiveVideoSrc(allVideosD[nextIndex]);
+  // };
 
-  const handlePreviousVideo = () => {
-    const prevIndex =
-      (currentIndex - 1 + allVideosD.length) % allVideosD.length;
-    setCurrentIndex(prevIndex);
-    setActiveVideoSrc(allVideosD[prevIndex]);
-  };
+  // const handlePreviousVideo = () => {
+  //   const prevIndex =
+  //     (currentIndex - 1 + allVideosD.length) % allVideosD.length;
+  //   setCurrentIndex(prevIndex);
+  //   setActiveVideoSrc(allVideosD[prevIndex]);
+  // };
 
   return (
     <>
@@ -94,7 +94,7 @@ export default function VideoSlider({
             className="absolute bottom-4 left-4 h-[40px] rounded-[25px] z-[99] border-[#13a89e]"
             onClick={openFormModal}
           >
-            Consultation
+            Randevu Al
             <span className="rounded-full flex -mr-3 justify-center items-center w-8 h-8 bg-white">
               <FormOutlined className="text-[#13a89e] transform scale-[1.2]" />
             </span>
@@ -123,7 +123,7 @@ export default function VideoSlider({
                 &times;
               </button>
 
-              <button
+              {/* <button
                 onClick={handlePreviousVideo}
                 className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-[#13a89e] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
               >
@@ -135,7 +135,7 @@ export default function VideoSlider({
                 className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#13a89e] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
               >
                 <RightOutlined />
-              </button>
+              </button> */}
 
               <div className="relative overflow-hidden pt-[56.25%] rounded-lg">
                 <video
