@@ -1,13 +1,15 @@
 "use client";
 
-import { Carousel } from "antd";
+import { Button, Carousel } from "antd";
 import { useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import {
   FullscreenOutlined,
   LeftOutlined,
   RightOutlined,
+  FormOutlined,
 } from "@ant-design/icons";
+import OperationForm from "./OperationForm"; // Import the OperationForm component
 
 export default function VideoSlider({
   videoDescription,
@@ -20,6 +22,7 @@ export default function VideoSlider({
   const videoRefs = useRef<HTMLVideoElement[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showFormModal, setShowFormModal] = useState(false); // State for form modal
   const [activeVideoSrc, setActiveVideoSrc] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
@@ -39,6 +42,15 @@ export default function VideoSlider({
     setIsOpen(false);
     setTimeout(() => setShowModal(false), 300);
     setTimeout(() => setActiveVideoSrc(null), 300);
+  };
+
+  const openFormModal = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setShowFormModal(true);
+  };
+
+  const closeFormModal = () => {
+    setShowFormModal(false);
   };
 
   const handleNextVideo = () => {
@@ -76,8 +88,17 @@ export default function VideoSlider({
             onClick={() => openModal(allVideos[0], 0)}
             className="absolute bottom-4 right-4 bg-[#13a89e] bg-opacity-60 text-white p-2 rounded-full flex items-center justify-center"
           >
-            <FullscreenOutlined className="text-xl" />
+            <FullscreenOutlined className="text-2xl" />
           </button>
+          <Button
+            className="absolute bottom-4 left-4 h-[40px] rounded-[25px] z-[99] border-[#13a89e]"
+            onClick={openFormModal}
+          >
+            Consultation
+            <span className="rounded-full flex -mr-3 justify-center items-center w-8 h-8 bg-white">
+              <FormOutlined className="text-[#13a89e] transform scale-[1.2]" />
+            </span>
+          </Button>
         </div>
         {videoDescription.map((_, index: number) => (
           <div key={index} className={containerClassNames}>
@@ -100,7 +121,7 @@ export default function VideoSlider({
               onClick={() => openModal(allVideos[index], index)}
               className="absolute bottom-4 right-4 bg-[#13a89e] bg-opacity-60 text-white p-2 rounded-full flex items-center justify-center"
             >
-              <FullscreenOutlined className="text-xl" />
+              <FullscreenOutlined className="text-2xl" />
             </button>
           </div>
         ))}
@@ -149,6 +170,28 @@ export default function VideoSlider({
                   autoPlay
                 ></video>
               </div>
+            </div>
+          </div>,
+          document.body
+        )}
+
+      {showFormModal &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-70 transition-opacity duration-[300ms] ease-in-out"
+            onClick={closeFormModal}
+          >
+            <div
+              className="relative rounded-[25px] shadow-lg w-11/12 max-w-lg transform transition-transform duration-[300ms] scale-100"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={closeFormModal}
+                className="absolute top-2 right-2 text-black text-2xl font-bold focus:outline-none"
+              >
+                &times;
+              </button>
+              <OperationForm isExpanded={false} />
             </div>
           </div>,
           document.body

@@ -11,7 +11,7 @@ export default function VideoSliderMobile({
 }: {
   videoDescription: string[];
 }) {
-  const containerClassNames = `relative flex items-center justify-center w-full h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] 
+  const containerClassNames = `relative flex items-center justify-center w-full h-auto aspect-[9/16] 
     border-[#13a89e]/20 lg:backdrop-blur-none lg:bg-[#d0eeec] lg:border-2 bg-[#d0eeec] lg:border-[#d0eeec] rounded-[25px] overflow-hidden`;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -20,10 +20,9 @@ export default function VideoSliderMobile({
   const [activeVideoSrc, setActiveVideoSrc] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  const allVideos = [
-    "/video/hero7.mp4",
-    ...videoDescription.map((src) => `/video/${src}`),
-  ];
+  const allVideosM = videoDescription.map(
+    (src) => `/video/slider/mobile/${src}`
+  );
 
   const openModal = (videoSrc: string, index: number) => {
     setActiveVideoSrc(videoSrc);
@@ -48,55 +47,43 @@ export default function VideoSliderMobile({
   };
 
   const handleNextVideo = () => {
-    const nextIndex = (currentIndex + 1) % allVideos.length;
+    const nextIndex = (currentIndex + 1) % allVideosM.length;
     setCurrentIndex(nextIndex);
-    setActiveVideoSrc(allVideos[nextIndex]);
+    setActiveVideoSrc(allVideosM[nextIndex]);
   };
 
   const handlePreviousVideo = () => {
-    const prevIndex = (currentIndex - 1 + allVideos.length) % allVideos.length;
+    const prevIndex =
+      (currentIndex - 1 + allVideosM.length) % allVideosM.length;
     setCurrentIndex(prevIndex);
-    setActiveVideoSrc(allVideos[prevIndex]);
+    setActiveVideoSrc(allVideosM[prevIndex]);
   };
 
   const handleVideoClick = (index: number) => {
-    openModal(allVideos[index], index);
+    openModal(allVideosM[index], index);
   };
 
   return (
     <>
       <Carousel arrows={true} infinite={true} className="w-full mx-auto">
-        <div
-          key={0}
-          className={containerClassNames}
-          onClick={() => handleVideoClick(0)}
-        >
-          <Button
-            className="absolute bottom-2 h-[40px] rounded-[25px] z-[99] border-[#13a89e]"
-            onClick={openFormModal}
-          >
-            Consultation
-            <span className="rounded-full flex -mr-3 justify-center items-center w-8 h-8 bg-white">
-              <FormOutlined className="text-[#13a89e] transform scale-[1.2]" />
-            </span>
-          </Button>
-          <video
-            src={allVideos[0]}
-            className="object-cover w-full h-full pointer-events-none"
-            autoPlay
-            muted
-            loop
-          ></video>
-        </div>
-        {videoDescription.map((videoSrc, index) => (
+        {allVideosM.map((videoSrc, index) => (
           <div
-            key={index + 1}
+            key={index}
             className={containerClassNames}
-            onClick={() => handleVideoClick(index + 1)}
+            onClick={() => handleVideoClick(index)}
           >
+            <Button
+              className="absolute bottom-2 h-[60px] rounded-[30px] z-[99] border-[#13a89e]"
+              onClick={openFormModal}
+            >
+              <p className="text-2xl">Consultation</p>
+              <span className="rounded-full flex -mr-3 justify-center items-center w-12 h-12 bg-white">
+                <FormOutlined className="text-[#13a89e] transform scale-[1.6] " />
+              </span>
+            </Button>
             <video
-              src={allVideos[index + 1]}
-              className="object-cover w-full h-full pointer-events-none"
+              src={videoSrc}
+              className="object-cover w-full h-full pointer-events-none aspect-[9/16]"
               autoPlay
               muted
               loop
@@ -140,10 +127,10 @@ export default function VideoSliderMobile({
                 <RightOutlined />
               </button>
 
-              <div className="relative overflow-hidden pt-[56.25%] rounded-lg">
+              <div className="relative rounded-lg aspect-[9/16] w-full h-auto">
                 <video
                   src={activeVideoSrc ?? ""}
-                  className="absolute top-0 left-0 w-full h-full"
+                  className="w-full h-full object-cover"
                   controls
                   autoPlay
                 ></video>
@@ -160,7 +147,7 @@ export default function VideoSliderMobile({
             onClick={closeFormModal}
           >
             <div
-              className="relative  rounded-[25px]  shadow-lg w-11/12 max-w-lg transform transition-transform duration-[300ms] scale-100"
+              className="relative rounded-[25px] shadow-lg w-11/12 max-w-lg transform transition-transform duration-[300ms] scale-100"
               onClick={(e) => e.stopPropagation()}
             >
               <button

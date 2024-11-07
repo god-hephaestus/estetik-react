@@ -102,7 +102,7 @@ export default function ParentState({
         onButtonClick={handleButtonClick}
       />
 
-      <div className="px-8 xl:px-[10%] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="px-2 xl:px-[10%] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div
           className={`relative md:hidden col-span-1 lg:col-span-7 flex flex-col h-full transition-all duration-500 ease-in-out transform 
            lg:mt-0`}
