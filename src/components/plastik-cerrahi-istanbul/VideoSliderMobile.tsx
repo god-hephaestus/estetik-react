@@ -75,7 +75,7 @@ export default function VideoSliderMobile({
             className="absolute bottom-2 h-[60px] rounded-[30px] z-[99] border-[#13a89e]"
             onClick={openFormModal}
           >
-            <p className="text-2xl">Consultation</p>
+            <p className="text-2xl">Randevu Al</p>
             <span className="rounded-full flex -mr-3 justify-center items-center w-12 h-12 bg-white">
               <FormOutlined className="text-[#13a89e] transform scale-[1.6] " />
             </span>

@@ -80,11 +80,11 @@ export default function OperationForm() {
         ) {
           setCountryCode(detectedCountryCode as CountryCode);
         } else {
-          setCountryCode("US");
+          setCountryCode("TR");
         }
       } catch (error) {
-        console.warn("IP detection failed, defaulting to US.");
-        setCountryCode("US");
+        console.warn("IP detection failed, defaulting to TR.");
+        setCountryCode("TR");
       } finally {
         setIpApiCalled(true);
       }
@@ -130,9 +130,9 @@ export default function OperationForm() {
         lead_name: values.name,
         lead_phone: `${countryCode} ${phone}`,
         lead_email: values.email,
-        lead_campaign: "ReactLP",
+        lead_campaign: "ReactLP TR",
         lead_message: values.message || "",
-        lead_language: "EN",
+        lead_language: "TR",
         gclid: queryParams.gclid,
         gtags: JSON.stringify({
           utm_source: queryParams.utm_source,
@@ -213,21 +213,24 @@ export default function OperationForm() {
 
         <Form.Item
           className="mb-4 mt-4"
-          label="Name"
+          label="Adınız"
           name="name"
-          rules={[{ required: true, message: "Please input your name!" }]}
+          rules={[{ required: true, message: "Lütfen Adınızı Girin!" }]}
         >
           <Input
             className="border-2 border-[#13a89e] bg-[#d0eeec] h-[40px] rounded-[25px]"
-            placeholder="Enter your name"
+            placeholder="Lütfen adınızı girin"
           />
         </Form.Item>
         <Form.Item
           className="mb-4 "
-          label="Phone"
+          label="Telefon No"
           required
           rules={[
-            { required: true, message: "Please input a valid phone number!" },
+            {
+              required: true,
+              message: "Lütfen geçerli bir telefon numarası girin!",
+            },
             () => ({
               validator(_: unknown, value: string) {
                 if (isValidPhoneNumber(`${countryCode}${value}`, countryCode)) {
@@ -277,7 +280,7 @@ export default function OperationForm() {
                   e.preventDefault();
                 }
               }}
-              placeholder="Enter your phone number"
+              placeholder="Telefon numaranız"
               maxLength={10}
               className="w-1/2 lg:w-3/5 border-2 border-[#13a89e] bg-[#d0eeec] h-[40px] rounded-[25px]"
             />
@@ -288,26 +291,26 @@ export default function OperationForm() {
           label="Email"
           name="email"
           rules={[
-            { required: true, message: "Please input your email!" },
-            { type: "email", message: "Please enter a valid email!" },
+            { required: true, message: "Lütfen mail adresinizi girin!" },
+            { type: "email", message: "Lütfen geçerli bir mail adresi girin!" },
           ]}
         >
           <Input
             className="border-2 border-[#13a89e] bg-[#d0eeec] h-[40px] rounded-[25px]"
-            placeholder="Enter your email"
+            placeholder="Mail adresiniz"
           />
         </Form.Item>
         <Form.Item
           className="mb-4"
-          label="Message"
+          label="Mesajınız"
           name="message"
           rules={[
-            { max: 500, message: "Message can't exceed 500 characters." },
+            { max: 300, message: "Mesajınız 300 karakterden uzun olamaz" },
           ]}
         >
           <TextArea
             rows={4}
-            placeholder="Write your message"
+            placeholder="Mesajınızı yazın"
             className="border-2 border-[#13a89e] bg-[#d0eeec] rounded-[25px]"
           />
         </Form.Item>
@@ -318,7 +321,7 @@ export default function OperationForm() {
             htmlType="submit"
             disabled={submitting}
           >
-            {submitting ? "Submitting..." : "Submit"}
+            {submitting ? "Gönderiliyor..." : "Gönder"}
           </Button>
         </Form.Item>
       </Form>

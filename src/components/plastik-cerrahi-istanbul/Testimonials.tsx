@@ -164,7 +164,7 @@ export default function Testimonials({
           </div>
         ))
       ) : (
-        <p>No testimonials available for this selection.</p>
+        <p>Bu operasyon için hasta yorumu yok.</p>
       )}
     </div>
   );

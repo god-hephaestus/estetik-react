@@ -56,7 +56,7 @@ export default function Navbar({
           <Button
             className="h-[90%] sm:h-[70%] bg-[#22c55e] border-none p-[5px] lg:px-3 lg:py-3 rounded-[25px] flex items-center justify-center"
             target="_blank"
-            href="https://wa.me/905498287202?text=RCT01%20Hello%20Estetik%20International%20Health%20Group%20Team.%20Can%20I%20book%20a%20consultation%3F"
+            href="https://wa.me/905498287202?text=RCT11%20Merhaba%20Estetik%20International%20Sağlık%20Grubu.%20Bir%20danışma%20randevusu%20alabilir%20miyim%3F"
           >
             <span className="flex items-center gap-2">
               <span className="hidden lg:flex">WhatsApp</span>
@@ -78,7 +78,7 @@ export default function Navbar({
             href="tel:+902169001899"
           >
             <span className="flex items-center gap-2">
-              <span className="hidden lg:flex">Call Us</span>
+              <span className="hidden lg:flex">Bizi Arayın</span>
               <PhoneOutlined className="text-white text-2xl lg:text-3xl" />
             </span>
           </Button>

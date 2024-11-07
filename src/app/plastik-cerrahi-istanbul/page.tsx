@@ -175,43 +175,43 @@ const buttonsData = [
     stateKey: "gallery4",
   },
   {
-    label: "rinoplasti",
+    label: "Rinoplasti",
     image1: "/BeforeAfter/rhinof.webp",
     image2: "/BeforeAfter/rhinof2.webp",
     faqs: [
       {
         question:
-          "rinoplasti nedir ve cerrahi olmayan burun şekillendirmeden nasıl farklıdır?",
+          "Rinoplasti nedir ve cerrahi olmayan burun şekillendirmeden nasıl farklıdır?",
         answer:
-          "rinoplasti, estetik veya fonksiyonel amaçlarla burun yapısını değiştiren cerrahi bir prosedürdür; cerrahi olmayan şekillendirme ise, kemik veya kıkırdağı değiştirmeden, dolgu maddeleri kullanarak küçük kontur değişiklikleri yapar.",
+          "Rinoplasti, estetik veya fonksiyonel amaçlarla burun yapısını değiştiren cerrahi bir prosedürdür; cerrahi olmayan şekillendirme ise, kemik veya kıkırdağı değiştirmeden, dolgu maddeleri kullanarak küçük kontur değişiklikleri yapar.",
       },
       {
         question:
-          "rinoplasti sonrası iyileşme süreci ne kadar sürer ve günlük aktivitelere ne zaman dönebilirim?",
+          "Rinoplasti sonrası iyileşme süreci ne kadar sürer ve günlük aktivitelere ne zaman dönebilirim?",
         answer:
           "İyileşme genellikle başlangıçta 1-2 hafta sürer ve şişlik aylar içinde yavaşça azalır. Hafif aktiviteler genellikle bir hafta sonra yeniden başlayabilirken, zorlayıcı aktiviteler birkaç hafta boyunca kaçınılmalıdır.",
       },
       {
         question:
-          "rinoplasti ile ilişkili herhangi bir risk var mı ve güvenli ve başarılı bir sonuç için neler yapabilirim?",
+          "Rinoplasti ile ilişkili herhangi bir risk var mı ve güvenli ve başarılı bir sonuç için neler yapabilirim?",
         answer:
           "Riskler, deneyimli bir cerrah tarafından gerçekleştirildiğinde en aza indirilir. İyileşme sürecinde şişliği azaltmak ve burnu korumak için tüm bakım talimatlarına uymak, güvenli bir iyileşme için önemlidir.",
       },
       {
         question:
-          "rinoplasti, nefes almamı iyileştirir mi ve eğri septum gibi sorunları giderir mi?",
+          "Rinoplasti, nefes almamı iyileştirir mi ve eğri septum gibi sorunları giderir mi?",
         answer:
-          "rinoplasti, burun septumunu düzleştiren septoplasti ile birleştirildiğinde nefes almayı iyileştirebilir. Bu seçenek, hem fonksiyonel hem de estetik endişeleri ele alır.",
+          "Rinoplasti, burun septumunu düzleştiren septoplasti ile birleştirildiğinde nefes almayı iyileştirebilir. Bu seçenek, hem fonksiyonel hem de estetik endişeleri ele alır.",
       },
       {
         question:
-          "rinoplasti sonrası burnumda değişiklikler olmaya devam edecek mi ve sonuçlar ne kadar sürer?",
+          "Rinoplasti sonrası burnumda değişiklikler olmaya devam edecek mi ve sonuçlar ne kadar sürer?",
         answer:
           "Şişlik, ilk yıl burnun görünümünü değiştirebilirken, sonuçlar genellikle uzun ömürlüdür. Yaşlanma nedeniyle zamanla küçük değişiklikler olabilir, ancak yeni şekliniz büyük ölçüde kalıcı olacaktır.",
       },
       {
         question:
-          "rinoplasti öncesinde ve sonrasında en iyi sonuçları sağlamak için nelerden kaçınmalıyım?",
+          "Rinoplasti öncesinde ve sonrasında en iyi sonuçları sağlamak için nelerden kaçınmalıyım?",
         answer:
           "Ameliyattan önce, iyileşmeyi etkileyebileceğinden sigara içmek ve belirli ilaçlardan kaçının. Ameliyattan sonra, optimal sonuçlar sağlamak için zorlayıcı aktivitelerden, burun silmekten ve buruna herhangi bir baskı yapmaktan kaçının.",
       },
