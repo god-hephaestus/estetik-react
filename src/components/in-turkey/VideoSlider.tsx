@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Carousel } from "antd";
+import { Button } from "antd";
 import { useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import {
@@ -67,42 +67,40 @@ export default function VideoSlider({
 
   return (
     <>
-      <Carousel arrows={true} infinite={true} className="w-full mx-auto">
-        {allVideosD.map((videoSrc, index) => (
-          <div key={index} className={containerClassNames}>
-            <video
-              ref={(el) => {
-                if (el) videoRefs.current[index] = el;
-              }}
-              src={videoSrc}
-              className="object-cover w-full h-full"
-              autoPlay
-              muted
-              loop
-              onClick={(event) =>
-                event.currentTarget.paused
-                  ? event.currentTarget.play()
-                  : event.currentTarget.pause()
-              }
-            ></video>
-            <button
-              onClick={() => openModal(videoSrc, index)}
-              className="absolute bottom-4 right-4 bg-[#13a89e] bg-opacity-60 text-white p-2 rounded-full flex items-center justify-center"
-            >
-              <FullscreenOutlined className="text-2xl" />
-            </button>
-            <Button
-              className="absolute bottom-4 left-4 h-[40px] rounded-[25px] z-[99] border-[#13a89e]"
-              onClick={openFormModal}
-            >
-              Consultation
-              <span className="rounded-full flex -mr-3 justify-center items-center w-8 h-8 bg-white">
-                <FormOutlined className="text-[#13a89e] transform scale-[1.2]" />
-              </span>
-            </Button>
-          </div>
-        ))}
-      </Carousel>
+      {allVideosD.map((videoSrc, index) => (
+        <div key={index} className={containerClassNames}>
+          <video
+            ref={(el) => {
+              if (el) videoRefs.current[index] = el;
+            }}
+            src={videoSrc}
+            className="object-cover w-full h-full"
+            autoPlay
+            muted
+            loop
+            onClick={(event) =>
+              event.currentTarget.paused
+                ? event.currentTarget.play()
+                : event.currentTarget.pause()
+            }
+          ></video>
+          <button
+            onClick={() => openModal(videoSrc, index)}
+            className="absolute bottom-4 right-4 bg-[#13a89e] bg-opacity-60 text-white p-2 rounded-full flex items-center justify-center"
+          >
+            <FullscreenOutlined className="text-2xl" />
+          </button>
+          <Button
+            className="absolute bottom-4 left-4 h-[40px] rounded-[25px] z-[99] border-[#13a89e]"
+            onClick={openFormModal}
+          >
+            Consultation
+            <span className="rounded-full flex -mr-3 justify-center items-center w-8 h-8 bg-white">
+              <FormOutlined className="text-[#13a89e] transform scale-[1.2]" />
+            </span>
+          </Button>
+        </div>
+      ))}
 
       {showModal &&
         createPortal(

@@ -1,7 +1,7 @@
 "use client";
 
-import { FormOutlined, LeftOutlined, RightOutlined } from "@ant-design/icons";
-import { Button, Carousel } from "antd";
+import { FormOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import OperationForm from "./OperationForm";
@@ -18,7 +18,7 @@ export default function VideoSliderMobile({
   const [showModal, setShowModal] = useState(false);
   const [showFormModal, setShowFormModal] = useState(false);
   const [activeVideoSrc, setActiveVideoSrc] = useState<string | null>(null);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  // const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const allVideosM = videoDescription.map(
     (src) => `/video/slider/mobile/${src}`
@@ -26,7 +26,7 @@ export default function VideoSliderMobile({
 
   const openModal = (videoSrc: string, index: number) => {
     setActiveVideoSrc(videoSrc);
-    setCurrentIndex(index);
+    // setCurrentIndex(index);
     setShowModal(true);
     setTimeout(() => setIsOpen(true), 50);
   };
@@ -46,18 +46,18 @@ export default function VideoSliderMobile({
     setShowFormModal(false);
   };
 
-  const handleNextVideo = () => {
-    const nextIndex = (currentIndex + 1) % allVideosM.length;
-    setCurrentIndex(nextIndex);
-    setActiveVideoSrc(allVideosM[nextIndex]);
-  };
+  // const handleNextVideo = () => {
+  //   const nextIndex = (currentIndex + 1) % allVideosM.length;
+  //   setCurrentIndex(nextIndex);
+  //   setActiveVideoSrc(allVideosM[nextIndex]);
+  // };
 
-  const handlePreviousVideo = () => {
-    const prevIndex =
-      (currentIndex - 1 + allVideosM.length) % allVideosM.length;
-    setCurrentIndex(prevIndex);
-    setActiveVideoSrc(allVideosM[prevIndex]);
-  };
+  // const handlePreviousVideo = () => {
+  //   const prevIndex =
+  //     (currentIndex - 1 + allVideosM.length) % allVideosM.length;
+  //   setCurrentIndex(prevIndex);
+  //   setActiveVideoSrc(allVideosM[prevIndex]);
+  // };
 
   const handleVideoClick = (index: number) => {
     openModal(allVideosM[index], index);
@@ -65,32 +65,30 @@ export default function VideoSliderMobile({
 
   return (
     <>
-      <Carousel arrows={true} infinite={true} className="w-full mx-auto">
-        {allVideosM.map((videoSrc, index) => (
-          <div
-            key={index}
-            className={containerClassNames}
-            onClick={() => handleVideoClick(index)}
+      {allVideosM.map((videoSrc, index) => (
+        <div
+          key={index}
+          className={containerClassNames}
+          onClick={() => handleVideoClick(index)}
+        >
+          <Button
+            className="absolute bottom-2 h-[60px] rounded-[30px] z-[99] border-[#13a89e]"
+            onClick={openFormModal}
           >
-            <Button
-              className="absolute bottom-2 h-[60px] rounded-[30px] z-[99] border-[#13a89e]"
-              onClick={openFormModal}
-            >
-              <p className="text-2xl">Consultation</p>
-              <span className="rounded-full flex -mr-3 justify-center items-center w-12 h-12 bg-white">
-                <FormOutlined className="text-[#13a89e] transform scale-[1.6] " />
-              </span>
-            </Button>
-            <video
-              src={videoSrc}
-              className="object-cover w-full h-full pointer-events-none aspect-[9/16]"
-              autoPlay
-              muted
-              loop
-            ></video>
-          </div>
-        ))}
-      </Carousel>
+            <p className="text-2xl">Consultation</p>
+            <span className="rounded-full flex -mr-3 justify-center items-center w-12 h-12 bg-white">
+              <FormOutlined className="text-[#13a89e] transform scale-[1.6] " />
+            </span>
+          </Button>
+          <video
+            src={videoSrc}
+            className="object-cover w-full h-full pointer-events-none aspect-[9/16]"
+            autoPlay
+            muted
+            loop
+          ></video>
+        </div>
+      ))}
 
       {showModal &&
         createPortal(
@@ -113,7 +111,7 @@ export default function VideoSliderMobile({
                 &times;
               </button>
 
-              <button
+              {/* <button
                 onClick={handlePreviousVideo}
                 className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-[#13a89e] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
               >
@@ -125,7 +123,7 @@ export default function VideoSliderMobile({
                 className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#13a89e] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
               >
                 <RightOutlined />
-              </button>
+              </button> */}
 
               <div className="relative rounded-lg aspect-[9/16] w-full h-auto">
                 <video
