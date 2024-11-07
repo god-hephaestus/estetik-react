@@ -3,12 +3,7 @@
 import { Button } from "antd";
 import { useState, useRef } from "react";
 import { createPortal } from "react-dom";
-import {
-  FullscreenOutlined,
-  LeftOutlined,
-  RightOutlined,
-  FormOutlined,
-} from "@ant-design/icons";
+import { FullscreenOutlined, FormOutlined } from "@ant-design/icons";
 import OperationForm from "./OperationForm"; // Import the OperationForm component
 
 export default function VideoSlider({
@@ -30,7 +25,7 @@ export default function VideoSlider({
     (src) => `/video/slider/desktop/${src}`
   );
 
-  const openModal = (videoSrc: string, index: number) => {
+  const openModal = (videoSrc: string) => {
     setActiveVideoSrc(videoSrc);
     // setCurrentIndex(index);
     setShowModal(true);
@@ -85,7 +80,7 @@ export default function VideoSlider({
             }
           ></video>
           <button
-            onClick={() => openModal(videoSrc, index)}
+            onClick={() => openModal(videoSrc)}
             className="absolute bottom-4 right-4 bg-[#13a89e] bg-opacity-60 text-white p-2 rounded-full flex items-center justify-center"
           >
             <FullscreenOutlined className="text-2xl" />

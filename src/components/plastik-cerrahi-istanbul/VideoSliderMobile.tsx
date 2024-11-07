@@ -24,7 +24,7 @@ export default function VideoSliderMobile({
     (src) => `/video/slider/mobile/${src}`
   );
 
-  const openModal = (videoSrc: string, index: number) => {
+  const openModal = (videoSrc: string) => {
     setActiveVideoSrc(videoSrc);
     // setCurrentIndex(index);
     setShowModal(true);
@@ -60,7 +60,7 @@ export default function VideoSliderMobile({
   // };
 
   const handleVideoClick = (index: number) => {
-    openModal(allVideosM[index], index);
+    openModal(allVideosM[index]);
   };
 
   return (
