@@ -21,7 +21,6 @@ export default function OperationForm() {
   const [phone, setPhone] = useState<string>("");
   const [countryCode, setCountryCode] = useState<CountryCode>("US");
   const [countries, setCountries] = useState<Country[]>([]);
-  const [submitting, setSubmitting] = useState(false);
   const [ipApiCalled, setIpApiCalled] = useState(false);
 
   const [queryParams, setQueryParams] = useState({
@@ -57,7 +56,7 @@ export default function OperationForm() {
 
     const allCountries = getCountries().map((code) => {
       const countryName =
-        new Intl.DisplayNames(["en"], { type: "region" }).of(code) || "Unknown";
+        new Intl.DisplayNames(["tr"], { type: "region" }).of(code) || "Unknown";
       return {
         code,
         name: countryName,
@@ -113,67 +112,14 @@ export default function OperationForm() {
     }
   };
 
-  const handleSubmit = async (values: {
-    name: string;
-    email: string;
-    message: string;
-  }) => {
-    setSubmitting(true);
-    try {
-      if (!isValidPhoneNumber(phone, countryCode)) {
-        console.log("Phone number is invalid");
-        return;
-      }
-
-      const payload = {
-        op_source: "ist",
-        lead_name: values.name,
-        lead_phone: `${countryCode} ${phone}`,
-        lead_email: values.email,
-        lead_campaign: "ReactLP TR",
-        lead_message: values.message || "",
-        lead_language: "TR",
-        gclid: queryParams.gclid,
-        gtags: JSON.stringify({
-          utm_source: queryParams.utm_source,
-          utm_medium: queryParams.utm_medium,
-          utm_campaign: queryParams.utm_campaign,
-          utm_content: queryParams.utm_content,
-          utm_term: queryParams.utm_term,
-        }),
-      };
-
-      const response = await fetch("https://amo-gw.estetikcep.com/index.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
-      console.log("Submission success:", await response.json());
-
-      // Redirect to the thank-you page
-      window.location.assign(`/thankyou?email=${values.email}`);
-    } catch (error) {
-      console.error("Submission error:", error);
-    } finally {
-      setSubmitting(false);
-      form.resetFields();
-    }
-  };
-
   return (
     <div className="flex justify-center lg:h-[470px] 2xl:h-[490px] items-center">
       <Form
         name="operationForm"
         form={form}
         layout="vertical"
-        onFinish={handleSubmit}
+        action="https://www.estetikinternational.com/thank-you-page?lang=tr" // Set action here
+        method="post" // Set method to POST
         className="w-full h-full flex-1 px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] "
       >
         <Form.Item
@@ -319,9 +265,8 @@ export default function OperationForm() {
           <Button
             className="bg-[#13a89e] px-12 rounded-[25px] text-white h-[32px] lg:h-[40px]"
             htmlType="submit"
-            disabled={submitting}
           >
-            {submitting ? "Gönderiliyor..." : "Gönder"}
+            Gönder
           </Button>
         </Form.Item>
       </Form>
