@@ -114,14 +114,14 @@ export default function OperationForm() {
       console.log("Phone number is invalid after country change");
     }
   };
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const formUrlEncoded = (data: { [key: string]: any }) =>
     Object.keys(data)
       .map(
         (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
       )
       .join("&");
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleFormSubmit = async (values: any) => {
     const formattedValues = {
       ...values,
@@ -157,7 +157,8 @@ export default function OperationForm() {
           throw new Error("Network response was not ok");
         }
 
-        console.log("Form successfully submitted:", formattedValues);
+        window.location.href =
+          "https://lp.estetikinternational.com/tr/thank-you-page";
       } catch (error) {
         console.error("There was an error with form submission:", error);
         setSubmitted(false);
@@ -321,7 +322,7 @@ export default function OperationForm() {
           htmlType="submit"
           disabled={submitted}
         >
-          Gönder
+          {submitted ? "Gönderiliyor..." : "Gönder"}
         </Button>
       </Form>
     </div>
