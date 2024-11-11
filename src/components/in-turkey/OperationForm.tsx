@@ -313,14 +313,15 @@ export default function OperationForm() {
             className="border-2 border-[#13a89e] bg-[#d0eeec] rounded-[25px]"
           />
         </Form.Item>
-
-        <Button
-          className="bg-[#13a89e] px-12 rounded-[25px] text-white h-[32px] lg:h-[40px]"
-          htmlType="submit"
-          disabled={submitted}
-        >
-          {submitted ? "Submitting..." : "Submit"}
-        </Button>
+        <Form.Item className="text-right mt-4">
+          <Button
+            className="bg-[#13a89e] px-12 rounded-[25px] text-white h-[32px] lg:h-[40px]"
+            htmlType="submit"
+            disabled={submitted}
+          >
+            {submitted ? "Submitting..." : "Submit"}
+          </Button>
+        </Form.Item>
       </Form>
     </div>
   );
