@@ -18,10 +18,10 @@ interface Country {
 
 export default function OperationForm() {
   const [form] = Form.useForm();
+  const [submitted, setSubmitted] = useState(false);
   const [phone, setPhone] = useState<string>("");
   const [countryCode, setCountryCode] = useState<CountryCode>("US");
   const [countries, setCountries] = useState<Country[]>([]);
-  const [submitting, setSubmitting] = useState(false);
   const [ipApiCalled, setIpApiCalled] = useState(false);
 
   const [queryParams, setQueryParams] = useState({
@@ -30,11 +30,11 @@ export default function OperationForm() {
     utm_campaign: "",
     utm_content: "",
     utm_term: "",
+    utm_ad: "",
     gclid: "",
   });
 
   useEffect(() => {
-    // Extract URL parameters
     const params = new URLSearchParams(window.location.search);
     const newQueryParams = {
       utm_source: params.get("utm_source") || "",
@@ -42,6 +42,7 @@ export default function OperationForm() {
       utm_campaign: params.get("utm_campaign") || "",
       utm_content: params.get("utm_content") || "",
       utm_term: params.get("utm_term") || "",
+      utm_ad: params.get("utm_ad") || "",
       gclid: params.get("gclid") || "",
     };
     setQueryParams(newQueryParams);
@@ -52,12 +53,13 @@ export default function OperationForm() {
       utm_campaign: newQueryParams.utm_campaign,
       utm_content: newQueryParams.utm_content,
       utm_term: newQueryParams.utm_term,
+      utm_ad: newQueryParams.utm_ad,
       gclid: newQueryParams.gclid,
     });
 
     const allCountries = getCountries().map((code) => {
       const countryName =
-        new Intl.DisplayNames(["en"], { type: "region" }).of(code) || "Unknown";
+        new Intl.DisplayNames(["tr"], { type: "region" }).of(code) || "Unknown";
       return {
         code,
         name: countryName,
@@ -112,58 +114,55 @@ export default function OperationForm() {
       console.log("Phone number is invalid after country change");
     }
   };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const formUrlEncoded = (data: { [key: string]: any }) =>
+    Object.keys(data)
+      .map(
+        (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+      )
+      .join("&");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleFormSubmit = async (values: any) => {
+    const formattedValues = {
+      ...values,
+      type: "LND-Plastik-Yerli",
+      phone: `+${getCountryCallingCode(countryCode)}${phone}`,
+      g_utm_source: queryParams.utm_source,
+      g_utm_medium: queryParams.utm_medium,
+      g_utm_campaign: queryParams.utm_campaign,
+      g_utm_content: queryParams.utm_content,
+      g_utm_term: queryParams.utm_term,
+      g_utm_ad: queryParams.utm_ad,
+      g_clid: queryParams.gclid,
+    };
 
-  const handleSubmit = async (values: {
-    name: string;
-    email: string;
-    message: string;
-  }) => {
-    setSubmitting(true);
-    try {
-      if (!isValidPhoneNumber(phone, countryCode)) {
-        console.log("Phone number is invalid");
-        return;
+    if (!submitted) {
+      setSubmitted(true);
+      try {
+        const response = await fetch(
+          "https://lp.estetikinternational.com/en/thank-you-page-api",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: formUrlEncoded(formattedValues),
+          }
+        );
+
+        const responseData = await response.json();
+        console.log("API response:", responseData);
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        window.location.href =
+          "https://lp.estetikinternational.com/tr/thank-you-page";
+      } catch (error) {
+        console.error("There was an error with form submission:", error);
+        setSubmitted(false);
       }
-
-      const payload = {
-        op_source: "ist",
-        lead_name: values.name,
-        lead_phone: `${countryCode} ${phone}`,
-        lead_email: values.email,
-        lead_campaign: "ReactLP TR",
-        lead_message: values.message || "",
-        lead_language: "TR",
-        gclid: queryParams.gclid,
-        gtags: JSON.stringify({
-          utm_source: queryParams.utm_source,
-          utm_medium: queryParams.utm_medium,
-          utm_campaign: queryParams.utm_campaign,
-          utm_content: queryParams.utm_content,
-          utm_term: queryParams.utm_term,
-        }),
-      };
-
-      const response = await fetch("https://amo-gw.estetikcep.com/index.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
-      console.log("Submission success:", await response.json());
-
-      // Redirect to the thank-you page
-      window.location.assign(`/thankyou?email=${values.email}`);
-    } catch (error) {
-      console.error("Submission error:", error);
-    } finally {
-      setSubmitting(false);
-      form.resetFields();
     }
   };
 
@@ -173,7 +172,7 @@ export default function OperationForm() {
         name="operationForm"
         form={form}
         layout="vertical"
-        onFinish={handleSubmit}
+        onFinish={handleFormSubmit}
         className="w-full h-full flex-1 px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] "
       >
         <Form.Item
@@ -181,6 +180,9 @@ export default function OperationForm() {
           initialValue={queryParams.utm_source}
           hidden
         >
+          <Input type="hidden" />
+        </Form.Item>
+        <Form.Item name="type" initialValue="Reactlp" hidden>
           <Input type="hidden" />
         </Form.Item>
         <Form.Item
@@ -223,7 +225,7 @@ export default function OperationForm() {
           />
         </Form.Item>
         <Form.Item
-          className="mb-4 "
+          className="mb-4"
           label="Telefon No"
           required
           rules={[
@@ -241,7 +243,7 @@ export default function OperationForm() {
             }),
           ]}
         >
-          <div className="flex items-center space-x-2 ">
+          <div className="flex items-center space-x-2">
             <Select
               showSearch
               value={countryCode}
@@ -315,15 +317,13 @@ export default function OperationForm() {
           />
         </Form.Item>
 
-        <Form.Item className="text-right mt-4">
-          <Button
-            className="bg-[#13a89e] px-12 rounded-[25px] text-white h-[32px] lg:h-[40px]"
-            htmlType="submit"
-            disabled={submitting}
-          >
-            {submitting ? "Gönderiliyor..." : "Gönder"}
-          </Button>
-        </Form.Item>
+        <Button
+          className="bg-[#13a89e] px-12 rounded-[25px] text-white h-[32px] lg:h-[40px]"
+          htmlType="submit"
+          disabled={submitted}
+        >
+          {submitted ? "Gönderiliyor..." : "Gönder"}
+        </Button>
       </Form>
     </div>
   );
