@@ -18,6 +18,7 @@ interface Country {
 
 export default function OperationForm() {
   const [form] = Form.useForm();
+  const [submitted, setSubmitted] = useState(false);
   const [phone, setPhone] = useState<string>("");
   const [countryCode, setCountryCode] = useState<CountryCode>("US");
   const [countries, setCountries] = useState<Country[]>([]);
@@ -29,11 +30,11 @@ export default function OperationForm() {
     utm_campaign: "",
     utm_content: "",
     utm_term: "",
+    utm_ad: "",
     gclid: "",
   });
 
   useEffect(() => {
-    // Extract URL parameters
     const params = new URLSearchParams(window.location.search);
     const newQueryParams = {
       utm_source: params.get("utm_source") || "",
@@ -41,6 +42,7 @@ export default function OperationForm() {
       utm_campaign: params.get("utm_campaign") || "",
       utm_content: params.get("utm_content") || "",
       utm_term: params.get("utm_term") || "",
+      utm_ad: params.get("utm_ad") || "",
       gclid: params.get("gclid") || "",
     };
     setQueryParams(newQueryParams);
@@ -51,6 +53,7 @@ export default function OperationForm() {
       utm_campaign: newQueryParams.utm_campaign,
       utm_content: newQueryParams.utm_content,
       utm_term: newQueryParams.utm_term,
+      utm_ad: newQueryParams.utm_ad,
       gclid: newQueryParams.gclid,
     });
 
@@ -112,14 +115,63 @@ export default function OperationForm() {
     }
   };
 
+  const formUrlEncoded = (data: { [key: string]: any }) =>
+    Object.keys(data)
+      .map(
+        (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+      )
+      .join("&");
+
+  const handleFormSubmit = async (values: any) => {
+    const formattedValues = {
+      ...values,
+      type: "LND-Plastik-Yerli",
+      phone: `+${getCountryCallingCode(countryCode)}${phone}`,
+      g_utm_source: queryParams.utm_source,
+      g_utm_medium: queryParams.utm_medium,
+      g_utm_campaign: queryParams.utm_campaign,
+      g_utm_content: queryParams.utm_content,
+      g_utm_term: queryParams.utm_term,
+      g_utm_ad: queryParams.utm_ad,
+      g_clid: queryParams.gclid,
+    };
+
+    if (!submitted) {
+      setSubmitted(true);
+      try {
+        const response = await fetch(
+          "https://lp.estetikinternational.com/en/thank-you-page-api",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: formUrlEncoded(formattedValues),
+          }
+        );
+
+        const responseData = await response.json();
+        console.log("API response:", responseData);
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        console.log("Form successfully submitted:", formattedValues);
+      } catch (error) {
+        console.error("There was an error with form submission:", error);
+        setSubmitted(false);
+      }
+    }
+  };
+
   return (
     <div className="flex justify-center lg:h-[470px] 2xl:h-[490px] items-center">
       <Form
         name="operationForm"
         form={form}
         layout="vertical"
-        action="https://www.estetikinternational.com/thank-you-page?lang=tr" // Set action here
-        method="post" // Set method to POST
+        onFinish={handleFormSubmit}
         className="w-full h-full flex-1 px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] "
       >
         <Form.Item
@@ -127,6 +179,9 @@ export default function OperationForm() {
           initialValue={queryParams.utm_source}
           hidden
         >
+          <Input type="hidden" />
+        </Form.Item>
+        <Form.Item name="type" initialValue="Reactlp" hidden>
           <Input type="hidden" />
         </Form.Item>
         <Form.Item
@@ -169,7 +224,7 @@ export default function OperationForm() {
           />
         </Form.Item>
         <Form.Item
-          className="mb-4 "
+          className="mb-4"
           label="Telefon No"
           required
           rules={[
@@ -187,7 +242,7 @@ export default function OperationForm() {
             }),
           ]}
         >
-          <div className="flex items-center space-x-2 ">
+          <div className="flex items-center space-x-2">
             <Select
               showSearch
               value={countryCode}
@@ -261,14 +316,13 @@ export default function OperationForm() {
           />
         </Form.Item>
 
-        <Form.Item className="text-right mt-4">
-          <Button
-            className="bg-[#13a89e] px-12 rounded-[25px] text-white h-[32px] lg:h-[40px]"
-            htmlType="submit"
-          >
-            Gönder
-          </Button>
-        </Form.Item>
+        <Button
+          className="bg-[#13a89e] px-12 rounded-[25px] text-white h-[32px] lg:h-[40px]"
+          htmlType="submit"
+          disabled={submitted}
+        >
+          Gönder
+        </Button>
       </Form>
     </div>
   );
