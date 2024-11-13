@@ -3,6 +3,7 @@ import { ConfigProvider } from "antd";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
+import Script from "next/script";
 
 const montserrat = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -25,15 +26,22 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="robots" content="noindex, nofollow" />
-        <script
+
+        <Script
+          id="cookie-script"
           type="text/javascript"
-          src="//cdn.cookie-script.com/s/5c39cca7bc7310f23b176b487613c5e9.js"
-        ></script>
-        <script
+          src="https://cdn.cookie-script.com/s/5c39cca7bc7310f23b176b487613c5e9.js"
+          strategy="afterInteractive"
+        />
+
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TSR3FZ2H');`,
           }}
         />
+
         <link rel="apple-touch-icon" href="/favicon.png" />
       </head>
       <body className={`${montserrat.variable} antialiased`}>
