@@ -125,7 +125,7 @@ export default function OperationForm() {
   const handleFormSubmit = async (values: any) => {
     const formattedValues = {
       ...values,
-      type: "LND-Plastik-Yabancı",
+      type: "LND-Plastik-Yabanci",
       phone: `+${getCountryCallingCode(countryCode)}${phone}`,
       g_utm_source: queryParams.utm_source,
       g_utm_medium: queryParams.utm_medium,
@@ -304,7 +304,7 @@ export default function OperationForm() {
           label="Message"
           name="message"
           rules={[
-            { max: 500, message: "Message can't exceed 500 characters." },
+            { max: 300, message: "Message can't exceed 300 characters." },
           ]}
         >
           <TextArea
