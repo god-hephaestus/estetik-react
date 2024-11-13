@@ -130,6 +130,19 @@ export default function ParentState({
             className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-[470px] 2xl:h-[490px] lg:max-h-[550px]  no-scrollbar transition-all duration-500 ease-in-out  `}
           >
             <div className="lg:w-[50%] rounded-l-[25px] my-auto rounded-r-[25px] xl:rounded-r-none ">
+              <h1 className="text-center text-[#13a89e] font-bold text-[32px] whitespace-nowrap">
+                {stateKey === "gallery1"
+                  ? "Meme Estetiği"
+                  : stateKey === "gallery2"
+                  ? "BBL"
+                  : stateKey === "gallery3"
+                  ? "Total Body"
+                  : stateKey === "gallery4"
+                  ? "Karın Germe"
+                  : stateKey === "gallery5"
+                  ? "Rinopilasti"
+                  : "Estetik International"}
+              </h1>
               <Gallery
                 activestateKey={stateKey}
                 GalleryImgsData={GalleryImgsData}

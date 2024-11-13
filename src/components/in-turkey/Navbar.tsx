@@ -46,6 +46,7 @@ export default function Navbar({
       <div className="flex w-full lg:w-[55%] mt-3 lg:mt-0 items-center order-1 lg:order-2 justify-between">
         <div className="flex items-center justify-start ">
           <Image
+            priority
             src="/img/estintlogo25.webp"
             alt="Logo"
             width={150}
