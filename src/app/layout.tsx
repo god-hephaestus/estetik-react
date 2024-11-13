@@ -23,9 +23,29 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="apple-touch-icon" href="/favicon.png"></link>
+        <meta charSet="UTF-8" />
+        <meta name="robots" content="noindex, nofollow" />
+        <script
+          type="text/javascript"
+          src="//cdn.cookie-script.com/s/5c39cca7bc7310f23b176b487613c5e9.js"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TSR3FZ2H');`,
+          }}
+        />
+        <link rel="apple-touch-icon" href="/favicon.png" />
       </head>
       <body className={`${montserrat.variable} antialiased`}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TSR3FZ2H"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+
         <ConfigProvider
           theme={{
             components: {
