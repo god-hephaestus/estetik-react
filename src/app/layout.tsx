@@ -30,10 +30,9 @@ export default function RootLayout({
         <Script
           id="cookie-script"
           type="text/javascript"
-          src="https://cdn.cookie-script.com/s/5c39cca7bc7310f23b176b487613c5e9.js"
+          src="https://cdn.cookie-script.com/s/cda4036ace932798bcdbe68e7d672633.js"
           strategy="afterInteractive"
         />
-
         <Script
           id="gtm-script"
           strategy="afterInteractive"
