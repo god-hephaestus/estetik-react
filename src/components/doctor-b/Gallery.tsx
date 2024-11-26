@@ -25,7 +25,7 @@ export default function Gallery({
         </div>
         <Image.PreviewGroup items={previewItems}>
           <Image
-            className="rounded-[25px] border-5 border-[#d0eeec]"
+            className="rounded-[25px] border-5 border-[#e4d4c2]"
             src={`/BeforeAfter/gallery/cover/${activestateKey}.webp`}
             alt={currentGallery[0]?.alt || "Gallery Image"}
           />

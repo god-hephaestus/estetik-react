@@ -117,7 +117,7 @@ export default function ComparisonButtons({
 
       <div
         ref={scrollRef}
-        className="scroll-container py-1 no-scrollbar max-w-max md:max-w-[400px] z-10 rounded-[25px] bg-[#dcfffb]"
+        className="scroll-container py-1 no-scrollbar max-w-max md:max-w-[400px] z-10 rounded-[25px] bg-[#f4eadf]"
         style={{
           display: "flex",
           overflowX: "auto",
@@ -145,13 +145,13 @@ export default function ComparisonButtons({
               padding: "18px",
               boxShadow:
                 comparisonData.label === button.label
-                  ? "0px 4px 12px rgba(19, 168, 158, 0.6)"
+                  ? "0px 4px 12px rgba(192, 160, 98, 0.6)"
                   : "none",
               borderColor:
-                comparisonData.label === button.label ? "#13a89e" : "",
+                comparisonData.label === button.label ? "#c0a062" : "",
               color: comparisonData.label === button.label ? "black" : "white",
               backgroundColor:
-                comparisonData.label === button.label ? "white" : "#13a89e",
+                comparisonData.label === button.label ? "white" : "#c0a062",
             }}
           >
             {button.label}

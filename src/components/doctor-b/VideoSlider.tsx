@@ -12,7 +12,7 @@ export default function VideoSlider({
   videoDescription: string[];
 }) {
   const containerClassNames = `relative flex items-center justify-center w-full h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] 
-    border-[#13a89e]/20 lg:backdrop-blur-none bg-[#d0eeec] lg:bg-[#d0eeec] lg:border-2 lg:border-[#d0eeec] rounded-[25px] overflow-hidden`;
+    border-[#c0a062]/20 lg:backdrop-blur-none bg-[#e4d4c2] lg:bg-[#e4d4c2] lg:border-2 lg:border-[#e4d4c2] rounded-[25px] overflow-hidden`;
 
   const videoRefs = useRef<HTMLVideoElement[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -81,17 +81,17 @@ export default function VideoSlider({
           ></video>
           <button
             onClick={() => openModal(videoSrc)}
-            className="absolute bottom-4 right-4 bg-[#13a89e] bg-opacity-60 text-white p-2 rounded-full flex items-center justify-center"
+            className="absolute bottom-4 right-4 bg-[#c0a062] bg-opacity-60 text-white p-2 rounded-full flex items-center justify-center"
           >
             <FullscreenOutlined className="text-2xl" />
           </button>
           <Button
-            className="absolute bottom-4 left-4 h-[40px] rounded-[25px] z-[99] border-[#13a89e]"
+            className="absolute bottom-4 left-4 h-[40px] rounded-[25px] z-[99] border-[#c0a062]"
             onClick={openFormModal}
           >
             Consultation
             <span className="rounded-full flex -mr-3 justify-center items-center w-8 h-8 bg-white">
-              <FormOutlined className="text-[#13a89e] transform scale-[1.2]" />
+              <FormOutlined className="text-[#c0a062] transform scale-[1.2]" />
             </span>
           </Button>
         </div>
@@ -120,14 +120,14 @@ export default function VideoSlider({
 
               {/* <button
                 onClick={handlePreviousVideo}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-[#13a89e] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-[#c0a062] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
               >
                 <LeftOutlined />
               </button>
 
               <button
                 onClick={handleNextVideo}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#13a89e] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#c0a062] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
               >
                 <RightOutlined />
               </button> */}

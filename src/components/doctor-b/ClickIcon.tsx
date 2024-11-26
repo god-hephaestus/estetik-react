@@ -23,7 +23,7 @@ export default function ClickIcon({ wobble, ...props }: ClickIconProps) {
         className="absolute inset-0 object-contain"
       >
         <g filter="url(#filter0_b_563_1893)">
-          <circle cx="17.5" cy="17.5" r="17.5" fill="white" />
+          <circle cx="17.5" cy="17.5" r="17.5" fill="#000000" />
         </g>
         <mask
           id="mask0_563_1893"
@@ -42,7 +42,7 @@ export default function ClickIcon({ wobble, ...props }: ClickIconProps) {
           />
         </mask>
         <g mask="url(#mask0_563_1893)">
-          <circle cx="18.0242" cy="17.739" r="18.0691" fill="#13A89E" />
+          <circle cx="18.0242" cy="17.739" r="18.0691" fill="#c0a062" />
         </g>
         <defs>
           <filter

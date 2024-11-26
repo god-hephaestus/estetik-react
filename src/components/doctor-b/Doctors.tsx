@@ -17,7 +17,7 @@ export default function Doctors({
 }: {
   doctorDescription: Doctor[];
 }) {
-  const containerClassNames = `flex flex-col md:flex-col lg:flex-row items-center h-[474px] md:h-[446px] lg:h-[280px] xl:h-[250px] mx-0 pr-0  bg-[#d0eeec] border-2 border-[#13a89e] border-none rounded-[25px]`;
+  const containerClassNames = `flex flex-col md:flex-col lg:flex-row items-center h-[474px] md:h-[446px] lg:h-[280px] xl:h-[250px] mx-0 pr-0  bg-[#e4d4c2] border-2 border-[#c0a062] border-none rounded-[25px]`;
 
   return (
     <Carousel
@@ -43,10 +43,10 @@ export default function Doctors({
             <Title level={5}>{doctor.doctorName}</Title>
 
             <div className="flex items-center justify-center lg:justify-start md:pb-2 px-4 lg:pr-4 lg:pl-0">
-              <div className="flex items-center justify-center bg-[#13a89e] rounded-[10px] w-10 h-10 min-w-[2.5rem] flex-shrink-0">
+              <div className="flex items-center justify-center bg-[#c0a062] rounded-[10px] w-10 h-10 min-w-[2.5rem] flex-shrink-0">
                 <MedicineBoxOutlined className="text-white text-2xl" />
               </div>
-              <p className="text-[#0a5b56] text-center lg:text-start lg:w-[80%] md:ml-2">
+              <p className="text-[#6f4d3c] text-center lg:text-start lg:w-[80%] md:ml-2">
                 {doctor.doctorArea}
               </p>
             </div>

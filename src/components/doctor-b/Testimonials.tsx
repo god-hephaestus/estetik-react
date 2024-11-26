@@ -110,7 +110,7 @@ export default function Testimonials({
   // Filter testimonials by stateKey
   const testimonials = testimonialsData[stateKey] || [];
 
-  const containerClassNames = `no-scrollbar bg-[#13a89e]/20 lg:mt-0 border-2 border-[#13a89e] border-none h-[240px] lg:h-[280px] xl:h-[250px] rounded-[25px] px-2 flex flex-grow overflow-x-auto cursor-${
+  const containerClassNames = `no-scrollbar bg-[#c0a062]/20 lg:mt-0 border-2 border-[#c0a062] border-none h-[240px] lg:h-[280px] xl:h-[250px] rounded-[25px] px-2 flex flex-grow overflow-x-auto cursor-${
     isDragging ? "grabbing" : "grab"
   } no-select `;
 
@@ -130,7 +130,7 @@ export default function Testimonials({
       {testimonials.length > 0 ? (
         testimonials.map((testimonial, index) => (
           <div key={index} className="ml-4 flex-grow flex ">
-            <div className="shadow-xl p-5 my-2 bg-[#13a89e] relative rounded-xl w-80 lg:w-80 flex-grow">
+            <div className="shadow-xl p-5 my-2 bg-[#c0a062] relative rounded-xl w-80 lg:w-80 flex-grow">
               <div className="mb-16 md:mb-10 text-black ">
                 <CommentOutlined className="bottom-[5px] right-[5px] absolute text-xl hidden lg:flex rounded-full bg-white p-1 text-black" />
                 <p className="text-white leading-tight">

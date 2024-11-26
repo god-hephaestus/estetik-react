@@ -91,7 +91,7 @@ export default function ParentState({
   const faqItems = comparisonData.faqs.map((faq, index) => ({
     key: `${index + 1}`,
     label: faq.question,
-    children: <p className="bg-[#d0eeec]">{faq.answer}</p>,
+    children: <p className="bg-[#e4d4c2]">{faq.answer}</p>,
   }));
 
   return (
@@ -124,13 +124,13 @@ export default function ParentState({
         </div>
 
         <div
-          className={`relative col-span-1 lg:col-span-8 transition-all  duration-500 ease-in-out  bg-[#d0eeec] flex flex-col rounded-[35px] `}
+          className={`relative col-span-1 lg:col-span-8 transition-all  duration-500 ease-in-out  bg-[#e4d4c2] flex flex-col rounded-[35px] `}
         >
           <div
             className={`flex lg:mb-0 mb-2 flex-col lg:flex-row lg:h-[470px] 2xl:h-[490px] lg:max-h-[550px]  no-scrollbar transition-all duration-500 ease-in-out  `}
           >
             <div className="lg:w-[50%] rounded-l-[25px] my-auto rounded-r-[25px] xl:rounded-r-none ">
-              <h1 className="text-center text-[#13a89e] font-bold text-[32px] whitespace-nowrap">
+              <h1 className="text-center text-[#c0a062] font-bold text-[32px] whitespace-nowrap">
                 {stateKey === "gallery1"
                   ? "Breast Surgery"
                   : stateKey === "gallery2"
@@ -149,7 +149,7 @@ export default function ParentState({
               />
             </div>
             <div
-              className={`my-auto lg:w-[50%] lg:h-[450px] justify-center overflow-y-scroll px-2 lg:pr-4 lg:pl-0  bg-[#d0eeec] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#d0eeec]`}
+              className={`my-auto lg:w-[50%] lg:h-[450px] justify-center overflow-y-scroll px-2 lg:pr-4 lg:pl-0  bg-[#e4d4c2] rounded-r-[25px] rounded-l-[25px] xl:rounded-l-none border-2 border-[#e4d4c2]`}
             >
               <Collapse
                 expandIcon={({ isActive }) => (
@@ -167,13 +167,13 @@ export default function ParentState({
                 bordered={false}
                 accordion
                 items={faqItems}
-                className="rounded-[25px] border-2 border-[#abd7d4] bg-[#d0eeec]"
+                className="rounded-[25px] border-2 border-[#abd7d4] bg-[#e4d4c2]"
               />
             </div>
           </div>
         </div>
 
-        <div className=" relative col-span-1 lg:col-span-4 flex flex-col lg:h-[450px] 2xl:h-[450px]  w-full z-10 border rounded-[25px] border-[#13a89e] lg:border-none">
+        <div className=" relative col-span-1 lg:col-span-4 flex flex-col lg:h-[450px] 2xl:h-[450px]  w-full z-10 border rounded-[25px] border-[#c0a062] lg:border-none">
           <OperationForm />
         </div>
 

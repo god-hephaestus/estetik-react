@@ -12,7 +12,7 @@ export default function VideoSliderMobile({
   videoDescription: string[];
 }) {
   const containerClassNames = `relative flex items-center justify-center w-full h-auto aspect-[9/16] 
-    border-[#13a89e]/20 lg:backdrop-blur-none lg:bg-[#d0eeec] lg:border-2 bg-[#d0eeec] lg:border-[#d0eeec] rounded-[25px] overflow-hidden`;
+    border-[#c0a062]/20 lg:backdrop-blur-none lg:bg-[#e4d4c2] lg:border-2 bg-[#e4d4c2] lg:border-[#e4d4c2] rounded-[25px] overflow-hidden`;
 
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -72,12 +72,12 @@ export default function VideoSliderMobile({
           onClick={() => handleVideoClick(index)}
         >
           <Button
-            className="absolute bottom-2 h-[60px] rounded-[30px] z-[99] border-[#13a89e]"
+            className="absolute bottom-2 h-[60px] rounded-[30px] z-[99] border-[#c0a062]"
             onClick={openFormModal}
           >
             <p className="text-2xl">Consultation</p>
             <span className="rounded-full flex -mr-3 justify-center items-center w-12 h-12 bg-white">
-              <FormOutlined className="text-[#13a89e] transform scale-[1.6] " />
+              <FormOutlined className="text-[#c0a062] transform scale-[1.6] " />
             </span>
           </Button>
           <video
@@ -113,14 +113,14 @@ export default function VideoSliderMobile({
 
               {/* <button
                 onClick={handlePreviousVideo}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-[#13a89e] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-[#c0a062] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
               >
                 <LeftOutlined />
               </button>
 
               <button
                 onClick={handleNextVideo}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#13a89e] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#c0a062] bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl z-50 focus:outline-none"
               >
                 <RightOutlined />
               </button> */}

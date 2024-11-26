@@ -173,7 +173,7 @@ export default function OperationForm() {
         form={form}
         layout="vertical"
         onFinish={handleFormSubmit}
-        className="w-full h-full flex-1 px-6 bg-[#d0eeec] rounded-[25px] border-2 border-[#d0eeec] "
+        className="w-full h-full flex-1 px-6 bg-[#e4d4c2] rounded-[25px] border-2 border-[#e4d4c2] "
       >
         <Form.Item
           name="utm_source"
@@ -220,7 +220,7 @@ export default function OperationForm() {
           rules={[{ required: true, message: "Please input your name!" }]}
         >
           <Input
-            className="border-2 border-[#13a89e] bg-[#d0eeec] h-[40px] rounded-[25px]"
+            className="border-2 border-[#c0a062] bg-[#e4d4c2] h-[40px] rounded-[25px]"
             placeholder="Enter your name"
           />
         </Form.Item>
@@ -253,8 +253,8 @@ export default function OperationForm() {
                 const searchText = `${option.label}`.toLowerCase();
                 return searchText.includes(input.toLowerCase());
               }}
-              className="select-bg w-1/2 lg:3/5 border-2 border-[#13a89e] rounded-[25px] h-[40px]"
-              popupClassName="bg-[#d0eeec]"
+              className="select-bg w-1/2 lg:3/5 border-2 border-[#c0a062] rounded-[25px] h-[40px]"
+              popupClassName="bg-[#e4d4c2]"
             >
               {countries.map((country) => (
                 <Select.Option
@@ -281,7 +281,7 @@ export default function OperationForm() {
               }}
               placeholder="Enter your phone number"
               maxLength={10}
-              className="w-1/2 lg:w-3/5 border-2 border-[#13a89e] bg-[#d0eeec] h-[40px] rounded-[25px]"
+              className="w-1/2 lg:w-3/5 border-2 border-[#c0a062] bg-[#e4d4c2] h-[40px] rounded-[25px]"
             />
           </div>
         </Form.Item>
@@ -295,7 +295,7 @@ export default function OperationForm() {
           ]}
         >
           <Input
-            className="border-2 border-[#13a89e] bg-[#d0eeec] h-[40px] rounded-[25px]"
+            className="border-2 border-[#c0a062] bg-[#e4d4c2] h-[40px] rounded-[25px]"
             placeholder="Enter your email"
           />
         </Form.Item>
@@ -310,12 +310,12 @@ export default function OperationForm() {
           <TextArea
             rows={4}
             placeholder="Write your message"
-            className="border-2 border-[#13a89e] bg-[#d0eeec] rounded-[25px]"
+            className="border-2 border-[#c0a062] bg-[#e4d4c2] rounded-[25px]"
           />
         </Form.Item>
         <Form.Item className="text-right mt-4">
           <Button
-            className="bg-[#13a89e] px-12 rounded-[25px] text-white h-[32px] lg:h-[40px]"
+            className="bg-[#c0a062] px-12 rounded-[25px] text-white h-[32px] lg:h-[40px]"
             htmlType="submit"
             disabled={submitted}
           >

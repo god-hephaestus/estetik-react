@@ -53,7 +53,7 @@ export default function Navbar({
             height={75}
           />
         </div>
-        <div className="flex justify-end items-center gap-3 border-[#13a89e] p-1 border rounded-[25px] lg:border-0 xl:gap-4">
+        <div className="flex justify-end items-center gap-3 border-[#c0a062] p-1 border rounded-[25px] lg:border-0 xl:gap-4">
           <Button
             className="h-[90%] sm:h-[70%] bg-[#22c55e] border-none p-[5px] lg:px-3 lg:py-3 rounded-[25px] flex items-center justify-center"
             target="_blank"
