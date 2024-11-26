@@ -86,7 +86,20 @@ export default function ComparisonButtons({
   };
 
   return (
-    <div className="relative flex items-center w-full justify-center lg:px-0 h-full max-w-[365px] sm:max-w-[410px] border border-transparent rounded-[25px]">
+    <div className="relative flex items-center w-full justify-center lg:px-0 h-full sm:max-w-[410px] border border-transparent rounded-[25px]">
+      <style>
+        {`
+          @keyframes ripple-effect {
+             0% {
+              box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
+            }
+            100% {
+              box-shadow: 0 0 25px 15px rgba(255, 255, 255, 0);
+            }
+          }
+        `}
+      </style>
+
       <Button
         onClick={handlePrevious}
         className="absolute left-1 lg:left-3 z-20 border-transparent bg-[#ffffff]/70 border-2"
@@ -95,6 +108,8 @@ export default function ComparisonButtons({
           transform: "translateY(-50%)",
           borderRadius: "50px",
           padding: "8px",
+          animation: "ripple-effect 3s infinite",
+          willChange: "box-shadow",
         }}
       >
         <LeftOutlined style={{ color: "black" }} />
@@ -153,6 +168,8 @@ export default function ComparisonButtons({
           borderRadius: "50px",
           backgroundColor: "white",
           padding: "8px",
+          animation: "ripple-effect 3s infinite",
+          willChange: "box-shadow",
         }}
       >
         <RightOutlined style={{ color: "black" }} />
