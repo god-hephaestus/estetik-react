@@ -7,6 +7,12 @@
     text-wrap: balance;
   }
 }
+body {
+  background-image: url("/img/bodyBg.webp"); /* Path to your image */
+  background-size: cover; /* Ensures the image covers the entire body */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image */
+}
 .slick-prev,
 .slick-next {
   color: white !important;
@@ -33,7 +39,7 @@
   animation: bounce 2s infinite;
 }
 .ant-collapse-header {
-  background-color: #c0a062 !important;
+  background-color: #151515 !important;
   border-radius: 15px !important;
 }
 .ant-collapse-header {
@@ -56,7 +62,7 @@
 .custom-menu .ant-menu-item,
 .custom-menu .ant-menu-submenu-title {
   color: #000000 !important;
-  background-color: #e4d4c2 !important;
+  background-color: #ffefd8 !important;
 }
 
 .custom-menu .ant-menu-item-selected,
@@ -77,15 +83,15 @@
 }
 
 .custom-menu .ant-menu-item {
-  border-color: #e4d4c2 !important;
+  border-color: #ffefd8 !important;
 }
 
 .custom-menu .ant-menu-item-selected {
   border-color: #c0a062 !important;
 }
 .custom-menu {
-  background-color: #e4d4c2 !important;
-  border-color: #e4d4c2 !important;
+  background-color: #ffefd8 !important;
+  border-color: #ffefd8 !important;
 }
 ::-webkit-scrollbar {
   width: 6px !important;
@@ -119,6 +125,6 @@ html {
   background-color: #c0a062 !important;
 }
 .select-bg .ant-select-selector {
-  background-color: #e4d4c2 !important;
+  background-color: #c0a062 !important;
   border-radius: 25px !important;
 }

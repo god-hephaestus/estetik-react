@@ -60,8 +60,8 @@ export default function RootLayout({
                 colorPrimary: "#6f4d3c",
                 itemColor: "#000000",
               },
-              Input: { colorBgContainer: "#ffffff" },
-              Select: { colorBgContainer: "#ffffff" },
+              Input: { colorBgContainer: "#000000" },
+              Select: { colorBgContainer: "#000000" },
               Divider: {
                 colorSplit: "#c0a062",
                 lineWidth: 2,
@@ -76,8 +76,8 @@ export default function RootLayout({
               colorPrimaryActive: "#c0a062",
               colorPrimaryText: "#c0a062",
               colorText: "#000000",
-              colorTextSecondary: "#ffffff",
-              colorFill: "#ffffffb0",
+              colorTextSecondary: "#000000",
+              colorFill: "#000000b0",
               colorTextPlaceholder: "#00000080",
               colorBgLayout: "#fff7f4",
               colorBgContainer: "#c0a062",
@@ -87,7 +87,7 @@ export default function RootLayout({
               fontFamily: "var(--font-montserrat)",
             },
           }}
-          button={{ style: { color: "white" } }}
+          button={{ style: { color: "#000000" } }}
         >
           <AntdRegistry>{children}</AntdRegistry>
         </ConfigProvider>

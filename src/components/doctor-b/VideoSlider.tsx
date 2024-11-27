@@ -12,7 +12,7 @@ export default function VideoSlider({
   videoDescription: string[];
 }) {
   const containerClassNames = `relative flex items-center justify-center w-full h-auto lg:h-[260px] xl:h-[355px] 2xl:h-[430px] 
-    border-[#c0a062]/20 lg:backdrop-blur-none bg-[#e4d4c2] lg:bg-[#e4d4c2] lg:border-2 lg:border-[#e4d4c2] rounded-[25px] overflow-hidden`;
+    border-[#c0a062]/20 lg:backdrop-blur-none bg-[#ffefd8] lg:bg-[#ffefd8] lg:border-2 lg:border-[#ffefd8] rounded-[25px] overflow-hidden`;
 
   const videoRefs = useRef<HTMLVideoElement[]>([]);
   const [isOpen, setIsOpen] = useState(false);

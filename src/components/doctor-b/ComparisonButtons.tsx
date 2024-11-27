@@ -117,7 +117,7 @@ export default function ComparisonButtons({
 
       <div
         ref={scrollRef}
-        className="scroll-container py-1 no-scrollbar max-w-max md:max-w-[400px] z-10 rounded-[25px] bg-[#f4eadf]"
+        className="scroll-container py-1 no-scrollbar max-w-max md:max-w-[400px] z-10 rounded-[25px] bg-[#8d7547]"
         style={{
           display: "flex",
           overflowX: "auto",

@@ -133,7 +133,7 @@ export default function Testimonials({
             <div className="shadow-xl p-5 my-2 bg-[#c0a062] relative rounded-xl w-80 lg:w-80 flex-grow">
               <div className="mb-16 md:mb-10 text-black ">
                 <CommentOutlined className="bottom-[5px] right-[5px] absolute text-xl hidden lg:flex rounded-full bg-white p-1 text-black" />
-                <p className="text-white leading-tight">
+                <p className="text-black leading-tight">
                   {testimonial.message}
                 </p>
               </div>

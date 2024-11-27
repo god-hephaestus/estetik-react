@@ -9,7 +9,7 @@ const handleScroll = () => {
 export default function DownArrow() {
   return (
     <button
-      className="arrow-bounce mx-auto flex items-center justify-center text-white"
+      className="arrow-bounce mx-auto flex items-center justify-center text-black"
       onClick={handleScroll}
     >
       <ArrowDownOutlined style={{ fontSize: "2rem" }} />

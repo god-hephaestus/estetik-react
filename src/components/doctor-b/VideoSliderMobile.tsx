@@ -12,7 +12,7 @@ export default function VideoSliderMobile({
   videoDescription: string[];
 }) {
   const containerClassNames = `relative flex items-center justify-center w-full h-auto aspect-[9/16] 
-    border-[#c0a062]/20 lg:backdrop-blur-none lg:bg-[#e4d4c2] lg:border-2 bg-[#e4d4c2] lg:border-[#e4d4c2] rounded-[25px] overflow-hidden`;
+    border-[#c0a062]/20 lg:backdrop-blur-none lg:bg-[#ffefd8] lg:border-2 bg-[#ffefd8] lg:border-[#ffefd8] rounded-[25px] overflow-hidden`;
 
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);

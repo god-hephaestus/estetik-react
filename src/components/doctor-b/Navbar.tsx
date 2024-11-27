@@ -35,7 +35,15 @@ export default function Navbar({
   }) => void;
 }) {
   return (
-    <div className="w-full bg-white flex flex-wrap lg:flex-row flex-col items-center py-0 lg:py-0 sticky top-0 z-[100] px-2 xl:px-[10%]">
+    <div
+      className="w-full flex flex-wrap lg:flex-row flex-col items-center py-0 lg:py-0 sticky top-0 z-[100] px-2 xl:px-[10%]"
+      style={{
+        backgroundImage: 'url("/img/bodyBg.webp")',
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="w-full flex justify-center lg:justify-start lg:py-1 order-2 lg:order-1 lg:w-[45%] mb-2 lg:my-0 ">
         <ComparisonButtons
           buttonProps={buttonProps}
@@ -53,7 +61,7 @@ export default function Navbar({
             height={75}
           />
         </div>
-        <div className="flex justify-end items-center gap-3 border-[#c0a062] p-1 border rounded-[25px] lg:border-0 xl:gap-4">
+        <div className="flex justify-end items-center gap-3 border-[#ffffff] p-1 border-2 rounded-[25px] lg:border-0 xl:gap-4">
           <Button
             className="h-[90%] sm:h-[70%] bg-[#22c55e] border-none p-[5px] lg:px-3 lg:py-3 rounded-[25px] flex items-center justify-center"
             target="_blank"

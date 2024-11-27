@@ -17,7 +17,7 @@ export default function Doctors({
 }: {
   doctorDescription: Doctor[];
 }) {
-  const containerClassNames = `flex flex-col md:flex-col lg:flex-row items-center h-[474px] md:h-[446px] lg:h-[280px] xl:h-[250px] mx-0 pr-0  bg-[#e4d4c2] border-2 border-[#c0a062] border-none rounded-[25px]`;
+  const containerClassNames = `flex flex-col md:flex-col lg:flex-row items-center h-[474px] md:h-[446px] lg:h-[280px] xl:h-[250px] mx-0 pr-0  bg-[#ffefd8] border-2 border-[#c0a062] border-none rounded-[25px]`;
 
   return (
     <Carousel
